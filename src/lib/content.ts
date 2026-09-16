@@ -490,14 +490,13 @@ export const prizekicksCaseStudy: CaseStudyData = {
     { label: "Timeline", value: "Aug 2024 – May 2025" },
   ],
   heroImage: "/images/projects/prizekicks-hero.png",
-  // A "prize"/trophy-gold identity of its own — deliberately not the
-  // pale blue used for its small teaser card (that blue was chosen to
-  // complement Fourddo's indigo in the Selected Work lineup) and not
-  // Fourddo's indigo either. Distinct hue from every other page on site.
-  heroBg: "#E3A63C",
-  heroText: "#241A08",
-  accent: "#A66A1B",
-  footer: "#2B1D0A",
+  // Same blue as the teaser card (its real brand color), but with its own
+  // proper accent/footer — a deeper cobalt for headings and chip borders
+  // and a blue-tinted dark footer — instead of borrowing Fourddo's indigo.
+  heroBg: "#BFE3F5",
+  heroText: "#1E2A3A",
+  accent: "#1D6FA5",
+  footer: "#122A3D",
   sections: [
     {
       type: "intro",
