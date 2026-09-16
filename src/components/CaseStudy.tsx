@@ -4,16 +4,14 @@ import { Footer } from "@/components/Footer";
 import { Reveal, RevealGroup, RevealItem } from "@/components/Reveal";
 import { AssetImage } from "@/components/AssetImage";
 import { TiltedFrame } from "@/components/TiltedFrame";
-import { themes, type CaseStudyData, type CaseStudySection, type Project } from "@/lib/content";
+import { footerText, paper, paperInk, themes, type CaseStudyData, type CaseStudySection } from "@/lib/content";
 
-export function CaseStudy({ project, data }: { project: Project; data: CaseStudyData }) {
-  const theme = themes.caseStudy;
-  const heroBg = project.color;
-  const heroText = project.textColor;
+export function CaseStudy({ data }: { data: CaseStudyData }) {
+  const { heroBg, heroText, accent, footer } = data;
 
   return (
-    <div style={{ backgroundColor: theme.bodyBg, color: theme.bodyInk }} className="min-h-screen">
-      <Nav bg={theme.nav} ink={theme.navInk} />
+    <div style={{ backgroundColor: paper, color: paperInk }} className="min-h-screen">
+      <Nav bg={heroBg} ink={heroText} />
 
       <section style={{ backgroundColor: heroBg, color: heroText }} className="px-6 py-16 sm:px-10">
         <div className="mx-auto max-w-5xl">
@@ -62,18 +60,18 @@ export function CaseStudy({ project, data }: { project: Project; data: CaseStudy
       <div className="mx-auto max-w-5xl px-6 py-16 sm:px-10">
         {data.sections.map((section, i) => (
           <Reveal key={i} className={i === 0 ? undefined : "mt-16"}>
-            <SectionBlock section={section} accent={theme.bodyAccent} />
+            <SectionBlock section={section} accent={accent} />
           </Reveal>
         ))}
 
         <p className="mt-16 text-center">
-          <Link href="#top" className="underline-hover font-display font-bold" style={{ color: theme.bodyAccent }}>
+          <Link href="#top" className="underline-hover font-display font-bold" style={{ color: accent }}>
             Back to top :D
           </Link>
         </p>
       </div>
 
-      <Footer bg={theme.footer} text={theme.footerText} tagline={theme.tagline} />
+      <Footer bg={footer} text={footerText} tagline={themes.caseStudy.tagline} />
     </div>
   );
 }

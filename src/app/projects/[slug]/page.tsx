@@ -30,7 +30,7 @@ export default async function ProjectPage({
 
   const caseStudy = caseStudies[project.slug];
   if (caseStudy) {
-    return <CaseStudy project={project} data={caseStudy} />;
+    return <CaseStudy data={caseStudy} />;
   }
 
   return <ProjectStub project={project} />;

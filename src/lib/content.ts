@@ -14,12 +14,13 @@ export const nav = [
   { label: "Extras!", href: "/extras" },
 ];
 
-// Shared neutral canvas used for page bodies, so color reads as an accent
-// (hero bands, headings, buttons, cards) rather than wallpaper. The case
-// study family keeps its own cooler neutral — see `caseStudy` below.
-const paper = "#FAF6EF";
-const paperInk = "#241F1A";
-const footerText = "#F3EFE6";
+// Shared neutral canvas used for every page body — including case
+// studies — so color reads as an accent (hero bands, headings, buttons,
+// cards) rather than wallpaper. One universal neutral means no case
+// study's hero/accent color bleeds into another's "neutral" background.
+export const paper = "#FAF6EF";
+export const paperInk = "#241F1A";
+export const footerText = "#F3EFE6";
 
 // Per-page color themes, sampled from the original site. Approximate —
 // tune freely once real brand values / assets are locked in.
@@ -83,17 +84,11 @@ export const themes = {
     footerText,
     tagline: "Friends call me ibi :)",
   },
+  // Case studies don't get a fixed color scheme here — each one carries
+  // its own heroBg/heroText/accent/footer in its CaseStudyData (see
+  // below), so Prizekicks doesn't inherit Fourddo's indigo. This entry
+  // just holds the shared footer easter-egg tagline for that page family.
   caseStudy: {
-    heroBg: "#4A47B0",
-    heroText: "#EEF0FB",
-    heroAccent: "#EEF0FB",
-    bodyBg: "#EEF0FB",
-    bodyInk: "#232042",
-    bodyAccent: "#5B57C9",
-    nav: "#1B1830",
-    navInk: "#EEF0FB",
-    footer: "#1B1830",
-    footerText,
     tagline: "Friends Call Me Ibi ↻ ◁ ‖ ▷ ↺",
   },
 } as const;
@@ -275,6 +270,14 @@ export type CaseStudyData = {
   heroImage: string;
   shippedProductUrl?: string;
   shippedProductLabel?: string;
+  // Each case study carries its own complete color identity — hero band,
+  // body accent (headings, chip borders, labels), and footer — rather
+  // than inheriting a shared "case study" scheme. Body canvas stays the
+  // universal `paper` neutral so no project's hue bleeds into another's.
+  heroBg: string;
+  heroText: string;
+  accent: string;
+  footer: string;
   sections: CaseStudySection[];
 };
 
@@ -289,6 +292,10 @@ export const fourddoCaseStudy: CaseStudyData = {
   heroImage: "/images/projects/four-stories-hero.png",
   shippedProductUrl: "#",
   shippedProductLabel: "View Shipped Product",
+  heroBg: "#4A47B0",
+  heroText: "#EEF0FB",
+  accent: "#5B57C9",
+  footer: "#1B1830",
   sections: [
     {
       type: "intro",
@@ -483,6 +490,14 @@ export const prizekicksCaseStudy: CaseStudyData = {
     { label: "Timeline", value: "Aug 2024 – May 2025" },
   ],
   heroImage: "/images/projects/prizekicks-hero.png",
+  // A "prize"/trophy-gold identity of its own — deliberately not the
+  // pale blue used for its small teaser card (that blue was chosen to
+  // complement Fourddo's indigo in the Selected Work lineup) and not
+  // Fourddo's indigo either. Distinct hue from every other page on site.
+  heroBg: "#E3A63C",
+  heroText: "#241A08",
+  accent: "#A66A1B",
+  footer: "#2B1D0A",
   sections: [
     {
       type: "intro",

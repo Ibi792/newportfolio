@@ -4,13 +4,11 @@ import { Reveal } from "@/components/Reveal";
 import { AssetImage } from "@/components/AssetImage";
 import { TiltedFrame } from "@/components/TiltedFrame";
 import { TagPills } from "@/components/TagPills";
-import { themes, type Project } from "@/lib/content";
+import { footerText, paper, paperInk, themes, type Project } from "@/lib/content";
 
 export function ProjectStub({ project }: { project: Project }) {
-  const theme = themes.caseStudy;
-
   return (
-    <div style={{ backgroundColor: theme.bodyBg, color: theme.bodyInk }} className="min-h-screen">
+    <div style={{ backgroundColor: paper, color: paperInk }} className="min-h-screen">
       <Nav bg={project.color} ink={project.textColor} />
 
       <section style={{ backgroundColor: project.color, color: project.textColor }} className="px-6 py-16 sm:px-10">
@@ -60,7 +58,7 @@ export function ProjectStub({ project }: { project: Project }) {
         </Reveal>
       </section>
 
-      <Footer bg={theme.footer} text={theme.footerText} tagline={theme.tagline} />
+      <Footer bg={paperInk} text={footerText} tagline={themes.caseStudy.tagline} />
     </div>
   );
 }
