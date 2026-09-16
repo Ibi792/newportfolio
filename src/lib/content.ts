@@ -190,8 +190,6 @@ export type Project = {
   color: string;
   textColor: string;
   image: string;
-  externalUrl?: string;
-  hasFullCaseStudy: boolean;
 };
 
 export const projects: Project[] = [
@@ -203,7 +201,6 @@ export const projects: Project[] = [
     color: "#4A47B0",
     textColor: "#F7DFA0",
     image: "/images/projects/four-stories.png",
-    hasFullCaseStudy: true,
   },
   {
     slug: "goblin-gizmos",
@@ -213,7 +210,6 @@ export const projects: Project[] = [
     color: "#8FE0C9",
     textColor: "#14231F",
     image: "/images/projects/goblin-gizmos.png",
-    hasFullCaseStudy: true,
   },
   {
     slug: "prizekicks",
@@ -223,7 +219,6 @@ export const projects: Project[] = [
     color: "#BFE3F5",
     textColor: "#1E2A3A",
     image: "/images/projects/prizekicks.png",
-    hasFullCaseStudy: true,
   },
   {
     slug: "lofistory",
@@ -236,7 +231,6 @@ export const projects: Project[] = [
     color: "#F0664F",
     textColor: "#F7DFA0",
     image: "/images/projects/lofistory.png",
-    hasFullCaseStudy: true,
   },
 ];
 

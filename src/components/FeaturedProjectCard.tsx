@@ -10,8 +10,9 @@ export function FeaturedProjectCard({ project }: { project: Project }) {
 
   return (
     <TiltCard maxTilt={4} className="rounded-2xl shadow-lg">
-      <div
-        className="flex flex-col items-center gap-10 rounded-2xl p-8 sm:flex-row sm:p-10"
+      <Link
+        href={href}
+        className="group flex flex-col items-center gap-10 rounded-2xl p-8 sm:flex-row sm:p-10"
         style={{ backgroundColor: project.color, color: project.textColor }}
       >
         <div className="flex flex-1 flex-col justify-center gap-4 self-start">
@@ -26,9 +27,7 @@ export function FeaturedProjectCard({ project }: { project: Project }) {
           </div>
           <h3 className="font-display text-4xl font-extrabold sm:text-5xl">{project.title}</h3>
           <p className="max-w-sm font-mono text-sm leading-relaxed opacity-90 sm:text-base">{project.blurb}</p>
-          <Link href={href} className="underline-hover font-mono text-sm font-semibold">
-            View Project
-          </Link>
+          <span className="underline-hover w-fit font-mono text-sm font-semibold">Read the Case Study →</span>
         </div>
         <TiltedFrame rotate={-2} backdrop={`${project.textColor}33`} className="w-full flex-1">
           <AssetImage
@@ -39,7 +38,7 @@ export function FeaturedProjectCard({ project }: { project: Project }) {
             label={`Add ${project.title} screenshot`}
           />
         </TiltedFrame>
-      </div>
+      </Link>
     </TiltCard>
   );
 }

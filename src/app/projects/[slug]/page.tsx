@@ -2,7 +2,6 @@ import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { caseStudies, projects } from "@/lib/content";
 import { CaseStudy } from "@/components/CaseStudy";
-import { ProjectStub } from "@/components/ProjectStub";
 
 export function generateStaticParams() {
   return projects.map((p) => ({ slug: p.slug }));
@@ -24,14 +23,9 @@ export default async function ProjectPage({
   params: Promise<{ slug: string }>;
 }) {
   const { slug } = await params;
-  const project = projects.find((p) => p.slug === slug);
+  const caseStudy = caseStudies[slug];
 
-  if (!project) notFound();
+  if (!caseStudy) notFound();
 
-  const caseStudy = caseStudies[project.slug];
-  if (caseStudy) {
-    return <CaseStudy data={caseStudy} />;
-  }
-
-  return <ProjectStub project={project} />;
+  return <CaseStudy data={caseStudy} />;
 }

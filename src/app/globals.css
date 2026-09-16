@@ -55,7 +55,9 @@ body {
   transition: transform 0.25s ease;
 }
 .underline-hover:hover::after,
-.underline-hover:focus-visible::after {
+.underline-hover:focus-visible::after,
+.group:hover .underline-hover::after,
+.group:focus-visible .underline-hover::after {
   transform: scaleX(1);
   transform-origin: left;
 }
