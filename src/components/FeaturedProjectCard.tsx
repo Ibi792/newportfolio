@@ -2,6 +2,7 @@ import Link from "next/link";
 import { AssetImage } from "@/components/AssetImage";
 import { TiltedFrame } from "@/components/TiltedFrame";
 import { TiltCard } from "@/components/TiltCard";
+import { TagPills } from "@/components/TagPills";
 import type { Project } from "@/lib/content";
 
 export function FeaturedProjectCard({ project }: { project: Project }) {
@@ -14,13 +15,15 @@ export function FeaturedProjectCard({ project }: { project: Project }) {
         style={{ backgroundColor: project.color, color: project.textColor }}
       >
         <div className="flex flex-1 flex-col justify-center gap-4 self-start">
-          <span
-            className="inline-flex w-fit items-center gap-1 rounded-full px-3 py-1 font-mono text-[11px] font-bold uppercase tracking-wide"
-            style={{ backgroundColor: `${project.textColor}22` }}
-          >
-            ★ Featured
-          </span>
-          <p className="font-mono text-xs uppercase tracking-wide opacity-80">{project.category}</p>
+          <div className="flex flex-wrap items-center gap-2">
+            <span
+              className="inline-flex w-fit items-center gap-1 rounded-full px-3 py-1 font-mono text-[11px] font-bold uppercase tracking-wide"
+              style={{ backgroundColor: `${project.textColor}2E`, color: project.textColor }}
+            >
+              ★ Featured
+            </span>
+            <TagPills tags={project.tags} color={project.textColor} />
+          </div>
           <h3 className="font-display text-4xl font-extrabold sm:text-5xl">{project.title}</h3>
           <p className="max-w-sm font-mono text-sm leading-relaxed opacity-90 sm:text-base">{project.blurb}</p>
           <Link href={href} className="underline-hover font-mono text-sm font-semibold">

@@ -3,6 +3,7 @@ import { Footer } from "@/components/Footer";
 import { Reveal } from "@/components/Reveal";
 import { AssetImage } from "@/components/AssetImage";
 import { TiltedFrame } from "@/components/TiltedFrame";
+import { TagPills } from "@/components/TagPills";
 import { themes, type Project } from "@/lib/content";
 
 export function ProjectStub({ project }: { project: Project }) {
@@ -15,7 +16,7 @@ export function ProjectStub({ project }: { project: Project }) {
       <section style={{ backgroundColor: project.color, color: project.textColor }} className="px-6 py-16 sm:px-10">
         <div className="mx-auto max-w-4xl">
           <Reveal>
-            <p className="font-mono text-sm uppercase tracking-wide opacity-80">{project.category}</p>
+            <TagPills tags={project.tags} color={project.textColor} />
             <h1 className="mt-3 font-display text-4xl font-black uppercase tracking-tight sm:text-5xl">
               {project.title}
             </h1>

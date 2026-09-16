@@ -4,6 +4,7 @@ import Link from "next/link";
 import { motion } from "framer-motion";
 import { AssetImage } from "@/components/AssetImage";
 import { TiltedFrame } from "@/components/TiltedFrame";
+import { TagPills } from "@/components/TagPills";
 import type { Project } from "@/lib/content";
 
 export function ProjectCard({ project, rotate = -2 }: { project: Project; rotate?: number }) {
@@ -17,7 +18,7 @@ export function ProjectCard({ project, rotate = -2 }: { project: Project; rotate
       style={{ backgroundColor: project.color, color: project.textColor }}
     >
       <div className="flex flex-1 flex-col justify-center gap-4 self-start">
-        <p className="font-mono text-xs uppercase tracking-wide opacity-80">{project.category}</p>
+        <TagPills tags={project.tags} color={project.textColor} />
         <h3 className="font-display text-3xl font-extrabold">{project.title}</h3>
         <p className="max-w-xs font-mono text-sm leading-relaxed opacity-90">{project.blurb}</p>
         <Link href={href} className="underline-hover font-mono text-sm font-semibold">

@@ -164,7 +164,7 @@ export const about = {
 export type Project = {
   slug: string;
   title: string;
-  category: string;
+  tags: string[];
   blurb: string;
   color: string;
   textColor: string;
@@ -177,7 +177,7 @@ export const projects: Project[] = [
   {
     slug: "fourddo",
     title: "Four Stories",
-    category: "UX Design, Internship",
+    tags: ["UX Design", "Internship"],
     blurb: "Building a Digital Home for Four Emerging Filmmakers",
     color: "#4A47B0",
     textColor: "#F7DFA0",
@@ -187,7 +187,7 @@ export const projects: Project[] = [
   {
     slug: "goblin-gizmos",
     title: "Goblin Gizmos",
-    category: "UX Design, Branding",
+    tags: ["UX Design", "Branding"],
     blurb: "Building a community platform where any collection belongs",
     color: "#A8CF45",
     textColor: "#2B3A1F",
@@ -197,7 +197,7 @@ export const projects: Project[] = [
   {
     slug: "prizekicks",
     title: "Prizekicks",
-    category: "UX Design, Branding",
+    tags: ["UX Design", "Branding"],
     blurb: "Designing a marketplace that finally plays fair",
     color: "#BFE3F5",
     textColor: "#1E2A3A",
@@ -207,7 +207,7 @@ export const projects: Project[] = [
   {
     slug: "lofistory",
     title: "Lofistory",
-    category: "UX Design, Graphic Design",
+    tags: ["UX Design", "Graphic Design"],
     blurb: "Designing a warm, cozy corner of the internet for a genre that deserves one",
     color: "#F0664F",
     textColor: "#F7DFA0",

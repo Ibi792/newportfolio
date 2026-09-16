@@ -2,6 +2,7 @@ import Link from "next/link";
 import { AssetImage } from "@/components/AssetImage";
 import { TiltedFrame } from "@/components/TiltedFrame";
 import { TiltCard } from "@/components/TiltCard";
+import { TagPills } from "@/components/TagPills";
 import type { Project } from "@/lib/content";
 
 export function CompactProjectCard({ project, rotate = -2 }: { project: Project; rotate?: number }) {
@@ -23,8 +24,8 @@ export function CompactProjectCard({ project, rotate = -2 }: { project: Project;
           />
         </TiltedFrame>
         <div>
-          <p className="font-mono text-[11px] uppercase tracking-wide opacity-80">{project.category}</p>
-          <h3 className="mt-1 font-display text-xl font-extrabold">{project.title}</h3>
+          <TagPills tags={project.tags} color={project.textColor} />
+          <h3 className="mt-2 font-display text-xl font-extrabold">{project.title}</h3>
           <p className="mt-2 font-mono text-xs leading-relaxed opacity-90">{project.blurb}</p>
           <Link href={href} className="underline-hover mt-3 inline-block font-mono text-xs font-semibold">
             View Project
