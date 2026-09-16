@@ -176,6 +176,7 @@ function SectionBlock({ section, accent }: { section: CaseStudySection; accent: 
               </RevealItem>
             ))}
           </RevealGroup>
+          {section.images && <ImageGrid images={section.images} accent={accent} />}
         </>
       );
 

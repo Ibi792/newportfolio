@@ -202,12 +202,15 @@ export const projects: Project[] = [
   {
     slug: "lofistory",
     title: "Lofistory",
-    tags: ["UX Design", "Graphic Design"],
-    blurb: "Designing a warm, cozy corner of the internet for a genre that deserves one",
+    tags: ["UI Design", "Solo Project"],
+    blurb: "Designing and building a cozy corner of the internet for the genre that got me through school",
+    // Placeholder — the actual palette line in the case study is itself
+    // flagged [Confirm] between amber/purple/teal, so keeping the
+    // existing warm coral here rather than guessing. Swap once locked.
     color: "#F0664F",
     textColor: "#F7DFA0",
     image: "/images/projects/lofistory.png",
-    hasFullCaseStudy: false,
+    hasFullCaseStudy: true,
   },
 ];
 
@@ -225,6 +228,7 @@ export type CaseStudySection =
       heading: string;
       intro: string[];
       cards: { title: string; detail: string }[];
+      images?: { src: string; label: string }[];
     }
   | { type: "quote"; label: string; text: string; attribution: string }
   | {
@@ -783,10 +787,157 @@ export const goblinGizmosCaseStudy: CaseStudyData = {
   ],
 };
 
+export const lofistoryCaseStudy: CaseStudyData = {
+  eyebrow: "A Love Letter to Lo-Fi",
+  title: "Designing and building a cozy corner of the internet for the genre that got me through school",
+  meta: [
+    { label: "Type", value: "Solo Project" },
+    { label: "Role", value: "Designer and Developer" },
+    { label: "Tools", value: "Figma, Adobe Photoshop, React, Spotify Web API" },
+    { label: "Year", value: "2025" },
+  ],
+  heroImage: "/images/projects/lofistory-hero.png",
+  // Placeholder hero — the palette itself is flagged [Confirm] within the
+  // content below (amber/purple/teal), so keeping the existing warm coral
+  // rather than guessing. Update once the real palette is locked.
+  heroBg: "#F0664F",
+  heroText: "#F7DFA0",
+  accent: "#C24A32",
+  footer: "#2B160E",
+  sections: [
+    {
+      type: "intro",
+      heading: "Context",
+      paragraphs: [
+        "Lo-fi hip hop has been in my headphones through every late night study session, every deadline, every render that took too long. It's a genre with an unmistakable visual identity: the ramen shop in the rain, the girl at her desk, the warm grain over everything. But when I went looking for a place that told its story, I found Wikipedia pages and playlist descriptions. Nothing that felt like the music.",
+        "Lofistory started as a class design exercise and became something I couldn't leave as a mockup. It's a three-page site: a Home that sets the mood, an About that traces the genre's roots and conventions, and an Artist page that pulls the producers who shaped it straight from Spotify. I designed it in Figma and built it myself in React.",
+      ],
+    },
+    {
+      type: "overview",
+      heading: "Overview",
+      rows: [
+        { label: "Project Type", value: "Solo Project / Web Design and Front-End Development" },
+        {
+          label: "Problem",
+          value:
+            "Lo-fi hip hop has a rich history and one of the most recognizable aesthetics in music, but no dedicated space that honors both with any visual care.",
+        },
+        {
+          label: "Solution",
+          value:
+            "A warm, low-key three-page site that lets the genre's own visual language do the talking. Cards over forms, hand-drawn type over system fonts, live artist data from the Spotify API, and a looping rainy ramen shop behind everything.",
+        },
+        {
+          label: "My Role",
+          value: "Solo Designer and Developer (Visual Design, Content Curation, UI Design, React Build, API Integration)",
+        },
+        { label: "Tools", value: "Figma, Adobe Photoshop, React, Spotify Web API" },
+      ],
+    },
+    {
+      type: "insightCards",
+      heading: "The Brief I Gave Myself",
+      intro: [
+        "Most of my projects start with a user problem. This one started with a feeling. The question wasn't “what does the user need,” it was “what does this genre feel like, and can a website feel like that too?”",
+        "That framing set three rules before I drew anything.",
+      ],
+      cards: [
+        {
+          title: "Nothing Should Feel Urgent",
+          detail:
+            "Lo-fi is background music by design. No pop-ups, no CTAs shouting for attention, no forms. If the site asked anything of you, it had already failed.",
+        },
+        {
+          title: "Let the Genre's Own Language Lead",
+          detail:
+            "The aesthetic already exists and people already love it. My job was to translate it faithfully, not reinvent it.",
+        },
+        {
+          title: "Short Enough to Read in One Track",
+          detail:
+            "Content had to be curated, not exhaustive. A handful of foundational tracks, a few key figures, the conventions that define the sound. Enough to make someone go listen.",
+        },
+      ],
+    },
+    {
+      type: "insightCards",
+      heading: "Design Decisions",
+      intro: [],
+      cards: [
+        {
+          title: "Three Pages, One Mood",
+          detail:
+            "Home, About, Artist. Each page has one job. Home sets the atmosphere and invites you in. About tells the story of where the sound came from and what defines it. Artist is where you go listen. Splitting it this way kept every page short enough to feel unhurried, which a single long scroll couldn't do.",
+        },
+        {
+          title: "The Background Was Non-Negotiable",
+          detail:
+            "A looping ramen shop in the rain sits behind the entire site. It sets the tone before a single word is read and does the work a hero section would normally do. Everything else is layered on top with enough transparency to let it breathe.",
+        },
+        {
+          title: "Cards Instead of Sections",
+          detail:
+            "Information lives in playful, loosely stacked cards rather than rigid page sections. Each card holds one thing: a track, a producer, a convention. It mirrors the way lo-fi playlists are assembled, one small piece at a time.",
+        },
+        {
+          title: "Hand-Drawn Type",
+          detail:
+            "Headers use a hand-drawn font to echo the sketchy, homemade quality of lo-fi cover art. Body text stays clean and readable so the personality never costs legibility.",
+        },
+        {
+          title: "A Palette Pulled From the Art",
+          detail:
+            "[Confirm: warm ambers, muted purples, and soft teals sampled directly from iconic lo-fi visuals.] Nothing pure white, nothing pure black. Everything sits in the same warm midtone range the genre lives in.",
+        },
+        {
+          title: "Real Artists, Not Screenshots",
+          detail:
+            "The Artist page pulls from Spotify rather than a hardcoded list. Album art, names, and links stay current without me touching the content, and every card goes straight to the music. The genre is alive, so the page should be too.",
+        },
+      ],
+      images: [
+        { src: "/images/projects/lofistory-mockups.png", label: "Add Figma mockups" },
+        { src: "/images/projects/lofistory-palette.png", label: "Add palette" },
+        { src: "/images/projects/lofistory-type.png", label: "Add type" },
+      ],
+    },
+    {
+      type: "media",
+      heading: "Build",
+      paragraphs: [
+        "A design about restraint deserved a build to match. The site runs on a small set of React components: a card, a card grid, a header, the ambient background layer, and [confirm: React Router] handling the three routes. The Artist page calls the Spotify Web API on load and renders the results into cards, so album art, artist names, and links stay accurate on their own. [Confirm: users can open artists directly in Spotify.] The looping gif is optimized so the atmosphere doesn't cost load time.",
+        "Wiring up the API was the part that turned this from a mockup into a product. Handling auth, structuring the response, and rendering it inside cards I'd designed without it in mind forced a few layout decisions I wouldn't have made on paper. The album art became the visual anchor of every artist card, which was better than what I had drawn.",
+        "Building it myself meant the details I cared about in Figma survived contact with a browser. The card spacing, the transparency over the background, the way type sits against the grain. Those get lost in handoff, and there was no handoff.",
+      ],
+      images: [{ src: "/images/projects/lofistory-responsive.png", label: "Add responsive screens" }],
+      link: { label: "View Live Site", url: "#" },
+    },
+    {
+      type: "reflection",
+      heading: "Reflection",
+      intro: [],
+      lessons: [
+        {
+          title: "Restraint Is a Decision:",
+          detail:
+            "Lofistory is the smallest project in my portfolio and the one I come back to most. It taught me that designing for feel is a different muscle than designing for a task, and that the two aren't in competition. Restraint is a decision. Warmth is a decision. Leaving something out is a decision.",
+        },
+        {
+          title: "The Figma File Isn't the Finished Thing:",
+          detail:
+            "It also settled something for me about code. Turning a mockup into a running site changed my relationship to my own designs, and connecting it to a live API made that shift permanent. I stopped thinking of the Figma file as the finished thing.",
+        },
+      ],
+    },
+  ],
+};
+
 export const caseStudies: Record<string, CaseStudyData> = {
   fourddo: fourddoCaseStudy,
   prizekicks: prizekicksCaseStudy,
   "goblin-gizmos": goblinGizmosCaseStudy,
+  lofistory: lofistoryCaseStudy,
 };
 
 export const extras = {
