@@ -1,4 +1,5 @@
-import { IBM_Plex_Sans, IBM_Plex_Mono, Archivo } from "next/font/google";
+import { IBM_Plex_Sans, IBM_Plex_Mono } from "next/font/google";
+import localFont from "next/font/local";
 
 /**
  * Body copy — the real, final font. IBM Plex Sans is open-source so it's
@@ -23,33 +24,19 @@ export const monoFont = IBM_Plex_Mono({
 });
 
 /**
- * Display / headline font — PLACEHOLDER.
- *
- * The real brand headline font is Integral CF. It's a commercial font, so
- * before we can self-host it here we need woff2 files + a license that
- * covers self-hosting outside Framer. Until then, Archivo (900 weight) is
- * used as a free stand-in with a similar bold-geometric-grotesque feel.
- *
- * To swap in Integral CF once you have the files:
- *   1. Drop IntegralCF-Bold.woff2 (+ other weights) into /public/fonts/
- *   2. Replace this export with:
- *
- *      import localFont from "next/font/local";
- *      export const displayFont = localFont({
- *        variable: "--font-display",
- *        src: [
- *          { path: "../../public/fonts/IntegralCF-Bold.woff2", weight: "700" },
- *          { path: "../../public/fonts/IntegralCF-Heavy.woff2", weight: "900" },
- *        ],
- *        display: "swap",
- *      });
- *
- *   Nothing else in the codebase needs to change — every component reads
- *   the font through the --font-display CSS variable.
+ * Display / headline font — Integral CF, the real brand font (licensed
+ * Desktop + Web files, not the Fontspring demo). No ExtraBold (800) file
+ * was provided; browsers resolve a requested 800 to the nearest
+ * registered weight (900) automatically, so `font-extrabold` still
+ * renders a real cut rather than a faux-bolded one.
  */
-export const displayFont = Archivo({
+export const displayFont = localFont({
   variable: "--font-display",
-  subsets: ["latin"],
-  weight: ["700", "800", "900"],
+  src: [
+    { path: "../../public/fonts/IntegralCF-Regular.ttf", weight: "400" },
+    { path: "../../public/fonts/IntegralCF-Medium.ttf", weight: "500" },
+    { path: "../../public/fonts/IntegralCF-Bold.ttf", weight: "700" },
+    { path: "../../public/fonts/IntegralCF-Heavy.ttf", weight: "900" },
+  ],
   display: "swap",
 });

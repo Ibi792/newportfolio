@@ -60,11 +60,11 @@ better hosted as `.mp4`/`.webm` than animated GIFs — ask if you want a
 - **IBM Plex Sans** (body) and **IBM Plex Mono** (accents) are loaded via
   `next/font/google` in `src/lib/fonts.ts` — self-hosted automatically, no
   extra setup.
-- **Integral CF** (the brand headline font) is commercial, so it isn't
-  bundled here. `src/lib/fonts.ts` currently uses Archivo (900 weight) as
-  a free stand-in with a similar bold-geometric feel. See the comment
-  block in that file for the exact swap-in steps once you have the woff2
-  files and a license that covers self-hosting outside Framer.
+- **Integral CF** (the brand headline font) is licensed (Regular, Medium,
+  Bold, Heavy) and self-hosted from `/public/fonts/` via `next/font/local`
+  in `src/lib/fonts.ts`. There's no ExtraBold file; `font-extrabold`
+  resolves to the Heavy cut automatically via normal CSS font-weight
+  matching, not a faux-bolded Regular.
 
 ## Contact form
 
