@@ -2,7 +2,9 @@ import Link from "next/link";
 import { Nav } from "@/components/Nav";
 import { Footer } from "@/components/Footer";
 import { Reveal, RevealGroup, RevealItem } from "@/components/Reveal";
-import { CirclePill } from "@/components/Pill";
+import { Button } from "@/components/Button";
+import { FlipCard } from "@/components/FlipCard";
+import { TradingCard } from "@/components/TradingCard";
 import { FeaturedProjectCard } from "@/components/FeaturedProjectCard";
 import { CompactProjectCard } from "@/components/CompactProjectCard";
 import { AssetImage } from "@/components/AssetImage";
@@ -17,69 +19,80 @@ export default function Home() {
       <Nav bg={theme.nav} ink={theme.navInk} />
 
       <section style={{ backgroundColor: theme.heroBg, color: theme.heroText }}>
-        <div className="mx-auto grid max-w-6xl gap-12 px-6 py-16 sm:px-10 md:grid-cols-2 md:items-center md:py-20">
+        <div className="mx-auto grid max-w-6xl gap-16 px-6 py-16 sm:px-10 md:grid-cols-2 md:items-center md:py-20">
           <Reveal>
-            <TiltedFrame rotate={-3} backdrop={`${theme.heroAccent}44`} className="mx-auto w-full max-w-md">
-              <AssetImage
-                src="/images/portrait.jpg"
-                alt={site.name}
-                color={theme.heroAccent}
-                className="aspect-square w-full object-cover"
-                label="Add /public/images/portrait.jpg"
-              />
-            </TiltedFrame>
-            <p
-              className="mx-auto mt-4 w-fit rounded-full px-4 py-1.5 font-mono text-xs font-semibold"
-              style={{ backgroundColor: theme.heroText, color: theme.heroBg }}
+            <span
+              className="inline-block -rotate-2 rounded-md px-3 py-1.5 font-mono text-xs font-bold uppercase tracking-wide shadow-sm"
+              style={{ backgroundColor: theme.heroAccent, color: theme.heroBg }}
             >
-              {hero.portraitBadge}
-            </p>
-          </Reveal>
+              {hero.badge}
+            </span>
 
-          <Reveal delay={0.1}>
-            <p className="font-display text-lg font-bold uppercase tracking-wide" style={{ color: theme.heroAccent }}>
-              {site.role}
-            </p>
-            <p className="mt-3 font-mono text-base" style={{ color: theme.heroAccent }}>
-              {hero.eyebrow}
-            </p>
-            <h1 className="mt-1 font-display text-5xl font-black uppercase leading-[0.95] tracking-tight sm:text-6xl">
-              {hero.lines.map((line, i) => (
-                <span key={i} className="block">
-                  {line.map((word, j) => (
-                    <span
-                      key={j}
-                      className="mr-3 inline-block"
-                      style={
-                        word.variant === "outline"
-                          ? {
-                              WebkitTextStroke: `2px ${word.color}`,
-                              color: "transparent",
-                            }
-                          : { color: word.color }
-                      }
-                    >
-                      {word.text}
-                    </span>
-                  ))}
+            <h1 className="mt-4 font-display text-5xl font-black uppercase leading-[0.95] tracking-tight sm:text-6xl">
+              {hero.headline.map((line, i) => (
+                <span
+                  key={i}
+                  className="block"
+                  style={{ color: line.tone === "accent" ? theme.heroAccent : theme.heroText }}
+                >
+                  {line.text}
                 </span>
               ))}
             </h1>
-            <p className="mt-6 max-w-md font-mono text-base">{hero.tagline}</p>
 
-            <div className="mt-8 flex flex-wrap items-center gap-6">
-              <CirclePill href={hero.primaryCta.href} color={theme.heroAccent} size="lg">
-                {hero.primaryCta.label}
-              </CirclePill>
-              <ul className="flex flex-col gap-2 font-mono text-sm font-semibold">
-                {hero.secondaryCta.map((cta) => (
-                  <li key={cta.href}>
-                    <a href={cta.href} className="underline-hover">
-                      {cta.label} ↗
-                    </a>
-                  </li>
-                ))}
-              </ul>
+            <p className="mt-6 max-w-md font-mono text-base">{hero.tagline}</p>
+            <p className="mt-2 font-mono text-xs font-semibold uppercase tracking-wide opacity-70">
+              {hero.metaTag}
+            </p>
+
+            <div className="mt-8 flex flex-wrap items-center gap-4">
+              <Button href={hero.primaryCta.href} variant="filled" bg={theme.heroText} ink={theme.heroBg}>
+                {hero.primaryCta.label} ↓
+              </Button>
+              <Button href={hero.secondaryCta.href} variant="outline" bg={theme.heroText} ink={theme.heroBg}>
+                {hero.secondaryCta.label}
+              </Button>
+            </div>
+
+            <div
+              className="mt-6 flex max-w-md items-start gap-3 rounded-lg border-2 border-dashed px-4 py-3"
+              style={{ borderColor: `${theme.heroText}55` }}
+            >
+              <span
+                className="flex-shrink-0 rounded px-2 py-0.5 font-mono text-[10px] font-black uppercase tracking-wide"
+                style={{ backgroundColor: theme.heroAccent, color: theme.heroBg }}
+              >
+                Tip
+              </span>
+              <p className="font-mono text-xs leading-relaxed opacity-80">{hero.tip}</p>
+            </div>
+          </Reveal>
+
+          <Reveal delay={0.1}>
+            <div className="relative mx-auto w-full max-w-sm">
+              <FlipCard
+                ariaLabel="Flip to see a trading-card style CV summary"
+                className="h-[655px] w-full sm:h-[680px]"
+                front={
+                  <TiltedFrame rotate={-3} backdrop={`${theme.heroAccent}44`} className="h-full w-full">
+                    <AssetImage
+                      src="/images/portrait.jpg"
+                      alt={site.name}
+                      color={theme.heroAccent}
+                      className="h-full w-full object-cover"
+                      label="Add /public/images/portrait.jpg — click flips to CV card"
+                    />
+                  </TiltedFrame>
+                }
+                back={<TradingCard />}
+              />
+
+              <div
+                className="absolute -left-6 top-10 z-10 flex h-16 w-16 -rotate-6 items-center justify-center rounded-full border-2 border-black/10 bg-[#F7DFA0] text-center font-mono text-[10px] font-black uppercase leading-tight text-[#1E2A3A] shadow-md"
+                aria-hidden
+              >
+                {hero.card.portraitBadge}
+              </div>
             </div>
           </Reveal>
         </div>

@@ -95,25 +95,51 @@ export const themes = {
 
 export type ThemeKey = keyof typeof themes;
 
+// Placeholder copy — swap freely. Built around the strongest line from
+// your own draft ("the research and the rethinks left in"); the nickname
+// moves from the giant wordmark to a small badge so the real headline
+// carries the weight instead.
 export const hero = {
-  eyebrow: "Hi, i'm Isaac but...",
-  lines: [
-    [
-      { text: "FRIENDS", color: "#8FCBEA", variant: "outline" },
-      { text: "CALL", color: "#D6486B", variant: "fill" },
-    ],
-    [
-      { text: "ME", color: "#F7DFA0", variant: "fill" },
-      { text: "IBI", color: "#3E6B80", variant: "fill" },
-    ],
+  badge: "Friends Call Me Ibi",
+  headline: [
+    { text: "Show the work,", tone: "ink" as const },
+    { text: "not the polish.", tone: "accent" as const },
   ],
-  tagline: "Designing Experiences with intention, honesty, and a touch of whimsy",
-  portraitBadge: "UCF Senior · Digital Media",
-  primaryCta: { label: "View My Work", href: "/projects" },
-  secondaryCta: [
-    { label: "About", href: "/about" },
-    { label: "Contact", href: "/extras#contact" },
-  ],
+  tagline: "Four shipped case studies with the research and the rethinks left in.",
+  metaTag: "UX & Product Design · Orlando, FL",
+  primaryCta: { label: "The Work", href: "/projects" },
+  secondaryCta: { label: "Read CV", href: "/resume.pdf" },
+  tip: "The card flips on click — the back holds the CV summary.",
+  card: {
+    name: "IBI",
+    level: 22,
+    tags: [
+      { label: "Type · Product", color: "#4A47B0" },
+      { label: "Motion", color: "#1E7F72" },
+    ],
+    classYear: "UCF '27",
+    portraitBadge: "Open to Work",
+    moves: [
+      {
+        color: "#1D6FA5",
+        title: "Research Dive",
+        power: 40,
+        detail: "Nine interviews before a single wireframe. Reveals the real question.",
+      },
+      {
+        color: "#1E7F72",
+        title: "Ship It",
+        power: 70,
+        detail: "Builds the frontend himself, so handoff isn't a wall.",
+      },
+    ],
+    flavorText: "Designs with intention, honesty, and a touch of whimsy. Found in cafés after midnight.",
+    setInfo: "001/004 · WORKSHOP SET",
+    rarity: 3,
+    // Holo border cycles through the real project colors — the card is
+    // literally made of the same palette as the four case studies.
+    holoColors: ["#D6486B", "#F7DFA0", "#1E7F72", "#1D6FA5", "#4A47B0"],
+  },
 };
 
 export const about = {
