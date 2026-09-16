@@ -1,8 +1,10 @@
+import Link from "next/link";
 import { Nav } from "@/components/Nav";
 import { Footer } from "@/components/Footer";
 import { Reveal, RevealGroup, RevealItem } from "@/components/Reveal";
 import { CirclePill } from "@/components/Pill";
-import { ProjectCard } from "@/components/ProjectCard";
+import { FeaturedProjectCard } from "@/components/FeaturedProjectCard";
+import { CompactProjectCard } from "@/components/CompactProjectCard";
 import { AssetImage } from "@/components/AssetImage";
 import { TiltedFrame } from "@/components/TiltedFrame";
 import { hero, projects, site, themes } from "@/lib/content";
@@ -104,13 +106,27 @@ export default function Home() {
             </h2>
           </Reveal>
 
-          <RevealGroup className="flex flex-col gap-8" stagger={0.12}>
-            {projects.slice(0, 3).map((project, i) => (
+          <Reveal delay={0.05}>
+            <FeaturedProjectCard project={projects[0]} />
+          </Reveal>
+
+          <RevealGroup className="mt-8 grid gap-8 sm:grid-cols-2" stagger={0.1}>
+            {projects.slice(1, 3).map((project, i) => (
               <RevealItem key={project.slug}>
-                <ProjectCard project={project} rotate={i % 2 === 0 ? -2 : 2} />
+                <CompactProjectCard project={project} rotate={i % 2 === 0 ? -2 : 2} />
               </RevealItem>
             ))}
           </RevealGroup>
+
+          <Reveal delay={0.1} className="mt-10 text-center">
+            <Link
+              href="/projects"
+              className="underline-hover font-display text-lg font-bold"
+              style={{ color: theme.bodyAccent }}
+            >
+              View All Projects →
+            </Link>
+          </Reveal>
         </div>
       </section>
 
