@@ -109,7 +109,7 @@ export const hero = {
   metaTag: "UX & Product Design · Orlando, FL",
   primaryCta: { label: "The Work", href: "/projects" },
   secondaryCta: { label: "Read CV", href: "/resume.pdf" },
-  tip: "The card flips on click — the back holds the CV summary.",
+  tip: "Psst, click the card :D",
   card: {
     name: "IBI",
     level: 22,
