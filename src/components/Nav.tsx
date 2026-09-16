@@ -29,6 +29,16 @@ export function Nav({ bg, ink }: { bg: string; ink: string }) {
               </Link>
             </li>
           ))}
+          <li>
+            <a
+              href={site.resumeUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="underline-hover"
+            >
+              Resume
+            </a>
+          </li>
         </ul>
       </nav>
     </header>

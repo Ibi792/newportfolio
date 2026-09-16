@@ -78,6 +78,12 @@ way. Set it in `.env.local`:
 NEXT_PUBLIC_FORMSPREE_ID=your-form-id
 ```
 
+## Resume
+
+The "Resume" link in the nav and footer points at `/public/resume.pdf`.
+Drop your resume there with that exact filename and both links work —
+they open it in a new tab rather than navigating away from the site.
+
 ## Deploying
 
 This is a stock Next.js App Router project — deploys to

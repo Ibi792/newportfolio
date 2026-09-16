@@ -5,6 +5,8 @@ export const site = {
   phone: "407-437-3838",
   linkedin: "https://www.linkedin.com/",
   instagram: "https://www.instagram.com/",
+  // Drop the actual PDF at this exact path in /public for the link to work.
+  resumeUrl: "/resume.pdf",
 };
 
 export const nav = [
