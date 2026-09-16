@@ -197,12 +197,12 @@ export const projects: Project[] = [
   {
     slug: "prizekicks",
     title: "Prizekicks",
-    tags: ["UX Design", "Branding"],
+    tags: ["UX Design", "Group Project"],
     blurb: "Designing a marketplace that finally plays fair",
     color: "#BFE3F5",
     textColor: "#1E2A3A",
     image: "/images/projects/prizekicks.png",
-    hasFullCaseStudy: false,
+    hasFullCaseStudy: true,
   },
   {
     slug: "lofistory",
@@ -216,7 +216,69 @@ export const projects: Project[] = [
   },
 ];
 
-export const fourddoCaseStudy = {
+// Generic case-study schema — one renderer (src/components/CaseStudy.tsx)
+// walks this section list for every project, so adding a new full case
+// study is a content change, not a new component.
+export type CaseStudyMeta = { label: string; value: string };
+
+export type CaseStudySection =
+  | { type: "intro"; heading: string; paragraphs: string[] }
+  | { type: "overview"; heading: string; rows: { label: string; value: string }[] }
+  | { type: "pills"; heading: string; items: string[] }
+  | {
+      type: "insightCards";
+      heading: string;
+      intro: string[];
+      cards: { title: string; detail: string }[];
+    }
+  | { type: "quote"; label: string; text: string; attribution: string }
+  | {
+      type: "colorCards";
+      heading: string;
+      intro: string[];
+      cards: { name: string; color: string; detail: string }[];
+    }
+  | {
+      type: "goalChips";
+      heading: string;
+      intro: string[];
+      goals: { title: string; detail: string }[];
+      outro?: string[];
+      images?: { src: string; label: string }[];
+    }
+  | {
+      type: "media";
+      heading: string;
+      paragraphs: string[];
+      images?: { src: string; label: string }[];
+      link?: { label: string; url: string };
+    }
+  | {
+      type: "results";
+      heading: string;
+      intro: string[];
+      items: { label: string; detail: string }[];
+      outro?: string[];
+    }
+  | {
+      type: "reflection";
+      heading: string;
+      intro: string[];
+      lessons: { title: string; detail: string }[];
+      thanks?: string;
+    };
+
+export type CaseStudyData = {
+  eyebrow: string;
+  title: string;
+  meta: CaseStudyMeta[];
+  heroImage: string;
+  shippedProductUrl?: string;
+  shippedProductLabel?: string;
+  sections: CaseStudySection[];
+};
+
+export const fourddoCaseStudy: CaseStudyData = {
   eyebrow: "Guiding Future Filmmakers",
   title: "Designing a hub for emerging filmmakers to learn, create, and connect",
   meta: [
@@ -226,165 +288,348 @@ export const fourddoCaseStudy = {
   ],
   heroImage: "/images/projects/four-stories-hero.png",
   shippedProductUrl: "#",
-  fellowship: {
-    heading: "The Fellowship",
-    paragraphs: [
-      "Fourddo is a nonprofit dedicated to amplifying causes and initiatives that shape the lives of today's youth. This past summer, they launched Four Stories, a 10-week filmmaking fellowship in Boston pairing four emerging directors with mentors to develop, produce, and premiere original PSA films.",
-      "I was brought on as a Product Design Intern to design and build the Fellows Hub, a private digital platform serving as the cohort's central home base for curriculum, resources, and communication across the entire program.",
-    ],
-  },
-  overview: {
-    heading: "Overview",
-    rows: [
-      { label: "Project Type", value: "Internship project - Full Website Design" },
-      {
-        label: "Summary",
-        value:
-          "Fourddo launched Four Stories, a 10-week filmmaking fellowship in Boston pairing four emerging directors with mentors to develop, produce, and premiere original PSA films. This project focused on designing and building the digital platform that brought the entire program together in one place.",
-      },
-      {
-        label: "Problem",
-        value:
-          "Four Stories had no centralized digital home for its inaugural cohort. Program information, curriculum, deliverables, and communication were scattered across emails and documents, creating friction for fellows trying to stay on top of a demanding 10-week program while also making their first film.",
-      },
-    ],
-  },
-  process: {
-    heading: "Process",
-    steps: ["Research", "Define", "Ideate", "Prototype", "Test", "Implement"],
-  },
-  userResearch: {
-    heading: "User Research",
-    intro:
-      "Research was conducted to better understand the needs of first-time fellowship participants navigating a demanding creative program for the first time.",
-    insightsIntro: "Due to that research, key insights emerged:",
-    insights: [
-      {
-        title: "No Central Home Base",
-        detail:
-          "Program information, curriculum, and deadlines were scattered across emails and shared documents with no single place to find what they needed.",
-      },
-      {
-        title: "First-Time Filmmakers",
-        detail:
-          "Most fellows had never produced a short film before. The platform needed to support the work without adding friction to an already demanding creative process.",
-      },
-      {
-        title: "Unclear Expectations",
-        detail:
-          "Deliverables, milestones, and payment requirements were communicated across multiple channels, making it easy to lose track of what was due and when.",
-      },
-      {
-        title: "The Hub Had to Earn Trust",
-        detail:
-          "For the platform to actually get used, it had to feel intentional and worth returning to. A cluttered or confusing experience would push fellows back to email.",
-      },
-    ],
-    quote: {
+  shippedProductLabel: "View Shipped Product",
+  sections: [
+    {
+      type: "intro",
+      heading: "The Fellowship",
+      paragraphs: [
+        "Fourddo is a nonprofit dedicated to amplifying causes and initiatives that shape the lives of today's youth. This past summer, they launched Four Stories, a 10-week filmmaking fellowship in Boston pairing four emerging directors with mentors to develop, produce, and premiere original PSA films.",
+        "I was brought on as a Product Design Intern to design and build the Fellows Hub, a private digital platform serving as the cohort's central home base for curriculum, resources, and communication across the entire program.",
+      ],
+    },
+    {
+      type: "overview",
+      heading: "Overview",
+      rows: [
+        { label: "Project Type", value: "Internship project - Full Website Design" },
+        {
+          label: "Summary",
+          value:
+            "Fourddo launched Four Stories, a 10-week filmmaking fellowship in Boston pairing four emerging directors with mentors to develop, produce, and premiere original PSA films. This project focused on designing and building the digital platform that brought the entire program together in one place.",
+        },
+        {
+          label: "Problem",
+          value:
+            "Four Stories had no centralized digital home for its inaugural cohort. Program information, curriculum, deliverables, and communication were scattered across emails and documents, creating friction for fellows trying to stay on top of a demanding 10-week program while also making their first film.",
+        },
+      ],
+    },
+    {
+      type: "pills",
+      heading: "Process",
+      items: ["Research", "Define", "Ideate", "Prototype", "Test", "Implement"],
+    },
+    {
+      type: "insightCards",
+      heading: "User Research",
+      intro: [
+        "Research was conducted to better understand the needs of first-time fellowship participants navigating a demanding creative program for the first time.",
+        "Due to that research, key insights emerged:",
+      ],
+      cards: [
+        {
+          title: "No Central Home Base",
+          detail:
+            "Program information, curriculum, and deadlines were scattered across emails and shared documents with no single place to find what they needed.",
+        },
+        {
+          title: "First-Time Filmmakers",
+          detail:
+            "Most fellows had never produced a short film before. The platform needed to support the work without adding friction to an already demanding creative process.",
+        },
+        {
+          title: "Unclear Expectations",
+          detail:
+            "Deliverables, milestones, and payment requirements were communicated across multiple channels, making it easy to lose track of what was due and when.",
+        },
+        {
+          title: "The Hub Had to Earn Trust",
+          detail:
+            "For the platform to actually get used, it had to feel intentional and worth returning to. A cluttered or confusing experience would push fellows back to email.",
+        },
+      ],
+    },
+    {
+      type: "quote",
       label: "A Note From the field",
       text: "There's just a lot going on, and it's hard to keep track of where everything lives.",
       attribution: "Fellow, Week 1 check-in",
     },
-  },
-  competitiveAnalysis: {
-    heading: "Competitive Analysis",
-    intro:
-      "Existing fellowship and learning platforms were reviewed to understand how structured programs communicate curriculum, deadlines, and resources to participants.",
-    items: [
-      {
-        name: "Canvas",
-        color: "#8B3A4B",
-        detail:
-          "Heavy on functionality but overwhelming for first-time users. Information density without clear hierarchy creates friction before any learning begins.",
-      },
-      {
-        name: "Google Classroom",
-        color: "#1F5E70",
-        detail:
-          "Familiar and accessible but visually flat. Lacks the brand presence needed to make a program feel intentional and designed.",
-      },
-      {
-        name: "Notion",
-        color: "#1B1B3A",
-        detail:
-          "Flexible and clean but requires too much setup from the user. Works best when someone already knows how to navigate it.",
-      },
-    ],
-  },
-  solution: {
-    heading: "Solution",
-    intro: "Through this research, the Fellows Hub's main goals were identified.",
-    goals: [
-      { title: "Clear Navigation", detail: "Instant access to the current week" },
-      { title: "Milestone Visibility", detail: "Deadlines and deliverables always in view" },
-      { title: "Structured Curriculum", detail: "Weekly content organized by phase" },
-      { title: "Low Friction Access", detail: "Private and easy to get into" },
-      { title: "Brand Cohesion", detail: "Felt like Four Stories" },
-    ],
-    outro:
-      "Using these goals as a benchmark, I set out to outline information architecture and draft low-fidelity sketches.",
-    sitemapImage: "/images/projects/fourddo-sitemap.png",
-  },
-  prototype: {
-    heading: "Prototype",
-    intro:
-      "With the structure mapped out, it was time to make it real. The high-fidelity prototype was developed to bring the Fellows Hub to life within the constraints of the fellowship's existing brand and platform.",
-    desktopImage: "/images/projects/fourddo-prototype-desktop.png",
-    mobileImage: "/images/projects/fourddo-prototype-mobile.png",
-  },
-  results: {
-    heading: "Results",
-    intro:
-      "The Fellows Hub launched on June 12th in time for the first kickoff session. All four fellows received access and used the platform throughout the program. The practical impacts of the design quickly became clear:",
-    items: [
-      {
-        label: "Centralized Access",
-        detail:
-          "For the first time, fellows had a single destination for curriculum, deliverables, resources, and program communication — eliminating the friction of navigating a 10-week program through scattered emails and shared documents.",
-      },
-      {
-        label: "Program Clarity",
-        detail:
-          "A structured week-by-week layout gave fellows a clear view of where they were in the program, what was coming next, and what was expected of them at every stage of production.",
-      },
-      {
-        label: "Scalable Foundation",
-        detail:
-          "The Fellows Hub established a replicable content structure and design system that Four Stories can build on as the fellowship grows beyond its inaugural cohort.",
-      },
-    ],
-    outro:
-      "For a first-of-its-kind program running its inaugural cohort, the hub gave Four Stories something it didn't have before: a place that held everything together. Following the fellowship, program directors noted that fellows responded positively to the hub, citing it as a meaningful part of their experience.",
-  },
-  improvements: {
-    heading: "Improvements",
-    intro:
-      "Based on feedback from the team and cohort, a “meet the fellows” section was added, highlighting the fellows and their films.",
-    image: "/images/projects/fourddo-cohort.png",
-  },
-  reflection: {
-    heading: "Reflection",
-    intro:
-      "My time with Fourddo marks several firsts for me. First established brand, first real technology constraints, first time designing specifically for a defined group of users. Each one pushed me in a different direction and left me with something I carry forward.",
-    lessons: [
-      {
-        title: "Constraints are invitations:",
-        detail:
-          "Balancing team requests, platform limitations, and a highly specific audience taught me to work with what I had rather than wish for what I didn't. Building inside Squarespace meant every decision had to account for what the platform could and couldn't do, which pushed me toward creative solutions rather than ideal ones.",
-      },
-      {
-        title: "Clarity is the design:",
-        detail:
-          "Designing for first-time fellows meant if a fellow couldn't find what they needed in the first few seconds of logging in, the design had failed regardless of how it looked.",
-      },
-      {
-        title: "Stakes make better designers:",
-        detail:
-          "This wasn't a prototype or a concept. It was a live platform that four fellows relied on throughout a demanding 10-week program. That responsibility made every decision feel more considered.",
-      },
-    ],
-    thanks: "Thank you for reading!",
-  },
+    {
+      type: "colorCards",
+      heading: "Competitive Analysis",
+      intro: [
+        "Existing fellowship and learning platforms were reviewed to understand how structured programs communicate curriculum, deadlines, and resources to participants.",
+      ],
+      cards: [
+        {
+          name: "Canvas",
+          color: "#8B3A4B",
+          detail:
+            "Heavy on functionality but overwhelming for first-time users. Information density without clear hierarchy creates friction before any learning begins.",
+        },
+        {
+          name: "Google Classroom",
+          color: "#1F5E70",
+          detail:
+            "Familiar and accessible but visually flat. Lacks the brand presence needed to make a program feel intentional and designed.",
+        },
+        {
+          name: "Notion",
+          color: "#1B1B3A",
+          detail:
+            "Flexible and clean but requires too much setup from the user. Works best when someone already knows how to navigate it.",
+        },
+      ],
+    },
+    {
+      type: "goalChips",
+      heading: "Solution",
+      intro: ["Through this research, the Fellows Hub's main goals were identified."],
+      goals: [
+        { title: "Clear Navigation", detail: "Instant access to the current week" },
+        { title: "Milestone Visibility", detail: "Deadlines and deliverables always in view" },
+        { title: "Structured Curriculum", detail: "Weekly content organized by phase" },
+        { title: "Low Friction Access", detail: "Private and easy to get into" },
+        { title: "Brand Cohesion", detail: "Felt like Four Stories" },
+      ],
+      outro: [
+        "Using these goals as a benchmark, I set out to outline information architecture and draft low-fidelity sketches.",
+      ],
+      images: [{ src: "/images/projects/fourddo-sitemap.png", label: "Add sitemap image" }],
+    },
+    {
+      type: "media",
+      heading: "Prototype",
+      paragraphs: [
+        "With the structure mapped out, it was time to make it real. The high-fidelity prototype was developed to bring the Fellows Hub to life within the constraints of the fellowship's existing brand and platform.",
+      ],
+      images: [
+        { src: "/images/projects/fourddo-prototype-desktop.png", label: "Add desktop prototype screenshot/video" },
+        { src: "/images/projects/fourddo-prototype-mobile.png", label: "Add mobile prototype screenshot" },
+      ],
+    },
+    {
+      type: "results",
+      heading: "Results",
+      intro: [
+        "The Fellows Hub launched on June 12th in time for the first kickoff session. All four fellows received access and used the platform throughout the program. The practical impacts of the design quickly became clear:",
+      ],
+      items: [
+        {
+          label: "Centralized Access",
+          detail:
+            "For the first time, fellows had a single destination for curriculum, deliverables, resources, and program communication — eliminating the friction of navigating a 10-week program through scattered emails and shared documents.",
+        },
+        {
+          label: "Program Clarity",
+          detail:
+            "A structured week-by-week layout gave fellows a clear view of where they were in the program, what was coming next, and what was expected of them at every stage of production.",
+        },
+        {
+          label: "Scalable Foundation",
+          detail:
+            "The Fellows Hub established a replicable content structure and design system that Four Stories can build on as the fellowship grows beyond its inaugural cohort.",
+        },
+      ],
+      outro: [
+        "For a first-of-its-kind program running its inaugural cohort, the hub gave Four Stories something it didn't have before: a place that held everything together. Following the fellowship, program directors noted that fellows responded positively to the hub, citing it as a meaningful part of their experience.",
+      ],
+    },
+    {
+      type: "media",
+      heading: "Improvements",
+      paragraphs: [
+        "Based on feedback from the team and cohort, a “meet the fellows” section was added, highlighting the fellows and their films.",
+      ],
+      images: [{ src: "/images/projects/fourddo-cohort.png", label: "Add cohort feature screenshot" }],
+    },
+    {
+      type: "reflection",
+      heading: "Reflection",
+      intro: [
+        "My time with Fourddo marks several firsts for me. First established brand, first real technology constraints, first time designing specifically for a defined group of users. Each one pushed me in a different direction and left me with something I carry forward.",
+      ],
+      lessons: [
+        {
+          title: "Constraints are invitations:",
+          detail:
+            "Balancing team requests, platform limitations, and a highly specific audience taught me to work with what I had rather than wish for what I didn't. Building inside Squarespace meant every decision had to account for what the platform could and couldn't do, which pushed me toward creative solutions rather than ideal ones.",
+        },
+        {
+          title: "Clarity is the design:",
+          detail:
+            "Designing for first-time fellows meant if a fellow couldn't find what they needed in the first few seconds of logging in, the design had failed regardless of how it looked.",
+        },
+        {
+          title: "Stakes make better designers:",
+          detail:
+            "This wasn't a prototype or a concept. It was a live platform that four fellows relied on throughout a demanding 10-week program. That responsibility made every decision feel more considered.",
+        },
+      ],
+      thanks: "Thank you for reading!",
+    },
+  ],
+};
+
+export const prizekicksCaseStudy: CaseStudyData = {
+  eyebrow: "Putting the Sneaker Buyer First",
+  title: "Designing a marketplace that finally plays fair",
+  meta: [
+    { label: "Program", value: "University of Central Florida" },
+    { label: "Role", value: "Lead UI/UX Designer" },
+    { label: "Team", value: "Team of 3" },
+    { label: "Timeline", value: "Aug 2024 – May 2025" },
+  ],
+  heroImage: "/images/projects/prizekicks-hero.png",
+  sections: [
+    {
+      type: "intro",
+      heading: "Context",
+      paragraphs: [
+        "Sneaker resale runs on scarcity and hype, and the platforms built around it reflect that. Prices are opaque, interfaces are cluttered, and buyers are left guessing whether they got a fair deal or got played. Two classmates and I had all felt it. PrizeKicks was our answer: a marketplace that treats the buyer as the customer, not the mark.",
+        "I led UI and UX across the full process, from market research to a tested high-fidelity prototype and a live demo.",
+      ],
+    },
+    {
+      type: "overview",
+      heading: "Overview",
+      rows: [
+        { label: "Project Type", value: "University Group Project / Full Product Design" },
+        {
+          label: "Summary",
+          value:
+            "PrizeKicks is a sneaker marketplace concept built to bring price transparency and clarity to a market that offers neither.",
+        },
+        {
+          label: "Problem",
+          value:
+            "Existing resale platforms bury product discovery under clutter and give buyers no signal for what a fair price looks like. Users leave frustrated or leave entirely.",
+        },
+        {
+          label: "Solution",
+          value:
+            "A buyer-first marketplace with price comparison built into the browsing experience, a simplified information architecture, and a clean visual system that gets out of the way.",
+        },
+        {
+          label: "My Role",
+          value:
+            "Lead UI/UX Designer (Market Research, Interviews and Surveys, Personas, Information Architecture, Wireframing, Style Guide, Prototyping, User Testing)",
+        },
+        { label: "Tools", value: "Figma, Adobe Photoshop" },
+      ],
+    },
+    {
+      type: "insightCards",
+      heading: "Research",
+      intro: ["We started with the market, then went to the people shopping in it."],
+      cards: [
+        {
+          title: "Cluttered by Default",
+          detail:
+            "GOAT, Grailed, and Flight Club all treated density as a feature. Finding a specific shoe meant fighting the interface first.",
+        },
+        {
+          title: "No Sense of Fair",
+          detail:
+            "None of the platforms gave buyers a clear read on whether a listing was a good price. Comparison meant opening tabs and doing the math yourself.",
+        },
+        {
+          title: "Trust Was Missing",
+          detail:
+            "Interviews and surveys kept circling the same theme. Buyers didn't feel these platforms were on their side, and that suspicion shaped every interaction.",
+        },
+      ],
+    },
+    {
+      type: "quote",
+      label: "From the Interviews",
+      text: "[pull one real quote from your interview notes here]",
+      attribution: "Interview participant",
+    },
+    {
+      type: "goalChips",
+      heading: "Defining the Product",
+      intro: [
+        "Research shaped four personas and a set of use cases that clarified what buyers actually needed from a marketplace. From there, a data dictionary catalogued every system the platform required, which became the backbone of the information architecture. We showed that architecture to potential users before designing a single screen and revised it based on what they told us.",
+        "From this, PrizeKicks' core goals were set:",
+      ],
+      goals: [
+        { title: "Price Transparency", detail: "Fair price context on every listing" },
+        { title: "Clean Navigation", detail: "Find the shoe without fighting the interface" },
+        { title: "Buyer First", detail: "Hierarchy and features built around the customer" },
+        { title: "Trust Signals", detail: "Reviews and accountability baked in" },
+      ],
+      images: [
+        { src: "/images/projects/prizekicks-personas.png", label: "Add personas" },
+        { src: "/images/projects/prizekicks-ia.png", label: "Add information architecture / data dictionary" },
+      ],
+    },
+    {
+      type: "media",
+      heading: "Prototype",
+      paragraphs: [
+        "The low-fidelity prototype covered the full shopping flow: sign up, home, search and filters, product pages, price comparison, checkout, and confirmation. We ran think-aloud sessions with users, catalogued every point of friction, and fixed them before moving to high fidelity.",
+        "A style guide locked in the visual identity, then the final prototype went through one more round of testing and refinement.",
+      ],
+      images: [
+        { src: "/images/projects/prizekicks-lofi.png", label: "Add lo-fi screens" },
+        { src: "/images/projects/prizekicks-style-guide.png", label: "Add style guide" },
+        { src: "/images/projects/prizekicks-hifi.png", label: "Add hi-fi screens" },
+      ],
+      link: { label: "View Live Demo", url: "#" },
+    },
+    {
+      type: "results",
+      heading: "Results",
+      intro: [],
+      items: [
+        {
+          label: "Buyers Could Actually Compare",
+          detail:
+            "Price context on the product page removed the tab-juggling that defined every other platform.",
+        },
+        {
+          label: "Navigation Stopped Being Work",
+          detail:
+            "Testers moved through core flows without stalling. The second round of testing surfaced tweaks, not blockers.",
+        },
+        {
+          label: "Scoped to What Mattered",
+          detail:
+            "By cutting the marketplace down to the features that differentiated it, the final prototype demonstrated the product's value without pretending to be something it wasn't yet.",
+        },
+      ],
+    },
+    {
+      type: "reflection",
+      heading: "Reflection",
+      intro: ["PrizeKicks was my first full case study, and it changed how I think about the process."],
+      lessons: [
+        {
+          title: "Restraint Is a Feature:",
+          detail:
+            "Our first plan was far bigger than what we could build. Cutting it back to the features that actually mattered made the product sharper. Knowing what to leave out is as much a design skill as knowing what to build.",
+        },
+        {
+          title: "Users Will Surprise You:",
+          detail:
+            "Feedback caught me off guard more than once. I've come to think that's the point. The process exists because you can't predict everything on the first try.",
+        },
+        {
+          title: "Rely and Be Relied On:",
+          detail:
+            "Leading design on a team meant trusting people with parts of the project I cared about. That exchange made the final product better than anything I could have built alone.",
+        },
+      ],
+    },
+  ],
+};
+
+export const caseStudies: Record<string, CaseStudyData> = {
+  fourddo: fourddoCaseStudy,
+  prizekicks: prizekicksCaseStudy,
 };
 
 export const extras = {

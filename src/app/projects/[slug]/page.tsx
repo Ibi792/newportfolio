@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
-import { projects } from "@/lib/content";
-import { FourddoCaseStudy } from "@/components/FourddoCaseStudy";
+import { caseStudies, projects } from "@/lib/content";
+import { CaseStudy } from "@/components/CaseStudy";
 import { ProjectStub } from "@/components/ProjectStub";
 
 export function generateStaticParams() {
@@ -28,8 +28,9 @@ export default async function ProjectPage({
 
   if (!project) notFound();
 
-  if (project.slug === "fourddo") {
-    return <FourddoCaseStudy />;
+  const caseStudy = caseStudies[project.slug];
+  if (caseStudy) {
+    return <CaseStudy project={project} data={caseStudy} />;
   }
 
   return <ProjectStub project={project} />;
