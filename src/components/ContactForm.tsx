@@ -8,7 +8,7 @@ type Status = "idle" | "sending" | "sent" | "error";
 
 const FORMSPREE_ID = process.env.NEXT_PUBLIC_FORMSPREE_ID;
 
-export function ContactForm({ ink }: { ink: string }) {
+export function ContactForm({ ink, accent }: { ink: string; accent: string }) {
   const [status, setStatus] = useState<Status>("idle");
 
   async function handleSubmit(e: FormEvent<HTMLFormElement>) {
@@ -74,14 +74,14 @@ export function ContactForm({ ink }: { ink: string }) {
         whileTap={{ scale: 0.97 }}
         type="submit"
         disabled={status === "sending"}
-        className="sm:col-span-2 w-full max-w-xs rounded-full px-8 py-3 font-display text-base font-bold shadow-sm disabled:opacity-60"
-        style={{ backgroundColor: "#F7DFA0", color: "#1E2A3A" }}
+        className="sm:col-span-2 w-full max-w-xs rounded-full px-8 py-3 font-display text-base font-bold text-white shadow-sm disabled:opacity-60"
+        style={{ backgroundColor: accent }}
       >
         {status === "sending" ? "Sending…" : status === "sent" ? "Sent ✓" : "Submit"}
       </motion.button>
 
       {status === "error" && (
-        <p className="sm:col-span-2 text-sm text-red-200">
+        <p className="sm:col-span-2 text-sm text-red-600">
           Something went wrong — email me directly at {site.email}.
         </p>
       )}

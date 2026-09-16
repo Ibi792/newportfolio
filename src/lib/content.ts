@@ -14,52 +14,86 @@ export const nav = [
   { label: "Extras!", href: "/extras" },
 ];
 
+// Shared neutral canvas used for page bodies, so color reads as an accent
+// (hero bands, headings, buttons, cards) rather than wallpaper. The case
+// study family keeps its own cooler neutral — see `caseStudy` below.
+const paper = "#FAF6EF";
+const paperInk = "#241F1A";
+const footerText = "#F3EFE6";
+
 // Per-page color themes, sampled from the original site. Approximate —
 // tune freely once real brand values / assets are locked in.
+//
+// Shape: each page gets a saturated `hero*` band (top section, first
+// impression) and a neutral `body*` canvas everywhere else, so color reads
+// as an intentional accent rather than a full-bleed backdrop. Footers are
+// a standardized "ink" family: always dark, always the same text color and
+// layout, tinted toward that page's own hue — a consistent rule with
+// intentional variation, rather than unrelated colors per page.
 export const themes = {
   home: {
-    bg: "#DCEEF8",
+    heroBg: "#DCEEF8",
+    heroText: "#1E2A3A",
+    heroAccent: "#D6486B",
+    bodyBg: paper,
+    bodyInk: paperInk,
+    bodyAccent: "#D6486B",
     nav: "#CCE6F5",
-    footer: "#D6486B",
-    footerText: "#FDF1E7",
-    accent: "#D6486B",
-    ink: "#1E2A3A",
+    navInk: "#1E2A3A",
+    footer: "#182A3B",
+    footerText,
     tagline: "Friends Call Me Ibi :D",
   },
   about: {
-    bg: "#4C7C93",
+    heroBg: "#4C7C93",
+    heroText: "#FDF6EC",
+    heroAccent: "#F7DFA0",
+    bodyBg: paper,
+    bodyInk: paperInk,
+    bodyAccent: "#2F6478",
     nav: "#3E6B80",
-    footer: "#D6486B",
-    footerText: "#FDF1E7",
-    accent: "#F7DFA0",
-    ink: "#FDF6EC",
+    navInk: "#FDF6EC",
+    footer: "#132A32",
+    footerText,
     tagline: "Friends Call Me Ibi :P",
   },
   projects: {
-    bg: "#FBE7B0",
+    heroBg: "#FBE7B0",
+    heroText: "#1E2A3A",
+    heroAccent: "#D6486B",
+    bodyBg: paper,
+    bodyInk: paperInk,
+    bodyAccent: "#D6486B",
     nav: "#FBE7B0",
-    footer: "#D6486B",
-    footerText: "#FDF1E7",
-    accent: "#D6486B",
-    ink: "#1E2A3A",
+    navInk: "#1E2A3A",
+    footer: "#2E2417",
+    footerText,
     tagline: "Friends Call Me Ibi :V",
   },
   extras: {
-    bg: "#2E9E77",
+    heroBg: "#2E9E77",
+    heroText: "#FDF6EC",
+    heroAccent: "#F7DFA0",
+    bodyBg: paper,
+    bodyInk: paperInk,
+    bodyAccent: "#1F7A57",
     nav: "#2E9E77",
-    footer: "#3E6B80",
-    footerText: "#FDF6EC",
-    accent: "#F7DFA0",
-    ink: "#FDF6EC",
+    navInk: "#FDF6EC",
+    footer: "#122A20",
+    footerText,
     tagline: "Friends call me ibi :)",
   },
   caseStudy: {
-    bg: "#EEF0FB",
+    heroBg: "#4A47B0",
+    heroText: "#EEF0FB",
+    heroAccent: "#EEF0FB",
+    bodyBg: "#EEF0FB",
+    bodyInk: "#232042",
+    bodyAccent: "#5B57C9",
     nav: "#1B1830",
+    navInk: "#EEF0FB",
     footer: "#1B1830",
-    footerText: "#EEF0FB",
-    accent: "#5B57C9",
-    ink: "#232042",
+    footerText,
     tagline: "Friends Call Me Ibi ↻ ◁ ‖ ▷ ↺",
   },
 } as const;
@@ -79,10 +113,11 @@ export const hero = {
     ],
   ],
   tagline: "Designing Experiences with intention, honesty, and a touch of whimsy",
-  cta: [
-    { label: "About", href: "/about", color: "#F7DFA0" },
-    { label: "Projects", href: "/projects", color: "#D6486B" },
-    { label: "Contact", href: "/extras#contact", color: "#8FCBEA" },
+  portraitBadge: "UCF Senior · Digital Media",
+  primaryCta: { label: "View My Work", href: "/projects" },
+  secondaryCta: [
+    { label: "About", href: "/about" },
+    { label: "Contact", href: "/extras#contact" },
   ],
 };
 
@@ -116,17 +151,13 @@ export const about = {
   ],
   skillsHeading: "Skills, Expertise & Certifications",
   tools: ["Figma", "Premiere Pro", "JavaScript", "CSS3", "Photoshop", "After Effects", "HTML5", "GitHub"],
-  skills: [
-    "User Research",
-    "Design Documentation",
-    "Wireframes",
-    "Communication",
-    "Collaboration",
-    "Figma Essential Training Certification (LinkedIn)",
-    "UX Foundations: Multidevice Design (LinkedIn)",
-    "React Native Essential Training (LinkedIn)",
-    "Foundations of User Experience (UX) Design (Google)",
-    "Start the UX Design Process: Empathize, Define, and Ideate (Google)",
+  coreSkills: ["User Research", "Design Documentation", "Wireframes", "Communication", "Collaboration"],
+  certifications: [
+    { name: "Figma Essential Training Certification", source: "LinkedIn" },
+    { name: "UX Foundations: Multidevice Design", source: "LinkedIn" },
+    { name: "React Native Essential Training", source: "LinkedIn" },
+    { name: "Foundations of User Experience (UX) Design", source: "Google" },
+    { name: "Start the UX Design Process: Empathize, Define, and Ideate", source: "Google" },
   ],
 };
 

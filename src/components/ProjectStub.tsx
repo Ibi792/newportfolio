@@ -2,13 +2,14 @@ import { Nav } from "@/components/Nav";
 import { Footer } from "@/components/Footer";
 import { Reveal } from "@/components/Reveal";
 import { AssetImage } from "@/components/AssetImage";
+import { TiltedFrame } from "@/components/TiltedFrame";
 import { themes, type Project } from "@/lib/content";
 
 export function ProjectStub({ project }: { project: Project }) {
   const theme = themes.caseStudy;
 
   return (
-    <div style={{ backgroundColor: theme.bg, color: theme.ink }} className="min-h-screen">
+    <div style={{ backgroundColor: theme.bodyBg, color: theme.bodyInk }} className="min-h-screen">
       <Nav bg={project.color} ink={project.textColor} />
 
       <section style={{ backgroundColor: project.color, color: project.textColor }} className="px-6 py-16 sm:px-10">
@@ -21,14 +22,16 @@ export function ProjectStub({ project }: { project: Project }) {
             <p className="mt-4 max-w-lg font-mono text-base">{project.blurb}</p>
           </Reveal>
 
-          <Reveal delay={0.1} className="mt-10 overflow-hidden rounded-xl border border-black/10">
-            <AssetImage
-              src={project.image}
-              alt={project.title}
-              color={project.textColor}
-              className="h-80 w-full object-cover sm:h-[420px]"
-              label={`Add ${project.title} screenshot`}
-            />
+          <Reveal delay={0.1}>
+            <TiltedFrame rotate={-2} backdrop={`${project.textColor}33`} className="mt-10">
+              <AssetImage
+                src={project.image}
+                alt={project.title}
+                color={project.textColor}
+                className="h-80 w-full object-cover sm:h-[420px]"
+                label={`Add ${project.title} screenshot`}
+              />
+            </TiltedFrame>
           </Reveal>
 
           {project.externalUrl && (

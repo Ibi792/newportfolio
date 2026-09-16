@@ -8,11 +8,15 @@ export function CirclePill({
   href,
   color,
   children,
+  size = "md",
 }: {
   href: string;
   color: string;
   children: ReactNode;
+  size?: "md" | "lg";
 }) {
+  const dimensions = size === "lg" ? "h-40 w-40 text-xl sm:h-44 sm:w-44" : "h-24 w-24 text-sm sm:h-28 sm:w-28";
+
   return (
     <motion.div
       whileHover={{ scale: 1.06, y: -4 }}
@@ -21,7 +25,7 @@ export function CirclePill({
     >
       <Link
         href={href}
-        className="flex h-32 w-32 items-center justify-center rounded-full text-lg font-bold shadow-sm sm:h-36 sm:w-36"
+        className={`flex items-center justify-center rounded-full font-bold shadow-sm ${dimensions}`}
         style={{ backgroundColor: color, color: "#1E2A3A" }}
       >
         {children}
