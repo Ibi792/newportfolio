@@ -182,12 +182,12 @@ export const projects: Project[] = [
   {
     slug: "goblin-gizmos",
     title: "Goblin Gizmos",
-    tags: ["UX Design", "Branding"],
+    tags: ["UX Design", "Capstone"],
     blurb: "Building a community platform where any collection belongs",
-    color: "#A8CF45",
-    textColor: "#2B3A1F",
+    color: "#8FE0C9",
+    textColor: "#14231F",
     image: "/images/projects/goblin-gizmos.png",
-    hasFullCaseStudy: false,
+    hasFullCaseStudy: true,
   },
   {
     slug: "prizekicks",
@@ -641,9 +641,152 @@ export const prizekicksCaseStudy: CaseStudyData = {
   ],
 };
 
+export const goblinGizmosCaseStudy: CaseStudyData = {
+  eyebrow: "A Digital Shelf for Every Kind of Collector",
+  title: "Building a community platform where any collection belongs",
+  meta: [
+    { label: "Program", value: "UCF Capstone Project" },
+    { label: "Role", value: "Design, UI, and Branding Lead" },
+    { label: "Team", value: "Team of 5" },
+    { label: "Timeline", value: "Aug 2025 – May 2026" },
+  ],
+  heroImage: "/images/projects/goblin-gizmos-hero.png",
+  // Their own documented brand: teal + mint primaries, near-black
+  // secondary, off-white background. Hero runs the deeper teal; the
+  // lighter mint is the teaser card's color (see the projects array).
+  heroBg: "#1E7F72",
+  heroText: "#F4FBF8",
+  accent: "#146B60",
+  footer: "#0C1F1B",
+  sections: [
+    {
+      type: "intro",
+      heading: "Context",
+      paragraphs: [
+        "The team didn't have to go far to find inspiration. We just looked at our own shelves. Vinyls, figurines, business cards, blind boxes, books. Each of us collects something, and each of us had the same quiet frustration: there was nowhere online to show it all off the way we wanted to. The platforms we found were too limited, too cluttered, or looked like they hadn't been touched since 2009.",
+        "We wanted something warmer. Something like Letterboxd, but for everything. And we didn't want to stop at a prototype. Over two semesters, a five-person team took Goblin Gizmos from a research question to a working site with real accounts, real uploads, and a real database. I led design, UI, and branding, and wrote front-end code alongside the team.",
+      ],
+    },
+    {
+      type: "overview",
+      heading: "Overview",
+      rows: [
+        { label: "Project Type", value: "Capstone / Product Design and Full-Stack Build" },
+        {
+          label: "Problem",
+          value:
+            "Collector platforms are dated, siloed to one niche, and often paywalled. Collectors had databases to maintain, not places to connect.",
+        },
+        {
+          label: "Solution",
+          value:
+            "A social, community-first platform with a two-layer collection system and a bounty board for trading. Designed in Figma, built on PHP and MySQL, validated and responsive.",
+        },
+        {
+          label: "My Role",
+          value:
+            "Design, UI, and Branding Lead (Competitive Analysis, Interviews, Use Cases, Information Architecture, Brand Identity, Prototyping, User Testing, Front-End Development)",
+        },
+        { label: "Tools", value: "Figma, Adobe Photoshop, HTML, CSS, JavaScript, PHP, MySQL, GitHub" },
+      ],
+    },
+    {
+      type: "intro",
+      heading: "What We Found",
+      paragraphs: [
+        "We each took a set of existing collector platforms and worked through them. Colnect, CollectorsCorner, Kolekto, MyFigureCollection, CatalogIt. The pattern was consistent: outdated interfaces, cluttered navigation, one niche per site, and paywalls that locked out casual users before they'd gotten started.",
+        "Interviews and surveys with collectors across different hobbies confirmed the gap. Nobody wanted another spreadsheet. They wanted something quick to update, easy to browse, and genuinely social. A place to connect over the things they love.",
+      ],
+    },
+    {
+      type: "media",
+      heading: "The Decision That Shaped Everything",
+      paragraphs: [
+        "The structural choice we were most deliberate about was the two-layer collection system. A user has collections (say, books), and within each collection they have individual items (a first edition, a worn paperback with notes in the margins). It sounds simple, but it solved the core problem every competitor had: how do you let one person hold vinyls and figurines and books on the same shelf without the organization collapsing? Each trinket gets room to express its own history. The broader structure stays clean. Nearly every downstream decision, from the data dictionary to the database schema, traced back to this.",
+      ],
+      images: [
+        { src: "/images/projects/goblin-gizmos-use-cases.png", label: "Add use cases" },
+        { src: "/images/projects/goblin-gizmos-ia.png", label: "Add information architecture" },
+        { src: "/images/projects/goblin-gizmos-data-dictionary.png", label: "Add data dictionary" },
+      ],
+    },
+    {
+      type: "media",
+      heading: "Brand",
+      paragraphs: [
+        "Landing on a direction was one of our earliest struggles. Once Goblin Gizmos clicked as the name, everything fell into place. Goblins gave us mischief, treasure obsession, and community. I ran with it.",
+        "Teal and mint primaries, a near-black secondary, off-white background. Clean and modern without being sterile, with just enough green to feel fantastical. Tilt Warp for headers (bold and a little chaotic in the best way), Joti One for the logo, Rubik for body text. Our design artist built the mascot in three variations for flexibility across contexts.",
+      ],
+      images: [
+        { src: "/images/projects/goblin-gizmos-style-guide.png", label: "Add style guide" },
+        { src: "/images/projects/goblin-gizmos-mascot.png", label: "Add mascot" },
+        { src: "/images/projects/goblin-gizmos-palette.png", label: "Add palette" },
+      ],
+    },
+    {
+      type: "media",
+      heading: "Design",
+      paragraphs: [
+        "The lo-fi prototype covered the primary journeys: sign-up, home, category browsing, adding a trinket, the community tab, accessibility settings. Keeping it rough was intentional. It made it easier to throw ideas away.",
+        "A round of user feedback on the lo-fi surfaced friction we hadn't anticipated. Button placement moved, calls to action got clearer, and the category browser got a more prominent path from the home page. Then the high-fidelity prototype brought the full identity to every screen: community feed, category browser, trinket pages, profiles, and the bounty board where users post items to sell or trade.",
+      ],
+      images: [
+        { src: "/images/projects/goblin-gizmos-lofi.png", label: "Add lo-fi screens" },
+        { src: "/images/projects/goblin-gizmos-feedback.png", label: "Add feedback notes" },
+        { src: "/images/projects/goblin-gizmos-hifi.png", label: "Add hi-fi screens" },
+      ],
+    },
+    {
+      type: "media",
+      heading: "Build",
+      paragraphs: [
+        "This is where Goblin Gizmos separates from a design exercise.",
+        "The stack was HTML, CSS, JavaScript, PHP, and MySQL. PHP handles server-side logic, encrypted passwords, and differentiated access levels. MySQL stores everything from profiles and collections to posts and images. GitHub let five people contribute without stepping on each other.",
+        "Responsiveness runs on three breakpoints: mobile under 600px, tablet from 600px to 1000px, desktop above. On mobile, vertical menus replace dropdowns, buttons scale up for touch, and content is prioritized to cut clutter. Accessibility carried through from design into code: contrast, alt text support, and in-app controls for font size and color scheme. The site passed W3C Markup Validation.",
+        "The design held up in code. That was the point.",
+      ],
+      images: [
+        { src: "/images/projects/goblin-gizmos-stack.png", label: "Add stack diagram" },
+        { src: "/images/projects/goblin-gizmos-responsive.png", label: "Add responsive screens" },
+      ],
+      link: { label: "View Live Site", url: "#" },
+    },
+    {
+      type: "reflection",
+      heading: "Reflection",
+      intro: [
+        "Goblin Gizmos was the most collaborative and most creatively demanding thing I've worked on, and most of what it taught me was about the parts of design that don't show up on a screen.",
+      ],
+      lessons: [
+        {
+          title: "The Documents Are the Design:",
+          detail:
+            "I underestimated how much of the work lives in the documents. The use cases, the data dictionary, the information architecture. These weren't formalities. They were the scaffolding that held the design together, and when we skipped a step we felt it later in the build.",
+        },
+        {
+          title: "Identity Is a North Star:",
+          detail:
+            "We had a concept we believed in but couldn't agree on how it should look, and once we committed to the goblin direction, everything accelerated. A strong visual identity is a creative north star, and you lose a lot of time without one.",
+        },
+        {
+          title: "Design for the Edges:",
+          detail:
+            "The testers who challenged our assumptions most were the ones we almost didn't include: the accessibility-conscious user, the person adding a trinket from their phone, the newcomer who doesn't know what a bounty is. Designing for them made the core experience better for everyone.",
+        },
+        {
+          title: "It Was a Democracy:",
+          detail:
+            "I didn't always get to set the tone, and that was fine. I'm as proud of how we built it as what we built.",
+        },
+      ],
+    },
+  ],
+};
+
 export const caseStudies: Record<string, CaseStudyData> = {
   fourddo: fourddoCaseStudy,
   prizekicks: prizekicksCaseStudy,
+  "goblin-gizmos": goblinGizmosCaseStudy,
 };
 
 export const extras = {
