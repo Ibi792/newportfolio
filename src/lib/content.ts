@@ -5,7 +5,6 @@ export const site = {
   phone: "407-437-3838",
   linkedin: "https://www.linkedin.com/",
   instagram: "https://www.instagram.com/",
-  resumeUrl: "/resume.pdf",
 };
 
 export const nav = [
@@ -108,7 +107,7 @@ export const hero = {
   tagline: "Four shipped case studies with the research and the rethinks left in.",
   metaTag: "UX & Product Design · Orlando, FL",
   primaryCta: { label: "The Work", href: "/projects" },
-  secondaryCta: { label: "Read CV", href: "/resume.pdf" },
+  secondaryCta: { label: "About", href: "/about" },
   tip: "Psst, click the card :D",
   card: {
     name: "IBI",

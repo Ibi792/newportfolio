@@ -78,11 +78,6 @@ way. Set it in `.env.local`:
 NEXT_PUBLIC_FORMSPREE_ID=your-form-id
 ```
 
-## Resume
-
-The footer's "Read CV" link points at `/public/resume.pdf`. Drop your
-resume there with that exact filename and the link will work.
-
 ## Deploying
 
 This is a stock Next.js App Router project — deploys to

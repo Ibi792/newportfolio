@@ -21,12 +21,6 @@ export function Footer({
             </a>
           </div>
           <div>
-            <p className="font-display text-sm font-bold uppercase tracking-wide">Read CV</p>
-            <a href={site.resumeUrl} className="underline-hover text-sm">
-              Here
-            </a>
-          </div>
-          <div>
             <p className="font-display text-sm font-bold uppercase tracking-wide">Follow Me</p>
             <div className="mt-1 flex gap-3">
               <Link href={site.linkedin} aria-label="LinkedIn" className="opacity-90 transition hover:opacity-100">
