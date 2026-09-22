@@ -7,7 +7,7 @@ import { TagPills } from "@/components/TagPills";
 import { SparkleIcon } from "@/components/SparkleIcon";
 import { about, themes } from "@/lib/content";
 
-export const metadata: Metadata = { title: "About — Isaac Isaac" };
+export const metadata: Metadata = { title: "About · Isaac Isaac" };
 
 export default function AboutPage() {
   const theme = themes.about;

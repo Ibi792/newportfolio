@@ -7,7 +7,7 @@ import { ContactForm } from "@/components/ContactForm";
 import { SparkleIcon } from "@/components/SparkleIcon";
 import { extras, site, themes } from "@/lib/content";
 
-export const metadata: Metadata = { title: "Extras — Isaac Isaac" };
+export const metadata: Metadata = { title: "Extras · Isaac Isaac" };
 
 export default function ExtrasPage() {
   const theme = themes.extras;

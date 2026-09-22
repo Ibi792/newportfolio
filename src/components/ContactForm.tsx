@@ -82,7 +82,7 @@ export function ContactForm({ ink, accent }: { ink: string; accent: string }) {
 
       {status === "error" && (
         <p className="sm:col-span-2 text-sm text-red-600">
-          Something went wrong — email me directly at {site.email}.
+          Something went wrong. Email me directly at {site.email}.
         </p>
       )}
     </form>

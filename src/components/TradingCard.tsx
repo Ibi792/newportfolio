@@ -51,11 +51,11 @@ export function TradingCard() {
         {/* portrait */}
         <div className="mt-3 overflow-hidden rounded-lg border border-black/10">
           <AssetImage
-            src="/images/portrait.jpg"
+            src="/images/portrait-card.jpg"
             alt={site.name}
             color="#4A47B0"
             className="aspect-[16/10] w-full object-cover"
-            label="Add /public/images/portrait.jpg — the park photo, cut out on the holo"
+            label="Add /public/images/portrait-card.jpg (the fun photo, used as-is)"
           />
         </div>
 

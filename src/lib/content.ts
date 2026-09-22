@@ -118,7 +118,7 @@ export const hero = {
       { label: "Type · Product", color: "#4A47B0" },
       { label: "Motion", color: "#1E7F72" },
     ],
-    classYear: "UCF '27",
+    classYear: "UCF '26",
     portraitBadge: "Open to Work",
     moves: [
       {
@@ -455,7 +455,7 @@ export const fourddoCaseStudy: CaseStudyData = {
         {
           label: "Centralized Access",
           detail:
-            "For the first time, fellows had a single destination for curriculum, deliverables, resources, and program communication — eliminating the friction of navigating a 10-week program through scattered emails and shared documents.",
+            "For the first time, fellows had a single destination for curriculum, deliverables, resources, and program communication, eliminating the friction of navigating a 10-week program through scattered emails and shared documents.",
         },
         {
           label: "Program Clarity",

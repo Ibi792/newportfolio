@@ -5,7 +5,7 @@ import { Reveal, RevealGroup, RevealItem } from "@/components/Reveal";
 import { ProjectCard } from "@/components/ProjectCard";
 import { projects, themes } from "@/lib/content";
 
-export const metadata: Metadata = { title: "Projects — Isaac Isaac" };
+export const metadata: Metadata = { title: "Projects · Isaac Isaac" };
 
 export default function ProjectsPage() {
   const theme = themes.projects;
