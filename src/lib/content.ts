@@ -963,11 +963,18 @@ export const extras = {
   motion: {
     heading: "Things in Motion",
     subheading: "Motion design and animation - made in After Effects",
-    // Real clips/thumbnails to be dropped into /public/images/motion/
-    items: Array.from({ length: 9 }).map((_, i) => ({
-      image: `/images/motion/placeholder-${i + 1}.png`,
-      alt: `Motion design piece ${i + 1}`,
-    })),
+    items: [
+      { video: "/images/motion/birdworm.mp4", alt: "Bird and worm motion piece" },
+      { video: "/images/motion/birbworm2.mp4", alt: "Bird and worm motion piece, second pass" },
+      { video: "/images/motion/kuroskai1.mp4", alt: "Kurosaki motion piece" },
+      { video: "/images/motion/kurosaki2.mp4", alt: "Kurosaki motion piece, second pass" },
+      { video: "/images/motion/ramen.mp4", alt: "Ramen motion piece" },
+      { video: "/images/motion/graph.mp4", alt: "Graph motion piece" },
+      { video: "/images/motion/miseducation.mp4", alt: "Miseducation motion piece" },
+      { video: "/images/motion/pizazz.mp4", alt: "Pizazz motion piece" },
+      { video: "/images/motion/bum.mp4", alt: "Bum motion piece" },
+      { video: "/images/motion/ppp.mp4", alt: "PPP motion piece" },
+    ],
   },
   contact: {
     heading: "Contact",

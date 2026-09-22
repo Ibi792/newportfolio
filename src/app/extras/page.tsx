@@ -2,7 +2,6 @@ import type { Metadata } from "next";
 import { Nav } from "@/components/Nav";
 import { Footer } from "@/components/Footer";
 import { Reveal, RevealGroup, RevealItem } from "@/components/Reveal";
-import { AssetImage } from "@/components/AssetImage";
 import { ContactForm } from "@/components/ContactForm";
 import { SparkleIcon } from "@/components/SparkleIcon";
 import { extras, site, themes } from "@/lib/content";
@@ -37,12 +36,14 @@ export default function ExtrasPage() {
           <RevealGroup className="mt-8 grid grid-cols-1 gap-4 sm:grid-cols-2 md:grid-cols-3" stagger={0.05}>
             {extras.motion.items.map((item, i) => (
               <RevealItem key={i}>
-                <AssetImage
-                  src={item.image}
-                  alt={item.alt}
-                  color={theme.bodyAccent}
-                  className="aspect-video w-full rounded-lg object-cover"
-                  label={`Add motion clip ${i + 1}`}
+                <video
+                  src={item.video}
+                  aria-label={item.alt}
+                  className="aspect-video w-full rounded-lg bg-black/5 object-cover"
+                  autoPlay
+                  loop
+                  muted
+                  playsInline
                 />
               </RevealItem>
             ))}
