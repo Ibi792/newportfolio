@@ -614,7 +614,7 @@ export const prizekicksCaseStudy: CaseStudyData = {
         { src: "/images/projects/prizekicks-style-guide.png", label: "Add style guide" },
         { src: "/images/projects/prizekicks-hifi.png", label: "Add hi-fi screens" },
       ],
-      link: { label: "View Live Demo", url: "#" },
+      link: { label: "View Live Demo", url: "https://prizekicks-demo.netlify.app/" },
     },
     {
       type: "results",
@@ -771,7 +771,10 @@ export const goblinGizmosCaseStudy: CaseStudyData = {
         { src: "/images/projects/goblin-gizmos-stack.png", label: "Add stack diagram" },
         { src: "/images/projects/goblin-gizmos-responsive.png", label: "Add responsive screens" },
       ],
-      link: { label: "View Live Site", url: "#" },
+      link: {
+        label: "View in Figma",
+        url: "https://www.figma.com/design/46bklatue2LniKF7D1sEWA/Goblin-Gizmos---HiFi-Desktop?node-id=0-1&t=LguNwJYx7JhQeLfb-1",
+      },
     },
     {
       type: "reflection",
@@ -924,12 +927,12 @@ export const lofistoryCaseStudy: CaseStudyData = {
       type: "media",
       heading: "Build",
       paragraphs: [
-        "A design about restraint deserved a build to match. The site runs on a small set of React components: a card, a card grid, a header, the ambient background layer, and [confirm: React Router] handling the three routes. The Artist page calls the Spotify Web API on load and renders the results into cards, so album art, artist names, and links stay accurate on their own. [Confirm: users can open artists directly in Spotify.] The looping gif is optimized so the atmosphere doesn't cost load time.",
+        "A design about restraint deserved a build to match. The site runs on a small set of React components: a card, a card grid, a header, the ambient background layer, and React Router handling the three routes. The Artist page calls the Spotify Web API on load and renders the results into cards, so album art, artist names, and links stay accurate on their own, with a direct button on every card to open the track in Spotify. The looping gif is optimized so the atmosphere doesn't cost load time.",
         "Wiring up the API was the part that turned this from a mockup into a product. Handling auth, structuring the response, and rendering it inside cards I'd designed without it in mind forced a few layout decisions I wouldn't have made on paper. The album art became the visual anchor of every artist card, which was better than what I had drawn.",
         "Building it myself meant the details I cared about in Figma survived contact with a browser. The card spacing, the transparency over the background, the way type sits against the grain. Those get lost in handoff, and there was no handoff.",
       ],
       images: [{ src: "/images/projects/lofistory-responsive.png", label: "Add responsive screens" }],
-      link: { label: "View Live Site", url: "#" },
+      link: { label: "View Live Site", url: "https://lofistory.netlify.app/" },
     },
     {
       type: "reflection",
