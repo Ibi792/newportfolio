@@ -3,8 +3,8 @@ import { AssetImage } from "@/components/AssetImage";
 
 /**
  * A fanned hand-of-cards photo stack. Positions are derived from index so
- * any number of photos fans out symmetrically with the middle one on top
- * — no per-photo tuning needed when photos are added or removed.
+ * any number of photos fans out symmetrically with the middle one on top,
+ * no per-photo tuning needed when photos are added or removed.
  */
 export function CardStack({
   photos,
@@ -25,7 +25,7 @@ export function CardStack({
             className="fan-card absolute inset-0 hover:z-50"
             style={
               {
-                "--fan-transform": `translateX(${offset * 34}px) rotate(${offset * 6}deg)`,
+                "--fan-transform": `translateX(${offset * 54}px) rotate(${offset * 8}deg)`,
                 zIndex: Math.round(photos.length - Math.abs(offset)),
               } as CSSProperties
             }
