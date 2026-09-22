@@ -77,7 +77,8 @@ export default function AboutPage() {
       <section style={{ backgroundColor: theme.bodyBg, color: theme.bodyInk }} className="px-6 py-16 sm:px-10">
         <div className="mx-auto max-w-6xl">
           <Reveal>
-            <h2 className="font-display text-2xl font-bold sm:text-3xl" style={{ color: theme.bodyAccent }}>
+            <h2 className="flex items-center gap-3 font-display text-2xl font-bold sm:text-3xl" style={{ color: theme.bodyAccent }}>
+              <SparkleIcon color={theme.heroAccent} />
               {about.skillsHeading}
             </h2>
           </Reveal>
@@ -141,6 +142,21 @@ export default function AboutPage() {
 
       <Footer bg={theme.footer} text={theme.footerText} tagline={theme.tagline} />
     </div>
+  );
+}
+
+function SparkleIcon({ color }: { color: string }) {
+  return (
+    <svg
+      width="30"
+      height="30"
+      viewBox="0 0 24 24"
+      fill={color}
+      aria-hidden="true"
+      className="-rotate-6 shrink-0"
+    >
+      <path d="M12 0c0 6-6 12-12 12 6 0 12 6 12 12 0-6 6-12 12-12-6 0-12-6-12-12Z" />
+    </svg>
   );
 }
 
