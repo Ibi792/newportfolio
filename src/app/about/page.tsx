@@ -16,7 +16,7 @@ export default function AboutPage() {
       <Nav bg={theme.nav} ink={theme.navInk} />
 
       <section style={{ backgroundColor: theme.heroBg, color: theme.heroText }}>
-        <div className="mx-auto grid max-w-6xl gap-12 px-6 py-16 sm:px-10 md:grid-cols-2 md:py-20">
+        <div className="mx-auto grid max-w-6xl gap-12 px-6 py-16 sm:px-10 md:grid-cols-2 md:gap-20 md:py-20">
           <Reveal>
             <h1 className="font-display text-5xl font-black uppercase tracking-tight sm:text-6xl" style={{ color: theme.heroAccent }}>
               {about.heading}
