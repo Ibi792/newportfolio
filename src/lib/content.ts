@@ -146,24 +146,23 @@ export const hero = {
 export const about = {
   heading: "About Me",
   bio: [
-    "Hi, I'm Isaac, a current senior at University of Central Florida studying Digital Media with a focus on Web & Social Platforms. I've spent the last few years honing skills in various aspects of the craft, but I've taken an interest above all in User Experience Design.",
-    "I want to guide and facilitate the beautiful communication that happens between the everyday consumer and a good product.",
+    "Hi, I'm Isaac. I design with intention, build things with my own hands, and try to leave a little whimsy in whatever I ship. I'm studying Digital Media at the University of Central Florida, and the habits that actually define my process came from shipping real work: talking to strangers before I let myself sketch a single wireframe, and building my own frontend so nothing gets lost between the design file and the browser.",
   ],
   workList: {
-    heading: "I Work Primarily to",
+    heading: "How I Work",
     items: [
-      "Create website wireframes",
-      "Research User Behavior",
-      "Create Design Documentation",
-      "Develop Frontend",
+      "Running user research",
+      "Wireframing & prototyping",
+      "Writing design docs",
+      "Building the frontend",
     ],
   },
   interestsList: {
-    heading: "Other Interest",
+    heading: "Other Interests",
     items: [
-      "Video editing & Motion Design",
-      "I spend most of my time in cafes or fantasy novels",
-      "I love movies, games, just stories in all forms :)",
+      "Video editing & motion design",
+      "Cafés and fantasy novels",
+      "Movies, games, any story I can get lost in :)",
     ],
   },
   links: [
