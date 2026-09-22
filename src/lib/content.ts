@@ -171,6 +171,10 @@ export const about = {
     { label: "Instagram", href: "https://www.instagram.com/" },
     { label: "Mail", href: "mailto:isaacbisaac0@gmail.com" },
   ],
+  // Which photo files feed the fanned card stack, in order. Add/remove
+  // numbers here to change how many cards are in the fan — the stack
+  // fans them out automatically, no layout tuning needed.
+  stackPhotoIds: [1, 2, 3, 4, 5],
   skillsHeading: "Skills, Expertise & Certifications",
   tools: ["Figma", "Premiere Pro", "JavaScript", "CSS3", "Photoshop", "After Effects", "HTML5", "GitHub"],
   coreSkills: ["User Research", "Design Documentation", "Wireframes", "Communication", "Collaboration"],

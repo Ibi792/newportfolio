@@ -2,8 +2,7 @@ import type { Metadata } from "next";
 import { Nav } from "@/components/Nav";
 import { Footer } from "@/components/Footer";
 import { Reveal, RevealGroup, RevealItem } from "@/components/Reveal";
-import { AssetImage } from "@/components/AssetImage";
-import { TiltedFrame } from "@/components/TiltedFrame";
+import { CardStack } from "@/components/CardStack";
 import { about, themes } from "@/lib/content";
 
 export const metadata: Metadata = { title: "About — Isaac Isaac" };
@@ -65,21 +64,16 @@ export default function AboutPage() {
             </div>
           </Reveal>
 
-          <RevealGroup className="grid grid-cols-2 gap-6" stagger={0.1}>
-            {[1, 2, 3, 4].map((n) => (
-              <RevealItem key={n}>
-                <TiltedFrame rotate={n % 2 === 0 ? 2 : -2} backdrop={`${theme.heroAccent}33`} className="aspect-square">
-                  <AssetImage
-                    src={`/images/about/photo-${n}.jpg`}
-                    alt={`Isaac photo ${n}`}
-                    color={theme.heroAccent}
-                    className="h-full w-full object-cover"
-                    label={`Add /public/images/about/photo-${n}.jpg`}
-                  />
-                </TiltedFrame>
-              </RevealItem>
-            ))}
-          </RevealGroup>
+          <Reveal delay={0.1}>
+            <CardStack
+              accent={theme.heroAccent}
+              photos={about.stackPhotoIds.map((n) => ({
+                src: `/images/about/photo-${n}.jpg`,
+                alt: `Isaac photo ${n}`,
+                label: `Add /public/images/about/photo-${n}.jpg`,
+              }))}
+            />
+          </Reveal>
         </div>
       </section>
 

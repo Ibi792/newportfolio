@@ -61,3 +61,16 @@ body {
   transform: scaleX(1);
   transform-origin: left;
 }
+
+/* Fanned photo stack (CardStack.tsx). The base fan position is a single
+   transform matrix per card, so the hover reset has to override that same
+   `transform` property directly here — Tailwind's separate translate-x-0!/
+   rotate-0! utilities operate on the distinct CSS `translate`/`rotate`
+   properties and never touch a transform set this way. */
+.fan-card {
+  transform: var(--fan-transform, none);
+  transition: transform 0.3s cubic-bezier(0.22, 1, 0.36, 1);
+}
+.fan-card:hover {
+  transform: scale(1.12);
+}

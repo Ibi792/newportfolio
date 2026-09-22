@@ -14,7 +14,8 @@ export function Nav({ bg, ink }: { bg: string; ink: string }) {
             transition={{ type: "spring", stiffness: 300, damping: 15 }}
             className="inline-block"
           >
-            🎬
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img src="/images/logo.png" alt="" className="h-9 w-9 object-contain" />
           </motion.span>
           {site.name}
           <span className="hidden font-sans text-sm font-normal opacity-70 sm:inline">

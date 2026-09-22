@@ -42,7 +42,9 @@ path and it starts rendering automatically, no code changes needed.
 Placeholder paths currently expected:
 
 - `/public/images/portrait.jpg` — homepage photo
-- `/public/images/about/photo-1.jpg` … `photo-4.jpg` — About page grid
+- `/public/images/about/photo-1.jpg` … `photo-5.jpg` — the About page's
+  fanned card stack (`about.stackPhotoIds` in `content.ts` controls how
+  many cards are in the fan; add/remove numbers there to match)
 - `/public/images/projects/<slug>.png` — project card thumbnails (used on
   Home + Projects + each project's own page)
 - `/public/images/projects/four-stories-hero.png`,
@@ -54,6 +56,9 @@ Placeholder paths currently expected:
 Export screenshots at 2x for retina displays. Large motion clips are
 better hosted as `.mp4`/`.webm` than animated GIFs — ask if you want a
 `<video>`-based version of the motion grid instead of stills.
+
+The nav wordmark is a real committed asset at `/public/images/logo.png`
+(not an `AssetImage` placeholder) — replace that file directly to change it.
 
 ## Fonts
 
