@@ -815,9 +815,9 @@ export const lofistoryCaseStudy: CaseStudyData = {
     { label: "Year", value: "2025" },
   ],
   heroImage: "/images/projects/lofistory-hero.png",
-  // Placeholder hero — the palette itself is flagged [Confirm] within the
-  // content below (amber/purple/teal), so keeping the existing warm coral
-  // rather than guessing. Update once the real palette is locked.
+  // The real brand palette (coral/blue/green, see lofistory-palette.png)
+  // now confirmed in the copy below, but the hero band itself still uses
+  // this placeholder coral rather than the full multi-color scheme.
   heroBg: "#F0664F",
   heroText: "#F7DFA0",
   accent: "#C24A32",
@@ -906,7 +906,7 @@ export const lofistoryCaseStudy: CaseStudyData = {
         {
           title: "A Palette Pulled From the Art",
           detail:
-            "[Confirm: warm ambers, muted purples, and soft teals sampled directly from iconic lo-fi visuals.] Nothing pure white, nothing pure black. Everything sits in the same warm midtone range the genre lives in.",
+            "Coral, cornflower blue, and sage green, sampled straight from the live screens, with a pale cream for type and a deep plum instead of true black. Nothing pure white, nothing pure black. Everything stays soft enough to feel handmade.",
         },
         {
           title: "Real Artists, Not Screenshots",
