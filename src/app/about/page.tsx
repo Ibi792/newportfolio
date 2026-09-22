@@ -4,6 +4,7 @@ import { Footer } from "@/components/Footer";
 import { Reveal, RevealGroup, RevealItem } from "@/components/Reveal";
 import { CardStack } from "@/components/CardStack";
 import { TagPills } from "@/components/TagPills";
+import { SparkleIcon } from "@/components/SparkleIcon";
 import { about, themes } from "@/lib/content";
 
 export const metadata: Metadata = { title: "About — Isaac Isaac" };
@@ -142,21 +143,6 @@ export default function AboutPage() {
 
       <Footer bg={theme.footer} text={theme.footerText} tagline={theme.tagline} />
     </div>
-  );
-}
-
-function SparkleIcon({ color }: { color: string }) {
-  return (
-    <svg
-      width="30"
-      height="30"
-      viewBox="0 0 24 24"
-      fill={color}
-      aria-hidden="true"
-      className="-rotate-6 shrink-0"
-    >
-      <path d="M12 0c0 6-6 12-12 12 6 0 12 6 12 12 0-6 6-12 12-12-6 0-12-6-12-12Z" />
-    </svg>
   );
 }
 
