@@ -3,6 +3,7 @@ import { Nav } from "@/components/Nav";
 import { Footer } from "@/components/Footer";
 import { Reveal, RevealGroup, RevealItem } from "@/components/Reveal";
 import { CardStack } from "@/components/CardStack";
+import { TagPills } from "@/components/TagPills";
 import { about, themes } from "@/lib/content";
 
 export const metadata: Metadata = { title: "About — Isaac Isaac" };
@@ -34,22 +35,18 @@ export default function AboutPage() {
               <h2 className="font-display text-xl font-bold" style={{ color: theme.heroAccent }}>
                 {about.workList.heading}
               </h2>
-              <ul className="mt-2 list-disc space-y-1 pl-5 font-mono text-sm">
-                {about.workList.items.map((item) => (
-                  <li key={item}>{item}</li>
-                ))}
-              </ul>
+              <div className="mt-3">
+                <TagPills tags={about.workList.items} color={theme.heroAccent} />
+              </div>
             </div>
 
             <div className="mt-6">
               <h2 className="font-display text-xl font-bold" style={{ color: theme.heroAccent }}>
                 {about.interestsList.heading}
               </h2>
-              <ul className="mt-2 list-disc space-y-1 pl-5 font-mono text-sm">
-                {about.interestsList.items.map((item) => (
-                  <li key={item}>{item}</li>
-                ))}
-              </ul>
+              <div className="mt-3">
+                <TagPills tags={about.interestsList.items} color={theme.heroAccent} />
+              </div>
             </div>
 
             <div className="mt-6 flex gap-2 font-display text-sm font-bold underline">
