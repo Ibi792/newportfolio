@@ -585,12 +585,6 @@ export const prizekicksCaseStudy: CaseStudyData = {
       ],
     },
     {
-      type: "quote",
-      label: "From the Interviews",
-      text: "[pull one real quote from your interview notes here]",
-      attribution: "Interview participant",
-    },
-    {
       type: "goalChips",
       heading: "Defining the Product",
       intro: [
