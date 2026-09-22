@@ -119,14 +119,21 @@ export default function AboutPage() {
 
             <Reveal delay={0.1}>
               <p className="font-mono text-xs font-semibold uppercase tracking-wide opacity-60">Certifications</p>
-              <ul className="mt-3 space-y-3">
+              <div className="mt-3 grid gap-3 sm:grid-cols-2">
                 {about.certifications.map((cert) => (
-                  <li key={cert.name} className="border-l-4 pl-4 text-sm leading-relaxed" style={{ borderColor: theme.bodyAccent }}>
-                    {cert.name}{" "}
-                    <span className="font-mono text-xs opacity-60">({cert.source})</span>
-                  </li>
+                  <div
+                    key={cert.name}
+                    className="flex items-start gap-2 rounded-xl px-3 py-3 text-sm leading-snug"
+                    style={{ backgroundColor: `${theme.bodyAccent}14` }}
+                  >
+                    <BadgeIcon color={theme.bodyAccent} />
+                    <span>
+                      {cert.name}{" "}
+                      <span className="font-mono text-xs opacity-60">({cert.source})</span>
+                    </span>
+                  </div>
                 ))}
-              </ul>
+              </div>
             </Reveal>
           </div>
         </div>
@@ -134,5 +141,25 @@ export default function AboutPage() {
 
       <Footer bg={theme.footer} text={theme.footerText} tagline={theme.tagline} />
     </div>
+  );
+}
+
+function BadgeIcon({ color }: { color: string }) {
+  return (
+    <svg
+      width="18"
+      height="18"
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke={color}
+      strokeWidth="2"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      aria-hidden="true"
+      className="mt-0.5 shrink-0"
+    >
+      <circle cx="12" cy="12" r="9" />
+      <path d="M8.5 12.5l2.5 2.5 4.5-5" />
+    </svg>
   );
 }
