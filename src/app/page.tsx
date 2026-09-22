@@ -9,6 +9,7 @@ import { FeaturedProjectCard } from "@/components/FeaturedProjectCard";
 import { CompactProjectCard } from "@/components/CompactProjectCard";
 import { AssetImage } from "@/components/AssetImage";
 import { TiltedFrame } from "@/components/TiltedFrame";
+import { SparkleIcon } from "@/components/SparkleIcon";
 import { hero, projects, site, themes } from "@/lib/content";
 
 export default function Home() {
@@ -80,7 +81,7 @@ export default function Home() {
                       alt={site.name}
                       color={theme.heroAccent}
                       className="h-full w-full object-cover"
-                      label="Add /public/images/portrait.jpg — click flips to CV card"
+                      label="Add /public/images/portrait.jpg (click flips to CV card)"
                     />
                   </TiltedFrame>
                 }
@@ -92,6 +93,10 @@ export default function Home() {
                 aria-hidden
               >
                 {hero.card.portraitBadge}
+              </div>
+
+              <div className="absolute -right-4 -top-4 z-10" aria-hidden>
+                <SparkleIcon color="#F7DFA0" />
               </div>
             </div>
           </Reveal>
@@ -112,9 +117,10 @@ export default function Home() {
         <div className="mx-auto max-w-6xl">
           <Reveal>
             <h2
-              className="mb-10 text-center font-display text-4xl font-black uppercase tracking-tight sm:text-5xl"
+              className="mb-10 flex items-center justify-center gap-3 font-display text-4xl font-black uppercase tracking-tight sm:text-5xl"
               style={{ color: theme.bodyAccent }}
             >
+              <SparkleIcon color="#F7DFA0" />
               Selected Work
             </h2>
           </Reveal>

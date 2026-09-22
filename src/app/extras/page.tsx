@@ -4,6 +4,7 @@ import { Footer } from "@/components/Footer";
 import { Reveal, RevealGroup, RevealItem } from "@/components/Reveal";
 import { AssetImage } from "@/components/AssetImage";
 import { ContactForm } from "@/components/ContactForm";
+import { SparkleIcon } from "@/components/SparkleIcon";
 import { extras, site, themes } from "@/lib/content";
 
 export const metadata: Metadata = { title: "Extras — Isaac Isaac" };
@@ -26,7 +27,8 @@ export default function ExtrasPage() {
       <section style={{ backgroundColor: theme.bodyBg, color: theme.bodyInk }} className="px-6 py-16 sm:px-10">
         <div className="mx-auto max-w-6xl">
           <Reveal className="text-left">
-            <h2 className="font-display text-3xl font-black uppercase tracking-tight" style={{ color: theme.bodyAccent }}>
+            <h2 className="flex items-center gap-3 font-display text-3xl font-black uppercase tracking-tight" style={{ color: theme.bodyAccent }}>
+              <SparkleIcon color="#F7DFA0" />
               {extras.motion.heading}
             </h2>
             <p className="mt-2 font-mono text-sm opacity-70">{extras.motion.subheading}</p>
