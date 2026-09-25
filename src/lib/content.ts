@@ -236,6 +236,15 @@ export const projects: Project[] = [
     textColor: "#F7DFA0",
     image: "/images/projects/lofistory.png",
   },
+  {
+    slug: "knourish",
+    title: "Knourish",
+    tags: ["UX Design", "Solo Project"],
+    blurb: "Designing wait-time transparency for students who can't afford to guess",
+    color: "#FFC904",
+    textColor: "#0C0C20",
+    image: "/images/projects/knourish.png",
+  },
 ];
 
 // Generic case-study schema — one renderer (src/components/CaseStudy.tsx)
@@ -531,7 +540,7 @@ export const prizekicksCaseStudy: CaseStudyData = {
       heading: "Context",
       paragraphs: [
         "Sneaker resale runs on scarcity and hype, and the platforms built around it reflect that. Prices are opaque, interfaces are cluttered, and buyers are left guessing whether they got a fair deal or got played. Two classmates and I had all felt it. PrizeKicks was our answer: a marketplace that treats the buyer as the customer, not the mark.",
-        "I led UI and UX across the full process, from market research to a tested high-fidelity prototype and a live demo.",
+        "I treated the research like it was the product. I led UI and UX from market analysis through two rounds of user testing and a live demo.",
       ],
     },
     {
@@ -559,7 +568,7 @@ export const prizekicksCaseStudy: CaseStudyData = {
           value:
             "Lead UI/UX Designer (Market Research, Interviews and Surveys, Personas, Information Architecture, Wireframing, Style Guide, Prototyping, User Testing)",
         },
-        { label: "Tools", value: "Figma, Adobe Photoshop" },
+        { label: "Tools", value: "Figma, Adobe Photoshop, Canva, Figjam" },
       ],
     },
     {
@@ -570,12 +579,12 @@ export const prizekicksCaseStudy: CaseStudyData = {
         {
           title: "Cluttered by Default",
           detail:
-            "GOAT, Grailed, and Flight Club all treated density as a feature. Finding a specific shoe meant fighting the interface first.",
+            "I audited GOAT, Grailed, and Flight Club myself, cataloguing each as strengths and weaknesses in a shared market matrix. All three treated density as a feature. Finding a specific shoe meant fighting the interface first.",
         },
         {
           title: "No Sense of Fair",
           detail:
-            "None of the platforms gave buyers a clear read on whether a listing was a good price. Comparison meant opening tabs and doing the math yourself.",
+            "I wrote interviews targeting price, frequency, sites used, frustrations, and habits, then ran a companion survey rating feelings 1 to 10. None of the platforms gave buyers a clear read on whether a listing was fair. Comparison meant opening tabs and doing the math yourself.",
         },
         {
           title: "Trust Was Missing",
@@ -588,7 +597,7 @@ export const prizekicksCaseStudy: CaseStudyData = {
       type: "goalChips",
       heading: "Defining the Product",
       intro: [
-        "Research shaped four personas and a set of use cases that clarified what buyers actually needed from a marketplace. From there, a data dictionary catalogued every system the platform required, which became the backbone of the information architecture. We showed that architecture to potential users before designing a single screen and revised it based on what they told us.",
+        "Research shaped four personas and a set of use cases that clarified what buyers actually needed from a marketplace, letting me hold the full range of buyers in view and see where their needs overlapped and pulled apart. From there, a data dictionary catalogued every system the platform required, profiles, payment, notifications, trending, featured, reviews, price comparison, which became the backbone of the information architecture. We showed that architecture to potential users before designing a single screen and revised it based on what they told us.",
         "From this, PrizeKicks' core goals were set:",
       ],
       goals: [
@@ -606,6 +615,7 @@ export const prizekicksCaseStudy: CaseStudyData = {
       type: "media",
       heading: "Prototype",
       paragraphs: [
+        "The research pointed to three things: price context on every listing, navigation that doesn't fight you, and a hierarchy built around the buyer, not the seller.",
         "The low-fidelity prototype covered the full shopping flow: sign up, home, search and filters, product pages, price comparison, checkout, and confirmation. We ran think-aloud sessions with users, catalogued every point of friction, and fixed them before moving to high fidelity.",
         "A style guide locked in the visual identity, then the final prototype went through one more round of testing and refinement.",
       ],
@@ -749,7 +759,7 @@ export const goblinGizmosCaseStudy: CaseStudyData = {
       type: "media",
       heading: "Design",
       paragraphs: [
-        "The lo-fi prototype covered the primary journeys: sign-up, home, category browsing, adding a trinket, the community tab, accessibility settings. Keeping it rough was intentional. It made it easier to throw ideas away.",
+        "The lo-fi prototype covered the primary journeys: sign-up, home, category browsing, adding a trinket, the community tab, accessibility settings. Keeping it rough was intentional. It made it easier to cycle ideas if need be.",
         "A round of user feedback on the lo-fi surfaced friction we hadn't anticipated. Button placement moved, calls to action got clearer, and the category browser got a more prominent path from the home page. Then the high-fidelity prototype brought the full identity to every screen: community feed, category browser, trinket pages, profiles, and the bounty board where users post items to sell or trade.",
       ],
       images: [
@@ -801,7 +811,7 @@ export const goblinGizmosCaseStudy: CaseStudyData = {
         {
           title: "It Was a Democracy:",
           detail:
-            "I didn't always get to set the tone, and that was fine. I'm as proud of how we built it as what we built.",
+            "I didn't always get to set the tone, and that was fine. I'm as proud of how we built it as what we built. I'm leaving this project with a clearer sense of who I am as a designer and what I'm capable of when I'm working with the right people. That's the most valuable treasure I could ask for.",
         },
       ],
     },
@@ -830,7 +840,7 @@ export const lofistoryCaseStudy: CaseStudyData = {
       type: "intro",
       heading: "Context",
       paragraphs: [
-        "Lo-fi hip hop has been in my headphones through every late night study session, every deadline, every render that took too long. It's a genre with an unmistakable visual identity: the ramen shop in the rain, the girl at her desk, the warm grain over everything. But when I went looking for a place that told its story, I found Wikipedia pages and playlist descriptions. Nothing that felt like the music.",
+        "Lo-fi hip hop has been a constant companion through every late-night study session, every deadline, every render that took too long. It's a genre with an unmistakable visual identity. Ramen shops, rainy nights, the studying girl at her desk, the warm grain over everything. But when I went looking for a place that told its story, I found Wikipedia pages and playlist descriptions. Nothing that felt like the music.",
         "Lofistory started as a class design exercise and became something I couldn't leave as a mockup. It's a three-page site: a Home that sets the mood, an About that traces the genre's roots and conventions, and an Artist page that pulls the producers who shaped it straight from Spotify. I designed it in Figma and built it myself in React.",
       ],
     },
@@ -927,7 +937,7 @@ export const lofistoryCaseStudy: CaseStudyData = {
       type: "media",
       heading: "Build",
       paragraphs: [
-        "A design about restraint deserved a build to match. The site runs on a small set of React components: a card, a card grid, a header, the ambient background layer, and React Router handling the three routes. The Artist page calls the Spotify Web API on load and renders the results into cards, so album art, artist names, and links stay accurate on their own, with a direct button on every card to open the track in Spotify. The looping gif is optimized so the atmosphere doesn't cost load time.",
+        "A design about restraint deserved a build to match. The site runs on a small set of React components. I used cards, a card grid, a header, the ambient background layer, and React Router handling the three routes. The Artist page calls the Spotify Web API on load and renders the results into cards, so album art, artist names, and links stay accurate on their own, with a direct button on every card to open the track in Spotify. The looping GIF is optimized so the atmosphere doesn't cost load time.",
         "Wiring up the API was the part that turned this from a mockup into a product. Handling auth, structuring the response, and rendering it inside cards I'd designed without it in mind forced a few layout decisions I wouldn't have made on paper. The album art became the visual anchor of every artist card, which was better than what I had drawn.",
         "Building it myself meant the details I cared about in Figma survived contact with a browser. The card spacing, the transparency over the background, the way type sits against the grain. Those get lost in handoff, and there was no handoff.",
       ],
@@ -954,11 +964,193 @@ export const lofistoryCaseStudy: CaseStudyData = {
   ],
 };
 
+export const knourishCaseStudy: CaseStudyData = {
+  eyebrow: "Time Is on the Menu",
+  title: "Designing wait-time transparency for students who can't afford to guess",
+  meta: [
+    { label: "Program", value: "Google UX Design Certificate" },
+    { label: "Role", value: "Solo UX/UI Designer" },
+    { label: "Platform", value: "Mobile" },
+    { label: "Timeline", value: "2025 – 2026" },
+  ],
+  heroImage: "/images/projects/knourish-hero.png",
+  // Knourish's own documented brand: UCF black and gold, on purpose. Primary
+  // gold #FFC904 (with a lighter #FFE278 for lesser emphasis), a near-black
+  // neutral for the hero/footer, sampled directly from their style guide.
+  heroBg: "#0C0C20",
+  heroText: "#F6FAF9",
+  accent: "#FFC904",
+  footer: "#08080F",
+  sections: [
+    {
+      type: "intro",
+      heading: "Context",
+      paragraphs: [
+        "Thirty-three minutes and fifty-six seconds. That's how long it took to get the sandwich I ordered at UCF's Student Union. I'd missed my bus, I was late to class, and I didn't even have time to enjoy the thing without missing more of the lecture. Nobody had done anything wrong. The kitchen was slammed, and the self-service kiosk I ordered from just didn't tell me.",
+        "That's the whole problem. Campus ordering interfaces let you order, but they don't help you decide. For a student with fifteen minutes between lectures, the question isn't \"what do I want,\" it's \"can I get it and still make it to class.\" Knourish is a mobile ordering concept for the UCF campus built around answering that before you commit.",
+      ],
+    },
+    {
+      type: "overview",
+      heading: "Overview",
+      rows: [
+        { label: "Project Type", value: "Google UX Design Certificate / Mobile App Concept" },
+        {
+          label: "Problem",
+          value:
+            "Campus ordering apps give students no visibility into wait times, so every order is a gamble against their schedule. Time-pressured students skip meals or risk being late.",
+        },
+        {
+          label: "Solution",
+          value:
+            "A mobile ordering app that surfaces an Estimated Wait Time before checkout, backed by a Low Wait / Busy / Packed status system and a Leave By prompt at confirmation, so students can plan around when they need to go.",
+        },
+        {
+          label: "My Role",
+          value:
+            "Solo UX/UI Designer (Research, Competitive Audit, Empathy Maps, Personas, User Flows, Storyboarding, Information Architecture, Wireframing, Design System, Logo, High-Fidelity Prototyping, Usability Testing)",
+        },
+        { label: "Tools", value: "Figma, FigJam, React, Claude with Figma MCP" },
+      ],
+    },
+    {
+      type: "insightCards",
+      heading: "Research",
+      intro: [
+        "Before designing anything, I built a research plan around one question: how do UCF students actually decide where to eat between classes, and what goes wrong? I distributed a ten-question survey inside major dining spots like the Student Union and Dining Hall, followed by short interviews with respondents who reported being late or missing transit because of an order. Two empathy maps synthesized the results: the Anxious Academic, who orders with one eye on the clock, and the Remote Researcher, who avoids the rush entirely.",
+        "The findings below reflect the patterns this research was designed to surface. Sample data is illustrative and will be updated as responses come in.",
+      ],
+      cards: [
+        {
+          title: "The Problem Isn't Ordering, It's Deciding",
+          detail:
+            "Students consistently know what they want. What they don't know is whether they have time for it. The friction lives before the order, not during it.",
+        },
+        {
+          title: "Time Pressure Is the Only Fixed Variable",
+          detail:
+            "The gap between classes doesn't move. The wait time does. Students are deciding with one known number and one hidden one, and the hidden one decides everything.",
+        },
+        {
+          title: "Skipping Is the Default Fallback",
+          detail:
+            "When a student can't gauge the wait, the safest move is not to eat. Uncertainty costs meals, not just minutes.",
+        },
+        {
+          title: "The Apps Solve the Wrong Half",
+          detail:
+            "I audited Transact, the campus ordering system, against Uber Eats. Both had polished menus and checkout. Neither surfaced wait time, where the decision happens.",
+        },
+      ],
+      images: [
+        { src: "/images/projects/knourish-survey.png", label: "Add survey form" },
+        { src: "/images/projects/knourish-empathy-maps.png", label: "Add empathy maps" },
+        { src: "/images/projects/knourish-competitive-audit.png", label: "Add competitive audit" },
+      ],
+    },
+    {
+      type: "media",
+      heading: "Who I Designed For",
+      paragraphs: [
+        "Fez is the primary persona: a student with back-to-back classes and a tight window who needs to know, fast, whether an order is realistic. Fez isn't browsing. Fez is deciding.",
+        "Vega is the counterweight: an HR director coordinating meals for a busy office who runs into confusing interfaces and customization anxiety, the fear of getting an order wrong when it's for other people. Vega kept the app honest for anyone ordering with more at stake than their own lunch.",
+        "Fez's flow drove the core design. Vega's kept the customization and menu screens from being an afterthought.",
+      ],
+      images: [
+        { src: "/images/projects/knourish-personas.png", label: "Add personas" },
+        { src: "/images/projects/knourish-fez-flow.png", label: "Add Fez user flow" },
+        { src: "/images/projects/knourish-storyboard.png", label: "Add storyboard" },
+      ],
+    },
+    {
+      type: "media",
+      heading: "The One Feature That Mattered",
+      paragraphs: [
+        "Everything in Knourish serves the Estimated Wait Time. Rather than a number buried on a confirmation screen, EWT shows up where the decision happens: on the restaurant card, before you tap in. A three-level status system (Low Wait, Busy, Packed) gives an at-a-glance read, and the specific estimate sits beside it. A student scanning Home can rule out half the options in two seconds.",
+        "At the other end of the flow, the confirmation screen tells you when to leave. Not just \"your order will be ready in 12 minutes,\" but a Leave By time that closes the loop on the whole problem.",
+        "The information architecture stayed deliberately flat to protect that speed. Four top-level nodes: Home, Browse, Orders, Profile, with persistent search available everywhere. Home shows restaurants by context (what's fast right now); Browse is for looking deliberately. Nothing else earned a place unless it got a student to a confident decision faster.",
+      ],
+      images: [
+        { src: "/images/projects/knourish-ia.png", label: "Add IA diagram" },
+        { src: "/images/projects/knourish-ewt.png", label: "Add EWT component" },
+        { src: "/images/projects/knourish-leave-by.png", label: "Add Leave By prompt" },
+      ],
+    },
+    {
+      type: "media",
+      heading: "Real-world Considerations",
+      paragraphs: [
+        "A wait time is only useful if it's accurate, and only viable if it doesn't make anyone's job harder. Before going further, I had to work out how Estimated Wait Time would actually be calculated, how it would reach students, and what it would ask of the staff behind the counter.",
+        "Each estimate comes from the queue, adjusted for how many stations are working and learned from how long orders actually take. It's rounded up and shown as a range because a wait that ends early feels like a win, and one that runs long is the exact problem Knourish exists to solve.",
+        "Staff takes on almost nothing new. They already mark orders ready, and that tap is what keeps the estimate honest. When a rush hits faster than the numbers can catch up, they can flip a restaurant straight to High Wait.",
+      ],
+      images: [{ src: "/images/projects/knourish-ewt-system.png", label: "Add EWT system graphic" }],
+    },
+    {
+      type: "media",
+      heading: "Design System",
+      paragraphs: [
+        "Knourish is a UCF product, so it wears UCF colors on purpose. Black and gold (#FFC904) as the core palette, with a dedicated set of status colors for the Low Wait / Busy / Packed system so the wait-time signal never competes with the brand.",
+        "Knockout for display, Inter for body. An 8pt spacing system. Phosphor Icons in Regular weight. The component library covers buttons with variants, input fields, restaurant cards, busy indicator chips, the EWT display, and the bottom nav.",
+        "The logo is a circle with a bowl in the lower half, a K lettermark at the center, and a four-pointed star accent, nodding toward the product's affiliation with food, UCF, and our moniker all at once. Knockout carries the wordmark.",
+      ],
+      images: [
+        { src: "/images/projects/knourish-style-guide.png", label: "Add style guide" },
+        { src: "/images/projects/knourish-components.png", label: "Add components" },
+        { src: "/images/projects/knourish-logo.png", label: "Add logo" },
+      ],
+    },
+    {
+      type: "media",
+      heading: "Prototype",
+      paragraphs: [
+        "Digital lo-fi wireframes covered the full core flow, including Login, Home, Browse, Restaurant, Menu, Item and Customization, Confirm, and Checkout.",
+        "The high-fidelity prototype carries the full persona journey. Users land on Home, scan wait times, pick a spot, build an order, confirm with a Leave By time, check out, and track it. Every screen is built from the component library.",
+        "To test with real interactions instead of hotspots, I used Claude with Figma's MCP to translate the high-fidelity screens and design tokens into a working React prototype. I directed the structure and reviewed every component against the Figma source; Claude handled the boilerplate.",
+      ],
+      images: [
+        { src: "/images/projects/knourish-lofi.png", label: "Add lo-fi wireframes" },
+        { src: "/images/projects/knourish-hifi.png", label: "Add hi-fi screens" },
+      ],
+    },
+    {
+      type: "media",
+      heading: "Testing",
+      paragraphs: [
+        "[Fill after your five-person round: participants, tasks, what broke, what changed. This is the section that turns the project from a concept into evidence.]",
+      ],
+    },
+    {
+      type: "reflection",
+      heading: "Reflection",
+      intro: [],
+      lessons: [
+        {
+          title: "One Problem, Fully:",
+          detail:
+            "My instinct on earlier projects was to design everything. Knourish was the first time I picked one problem and refused to let anything else in. The app is better for it, and so is the case study.",
+        },
+        {
+          title: "The Decision Is the Product:",
+          detail:
+            "Ordering was never the hard part. Once I understood that the real user moment was the decision before the order, every screen had a clear job. I want to find that moment earlier on every project.",
+        },
+        {
+          title: "Brand as Constraint:",
+          detail:
+            "Designing inside UCF's identity could have felt limiting. Instead, it gave the app an immediate sense of place and purpose. Serving that identity was crucial to having Knourish thrive.",
+        },
+      ],
+    },
+  ],
+};
+
 export const caseStudies: Record<string, CaseStudyData> = {
   fourddo: fourddoCaseStudy,
   prizekicks: prizekicksCaseStudy,
   "goblin-gizmos": goblinGizmosCaseStudy,
   lofistory: lofistoryCaseStudy,
+  knourish: knourishCaseStudy,
 };
 
 export const extras = {
