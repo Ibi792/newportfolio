@@ -29,11 +29,15 @@ export default function Home() {
               {hero.badge}
             </span>
 
-            <h1 className="mt-4 font-display text-5xl font-black uppercase leading-[0.95] tracking-tight sm:text-6xl">
+            <h1 className="mt-4 font-display uppercase leading-[0.95] tracking-tight">
               {hero.headline.map((line, i) => (
                 <span
                   key={i}
-                  className="block"
+                  className={`block ${
+                    line.size === "sm"
+                      ? "mb-1 text-xl font-bold tracking-wide sm:text-2xl"
+                      : "text-5xl font-black sm:text-6xl"
+                  }`}
                   style={{ color: line.tone === "accent" ? theme.heroAccent : theme.heroText }}
                 >
                   {line.text}
