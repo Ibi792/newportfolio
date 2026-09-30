@@ -99,7 +99,7 @@ export type ThemeKey = keyof typeof themes;
 export const hero = {
   badge: "Friends Call Me Ibi",
   headline: [
-    { text: "Hi I'm Isaac,", tone: "ink" as const },
+    { text: "Isaac,", tone: "ink" as const },
     { text: "solving problems in style.", tone: "accent" as const },
   ],
   tagline: "Product designer. Taste-driven. Research-backed.",
