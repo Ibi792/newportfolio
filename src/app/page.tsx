@@ -35,7 +35,7 @@ export default function Home() {
                   key={i}
                   className={`block ${
                     line.size === "sm"
-                      ? "mb-1 text-xl font-bold tracking-wide sm:text-2xl"
+                      ? "mb-1 text-3xl font-black sm:text-4xl"
                       : "text-5xl font-black sm:text-6xl"
                   }`}
                   style={{ color: line.tone === "accent" ? theme.heroAccent : theme.heroText }}
