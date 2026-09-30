@@ -780,6 +780,38 @@ export const goblinGizmosCaseStudy: CaseStudyData = {
       },
     },
     {
+      type: "results",
+      heading: "Testing",
+      intro: [
+        "Three usability sessions put real people in front of the actual product instead of a clickable mockup. Each tester worked through sign-up, navigation, and posting, with later sessions adding editing, comments, and filters as those features came online.",
+      ],
+      items: [
+        {
+          label: "The Cut-Off Post Bug",
+          detail:
+            "The \"view post\" link was routinely clipped on posts past a certain length, blocking testers from opening a post, reading comments, or reaching edit and delete. It surfaced independently across multiple sessions and became the milestone's top fix.",
+        },
+        {
+          label: "Sign-Up Friction",
+          detail:
+            "The sign-up confirmation message read as confusing, and testers wanted a sign-up option visible directly on the nav bar instead of buried behind login. We also caught the email field accepting input without an \"@\", a gap worth closing before real accounts depend on it.",
+        },
+        {
+          label: "Small Asks That Mattered",
+          detail:
+            "Testers wanted the logo to double as a home link and the ability to edit their profile picture, neither of which existed in the earlier build. Both shipped by the third round of testing.",
+        },
+        {
+          label: "What the Fixes Bought Us",
+          detail:
+            "By the third session, testers could edit and delete both posts and their profile photo, post comments and see them populate, and use search and filters, on a build the first two testers couldn't have completed.",
+        },
+      ],
+      outro: [
+        "The core flows, sign-up, login, navigation, posting, held up across every session. The real lesson was that a single layout bug, an enlarged footer clipping the post view, can quietly block an entire set of features from ever being tested, let alone used. Fixing it unblocked testing on comments, edit, and delete in the same pass.",
+      ],
+    },
+    {
       type: "reflection",
       heading: "Reflection",
       intro: [
@@ -904,7 +936,7 @@ export const lofistoryCaseStudy: CaseStudyData = {
         {
           title: "Hand-Drawn Type",
           detail:
-            "Headers use a hand-drawn font to echo the sketchy, homemade quality of lo-fi cover art. Body text stays clean and readable so the personality never costs legibility.",
+            "Headers run in Just Another Hand, a handwritten font that echoes the sketchy, homemade quality of lo-fi cover art. Body text stays clean and readable so the personality never costs legibility.",
         },
         {
           title: "A Palette Pulled From the Art",
@@ -920,7 +952,6 @@ export const lofistoryCaseStudy: CaseStudyData = {
       images: [
         { src: "/images/projects/lofistory-mockups.png", label: "Add Figma mockups" },
         { src: "/images/projects/lofistory-palette.png", label: "Add palette" },
-        { src: "/images/projects/lofistory-type.png", label: "Add type" },
       ],
     },
     {
@@ -931,7 +962,11 @@ export const lofistoryCaseStudy: CaseStudyData = {
         "Wiring up the API was the part that turned this from a mockup into a product. Handling auth, structuring the response, and rendering it inside cards I'd designed without it in mind forced a few layout decisions I wouldn't have made on paper. The album art became the visual anchor of every artist card, which was better than what I had drawn.",
         "Building it myself meant the details I cared about in Figma survived contact with a browser. The card spacing, the transparency over the background, the way type sits against the grain. Those get lost in handoff, and there was no handoff.",
       ],
-      images: [{ src: "/images/projects/lofistory-responsive.png", label: "Add responsive screens" }],
+      images: [
+        { src: "/images/projects/lofistory-responsive-1.png", label: "Add responsive screens" },
+        { src: "/images/projects/lofistory-responsive-2.png", label: "Add responsive screens" },
+        { src: "/images/projects/lofistory-responsive-3.png", label: "Add responsive screens" },
+      ],
       link: { label: "View Live Site", url: "https://lofistory.netlify.app/" },
     },
     {
