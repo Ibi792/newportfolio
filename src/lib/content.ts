@@ -3,8 +3,8 @@ export const site = {
   role: "User Experience Designer",
   email: "isaacbisaac0@gmail.com",
   phone: "407-437-3838",
-  linkedin: "https://www.linkedin.com/",
-  instagram: "https://www.instagram.com/",
+  linkedin: "https://www.linkedin.com/feed/",
+  instagram: "https://www.instagram.com/isaac_x_2/",
   // Drop the actual PDF at this exact path in /public for the link to work.
   resumeUrl: "/resume.pdf",
 };
@@ -96,18 +96,14 @@ export const themes = {
 
 export type ThemeKey = keyof typeof themes;
 
-// Placeholder copy — swap freely. Built around the strongest line from
-// your own draft ("the research and the rethinks left in"); the nickname
-// moves from the giant wordmark to a small badge so the real headline
-// carries the weight instead.
 export const hero = {
   badge: "Friends Call Me Ibi",
   headline: [
-    { text: "Show the work,", tone: "ink" as const },
-    { text: "not the polish.", tone: "accent" as const },
+    { text: "Hi I'm Isaac,", tone: "ink" as const },
+    { text: "solving problems in style.", tone: "accent" as const },
   ],
-  tagline: "Five shipped case studies with the research and the rethinks left in.",
-  metaTag: "UX & Product Design · Orlando, FL",
+  tagline: "Product designer. Taste-driven. Research-backed.",
+  metaTag: "UX & Product Design",
   primaryCta: { label: "The Work", href: "/projects" },
   secondaryCta: { label: "About", href: "/about" },
   tip: "Psst, click the card :D",
@@ -324,8 +320,8 @@ export const fourddoCaseStudy: CaseStudyData = {
     { label: "Year", value: "2026" },
   ],
   heroImage: "/images/projects/four-stories-hero.png",
-  shippedProductUrl: "#",
-  shippedProductLabel: "View Shipped Product",
+  shippedProductUrl: "https://www.fourddo.com/fourstories",
+  shippedProductLabel: "More at Fourddo.com",
   heroBg: "#4A47B0",
   heroText: "#EEF0FB",
   accent: "#5B57C9",

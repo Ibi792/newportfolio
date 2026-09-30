@@ -6,7 +6,7 @@ import { site } from "@/lib/content";
 
 type Status = "idle" | "sending" | "sent" | "error";
 
-const FORMSPREE_ID = process.env.NEXT_PUBLIC_FORMSPREE_ID;
+const FORMSPREE_ID = process.env.NEXT_PUBLIC_FORMSPREE_ID || "xaenkplz";
 
 export function ContactForm({ ink, accent }: { ink: string; accent: string }) {
   const [status, setStatus] = useState<Status>("idle");
