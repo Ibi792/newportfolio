@@ -80,13 +80,20 @@ export default function Home() {
                 className="h-[655px] w-full sm:h-[680px]"
                 front={
                   <TiltedFrame rotate={-3} backdrop={`${theme.heroAccent}44`} className="h-full w-full">
-                    <AssetImage
-                      src="/images/portrait.jpg"
-                      alt={site.name}
-                      color={theme.heroAccent}
-                      className="h-full w-full object-cover"
-                      label="Add /public/images/portrait.jpg (click flips to CV card)"
-                    />
+                    <div
+                      className="flex h-full w-full items-center justify-center"
+                      style={{ backgroundColor: `${theme.heroAccent}22` }}
+                    >
+                      <div className="aspect-[4/5] w-full">
+                        <AssetImage
+                          src="/images/portrait.jpg"
+                          alt={site.name}
+                          color={theme.heroAccent}
+                          className="h-full w-full object-cover"
+                          label="Add /public/images/portrait.jpg (click flips to CV card)"
+                        />
+                      </div>
+                    </div>
                   </TiltedFrame>
                 }
                 back={<TradingCard />}
