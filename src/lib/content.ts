@@ -106,7 +106,7 @@ export const hero = {
     { text: "Show the work,", tone: "ink" as const },
     { text: "not the polish.", tone: "accent" as const },
   ],
-  tagline: "Four shipped case studies with the research and the rethinks left in.",
+  tagline: "Five shipped case studies with the research and the rethinks left in.",
   metaTag: "UX & Product Design · Orlando, FL",
   primaryCta: { label: "The Work", href: "/projects" },
   secondaryCta: { label: "About", href: "/about" },
@@ -229,9 +229,6 @@ export const projects: Project[] = [
     title: "Lofistory",
     tags: ["UI Design", "Solo Project"],
     blurb: "Designing and building a cozy corner of the internet for the genre that got me through school",
-    // Placeholder — the actual palette line in the case study is itself
-    // flagged [Confirm] between amber/purple/teal, so keeping the
-    // existing warm coral here rather than guessing. Swap once locked.
     color: "#F0664F",
     textColor: "#F7DFA0",
     image: "/images/projects/lofistory.png",
@@ -828,9 +825,6 @@ export const lofistoryCaseStudy: CaseStudyData = {
     { label: "Year", value: "2025" },
   ],
   heroImage: "/images/projects/lofistory-hero.png",
-  // The real brand palette (coral/blue/green, see lofistory-palette.png)
-  // now confirmed in the copy below, but the hero band itself still uses
-  // this placeholder coral rather than the full multi-color scheme.
   heroBg: "#F0664F",
   heroText: "#F7DFA0",
   accent: "#C24A32",
