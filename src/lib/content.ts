@@ -1042,7 +1042,7 @@ export const knourishCaseStudy: CaseStudyData = {
       type: "insightCards",
       heading: "Research",
       intro: [
-        "Before designing anything, I built a research plan around one question: how do UCF students actually decide where to eat between classes, and what goes wrong? I distributed a ten-question survey inside major dining spots like the Student Union and Dining Hall, followed by short interviews with respondents who reported being late or missing transit because of an order. Two empathy maps synthesized the results: the Anxious Academic, who orders with one eye on the clock, and the Remote Researcher, who avoids the rush entirely.",
+        "Before designing anything, I built a research plan around one question: how do UCF students actually decide where to eat between classes, and what goes wrong? I ran a ten-question survey on ordering habits at the Student Union, followed by short follow-up interviews with respondents who'd been late or missed transit because of an order. A journey map built around Fez, the primary persona, traced how a single lunch order escalates from anxious to frustrated across four stages, and that emotional arc drove the rest of the research.",
         "The findings below reflect the patterns this research was designed to surface. Sample data is illustrative and will be updated as responses come in.",
       ],
       cards: [
@@ -1069,7 +1069,7 @@ export const knourishCaseStudy: CaseStudyData = {
       ],
       images: [
         { src: "/images/projects/knourish-survey.png", label: "Add survey form" },
-        { src: "/images/projects/knourish-empathy-maps.png", label: "Add empathy maps" },
+        { src: "/images/projects/knourish-journey-map.png", label: "Add journey map" },
         { src: "/images/projects/knourish-competitive-audit.png", label: "Add competitive audit" },
       ],
     },
@@ -1082,7 +1082,8 @@ export const knourishCaseStudy: CaseStudyData = {
         "Fez's flow drove the core design. Vega's kept the customization and menu screens from being an afterthought.",
       ],
       images: [
-        { src: "/images/projects/knourish-personas.png", label: "Add personas" },
+        { src: "/images/projects/knourish-persona-fez.png", label: "Add Fez persona" },
+        { src: "/images/projects/knourish-persona-vega.png", label: "Add Vega persona" },
         { src: "/images/projects/knourish-fez-flow.png", label: "Add Fez user flow" },
         { src: "/images/projects/knourish-storyboard.png", label: "Add storyboard" },
       ],
