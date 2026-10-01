@@ -190,6 +190,10 @@ export type Project = {
   color: string;
   textColor: string;
   image: string;
+  // CSS object-position for the card thumbnail. Defaults to "center"; set
+  // this when the image's focal point (a wordmark, a face) gets cropped
+  // out in the short compact-card box.
+  imagePosition?: string;
 };
 
 export const projects: Project[] = [
@@ -219,6 +223,7 @@ export const projects: Project[] = [
     color: "#BFE3F5",
     textColor: "#1E2A3A",
     image: "/images/projects/prizekicks.png",
+    imagePosition: "top",
   },
   {
     slug: "lofistory",

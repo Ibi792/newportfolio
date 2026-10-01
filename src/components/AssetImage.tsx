@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useRef, useState, type CSSProperties } from "react";
 
 /**
  * Renders an image from /public if it exists; otherwise falls back to a
@@ -19,12 +19,14 @@ export function AssetImage({
   alt,
   color = "#1E2A3A",
   className,
+  style,
   label,
 }: {
   src: string;
   alt: string;
   color?: string;
   className?: string;
+  style?: CSSProperties;
   label?: string;
 }) {
   const [failed, setFailed] = useState(false);
@@ -56,6 +58,7 @@ export function AssetImage({
       src={src}
       alt={alt}
       className={className}
+      style={style}
       loading="lazy"
       onError={() => setFailed(true)}
     />
