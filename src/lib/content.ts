@@ -246,9 +246,12 @@ export const projects: Project[] = [
 export type CaseStudyMeta = { label: string; value: string };
 
 // `fit: "contain"` is for diagrams, flows, and other dense/text-heavy
-// images where cropping loses information. Leave it unset for screenshots
-// and mockups, which look better in the tilted, cropped photo treatment.
-export type CaseStudyImage = { src: string; label: string; fit?: "contain" };
+// images where cropping loses information. `fit: "feature"` is for a
+// standout piece (a logo, a style guide) that deserves a full-width,
+// large, uncropped moment of its own rather than sharing a row. Leave
+// unset for screenshots and mockups, which look better in the tilted,
+// cropped photo treatment.
+export type CaseStudyImage = { src: string; label: string; fit?: "contain" | "feature" };
 
 export type CaseStudySection =
   | { type: "intro"; heading: string; paragraphs: string[] }
@@ -756,8 +759,8 @@ export const goblinGizmosCaseStudy: CaseStudyData = {
         "Teal and mint primaries, a near-black secondary, off-white background. Clean and modern without being sterile, with just enough green to feel fantastical. Tilt Warp for headers (bold and a little chaotic in the best way), Joti One for the logo, Rubik for body text. Our design artist built the mascot in three variations for flexibility across contexts.",
       ],
       images: [
-        { src: "/images/projects/goblin-gizmos-style-guide.png", label: "Add style guide" },
-        { src: "/images/projects/goblin-gizmos-mascot.png", label: "Add mascot" },
+        { src: "/images/projects/goblin-gizmos-style-guide.png", label: "Add style guide", fit: "feature" },
+        { src: "/images/projects/goblin-gizmos-mascot.png", label: "Add mascot", fit: "feature" },
         { src: "/images/projects/goblin-gizmos-palette.png", label: "Add palette" },
       ],
     },
@@ -1165,7 +1168,7 @@ export const knourishCaseStudy: CaseStudyData = {
       images: [
         { src: "/images/projects/knourish-style-guide.png", label: "Add style guide" },
         { src: "/images/projects/knourish-components.png", label: "Add components" },
-        { src: "/images/projects/knourish-logo.png", label: "Add logo" },
+        { src: "/images/projects/knourish-logo.png", label: "Add logo", fit: "feature" },
       ],
     },
     {

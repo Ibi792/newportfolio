@@ -84,26 +84,50 @@ function SectionHeading({ children, accent }: { children: React.ReactNode; accen
   );
 }
 
-function ImageGrid({ images, accent }: { images: { src: string; label: string; fit?: "contain" }[]; accent: string }) {
-  const hasCroppedImages = images.some((img) => img.fit !== "contain");
+function ImageGrid({
+  images,
+  accent,
+}: {
+  images: { src: string; label: string; fit?: "contain" | "feature" }[];
+  accent: string;
+}) {
+  const hasCroppedImages = images.some((img) => !img.fit);
   return (
     <div className={`mt-6 grid gap-6 ${hasCroppedImages && images.length > 1 ? "sm:grid-cols-2" : ""}`}>
-      {images.map((img) =>
-        img.fit === "contain" ? (
-          <div
-            key={img.src}
-            className="sm:col-span-2 rounded-2xl border bg-white p-3"
-            style={{ borderColor: `${accent}33` }}
-          >
-            <AssetImage
-              src={img.src}
-              alt={img.label}
-              color={accent}
-              className="h-auto max-h-[70vh] w-full object-contain"
-              label={img.label}
-            />
-          </div>
-        ) : (
+      {images.map((img) => {
+        if (img.fit === "feature") {
+          return (
+            <div key={img.src} className="sm:col-span-2 my-2">
+              <TiltedFrame rotate={-1.5} backdrop={`${accent}22`}>
+                <AssetImage
+                  src={img.src}
+                  alt={img.label}
+                  color={accent}
+                  className="h-auto max-h-[85vh] w-full object-contain"
+                  label={img.label}
+                />
+              </TiltedFrame>
+            </div>
+          );
+        }
+        if (img.fit === "contain") {
+          return (
+            <div
+              key={img.src}
+              className="sm:col-span-2 rounded-2xl border bg-white p-3"
+              style={{ borderColor: `${accent}33` }}
+            >
+              <AssetImage
+                src={img.src}
+                alt={img.label}
+                color={accent}
+                className="h-auto max-h-[70vh] w-full object-contain"
+                label={img.label}
+              />
+            </div>
+          );
+        }
+        return (
           <TiltedFrame key={img.src} rotate={-2} backdrop={`${accent}22`}>
             <AssetImage
               src={img.src}
@@ -113,8 +137,8 @@ function ImageGrid({ images, accent }: { images: { src: string; label: string; f
               label={img.label}
             />
           </TiltedFrame>
-        )
-      )}
+        );
+      })}
     </div>
   );
 }
