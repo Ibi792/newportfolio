@@ -214,6 +214,7 @@ export const projects: Project[] = [
     color: "#8FE0C9",
     textColor: "#14231F",
     image: "/images/projects/goblin-gizmos.png",
+    imagePosition: "top",
   },
   {
     slug: "prizekicks",
