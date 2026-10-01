@@ -93,7 +93,7 @@ export default function AboutPage() {
                 {about.tools.map((tool) => (
                   <RevealItem key={tool}>
                     <span
-                      className="inline-block rounded-full px-4 py-2 font-mono text-xs font-semibold"
+                      className="inline-block rounded-full px-4 py-2 font-mono text-xs font-semibold transition duration-200 hover:scale-105 hover:brightness-110"
                       style={{ backgroundColor: `${theme.bodyAccent}1A`, color: theme.bodyAccent }}
                     >
                       {tool}
@@ -109,7 +109,7 @@ export default function AboutPage() {
                 {about.coreSkills.map((skill) => (
                   <RevealItem key={skill}>
                     <span
-                      className="inline-block rounded-full px-4 py-2 font-mono text-xs font-semibold text-white"
+                      className="inline-block rounded-full px-4 py-2 font-mono text-xs font-semibold text-white transition duration-200 hover:scale-105 hover:brightness-110"
                       style={{ backgroundColor: theme.bodyAccent }}
                     >
                       {skill}
@@ -125,7 +125,7 @@ export default function AboutPage() {
                 {about.certifications.map((cert) => (
                   <div
                     key={cert.name}
-                    className="flex items-start gap-2 rounded-xl px-3 py-3 text-sm leading-snug"
+                    className="flex items-start gap-2 rounded-xl px-3 py-3 text-sm leading-snug transition duration-200 hover:scale-[1.02] hover:brightness-95"
                     style={{ backgroundColor: `${theme.bodyAccent}14` }}
                   >
                     <BadgeIcon color={theme.bodyAccent} />
