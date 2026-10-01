@@ -245,6 +245,11 @@ export const projects: Project[] = [
 // study is a content change, not a new component.
 export type CaseStudyMeta = { label: string; value: string };
 
+// `fit: "contain"` is for diagrams, flows, and other dense/text-heavy
+// images where cropping loses information. Leave it unset for screenshots
+// and mockups, which look better in the tilted, cropped photo treatment.
+export type CaseStudyImage = { src: string; label: string; fit?: "contain" };
+
 export type CaseStudySection =
   | { type: "intro"; heading: string; paragraphs: string[] }
   | { type: "overview"; heading: string; rows: { label: string; value: string }[] }
@@ -254,7 +259,7 @@ export type CaseStudySection =
       heading: string;
       intro: string[];
       cards: { title: string; detail: string }[];
-      images?: { src: string; label: string }[];
+      images?: CaseStudyImage[];
     }
   | { type: "quote"; label: string; text: string; attribution: string }
   | {
@@ -269,13 +274,13 @@ export type CaseStudySection =
       intro: string[];
       goals: { title: string; detail: string }[];
       outro?: string[];
-      images?: { src: string; label: string }[];
+      images?: CaseStudyImage[];
     }
   | {
       type: "media";
       heading: string;
       paragraphs: string[];
-      images?: { src: string; label: string }[];
+      images?: CaseStudyImage[];
       link?: { label: string; url: string };
     }
   | {
@@ -434,7 +439,7 @@ export const fourddoCaseStudy: CaseStudyData = {
       outro: [
         "Using these goals as a benchmark, I set out to outline information architecture and draft low-fidelity sketches.",
       ],
-      images: [{ src: "/images/projects/fourddo-sitemap.png", label: "Add sitemap image" }],
+      images: [{ src: "/images/projects/fourddo-sitemap.png", label: "Add sitemap image", fit: "contain" }],
     },
     {
       type: "media",
@@ -600,8 +605,12 @@ export const prizekicksCaseStudy: CaseStudyData = {
         { title: "Trust Signals", detail: "Reviews and accountability baked in" },
       ],
       images: [
-        { src: "/images/projects/prizekicks-personas.png", label: "Add personas" },
-        { src: "/images/projects/prizekicks-ia.png", label: "Add information architecture / data dictionary" },
+        { src: "/images/projects/prizekicks-personas.png", label: "Add personas", fit: "contain" },
+        {
+          src: "/images/projects/prizekicks-ia.png",
+          label: "Add information architecture / data dictionary",
+          fit: "contain",
+        },
       ],
     },
     {
@@ -730,9 +739,13 @@ export const goblinGizmosCaseStudy: CaseStudyData = {
         "The structural choice we were most deliberate about was the two-layer collection system. A user has collections (say, books), and within each collection they have individual items (a first edition, a worn paperback with notes in the margins). It sounds simple, but it solved the core problem every competitor had: how do you let one person hold vinyls and figurines and books on the same shelf without the organization collapsing? Each trinket gets room to express its own history. The broader structure stays clean. Nearly every downstream decision, from the data dictionary to the database schema, traced back to this.",
       ],
       images: [
-        { src: "/images/projects/goblin-gizmos-use-cases.png", label: "Add use cases" },
-        { src: "/images/projects/goblin-gizmos-ia.png", label: "Add information architecture" },
-        { src: "/images/projects/goblin-gizmos-data-dictionary.png", label: "Add data dictionary" },
+        { src: "/images/projects/goblin-gizmos-use-cases.png", label: "Add use cases", fit: "contain" },
+        { src: "/images/projects/goblin-gizmos-ia.png", label: "Add information architecture", fit: "contain" },
+        {
+          src: "/images/projects/goblin-gizmos-data-dictionary.png",
+          label: "Add data dictionary",
+          fit: "contain",
+        },
       ],
     },
     {
@@ -756,9 +769,9 @@ export const goblinGizmosCaseStudy: CaseStudyData = {
         "A round of user feedback on the lo-fi surfaced friction we hadn't anticipated. Button placement moved, calls to action got clearer, and the category browser got a more prominent path from the home page. Then the high-fidelity prototype brought the full identity to every screen: community feed, category browser, trinket pages, profiles, and the bounty board where users post items to sell or trade.",
       ],
       images: [
-        { src: "/images/projects/goblin-gizmos-lofi.png", label: "Add lo-fi screens" },
+        { src: "/images/projects/goblin-gizmos-lofi.png", label: "Add lo-fi screens", fit: "contain" },
         { src: "/images/projects/goblin-gizmos-feedback.png", label: "Add feedback notes" },
-        { src: "/images/projects/goblin-gizmos-hifi.png", label: "Add hi-fi screens" },
+        { src: "/images/projects/goblin-gizmos-hifi.png", label: "Add hi-fi screens", fit: "contain" },
       ],
     },
     {
@@ -771,8 +784,8 @@ export const goblinGizmosCaseStudy: CaseStudyData = {
         "The design held up in code. That was the point.",
       ],
       images: [
-        { src: "/images/projects/goblin-gizmos-stack.png", label: "Add stack diagram" },
-        { src: "/images/projects/goblin-gizmos-responsive.png", label: "Add responsive screens" },
+        { src: "/images/projects/goblin-gizmos-stack.png", label: "Add stack diagram", fit: "contain" },
+        { src: "/images/projects/goblin-gizmos-responsive.png", label: "Add responsive screens", fit: "contain" },
       ],
       link: {
         label: "View in Figma",
@@ -963,9 +976,9 @@ export const lofistoryCaseStudy: CaseStudyData = {
         "Building it myself meant the details I cared about in Figma survived contact with a browser. The card spacing, the transparency over the background, the way type sits against the grain. Those get lost in handoff, and there was no handoff.",
       ],
       images: [
-        { src: "/images/projects/lofistory-responsive-1.png", label: "Add responsive screens" },
-        { src: "/images/projects/lofistory-responsive-2.png", label: "Add responsive screens" },
-        { src: "/images/projects/lofistory-responsive-3.png", label: "Add responsive screens" },
+        { src: "/images/projects/lofistory-responsive-1.png", label: "Add responsive screens", fit: "contain" },
+        { src: "/images/projects/lofistory-responsive-2.png", label: "Add responsive screens", fit: "contain" },
+        { src: "/images/projects/lofistory-responsive-3.png", label: "Add responsive screens", fit: "contain" },
       ],
       link: { label: "View Live Site", url: "https://lofistory.netlify.app/" },
     },
@@ -1068,9 +1081,36 @@ export const knourishCaseStudy: CaseStudyData = {
         },
       ],
       images: [
-        { src: "/images/projects/knourish-survey.png", label: "Add survey form" },
-        { src: "/images/projects/knourish-journey-map.png", label: "Add journey map" },
-        { src: "/images/projects/knourish-competitive-audit.png", label: "Add competitive audit" },
+        { src: "/images/projects/knourish-survey.png", label: "Add survey form", fit: "contain" },
+        { src: "/images/projects/knourish-journey-map.png", label: "Add journey map", fit: "contain" },
+      ],
+    },
+    {
+      type: "colorCards",
+      heading: "Competitive Audit",
+      intro: [
+        "I audited Knourish against the two apps it would actually compete with for a student's attention: Transact, the existing campus system, and Uber Eats, the commercial app students already trust and compare everything else to.",
+        "The gap was the same across every criterion. Campus apps had the payment infrastructure commercial apps don't need, but none of their UX polish. Knourish's opening was never beating Uber Eats on restaurant variety. It was being the one app that actually told a student how long they'd wait.",
+      ],
+      cards: [
+        {
+          name: "Transact (Campus System)",
+          color: "#4A4A4A",
+          detail:
+            "Minimal wait-time transparency, just a static \"ready\" notification. Navigation is cluttered with hidden menus, and screen-reader support is inconsistent. Its one edge: direct integration with student ID and meal funds.",
+        },
+        {
+          name: "Uber Eats (Commercial Benchmark)",
+          color: "#1C6B4F",
+          detail:
+            "Dynamic, real-time countdowns and an intuitive, search-driven interface set the bar for polish. None of that logic is built for a 15-minute gap between classes, though.",
+        },
+        {
+          name: "Knourish (The Opportunity)",
+          color: "#8A6914",
+          detail:
+            "Live EWT tied to campus walking time, a clean card-based UI, and one-tap ordering for saved favorites. WCAG-compliant contrast, built around motor-friendly interaction.",
+        },
       ],
     },
     {
@@ -1082,10 +1122,10 @@ export const knourishCaseStudy: CaseStudyData = {
         "Fez's flow drove the core design. Vega's kept the customization and menu screens from being an afterthought.",
       ],
       images: [
-        { src: "/images/projects/knourish-persona-fez.png", label: "Add Fez persona" },
-        { src: "/images/projects/knourish-persona-vega.png", label: "Add Vega persona" },
-        { src: "/images/projects/knourish-fez-flow.png", label: "Add Fez user flow" },
-        { src: "/images/projects/knourish-storyboard.png", label: "Add storyboard" },
+        { src: "/images/projects/knourish-persona-fez.png", label: "Add Fez persona", fit: "contain" },
+        { src: "/images/projects/knourish-persona-vega.png", label: "Add Vega persona", fit: "contain" },
+        { src: "/images/projects/knourish-fez-flow.png", label: "Add Fez user flow", fit: "contain" },
+        { src: "/images/projects/knourish-storyboard.png", label: "Add storyboard", fit: "contain" },
       ],
     },
     {
@@ -1097,7 +1137,7 @@ export const knourishCaseStudy: CaseStudyData = {
         "The information architecture stayed deliberately flat to protect that speed. Four top-level nodes: Home, Browse, Orders, Profile, with persistent search available everywhere. Home shows restaurants by context (what's fast right now); Browse is for looking deliberately. Nothing else earned a place unless it got a student to a confident decision faster.",
       ],
       images: [
-        { src: "/images/projects/knourish-ia.png", label: "Add IA diagram" },
+        { src: "/images/projects/knourish-ia.png", label: "Add IA diagram", fit: "contain" },
         { src: "/images/projects/knourish-ewt.png", label: "Add EWT component" },
         { src: "/images/projects/knourish-leave-by.png", label: "Add Leave By prompt" },
       ],
@@ -1110,7 +1150,9 @@ export const knourishCaseStudy: CaseStudyData = {
         "Each estimate comes from the queue, adjusted for how many stations are working and learned from how long orders actually take. It's rounded up and shown as a range because a wait that ends early feels like a win, and one that runs long is the exact problem Knourish exists to solve.",
         "Staff takes on almost nothing new. They already mark orders ready, and that tap is what keeps the estimate honest. When a rush hits faster than the numbers can catch up, they can flip a restaurant straight to High Wait.",
       ],
-      images: [{ src: "/images/projects/knourish-ewt-system.png", label: "Add EWT system graphic" }],
+      images: [
+        { src: "/images/projects/knourish-ewt-system.png", label: "Add EWT system graphic", fit: "contain" },
+      ],
     },
     {
       type: "media",

@@ -84,20 +84,37 @@ function SectionHeading({ children, accent }: { children: React.ReactNode; accen
   );
 }
 
-function ImageGrid({ images, accent }: { images: { src: string; label: string }[]; accent: string }) {
+function ImageGrid({ images, accent }: { images: { src: string; label: string; fit?: "contain" }[]; accent: string }) {
+  const hasCroppedImages = images.some((img) => img.fit !== "contain");
   return (
-    <div className={`mt-6 grid gap-6 ${images.length > 1 ? "sm:grid-cols-2" : ""}`}>
-      {images.map((img) => (
-        <TiltedFrame key={img.src} rotate={-2} backdrop={`${accent}22`}>
-          <AssetImage
-            src={img.src}
-            alt={img.label}
-            color={accent}
-            className="h-64 w-full object-cover sm:h-72"
-            label={img.label}
-          />
-        </TiltedFrame>
-      ))}
+    <div className={`mt-6 grid gap-6 ${hasCroppedImages && images.length > 1 ? "sm:grid-cols-2" : ""}`}>
+      {images.map((img) =>
+        img.fit === "contain" ? (
+          <div
+            key={img.src}
+            className="sm:col-span-2 rounded-2xl border bg-white p-3"
+            style={{ borderColor: `${accent}33` }}
+          >
+            <AssetImage
+              src={img.src}
+              alt={img.label}
+              color={accent}
+              className="h-auto max-h-[70vh] w-full object-contain"
+              label={img.label}
+            />
+          </div>
+        ) : (
+          <TiltedFrame key={img.src} rotate={-2} backdrop={`${accent}22`}>
+            <AssetImage
+              src={img.src}
+              alt={img.label}
+              color={accent}
+              className="h-64 w-full object-cover sm:h-72"
+              label={img.label}
+            />
+          </TiltedFrame>
+        )
+      )}
     </div>
   );
 }
