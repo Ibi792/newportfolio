@@ -79,30 +79,47 @@ export default function Home() {
                 className="h-[655px] w-full sm:h-[680px]"
                 front={
                   <div className="flex h-full w-full items-center justify-center">
-                    <div className="w-full max-w-[280px] -rotate-3 overflow-hidden rounded-2xl border-[6px] border-white shadow-xl">
-                      <AssetImage
-                        src="/images/portrait.jpg"
-                        alt={site.name}
-                        color={theme.heroAccent}
-                        className="aspect-[4/5] w-full object-cover"
-                        label="Add /public/images/portrait.jpg (click flips to CV card)"
-                      />
+                    <div className="relative w-full max-w-[280px]">
+                      <div className="-rotate-3 overflow-hidden rounded-2xl border-[6px] border-white shadow-xl">
+                        <AssetImage
+                          src="/images/portrait.jpg"
+                          alt={site.name}
+                          color={theme.heroAccent}
+                          className="aspect-[4/5] w-full object-cover"
+                          label="Add /public/images/portrait.jpg (click flips to CV card)"
+                        />
+                      </div>
+
+                      <div
+                        className="absolute -left-6 -top-6 z-10 flex h-16 w-16 -rotate-6 items-center justify-center rounded-full border-2 border-black/10 bg-[#F7DFA0] text-center font-mono text-[10px] font-black uppercase leading-tight text-[#1E2A3A] shadow-md"
+                        aria-hidden
+                      >
+                        {hero.card.portraitBadge}
+                      </div>
+
+                      <div className="absolute -right-4 -top-4 z-10" aria-hidden>
+                        <SparkleIcon color="#F7DFA0" />
+                      </div>
                     </div>
                   </div>
                 }
-                back={<TradingCard />}
+                back={
+                  <div className="relative h-full w-full">
+                    <TradingCard />
+
+                    <div
+                      className="absolute -left-6 top-10 z-10 flex h-16 w-16 -rotate-6 items-center justify-center rounded-full border-2 border-black/10 bg-[#F7DFA0] text-center font-mono text-[10px] font-black uppercase leading-tight text-[#1E2A3A] shadow-md"
+                      aria-hidden
+                    >
+                      {hero.card.portraitBadge}
+                    </div>
+
+                    <div className="absolute -right-4 -top-4 z-10" aria-hidden>
+                      <SparkleIcon color="#F7DFA0" />
+                    </div>
+                  </div>
+                }
               />
-
-              <div
-                className="absolute -left-6 top-10 z-10 flex h-16 w-16 -rotate-6 items-center justify-center rounded-full border-2 border-black/10 bg-[#F7DFA0] text-center font-mono text-[10px] font-black uppercase leading-tight text-[#1E2A3A] shadow-md"
-                aria-hidden
-              >
-                {hero.card.portraitBadge}
-              </div>
-
-              <div className="absolute -right-4 -top-4 z-10" aria-hidden>
-                <SparkleIcon color="#F7DFA0" />
-              </div>
             </div>
           </Reveal>
         </div>
