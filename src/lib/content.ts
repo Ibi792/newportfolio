@@ -451,7 +451,11 @@ export const fourddoCaseStudy: CaseStudyData = {
         "With the structure mapped out, it was time to make it real. The high-fidelity prototype was developed to bring the Fellows Hub to life within the constraints of the fellowship's existing brand and platform.",
       ],
       images: [
-        { src: "/images/projects/fourddo-prototype-desktop.png", label: "Add desktop prototype screenshot/video" },
+        {
+          src: "/images/projects/fourddo-prototype-desktop.png",
+          label: "Add desktop prototype screenshot/video",
+          fit: "feature",
+        },
         { src: "/images/projects/fourddo-prototype-mobile.png", label: "Add mobile prototype screenshot" },
       ],
     },
@@ -625,9 +629,9 @@ export const prizekicksCaseStudy: CaseStudyData = {
         "A style guide locked in the visual identity, then the final prototype went through one more round of testing and refinement.",
       ],
       images: [
-        { src: "/images/projects/prizekicks-lofi.png", label: "Add lo-fi screens" },
+        { src: "/images/projects/prizekicks-lofi.png", label: "Add lo-fi screens", fit: "contain" },
         { src: "/images/projects/prizekicks-style-guide.png", label: "Add style guide" },
-        { src: "/images/projects/prizekicks-hifi.png", label: "Add hi-fi screens" },
+        { src: "/images/projects/prizekicks-hifi.png", label: "Add hi-fi screens", fit: "contain" },
       ],
       link: { label: "View Live Demo", url: "https://prizekicks-demo.netlify.app/" },
     },
@@ -761,7 +765,7 @@ export const goblinGizmosCaseStudy: CaseStudyData = {
       images: [
         { src: "/images/projects/goblin-gizmos-style-guide.png", label: "Add style guide", fit: "feature" },
         { src: "/images/projects/goblin-gizmos-mascot.png", label: "Add mascot", fit: "feature" },
-        { src: "/images/projects/goblin-gizmos-palette.png", label: "Add palette" },
+        { src: "/images/projects/goblin-gizmos-palette.png", label: "Add palette", fit: "contain" },
       ],
     },
     {
@@ -966,7 +970,7 @@ export const lofistoryCaseStudy: CaseStudyData = {
         },
       ],
       images: [
-        { src: "/images/projects/lofistory-mockups.png", label: "Add Figma mockups" },
+        { src: "/images/projects/lofistory-mockups.png", label: "Add Figma mockups", fit: "feature" },
         { src: "/images/projects/lofistory-palette.png", label: "Add palette" },
       ],
     },
@@ -1166,8 +1170,8 @@ export const knourishCaseStudy: CaseStudyData = {
         "The logo is a circle with a bowl in the lower half, a K lettermark at the center, and a four-pointed star accent, nodding toward the product's affiliation with food, UCF, and our moniker all at once. Knockout carries the wordmark.",
       ],
       images: [
-        { src: "/images/projects/knourish-style-guide.png", label: "Add style guide" },
-        { src: "/images/projects/knourish-components.png", label: "Add components" },
+        { src: "/images/projects/knourish-style-guide.png", label: "Add style guide", fit: "feature" },
+        { src: "/images/projects/knourish-components.png", label: "Add components", fit: "contain" },
         { src: "/images/projects/knourish-logo.png", label: "Add logo", fit: "feature" },
       ],
     },
