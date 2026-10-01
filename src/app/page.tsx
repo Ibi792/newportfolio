@@ -8,7 +8,6 @@ import { TradingCard } from "@/components/TradingCard";
 import { FeaturedProjectCard } from "@/components/FeaturedProjectCard";
 import { CompactProjectCard } from "@/components/CompactProjectCard";
 import { AssetImage } from "@/components/AssetImage";
-import { TiltedFrame } from "@/components/TiltedFrame";
 import { SparkleIcon } from "@/components/SparkleIcon";
 import { hero, projects, site, themes } from "@/lib/content";
 
@@ -79,22 +78,17 @@ export default function Home() {
                 ariaLabel="Flip to see a trading-card style CV summary"
                 className="h-[655px] w-full sm:h-[680px]"
                 front={
-                  <TiltedFrame rotate={-3} backdrop={`${theme.heroAccent}44`} className="h-full w-full">
-                    <div
-                      className="flex h-full w-full items-center justify-center"
-                      style={{ backgroundColor: `${theme.heroAccent}22` }}
-                    >
-                      <div className="aspect-[4/5] w-full">
-                        <AssetImage
-                          src="/images/portrait.jpg"
-                          alt={site.name}
-                          color={theme.heroAccent}
-                          className="h-full w-full object-cover"
-                          label="Add /public/images/portrait.jpg (click flips to CV card)"
-                        />
-                      </div>
+                  <div className="flex h-full w-full items-center justify-center">
+                    <div className="w-full max-w-[280px] -rotate-3 overflow-hidden rounded-2xl border-[6px] border-white shadow-xl">
+                      <AssetImage
+                        src="/images/portrait.jpg"
+                        alt={site.name}
+                        color={theme.heroAccent}
+                        className="aspect-[4/5] w-full object-cover"
+                        label="Add /public/images/portrait.jpg (click flips to CV card)"
+                      />
                     </div>
-                  </TiltedFrame>
+                  </div>
                 }
                 back={<TradingCard />}
               />
