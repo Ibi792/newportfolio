@@ -36,15 +36,36 @@ export default function ExtrasPage() {
           <RevealGroup className="mt-8 grid grid-cols-1 gap-4 sm:grid-cols-2 md:grid-cols-3" stagger={0.05}>
             {extras.motion.items.map((item, i) => (
               <RevealItem key={i}>
-                <video
-                  src={item.video}
-                  aria-label={item.alt}
-                  className="aspect-video w-full rounded-lg bg-black/5 object-cover"
-                  autoPlay
-                  loop
-                  muted
-                  playsInline
-                />
+                <div className="group relative transition-transform duration-300 hover:scale-105">
+                  <div className="relative overflow-hidden rounded-lg shadow-md transition-shadow duration-300 group-hover:shadow-xl">
+                    <video
+                      src={item.video}
+                      aria-label={item.alt}
+                      className="aspect-video w-full bg-black/5 object-cover"
+                      autoPlay
+                      loop
+                      muted
+                      playsInline
+                    />
+
+                    <div
+                      className="pointer-events-none absolute inset-0 rounded-lg border-4 opacity-0 transition-opacity duration-300 group-hover:opacity-100"
+                      style={{ borderColor: theme.bodyAccent }}
+                      aria-hidden
+                    />
+
+                    <div className="pointer-events-none absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/80 to-transparent px-3 py-2 opacity-0 transition-opacity duration-300 group-hover:opacity-100">
+                      <p className="font-mono text-xs text-white">{item.alt}</p>
+                    </div>
+                  </div>
+
+                  <div
+                    className="pointer-events-none absolute -right-2 -top-2 opacity-0 transition-opacity duration-300 group-hover:opacity-100"
+                    aria-hidden
+                  >
+                    <SparkleIcon color={theme.bodyAccent} />
+                  </div>
+                </div>
               </RevealItem>
             ))}
           </RevealGroup>
