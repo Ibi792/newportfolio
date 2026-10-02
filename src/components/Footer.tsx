@@ -11,7 +11,7 @@ export function Footer({
   tagline: string;
 }) {
   return (
-    <footer style={{ backgroundColor: bg, color: text }} className="mt-24">
+    <footer style={{ backgroundColor: bg, color: text }}>
       <div className="mx-auto max-w-6xl border-t border-white/20 px-6 py-10 sm:px-10">
         <div className="flex flex-col gap-8 sm:flex-row sm:items-start sm:justify-between">
           <div>
