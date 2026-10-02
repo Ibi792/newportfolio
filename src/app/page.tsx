@@ -50,10 +50,22 @@ export default function Home() {
             </p>
 
             <div className="mt-8 flex flex-wrap items-center gap-4">
-              <Button href={hero.primaryCta.href} variant="filled" bg={theme.heroText} ink={theme.heroBg}>
+              <Button
+                href={hero.primaryCta.href}
+                variant="filled"
+                bg={theme.heroText}
+                ink={theme.heroBg}
+                accent={theme.heroAccent}
+              >
                 {hero.primaryCta.label} ↓
               </Button>
-              <Button href={hero.secondaryCta.href} variant="outline" bg={theme.heroText} ink={theme.heroBg}>
+              <Button
+                href={hero.secondaryCta.href}
+                variant="outline"
+                bg={theme.heroText}
+                ink={theme.heroBg}
+                accent={theme.heroAccent}
+              >
                 {hero.secondaryCta.label}
               </Button>
             </div>
