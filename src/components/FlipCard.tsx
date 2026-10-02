@@ -34,7 +34,7 @@ export function FlipCard({
   }
 
   return (
-    <div className={className} style={{ perspective: 1600 }}>
+    <div className={className} style={{ perspective: 1600, WebkitPerspective: 1600 }}>
       <div
         role="button"
         tabIndex={0}
@@ -46,16 +46,23 @@ export function FlipCard({
       >
         <motion.div
           className="relative h-full w-full"
-          style={{ transformStyle: "preserve-3d" }}
+          style={{ transformStyle: "preserve-3d", WebkitTransformStyle: "preserve-3d" }}
           animate={{ rotateY: flipped ? 180 : 0 }}
           transition={{ duration: shouldReduceMotion ? 0 : 0.7, ease: [0.22, 1, 0.36, 1] }}
         >
-          <div className="absolute inset-0" style={{ backfaceVisibility: "hidden" }}>
+          <div
+            className="absolute inset-0"
+            style={{ backfaceVisibility: "hidden", WebkitBackfaceVisibility: "hidden" }}
+          >
             {front}
           </div>
           <div
             className="absolute inset-0"
-            style={{ backfaceVisibility: "hidden", transform: "rotateY(180deg)" }}
+            style={{
+              backfaceVisibility: "hidden",
+              WebkitBackfaceVisibility: "hidden",
+              transform: "rotateY(180deg)",
+            }}
           >
             {back}
           </div>
