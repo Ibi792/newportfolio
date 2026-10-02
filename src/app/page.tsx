@@ -79,7 +79,7 @@ export default function Home() {
                 className="h-[655px] w-full sm:h-[680px]"
                 front={
                   <div className="flex h-full w-full items-center justify-center">
-                    <div className="relative w-full max-w-[280px]">
+                    <div className="relative w-full max-w-[360px]">
                       <div className="-rotate-3 overflow-hidden rounded-2xl border-[6px] border-white shadow-xl">
                         <AssetImage
                           src="/images/portrait.jpg"
