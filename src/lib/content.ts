@@ -208,6 +208,15 @@ export const projects: Project[] = [
     image: "/images/projects/four-stories.png",
   },
   {
+    slug: "knourish",
+    title: "Knourish",
+    tags: ["UX Design", "Solo Project"],
+    blurb: "Designing wait-time transparency for students who can't afford to guess",
+    color: "#FFC904",
+    textColor: "#0C0C20",
+    image: "/images/projects/knourish.png",
+  },
+  {
     slug: "goblin-gizmos",
     title: "Goblin Gizmos",
     tags: ["UX Design", "Capstone"],
@@ -235,15 +244,6 @@ export const projects: Project[] = [
     color: "#F0664F",
     textColor: "#F7DFA0",
     image: "/images/projects/lofistory.png",
-  },
-  {
-    slug: "knourish",
-    title: "Knourish",
-    tags: ["UX Design", "Solo Project"],
-    blurb: "Designing wait-time transparency for students who can't afford to guess",
-    color: "#FFC904",
-    textColor: "#0C0C20",
-    image: "/images/projects/knourish.png",
   },
 ];
 
