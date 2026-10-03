@@ -286,6 +286,91 @@ const CASE_STUDY_ICONS: Record<string, (props: { color: string }) => React.React
       <path d="M9 12l2 2 4-4" />
     </svg>
   ),
+  grid: ({ color }) => (
+    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke={color} strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden>
+      <rect x="3" y="3" width="7" height="7" rx="1" />
+      <rect x="14" y="3" width="7" height="7" rx="1" />
+      <rect x="3" y="14" width="7" height="7" rx="1" />
+      <rect x="14" y="14" width="7" height="7" rx="1" />
+    </svg>
+  ),
+  scale: ({ color }) => (
+    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke={color} strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden>
+      <path d="M12 3v18M4 7h16" />
+      <path d="M7 7l-3 6a3 3 0 0 0 6 0z" />
+      <path d="M17 7l-3 6a3 3 0 0 0 6 0z" />
+    </svg>
+  ),
+  tag: ({ color }) => (
+    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke={color} strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden>
+      <path d="M3 11l8-8h7v7l-8 8a2 2 0 0 1-3 0l-4-4a2 2 0 0 1 0-3z" />
+      <circle cx="15" cy="7" r="1" fill={color} stroke="none" />
+    </svg>
+  ),
+  user: ({ color }) => (
+    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke={color} strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden>
+      <circle cx="12" cy="8" r="4" />
+      <path d="M4 20c0-4 3.5-7 8-7s8 3 8 7" />
+    </svg>
+  ),
+  cup: ({ color }) => (
+    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke={color} strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden>
+      <path d="M4 8h12v6a4 4 0 0 1-4 4H8a4 4 0 0 1-4-4z" />
+      <path d="M16 9h2a2 2 0 0 1 0 4h-2" />
+      <path d="M8 3c-1 1-1 2 0 3M12 3c-1 1-1 2 0 3" />
+    </svg>
+  ),
+  music: ({ color }) => (
+    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke={color} strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden>
+      <path d="M9 18V5l10-2v13" />
+      <circle cx="6.5" cy="18" r="2.5" />
+      <circle cx="16.5" cy="16" r="2.5" />
+    </svg>
+  ),
+  clock: ({ color }) => (
+    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke={color} strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden>
+      <circle cx="12" cy="12" r="9" />
+      <path d="M12 7v5l3 3" />
+    </svg>
+  ),
+  layers: ({ color }) => (
+    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke={color} strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden>
+      <path d="M12 3l8 4.5-8 4.5-8-4.5z" />
+      <path d="M4 12l8 4.5 8-4.5" />
+      <path d="M4 16.5l8 4.5 8-4.5" />
+    </svg>
+  ),
+  image: ({ color }) => (
+    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke={color} strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden>
+      <rect x="3" y="4" width="18" height="16" rx="2" />
+      <circle cx="8.5" cy="9.5" r="1.5" fill={color} stroke="none" />
+      <path d="M21 16l-5-5-4 4-3-3-6 6" />
+    </svg>
+  ),
+  cards: ({ color }) => (
+    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke={color} strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden>
+      <rect x="6" y="4" width="14" height="10" rx="2" />
+      <path d="M4 8v10a2 2 0 0 0 2 2h10" />
+    </svg>
+  ),
+  pen: ({ color }) => (
+    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke={color} strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden>
+      <path d="M4 20l1-4L16 5l3 3L8 19l-4 1z" />
+      <path d="M14 7l3 3" />
+    </svg>
+  ),
+  fork: ({ color }) => (
+    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke={color} strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden>
+      <path d="M12 21V12" />
+      <path d="M6 5l6 7 6-7" />
+    </svg>
+  ),
+  skip: ({ color }) => (
+    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke={color} strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden>
+      <path d="M5 5v14l10-7z" />
+      <path d="M17 5v14" />
+    </svg>
+  ),
 };
 
 function SectionBlock({ section, accent }: { section: CaseStudySection; accent: string }) {

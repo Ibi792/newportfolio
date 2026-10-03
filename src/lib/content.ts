@@ -619,16 +619,19 @@ export const prizekicksCaseStudy: CaseStudyData = {
           title: "Cluttered by Default",
           detail:
             "I audited GOAT, Grailed, and Flight Club myself, cataloguing each as strengths and weaknesses in a shared market matrix. All three treated density as a feature. Finding a specific shoe meant fighting the interface first.",
+          icon: "grid",
         },
         {
           title: "No Sense of Fair",
           detail:
             "I wrote interviews targeting price, frequency, sites used, frustrations, and habits, then ran a companion survey rating feelings 1 to 10. {{None of the platforms gave buyers a clear read on whether a listing was fair}}. Comparison meant opening tabs and doing the math yourself.",
+          icon: "scale",
         },
         {
           title: "Trust Was Missing",
           detail:
             "Interviews and surveys kept circling the same theme. Buyers didn't feel these platforms were on their side, and that suspicion shaped every interaction.",
+          icon: "shield",
         },
       ],
     },
@@ -640,10 +643,10 @@ export const prizekicksCaseStudy: CaseStudyData = {
         "From this, PrizeKicks' core goals were set:",
       ],
       goals: [
-        { title: "Price Transparency", detail: "Fair price context on every listing" },
-        { title: "Clean Navigation", detail: "Find the shoe without fighting the interface" },
-        { title: "Buyer First", detail: "Hierarchy and features built around the customer" },
-        { title: "Trust Signals", detail: "Reviews and accountability baked in" },
+        { title: "Price Transparency", detail: "Fair price context on every listing", icon: "tag" },
+        { title: "Clean Navigation", detail: "Find the shoe without fighting the interface", icon: "compass" },
+        { title: "Buyer First", detail: "Hierarchy and features built around the customer", icon: "user" },
+        { title: "Trust Signals", detail: "Reviews and accountability baked in", icon: "shield" },
       ],
       images: [
         { src: "/images/projects/prizekicks-personas.png", label: "Add personas", fit: "contain" },
@@ -968,16 +971,19 @@ export const lofistoryCaseStudy: CaseStudyData = {
           title: "Nothing Should Feel Urgent",
           detail:
             "Lo-fi is background music by design. No pop-ups, no CTAs shouting for attention, no forms. {{If the site asked anything of you, it had already failed}}.",
+          icon: "cup",
         },
         {
           title: "Let the Genre's Own Language Lead",
           detail:
             "The aesthetic already exists and people already love it. My job was to translate it faithfully, not reinvent it.",
+          icon: "music",
         },
         {
           title: "Short Enough to Read in One Track",
           detail:
             "Content had to be curated, not exhaustive. A handful of foundational tracks, a few key figures, the conventions that define the sound. Enough to make someone go listen.",
+          icon: "clock",
         },
       ],
     },
@@ -990,31 +996,37 @@ export const lofistoryCaseStudy: CaseStudyData = {
           title: "Three Pages, One Mood",
           detail:
             "Home, About, Artist. Each page has one job. Home sets the atmosphere and invites you in. About tells the story of where the sound came from and what defines it. Artist is where you go listen. Splitting it this way kept every page short enough to feel unhurried, which a single long scroll couldn't do.",
+          icon: "layers",
         },
         {
           title: "The Background Was Non-Negotiable",
           detail:
             "A looping ramen shop in the rain sits behind the entire site. It sets the tone before a single word is read and {{does the work a hero section would normally do}}. Everything else is layered on top with enough transparency to let it breathe.",
+          icon: "image",
         },
         {
           title: "Cards Instead of Sections",
           detail:
             "Information lives in playful, loosely stacked cards rather than rigid page sections. Each card holds one thing: a track, a producer, a convention. It mirrors the way lo-fi playlists are assembled, one small piece at a time.",
+          icon: "cards",
         },
         {
           title: "Hand-Drawn Type",
           detail:
             "Headers run in Just Another Hand, a handwritten font that echoes the sketchy, homemade quality of lo-fi cover art. Body text stays clean and readable so the personality never costs legibility.",
+          icon: "pen",
         },
         {
           title: "A Palette Pulled From the Art",
           detail:
             "Coral, cornflower blue, and sage green, sampled straight from the live screens, with a pale cream for type and a deep plum instead of true black. Nothing pure white, nothing pure black. Everything stays soft enough to feel handmade.",
+          icon: "palette",
         },
         {
           title: "Real Artists, Not Screenshots",
           detail:
             "The Artist page pulls from Spotify rather than a hardcoded list. Album art, names, and links {{stay current without me touching the content}}, and every card goes straight to the music. The genre is alive, so the page should be too.",
+          icon: "music",
         },
       ],
       images: [
@@ -1121,21 +1133,25 @@ export const knourishCaseStudy: CaseStudyData = {
           title: "The Problem Isn't Ordering, It's Deciding",
           detail:
             "Students consistently know what they want. What they don't know is whether they have time for it. {{The friction lives before the order, not during it}}.",
+          icon: "fork",
         },
         {
           title: "Time Pressure Is the Only Fixed Variable",
           detail:
             "The gap between classes doesn't move. The wait time does. Students are deciding with one known number and one hidden one, and the hidden one decides everything.",
+          icon: "clock",
         },
         {
           title: "Skipping Is the Default Fallback",
           detail:
             "When a student can't gauge the wait, the safest move is not to eat. Uncertainty costs meals, not just minutes.",
+          icon: "skip",
         },
         {
           title: "The Apps Solve the Wrong Half",
           detail:
             "I audited Transact, the campus ordering system, against Uber Eats. Both had polished menus and checkout. Neither surfaced wait time, where the decision happens.",
+          icon: "eyeOff",
         },
       ],
       images: [
