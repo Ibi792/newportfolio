@@ -6,9 +6,12 @@ import type { CSSProperties, MouseEvent, ReactNode } from "react";
  * A clickable Process pill that smooth-scrolls to another section's id.
  * Plain CSS smooth-scroll (an <a href="#id">) computes its scroll
  * distance once at the start — if a lazy-loaded image further down the
- * page finishes loading mid-scroll and shifts the layout, it can land
- * short of the real target. A quick corrective re-scroll after the
- * first one settles fixes that without giving up lazy-loading.
+ * page finishes loading mid-scroll and shifts the layout, it lands
+ * short of the real target. On a long case study the scroll can pass
+ * several such images in sequence, so one fixed-delay correction isn't
+ * always enough — instead this re-corrects as each still-loading image
+ * on the page actually resolves (bounded by a safety timeout), without
+ * giving up lazy-loading.
  */
 export function ProcessPill({
   target,
@@ -23,8 +26,31 @@ export function ProcessPill({
     e.preventDefault();
     const el = document.getElementById(target);
     if (!el) return;
-    el.scrollIntoView({ behavior: "smooth", block: "start" });
-    window.setTimeout(() => el.scrollIntoView({ behavior: "smooth", block: "start" }), 700);
+
+    const scroll = () => el.scrollIntoView({ behavior: "smooth", block: "start" });
+    scroll();
+
+    const pending = Array.from(document.images).filter((img) => !img.complete);
+    if (pending.length === 0) return;
+
+    let remaining = pending.length;
+    const onSettle = () => {
+      remaining -= 1;
+      scroll();
+      if (remaining <= 0) cleanup();
+    };
+    const cleanup = () => {
+      pending.forEach((img) => {
+        img.removeEventListener("load", onSettle);
+        img.removeEventListener("error", onSettle);
+      });
+      scroll();
+    };
+    pending.forEach((img) => {
+      img.addEventListener("load", onSettle, { once: true });
+      img.addEventListener("error", onSettle, { once: true });
+    });
+    window.setTimeout(cleanup, 4000);
   }
 
   return (

@@ -758,6 +758,20 @@ export const goblinGizmosCaseStudy: CaseStudyData = {
       ],
     },
     {
+      type: "pills",
+      heading: "Process",
+      // Unlike Fourddo, every stage here has a real, exact section to
+      // jump to — the project's own narrative already runs in this order.
+      items: [
+        { label: "Research", target: "What We Found" },
+        { label: "Define", target: "The Decision That Shaped Everything" },
+        { label: "Ideate", target: "Brand" },
+        { label: "Prototype", target: "Design" },
+        { label: "Test", target: "Testing" },
+        { label: "Implement", target: "Build" },
+      ],
+    },
+    {
       type: "intro",
       heading: "What We Found",
       paragraphs: [
