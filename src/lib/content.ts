@@ -142,7 +142,8 @@ export const hero = {
 export const about = {
   heading: "About Me",
   bio: [
-    "Hi, I'm Isaac. I design with intention, build things with my own hands, and try to leave a little whimsy in whatever I ship. I'm studying Digital Media at the University of Central Florida, and the habits that actually define my process came from shipping real work: talking to strangers before I let myself sketch a single wireframe, and building my own frontend so nothing gets lost between the design file and the browser.",
+    "Hi, I'm Isaac — I design with intention, build things with my own hands, and leave a little whimsy in whatever I ship.",
+    "I'm studying Digital Media at the University of Central Florida, and the habits that actually define my process came from shipping real work: talking to strangers before I let myself sketch a single wireframe, and building my own frontend so nothing gets lost between the design file and the browser.",
   ],
   workList: {
     heading: "How I Work",
