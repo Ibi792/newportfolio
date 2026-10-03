@@ -52,7 +52,11 @@ export function FlipCard({
         >
           <div
             className="absolute inset-0"
-            style={{ backfaceVisibility: "hidden", WebkitBackfaceVisibility: "hidden" }}
+            style={{
+              backfaceVisibility: "hidden",
+              WebkitBackfaceVisibility: "hidden",
+              transform: "rotateY(0deg)",
+            }}
           >
             {front}
           </div>
