@@ -4,8 +4,8 @@ import { SparkleIcon } from "@/components/SparkleIcon";
 /**
  * A clean, evenly-sized photo grid — no background panel, no per-photo
  * tilt. Rows wrap via flexbox and are each centered, so an uneven last
- * row (5 photos = 3 + 2) sits centered under the row above instead of
- * trailing off to one side or leaving an empty grid cell.
+ * row sits centered under the row above instead of trailing off to one
+ * side. Sized for two per row (a plain 2x2 for four photos).
  */
 const SPARKLES = [
   { top: "-8%", left: "4%", size: 16, delay: 0 },
@@ -32,7 +32,7 @@ export function CardStack({
         {photos.map((photo) => (
           <div
             key={photo.src}
-            className="w-[30%] min-w-[110px] aspect-[4/5] overflow-hidden rounded-xl border-4 border-white shadow-md transition-transform duration-300 hover:scale-105"
+            className="w-[44%] min-w-[130px] aspect-[4/5] overflow-hidden rounded-xl border-4 border-white shadow-md transition-transform duration-300 hover:scale-105"
           >
             <AssetImage
               src={photo.src}

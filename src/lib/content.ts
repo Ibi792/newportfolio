@@ -142,7 +142,7 @@ export const hero = {
 export const about = {
   heading: "About Me",
   bio: [
-    "Hi, I'm Isaac — I design with intention, build things with my own hands, and leave a little whimsy in whatever I ship.",
+    "Hi, I'm Isaac. I design with intention, build things with my own hands, and leave a little whimsy in whatever I ship.",
     "I'm studying Digital Media at the University of Central Florida, and the habits that actually define my process came from shipping real work: talking to strangers before I let myself sketch a single wireframe, and building my own frontend so nothing gets lost between the design file and the browser.",
   ],
   workList: {
@@ -170,7 +170,7 @@ export const about = {
   // Which photo files feed the fanned card stack, in order. Add/remove
   // numbers here to change how many cards are in the fan — the stack
   // fans them out automatically, no layout tuning needed.
-  stackPhotoIds: [1, 2, 3, 4, 5],
+  stackPhotoIds: [2, 3, 4, 5],
   skillsHeading: "Skills, Expertise & Certifications",
   tools: ["Figma", "Premiere Pro", "JavaScript", "CSS3", "Photoshop", "After Effects", "HTML5", "GitHub"],
   coreSkills: ["User Research", "Design Documentation", "Wireframes", "Communication", "Collaboration"],
