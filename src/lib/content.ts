@@ -551,7 +551,7 @@ export const prizekicksCaseStudy: CaseStudyData = {
       type: "intro",
       heading: "Context",
       paragraphs: [
-        "Sneaker resale runs on scarcity and hype, and the platforms built around it reflect that. Prices are opaque, interfaces are cluttered, and buyers are left guessing whether they got a fair deal or got played. Two classmates and I had all felt it. PrizeKicks was our answer: a marketplace that treats the buyer as the customer, not the mark.",
+        "Sneaker resale runs on scarcity and hype, and the platforms built around it reflect that. Prices are opaque, interfaces are cluttered, and buyers are left guessing whether they got a fair deal or got played. Two classmates and I had all felt it. PrizeKicks was our answer: {{a marketplace that treats the buyer as the customer, not the mark}}.",
         "I treated the research like it was the product. I led UI and UX from market analysis through two rounds of user testing and a live demo.",
       ],
     },
@@ -568,12 +568,12 @@ export const prizekicksCaseStudy: CaseStudyData = {
         {
           label: "Problem",
           value:
-            "Existing resale platforms bury product discovery under clutter and give buyers no signal for what a fair price looks like. Users leave frustrated or leave entirely.",
+            "Existing resale platforms bury product discovery under clutter and give buyers {{no signal for what a fair price looks like}}. Users leave frustrated or leave entirely.",
         },
         {
           label: "Solution",
           value:
-            "A buyer-first marketplace with price comparison built into the browsing experience, a simplified information architecture, and a clean visual system that gets out of the way.",
+            "A buyer-first marketplace with {{price comparison built into the browsing experience}}, a simplified information architecture, and a clean visual system that gets out of the way.",
         },
         {
           label: "My Role",
@@ -596,7 +596,7 @@ export const prizekicksCaseStudy: CaseStudyData = {
         {
           title: "No Sense of Fair",
           detail:
-            "I wrote interviews targeting price, frequency, sites used, frustrations, and habits, then ran a companion survey rating feelings 1 to 10. None of the platforms gave buyers a clear read on whether a listing was fair. Comparison meant opening tabs and doing the math yourself.",
+            "I wrote interviews targeting price, frequency, sites used, frustrations, and habits, then ran a companion survey rating feelings 1 to 10. {{None of the platforms gave buyers a clear read on whether a listing was fair}}. Comparison meant opening tabs and doing the math yourself.",
         },
         {
           title: "Trust Was Missing",
@@ -650,17 +650,17 @@ export const prizekicksCaseStudy: CaseStudyData = {
         {
           label: "Buyers Could Actually Compare",
           detail:
-            "Price context on the product page removed the tab-juggling that defined every other platform.",
+            "{{Price context on the product page removed the tab-juggling}} that defined every other platform.",
         },
         {
           label: "Navigation Stopped Being Work",
           detail:
-            "Testers moved through core flows without stalling. The second round of testing surfaced tweaks, not blockers.",
+            "Testers moved through core flows without stalling. {{The second round of testing surfaced tweaks, not blockers}}.",
         },
         {
           label: "Scoped to What Mattered",
           detail:
-            "By cutting the marketplace down to the features that differentiated it, the final prototype demonstrated the product's value without pretending to be something it wasn't yet.",
+            "By cutting the marketplace down to the features that differentiated it, {{the final prototype demonstrated the product's value}} without pretending to be something it wasn't yet.",
         },
       ],
     },
@@ -712,7 +712,7 @@ export const goblinGizmosCaseStudy: CaseStudyData = {
       heading: "Context",
       paragraphs: [
         "The team didn't have to go far to find inspiration. We just looked at our own shelves. Vinyls, figurines, business cards, blind boxes, books. Each of us collects something, and each of us had the same quiet frustration: there was nowhere online to show it all off the way we wanted to. The platforms we found were too limited, too cluttered, or looked like they hadn't been touched since 2009.",
-        "We wanted something warmer. Something like Letterboxd, but for everything. And we didn't want to stop at a prototype. Over two semesters, a five-person team took Goblin Gizmos from a research question to a working site with real accounts, real uploads, and a real database. I led design, UI, and branding, and wrote front-end code alongside the team.",
+        "We wanted something warmer. Something like Letterboxd, but for everything. And we didn't want to stop at a prototype. Over two semesters, a five-person team took Goblin Gizmos from a research question to {{a working site with real accounts, real uploads, and a real database}}. I led design, UI, and branding, and wrote front-end code alongside the team.",
       ],
     },
     {
@@ -728,7 +728,7 @@ export const goblinGizmosCaseStudy: CaseStudyData = {
         {
           label: "Solution",
           value:
-            "A social, community-first platform with a two-layer collection system and a bounty board for trading. Designed in Figma, built on PHP and MySQL, validated and responsive.",
+            "A social, community-first platform with {{a two-layer collection system and a bounty board for trading}}. Designed in Figma, built on PHP and MySQL, validated and responsive.",
         },
         {
           label: "My Role",
@@ -750,7 +750,7 @@ export const goblinGizmosCaseStudy: CaseStudyData = {
       type: "media",
       heading: "The Decision That Shaped Everything",
       paragraphs: [
-        "The structural choice we were most deliberate about was the two-layer collection system. A user has collections (say, books), and within each collection they have individual items (a first edition, a worn paperback with notes in the margins). It sounds simple, but it solved the core problem every competitor had: how do you let one person hold vinyls and figurines and books on the same shelf without the organization collapsing? Each trinket gets room to express its own history. The broader structure stays clean. Nearly every downstream decision, from the data dictionary to the database schema, traced back to this.",
+        "The structural choice we were most deliberate about was the two-layer collection system. A user has collections (say, books), and within each collection they have individual items (a first edition, a worn paperback with notes in the margins). It sounds simple, but it solved the core problem every competitor had: {{how do you let one person hold vinyls and figurines and books on the same shelf without the organization collapsing}}? Each trinket gets room to express its own history. The broader structure stays clean. Nearly every downstream decision, from the data dictionary to the database schema, traced back to this.",
       ],
       images: [
         { src: "/images/projects/goblin-gizmos-use-cases.png", label: "Add use cases", fit: "contain" },
@@ -810,13 +810,13 @@ export const goblinGizmosCaseStudy: CaseStudyData = {
       type: "results",
       heading: "Testing",
       intro: [
-        "Three usability sessions put real people in front of the actual product instead of a clickable mockup. Each tester worked through sign-up, navigation, and posting, with later sessions adding editing, comments, and filters as those features came online.",
+        "Three usability sessions put {{real people in front of the actual product}} instead of a clickable mockup. Each tester worked through sign-up, navigation, and posting, with later sessions adding editing, comments, and filters as those features came online.",
       ],
       items: [
         {
           label: "The Cut-Off Post Bug",
           detail:
-            "The \"view post\" link was routinely clipped on posts past a certain length, blocking testers from opening a post, reading comments, or reaching edit and delete. It surfaced independently across multiple sessions and became the milestone's top fix.",
+            "The \"view post\" link was routinely clipped on posts past a certain length, blocking testers from opening a post, reading comments, or reaching edit and delete. It surfaced independently across multiple sessions and {{became the milestone's top fix}}.",
         },
         {
           label: "Sign-Up Friction",
@@ -826,16 +826,16 @@ export const goblinGizmosCaseStudy: CaseStudyData = {
         {
           label: "Small Asks That Mattered",
           detail:
-            "Testers wanted the logo to double as a home link and the ability to edit their profile picture, neither of which existed in the earlier build. Both shipped by the third round of testing.",
+            "Testers wanted the logo to double as a home link and the ability to edit their profile picture, neither of which existed in the earlier build. {{Both shipped by the third round of testing}}.",
         },
         {
           label: "What the Fixes Bought Us",
           detail:
-            "By the third session, testers could edit and delete both posts and their profile photo, post comments and see them populate, and use search and filters, on a build the first two testers couldn't have completed.",
+            "By the third session, testers could edit and delete both posts and their profile photo, post comments and see them populate, and use search and filters, {{on a build the first two testers couldn't have completed}}.",
         },
       ],
       outro: [
-        "The core flows, sign-up, login, navigation, posting, held up across every session. The real lesson was that a single layout bug, an enlarged footer clipping the post view, can quietly block an entire set of features from ever being tested, let alone used. Fixing it unblocked testing on comments, edit, and delete in the same pass.",
+        "The core flows, sign-up, login, navigation, posting, held up across every session. The real lesson was that a single layout bug, an enlarged footer clipping the post view, can quietly block an entire set of features from ever being tested, let alone used. {{Fixing it unblocked testing on comments, edit, and delete in the same pass}}.",
       ],
     },
     {
@@ -889,7 +889,7 @@ export const lofistoryCaseStudy: CaseStudyData = {
       type: "intro",
       heading: "Context",
       paragraphs: [
-        "Lo-fi hip hop has been a constant companion through every late-night study session, every deadline, every render that took too long. It's a genre with an unmistakable visual identity. Ramen shops, rainy nights, the studying girl at her desk, the warm grain over everything. But when I went looking for a place that told its story, I found Wikipedia pages and playlist descriptions. Nothing that felt like the music.",
+        "Lo-fi hip hop has been a constant companion through every late-night study session, every deadline, every render that took too long. It's a genre with an unmistakable visual identity. Ramen shops, rainy nights, the studying girl at her desk, the warm grain over everything. But when I went looking for a place that told its story, I found Wikipedia pages and playlist descriptions. {{Nothing that felt like the music}}.",
         "Lofistory started as a class design exercise and became something I couldn't leave as a mockup. It's a three-page site: a Home that sets the mood, an About that traces the genre's roots and conventions, and an Artist page that pulls the producers who shaped it straight from Spotify. I designed it in Figma and built it myself in React.",
       ],
     },
@@ -906,7 +906,7 @@ export const lofistoryCaseStudy: CaseStudyData = {
         {
           label: "Solution",
           value:
-            "A warm, low-key three-page site that lets the genre's own visual language do the talking. Cards over forms, hand-drawn type over system fonts, live artist data from the Spotify API, and a looping rainy ramen shop behind everything.",
+            "A warm, low-key three-page site that lets the genre's own visual language do the talking. Cards over forms, hand-drawn type over system fonts, {{live artist data from the Spotify API}}, and a looping rainy ramen shop behind everything.",
         },
         {
           label: "My Role",
@@ -919,14 +919,14 @@ export const lofistoryCaseStudy: CaseStudyData = {
       type: "insightCards",
       heading: "The Brief I Gave Myself",
       intro: [
-        "Most of my projects start with a user problem. This one started with a feeling. The question wasn't “what does the user need,” it was “what does this genre feel like, and can a website feel like that too?”",
+        "Most of my projects start with a user problem. This one started with a feeling. The question wasn't “what does the user need,” it was “what does this genre feel like, and {{can a website feel like that too}}?”",
         "That framing set three rules before I drew anything.",
       ],
       cards: [
         {
           title: "Nothing Should Feel Urgent",
           detail:
-            "Lo-fi is background music by design. No pop-ups, no CTAs shouting for attention, no forms. If the site asked anything of you, it had already failed.",
+            "Lo-fi is background music by design. No pop-ups, no CTAs shouting for attention, no forms. {{If the site asked anything of you, it had already failed}}.",
         },
         {
           title: "Let the Genre's Own Language Lead",
@@ -953,7 +953,7 @@ export const lofistoryCaseStudy: CaseStudyData = {
         {
           title: "The Background Was Non-Negotiable",
           detail:
-            "A looping ramen shop in the rain sits behind the entire site. It sets the tone before a single word is read and does the work a hero section would normally do. Everything else is layered on top with enough transparency to let it breathe.",
+            "A looping ramen shop in the rain sits behind the entire site. It sets the tone before a single word is read and {{does the work a hero section would normally do}}. Everything else is layered on top with enough transparency to let it breathe.",
         },
         {
           title: "Cards Instead of Sections",
@@ -973,7 +973,7 @@ export const lofistoryCaseStudy: CaseStudyData = {
         {
           title: "Real Artists, Not Screenshots",
           detail:
-            "The Artist page pulls from Spotify rather than a hardcoded list. Album art, names, and links stay current without me touching the content, and every card goes straight to the music. The genre is alive, so the page should be too.",
+            "The Artist page pulls from Spotify rather than a hardcoded list. Album art, names, and links {{stay current without me touching the content}}, and every card goes straight to the music. The genre is alive, so the page should be too.",
         },
       ],
       images: [
@@ -985,8 +985,8 @@ export const lofistoryCaseStudy: CaseStudyData = {
       type: "media",
       heading: "Build",
       paragraphs: [
-        "A design about restraint deserved a build to match. The site runs on a small set of React components. I used cards, a card grid, a header, the ambient background layer, and React Router handling the three routes. The Artist page calls the Spotify Web API on load and renders the results into cards, so album art, artist names, and links stay accurate on their own, with a direct button on every card to open the track in Spotify. The looping GIF is optimized so the atmosphere doesn't cost load time.",
-        "Wiring up the API was the part that turned this from a mockup into a product. Handling auth, structuring the response, and rendering it inside cards I'd designed without it in mind forced a few layout decisions I wouldn't have made on paper. The album art became the visual anchor of every artist card, which was better than what I had drawn.",
+        "A design about restraint deserved a build to match. The site runs on a small set of React components. I used cards, a card grid, a header, the ambient background layer, and React Router handling the three routes. The Artist page calls the Spotify Web API on load and renders the results into cards, so album art, artist names, and links {{stay accurate on their own}}, with a direct button on every card to open the track in Spotify. The looping GIF is optimized so the atmosphere doesn't cost load time.",
+        "Wiring up the API was the part that turned this from a mockup into a product. Handling auth, structuring the response, and rendering it inside cards I'd designed without it in mind forced a few layout decisions I wouldn't have made on paper. The album art became the visual anchor of every artist card, {{which was better than what I had drawn}}.",
         "Building it myself meant the details I cared about in Figma survived contact with a browser. The card spacing, the transparency over the background, the way type sits against the grain. Those get lost in handoff, and there was no handoff.",
       ],
       images: [
@@ -1038,8 +1038,8 @@ export const knourishCaseStudy: CaseStudyData = {
       type: "intro",
       heading: "Context",
       paragraphs: [
-        "Thirty-three minutes and fifty-six seconds. That's how long it took to get the sandwich I ordered at UCF's Student Union. I'd missed my bus, I was late to class, and I didn't even have time to enjoy the thing without missing more of the lecture. Nobody had done anything wrong. The kitchen was slammed, and the self-service kiosk I ordered from just didn't tell me.",
-        "That's the whole problem. Campus ordering interfaces let you order, but they don't help you decide. For a student with fifteen minutes between lectures, the question isn't \"what do I want,\" it's \"can I get it and still make it to class.\" Knourish is a mobile ordering concept for the UCF campus built around answering that before you commit.",
+        "Thirty-three minutes and fifty-six seconds. That's how long it took to get the sandwich I ordered at UCF's Student Union. I'd missed my bus, I was late to class, and I didn't even have time to enjoy the thing without missing more of the lecture. Nobody had done anything wrong. The kitchen was slammed, and {{the self-service kiosk I ordered from just didn't tell me}}.",
+        "That's the whole problem. Campus ordering interfaces let you order, but they don't help you decide. For a student with fifteen minutes between lectures, the question isn't \"what do I want,\" it's {{\"can I get it and still make it to class.\"}} Knourish is a mobile ordering concept for the UCF campus built around answering that before you commit.",
       ],
     },
     {
@@ -1050,12 +1050,12 @@ export const knourishCaseStudy: CaseStudyData = {
         {
           label: "Problem",
           value:
-            "Campus ordering apps give students no visibility into wait times, so every order is a gamble against their schedule. Time-pressured students skip meals or risk being late.",
+            "Campus ordering apps give students no visibility into wait times, so {{every order is a gamble against their schedule}}. Time-pressured students skip meals or risk being late.",
         },
         {
           label: "Solution",
           value:
-            "A mobile ordering app that surfaces an Estimated Wait Time before checkout, backed by a Low Wait / Busy / Packed status system and a Leave By prompt at confirmation, so students can plan around when they need to go.",
+            "A mobile ordering app that surfaces an Estimated Wait Time before checkout, backed by a Low Wait / Busy / Packed status system and {{a Leave By prompt at confirmation}}, so students can plan around when they need to go.",
         },
         {
           label: "My Role",
@@ -1069,14 +1069,14 @@ export const knourishCaseStudy: CaseStudyData = {
       type: "insightCards",
       heading: "Research",
       intro: [
-        "Before designing anything, I built a research plan around one question: how do UCF students actually decide where to eat between classes, and what goes wrong? I ran a ten-question survey on ordering habits at the Student Union, followed by short follow-up interviews with respondents who'd been late or missed transit because of an order. A journey map built around Fez, the primary persona, traced how a single lunch order escalates from anxious to frustrated across four stages, and that emotional arc drove the rest of the research.",
+        "Before designing anything, I built a research plan around one question: how do UCF students actually decide where to eat between classes, and what goes wrong? I ran a ten-question survey on ordering habits at the Student Union, followed by short follow-up interviews with respondents who'd been late or missed transit because of an order. A journey map built around Fez, the primary persona, traced how {{a single lunch order escalates from anxious to frustrated across four stages}}, and that emotional arc drove the rest of the research.",
         "The findings below reflect the patterns this research was designed to surface. Sample data is illustrative and will be updated as responses come in.",
       ],
       cards: [
         {
           title: "The Problem Isn't Ordering, It's Deciding",
           detail:
-            "Students consistently know what they want. What they don't know is whether they have time for it. The friction lives before the order, not during it.",
+            "Students consistently know what they want. What they don't know is whether they have time for it. {{The friction lives before the order, not during it}}.",
         },
         {
           title: "Time Pressure Is the Only Fixed Variable",
@@ -1104,7 +1104,7 @@ export const knourishCaseStudy: CaseStudyData = {
       heading: "Competitive Audit",
       intro: [
         "I audited Knourish against the two apps it would actually compete with for a student's attention: Transact, the existing campus system, and Uber Eats, the commercial app students already trust and compare everything else to.",
-        "The gap was the same across every criterion. Campus apps had the payment infrastructure commercial apps don't need, but none of their UX polish. Knourish's opening was never beating Uber Eats on restaurant variety. It was being the one app that actually told a student how long they'd wait.",
+        "The gap was the same across every criterion. Campus apps had the payment infrastructure commercial apps don't need, but none of their UX polish. Knourish's opening was never beating Uber Eats on restaurant variety. It was being {{the one app that actually told a student how long they'd wait}}.",
       ],
       cards: [
         {
@@ -1146,7 +1146,7 @@ export const knourishCaseStudy: CaseStudyData = {
       type: "media",
       heading: "The One Feature That Mattered",
       paragraphs: [
-        "Everything in Knourish serves the Estimated Wait Time. Rather than a number buried on a confirmation screen, EWT shows up where the decision happens: on the restaurant card, before you tap in. A three-level status system (Low Wait, Busy, Packed) gives an at-a-glance read, and the specific estimate sits beside it. A student scanning Home can rule out half the options in two seconds.",
+        "Everything in Knourish serves the Estimated Wait Time. Rather than a number buried on a confirmation screen, EWT shows up where the decision happens: on the restaurant card, before you tap in. A three-level status system (Low Wait, Busy, Packed) gives an at-a-glance read, and the specific estimate sits beside it. A student scanning Home can {{rule out half the options in two seconds}}.",
         "At the other end of the flow, the confirmation screen tells you when to leave. Not just \"your order will be ready in 12 minutes,\" but a Leave By time that closes the loop on the whole problem.",
         "The information architecture stayed deliberately flat to protect that speed. Four top-level nodes: Home, Browse, Orders, Profile, with persistent search available everywhere. Home shows restaurants by context (what's fast right now); Browse is for looking deliberately. Nothing else earned a place unless it got a student to a confident decision faster.",
       ],
