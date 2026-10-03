@@ -521,7 +521,13 @@ function SectionBlock({ section, accent }: { section: CaseStudySection; accent: 
                 <div className="rounded-xl p-6" style={{ backgroundColor: card.color, color: "#F4F2FA" }}>
                   <div className="flex items-center gap-3">
                     {card.logo && (
-                      <div className="flex h-12 w-12 shrink-0 items-center justify-center overflow-hidden rounded-lg bg-white p-1.5">
+                      <div
+                        className={
+                          card.bareLogo
+                            ? "flex h-12 w-12 shrink-0 items-center justify-center"
+                            : "flex h-12 w-12 shrink-0 items-center justify-center overflow-hidden rounded-lg bg-white p-1.5"
+                        }
+                      >
                         <AssetImage
                           src={card.logo}
                           alt={`${card.name} logo`}

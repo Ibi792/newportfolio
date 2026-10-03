@@ -287,7 +287,9 @@ export type CaseStudySection =
       intro: string[];
       // `logo` is optional — drop the real file at that path in /public
       // and it renders; until then AssetImage shows an "add image" stub.
-      cards: { name: string; color: string; detail: string; logo?: string }[];
+      // `bareLogo` skips the white badge behind it, for a logo (like a
+      // self-contained circular mark) that doesn't need one for contrast.
+      cards: { name: string; color: string; detail: string; logo?: string; bareLogo?: boolean }[];
     }
   | {
       type: "goalChips";
@@ -1190,6 +1192,7 @@ export const knourishCaseStudy: CaseStudyData = {
           name: "Knourish (The Opportunity)",
           color: "#8A6914",
           logo: "/images/projects/knourish-logo.png",
+          bareLogo: true,
           detail:
             "Live EWT tied to campus walking time, a clean card-based UI, and one-tap ordering for saved favorites. WCAG-compliant contrast, built around motor-friendly interaction.",
         },
