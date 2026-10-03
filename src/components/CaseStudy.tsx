@@ -542,7 +542,7 @@ function SectionBlock({ section, accent }: { section: CaseStudySection; accent: 
               const Icon = goal.icon ? CASE_STUDY_ICONS[goal.icon] : undefined;
               return (
                 <RevealItem key={goal.title}>
-                  <div className="rounded-xl bg-white/60 px-5 py-4">
+                  <div className="flex flex-col items-center rounded-xl bg-white/60 px-5 py-4 text-center">
                     {Icon && (
                       <div
                         className="mb-2 flex h-9 w-9 items-center justify-center rounded-lg"
