@@ -347,7 +347,7 @@ export const fourddoCaseStudy: CaseStudyData = {
       heading: "The Fellowship",
       paragraphs: [
         "Fourddo is a nonprofit dedicated to amplifying causes and initiatives that shape the lives of today's youth. This past summer, they launched Four Stories, a 10-week filmmaking fellowship in Boston pairing four emerging directors with mentors to develop, produce, and premiere original PSA films.",
-        "I was brought on as a Product Design Intern to design and build the Fellows Hub, a private digital platform serving as the cohort's central home base for curriculum, resources, and communication across the entire program.",
+        "I was brought on as a Product Design Intern to design and build {{the Fellows Hub}}, a private digital platform serving as the cohort's central home base for curriculum, resources, and communication across the entire program.",
       ],
     },
     {
@@ -377,7 +377,7 @@ export const fourddoCaseStudy: CaseStudyData = {
       heading: "User Research",
       intro: [
         "Research was conducted to better understand the needs of first-time fellowship participants navigating a demanding creative program for the first time.",
-        "Due to that research, key insights emerged:",
+        "Due to that research, {{key insights emerged}}:",
       ],
       cards: [
         {
@@ -476,21 +476,21 @@ export const fourddoCaseStudy: CaseStudyData = {
         {
           label: "Centralized Access",
           detail:
-            "For the first time, fellows had a single destination for curriculum, deliverables, resources, and program communication, eliminating the friction of navigating a 10-week program through scattered emails and shared documents.",
+            "For the first time, fellows had a single destination for curriculum, deliverables, resources, and program communication, {{eliminating the friction of navigating a 10-week program}} through scattered emails and shared documents.",
         },
         {
           label: "Program Clarity",
           detail:
-            "A structured week-by-week layout gave fellows a clear view of where they were in the program, what was coming next, and what was expected of them at every stage of production.",
+            "A structured week-by-week layout {{gave fellows a clear view of where they were in the program}}, what was coming next, and what was expected of them at every stage of production.",
         },
         {
           label: "Scalable Foundation",
           detail:
-            "The Fellows Hub established a replicable content structure and design system that Four Stories can build on as the fellowship grows beyond its inaugural cohort.",
+            "The Fellows Hub established a {{replicable content structure and design system}} that Four Stories can build on as the fellowship grows beyond its inaugural cohort.",
         },
       ],
       outro: [
-        "For a first-of-its-kind program running its inaugural cohort, the hub gave Four Stories something it didn't have before: a place that held everything together. Following the fellowship, program directors noted that fellows responded positively to the hub, citing it as a meaningful part of their experience.",
+        "For a first-of-its-kind program running its inaugural cohort, the hub gave Four Stories something it didn't have before: a place that held everything together. Following the fellowship, program directors noted that {{fellows responded positively to the hub}}, citing it as a meaningful part of their experience.",
       ],
     },
     {

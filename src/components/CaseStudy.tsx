@@ -76,6 +76,22 @@ export function CaseStudy({ data }: { data: CaseStudyData }) {
   );
 }
 
+// Content marks a key phrase by wrapping it in {{double braces}}; this
+// splits on that delimiter and colors the odd-indexed (matched) groups
+// with the case study's accent, so a handful of phrases per paragraph
+// can pop for scanning without changing weight or font.
+function renderHighlighted(text: string, accent: string) {
+  return text.split(/\{\{(.+?)\}\}/g).map((part, i) =>
+    i % 2 === 1 ? (
+      <span key={i} style={{ color: accent }}>
+        {part}
+      </span>
+    ) : (
+      part
+    )
+  );
+}
+
 function SectionHeading({ children, accent }: { children: React.ReactNode; accent: string }) {
   return (
     <h2 className="font-display text-2xl font-black uppercase tracking-tight sm:text-3xl" style={{ color: accent }}>
@@ -151,7 +167,7 @@ function SectionBlock({ section, accent }: { section: CaseStudySection; accent: 
           <SectionHeading accent={accent}>{section.heading}</SectionHeading>
           <div className="mt-5 space-y-4 font-mono text-base leading-relaxed sm:text-lg">
             {section.paragraphs.map((p, i) => (
-              <p key={i}>{p}</p>
+              <p key={i}>{renderHighlighted(p, accent)}</p>
             ))}
           </div>
         </>
@@ -167,7 +183,9 @@ function SectionBlock({ section, accent }: { section: CaseStudySection; accent: 
                 <p className="font-display text-sm font-bold" style={{ color: accent }}>
                   {row.label}
                 </p>
-                <p className="font-mono text-base leading-relaxed sm:text-lg">{row.value}</p>
+                <p className="font-mono text-base leading-relaxed sm:text-lg">
+                  {renderHighlighted(row.value, accent)}
+                </p>
               </div>
             ))}
           </div>
@@ -199,7 +217,7 @@ function SectionBlock({ section, accent }: { section: CaseStudySection; accent: 
           <SectionHeading accent={accent}>{section.heading}</SectionHeading>
           {section.intro.map((p, i) => (
             <p key={i} className="mt-5 font-mono text-base leading-relaxed sm:text-lg">
-              {p}
+              {renderHighlighted(p, accent)}
             </p>
           ))}
           <RevealGroup className="mt-8 grid gap-4 sm:grid-cols-2" stagger={0.08}>
@@ -212,7 +230,9 @@ function SectionBlock({ section, accent }: { section: CaseStudySection; accent: 
                   >
                     {card.title}
                   </p>
-                  <p className="mt-3 font-mono text-sm leading-relaxed">{card.detail}</p>
+                  <p className="mt-3 font-mono text-sm leading-relaxed">
+                    {renderHighlighted(card.detail, accent)}
+                  </p>
                 </div>
               </RevealItem>
             ))}
@@ -245,7 +265,7 @@ function SectionBlock({ section, accent }: { section: CaseStudySection; accent: 
           <SectionHeading accent={accent}>{section.heading}</SectionHeading>
           {section.intro.map((p, i) => (
             <p key={i} className="mt-5 font-mono text-base leading-relaxed sm:text-lg">
-              {p}
+              {renderHighlighted(p, accent)}
             </p>
           ))}
           <RevealGroup className="mt-8 flex flex-col gap-4" stagger={0.08}>
@@ -253,7 +273,7 @@ function SectionBlock({ section, accent }: { section: CaseStudySection; accent: 
               <RevealItem key={card.name}>
                 <div className="rounded-xl p-6" style={{ backgroundColor: card.color, color: "#F4F2FA" }}>
                   <p className="font-display text-xl font-bold">{card.name}</p>
-                  <p className="mt-2 text-sm leading-relaxed opacity-90">{card.detail}</p>
+                  <p className="mt-2 font-mono text-sm leading-relaxed opacity-90">{card.detail}</p>
                 </div>
               </RevealItem>
             ))}
@@ -267,7 +287,7 @@ function SectionBlock({ section, accent }: { section: CaseStudySection; accent: 
           <SectionHeading accent={accent}>{section.heading}</SectionHeading>
           {section.intro.map((p, i) => (
             <p key={i} className="mt-5 font-mono text-base leading-relaxed sm:text-lg">
-              {p}
+              {renderHighlighted(p, accent)}
             </p>
           ))}
           <RevealGroup className="mt-8 flex flex-wrap gap-4" stagger={0.06}>
@@ -277,14 +297,14 @@ function SectionBlock({ section, accent }: { section: CaseStudySection; accent: 
                   <p className="font-display text-sm font-bold" style={{ color: accent }}>
                     {goal.title}
                   </p>
-                  <p className="mt-1 font-mono text-xs opacity-80">{goal.detail}</p>
+                  <p className="mt-1 font-mono text-xs opacity-80">{renderHighlighted(goal.detail, accent)}</p>
                 </div>
               </RevealItem>
             ))}
           </RevealGroup>
           {section.outro?.map((p, i) => (
             <p key={i} className="mt-8 font-mono text-base leading-relaxed sm:text-lg">
-              {p}
+              {renderHighlighted(p, accent)}
             </p>
           ))}
           {section.images && <ImageGrid images={section.images} accent={accent} />}
@@ -297,7 +317,7 @@ function SectionBlock({ section, accent }: { section: CaseStudySection; accent: 
           <SectionHeading accent={accent}>{section.heading}</SectionHeading>
           {section.paragraphs.map((p, i) => (
             <p key={i} className="mt-5 font-mono text-base leading-relaxed sm:text-lg">
-              {p}
+              {renderHighlighted(p, accent)}
             </p>
           ))}
           {section.images && <ImageGrid images={section.images} accent={accent} />}
@@ -321,7 +341,7 @@ function SectionBlock({ section, accent }: { section: CaseStudySection; accent: 
           <SectionHeading accent={accent}>{section.heading}</SectionHeading>
           {section.intro.map((p, i) => (
             <p key={i} className="mt-5 font-mono text-base leading-relaxed sm:text-lg">
-              {p}
+              {renderHighlighted(p, accent)}
             </p>
           ))}
           <div className="mt-6 space-y-6">
@@ -330,13 +350,13 @@ function SectionBlock({ section, accent }: { section: CaseStudySection; accent: 
                 <p className="font-display text-sm font-bold" style={{ color: accent }}>
                   {item.label}
                 </p>
-                <p className="font-mono text-sm leading-relaxed">{item.detail}</p>
+                <p className="font-mono text-sm leading-relaxed">{renderHighlighted(item.detail, accent)}</p>
               </div>
             ))}
           </div>
           {section.outro?.map((p, i) => (
             <p key={i} className="mt-8 font-mono text-base leading-relaxed sm:text-lg">
-              {p}
+              {renderHighlighted(p, accent)}
             </p>
           ))}
         </>
@@ -348,7 +368,7 @@ function SectionBlock({ section, accent }: { section: CaseStudySection; accent: 
           <SectionHeading accent={accent}>{section.heading}</SectionHeading>
           {section.intro.map((p, i) => (
             <p key={i} className="mt-5 font-mono text-base leading-relaxed sm:text-lg">
-              {p}
+              {renderHighlighted(p, accent)}
             </p>
           ))}
           <div className="mt-6 space-y-4">
@@ -357,7 +377,7 @@ function SectionBlock({ section, accent }: { section: CaseStudySection; accent: 
                 <span className="font-display font-bold" style={{ color: accent }}>
                   {lesson.title}
                 </span>{" "}
-                {lesson.detail}
+                {renderHighlighted(lesson.detail, accent)}
               </p>
             ))}
           </div>
