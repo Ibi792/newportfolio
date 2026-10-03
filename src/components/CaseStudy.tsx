@@ -286,7 +286,12 @@ function SectionBlock({ section, accent }: { section: CaseStudySection; accent: 
                   <ProcessPill target={slugify(item.target)} accent={accent}>
                     {Icon && <Icon color="currentColor" />}
                     {item.label}
-                    <span aria-hidden>→</span>
+                    <span
+                      aria-hidden
+                      className="inline-block max-w-0 -translate-x-1 overflow-hidden opacity-0 transition-all duration-300 group-hover:ml-1 group-hover:max-w-[1em] group-hover:translate-x-0 group-hover:opacity-100"
+                    >
+                      →
+                    </span>
                   </ProcessPill>
                 </RevealItem>
               );
