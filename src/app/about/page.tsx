@@ -67,7 +67,7 @@ export default function AboutPage() {
             </div>
           </Reveal>
 
-          <Reveal delay={0.1}>
+          <Reveal delay={0.1} className="md:h-full">
             <CardStack
               accent={theme.heroAccent}
               photos={about.stackPhotoIds.map((n) => ({
