@@ -59,7 +59,7 @@ export function CaseStudy({ data }: { data: CaseStudyData }) {
 
       <div className="mx-auto max-w-5xl px-6 py-16 sm:px-10">
         {data.sections.map((section, i) => (
-          <Reveal key={i} className={i === 0 ? undefined : "mt-16"}>
+          <Reveal key={i} className={i === 0 ? undefined : "mt-14"}>
             <SectionBlock section={section} accent={accent} />
           </Reveal>
         ))}
@@ -149,7 +149,7 @@ function SectionBlock({ section, accent }: { section: CaseStudySection; accent: 
       return (
         <>
           <SectionHeading accent={accent}>{section.heading}</SectionHeading>
-          <div className="mt-4 space-y-4 text-sm leading-relaxed sm:text-base">
+          <div className="mt-5 space-y-4 font-mono text-base leading-relaxed sm:text-lg">
             {section.paragraphs.map((p, i) => (
               <p key={i}>{p}</p>
             ))}
@@ -167,7 +167,7 @@ function SectionBlock({ section, accent }: { section: CaseStudySection; accent: 
                 <p className="font-display text-sm font-bold" style={{ color: accent }}>
                   {row.label}
                 </p>
-                <p className="text-sm leading-relaxed sm:text-base">{row.value}</p>
+                <p className="font-mono text-base leading-relaxed sm:text-lg">{row.value}</p>
               </div>
             ))}
           </div>
@@ -198,7 +198,7 @@ function SectionBlock({ section, accent }: { section: CaseStudySection; accent: 
         <>
           <SectionHeading accent={accent}>{section.heading}</SectionHeading>
           {section.intro.map((p, i) => (
-            <p key={i} className="mt-4 text-sm leading-relaxed sm:text-base">
+            <p key={i} className="mt-5 font-mono text-base leading-relaxed sm:text-lg">
               {p}
             </p>
           ))}
@@ -212,7 +212,7 @@ function SectionBlock({ section, accent }: { section: CaseStudySection; accent: 
                   >
                     {card.title}
                   </p>
-                  <p className="mt-3 text-sm leading-relaxed">{card.detail}</p>
+                  <p className="mt-3 font-mono text-sm leading-relaxed">{card.detail}</p>
                 </div>
               </RevealItem>
             ))}
@@ -244,7 +244,7 @@ function SectionBlock({ section, accent }: { section: CaseStudySection; accent: 
         <>
           <SectionHeading accent={accent}>{section.heading}</SectionHeading>
           {section.intro.map((p, i) => (
-            <p key={i} className="mt-4 text-sm leading-relaxed sm:text-base">
+            <p key={i} className="mt-5 font-mono text-base leading-relaxed sm:text-lg">
               {p}
             </p>
           ))}
@@ -266,7 +266,7 @@ function SectionBlock({ section, accent }: { section: CaseStudySection; accent: 
         <>
           <SectionHeading accent={accent}>{section.heading}</SectionHeading>
           {section.intro.map((p, i) => (
-            <p key={i} className="mt-4 text-sm leading-relaxed sm:text-base">
+            <p key={i} className="mt-5 font-mono text-base leading-relaxed sm:text-lg">
               {p}
             </p>
           ))}
@@ -277,13 +277,13 @@ function SectionBlock({ section, accent }: { section: CaseStudySection; accent: 
                   <p className="font-display text-sm font-bold" style={{ color: accent }}>
                     {goal.title}
                   </p>
-                  <p className="mt-1 text-xs opacity-80">{goal.detail}</p>
+                  <p className="mt-1 font-mono text-xs opacity-80">{goal.detail}</p>
                 </div>
               </RevealItem>
             ))}
           </RevealGroup>
           {section.outro?.map((p, i) => (
-            <p key={i} className="mt-8 text-sm leading-relaxed sm:text-base">
+            <p key={i} className="mt-8 font-mono text-base leading-relaxed sm:text-lg">
               {p}
             </p>
           ))}
@@ -296,7 +296,7 @@ function SectionBlock({ section, accent }: { section: CaseStudySection; accent: 
         <>
           <SectionHeading accent={accent}>{section.heading}</SectionHeading>
           {section.paragraphs.map((p, i) => (
-            <p key={i} className="mt-4 text-sm leading-relaxed sm:text-base">
+            <p key={i} className="mt-5 font-mono text-base leading-relaxed sm:text-lg">
               {p}
             </p>
           ))}
@@ -320,7 +320,7 @@ function SectionBlock({ section, accent }: { section: CaseStudySection; accent: 
         <>
           <SectionHeading accent={accent}>{section.heading}</SectionHeading>
           {section.intro.map((p, i) => (
-            <p key={i} className="mt-4 text-sm leading-relaxed sm:text-base">
+            <p key={i} className="mt-5 font-mono text-base leading-relaxed sm:text-lg">
               {p}
             </p>
           ))}
@@ -330,12 +330,12 @@ function SectionBlock({ section, accent }: { section: CaseStudySection; accent: 
                 <p className="font-display text-sm font-bold" style={{ color: accent }}>
                   {item.label}
                 </p>
-                <p className="text-sm leading-relaxed">{item.detail}</p>
+                <p className="font-mono text-sm leading-relaxed">{item.detail}</p>
               </div>
             ))}
           </div>
           {section.outro?.map((p, i) => (
-            <p key={i} className="mt-8 text-sm leading-relaxed sm:text-base">
+            <p key={i} className="mt-8 font-mono text-base leading-relaxed sm:text-lg">
               {p}
             </p>
           ))}
@@ -347,13 +347,13 @@ function SectionBlock({ section, accent }: { section: CaseStudySection; accent: 
         <>
           <SectionHeading accent={accent}>{section.heading}</SectionHeading>
           {section.intro.map((p, i) => (
-            <p key={i} className="mt-4 text-sm leading-relaxed sm:text-base">
+            <p key={i} className="mt-5 font-mono text-base leading-relaxed sm:text-lg">
               {p}
             </p>
           ))}
           <div className="mt-6 space-y-4">
             {section.lessons.map((lesson) => (
-              <p key={lesson.title} className="text-sm leading-relaxed sm:text-base">
+              <p key={lesson.title} className="font-mono text-base leading-relaxed sm:text-lg">
                 <span className="font-display font-bold" style={{ color: accent }}>
                   {lesson.title}
                 </span>{" "}
