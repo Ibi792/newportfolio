@@ -8,11 +8,13 @@ export function Reveal({
   delay = 0,
   className,
   y = 24,
+  id,
 }: {
   children: ReactNode;
   delay?: number;
   className?: string;
   y?: number;
+  id?: string;
 }) {
   const shouldReduceMotion = useReducedMotion();
 
@@ -27,6 +29,7 @@ export function Reveal({
 
   return (
     <motion.div
+      id={id}
       className={className}
       initial="hidden"
       whileInView="visible"

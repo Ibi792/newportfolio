@@ -4,7 +4,16 @@ import { Footer } from "@/components/Footer";
 import { Reveal, RevealGroup, RevealItem } from "@/components/Reveal";
 import { AssetImage } from "@/components/AssetImage";
 import { TiltedFrame } from "@/components/TiltedFrame";
+import { ProcessPill } from "@/components/ProcessPill";
 import { footerText, paper, paperInk, themes, type CaseStudyData, type CaseStudySection } from "@/lib/content";
+
+// Turns a section heading into the #anchor a Process pill links to.
+function slugify(text: string) {
+  return text
+    .toLowerCase()
+    .replace(/[^a-z0-9]+/g, "-")
+    .replace(/(^-|-$)/g, "");
+}
 
 export function CaseStudy({ data }: { data: CaseStudyData }) {
   const { heroBg, heroText, accent, footer } = data;
@@ -58,11 +67,18 @@ export function CaseStudy({ data }: { data: CaseStudyData }) {
       </section>
 
       <div className="mx-auto max-w-5xl px-6 py-16 sm:px-10">
-        {data.sections.map((section, i) => (
-          <Reveal key={i} className={i === 0 ? undefined : "mt-14"}>
-            <SectionBlock section={section} accent={accent} />
-          </Reveal>
-        ))}
+        {data.sections.map((section, i) => {
+          const heading = "heading" in section ? section.heading : undefined;
+          return (
+            <Reveal
+              key={i}
+              id={heading ? slugify(heading) : undefined}
+              className={`scroll-mt-28${i === 0 ? "" : " mt-14"}`}
+            >
+              <SectionBlock section={section} accent={accent} />
+            </Reveal>
+          );
+        })}
 
         <p className="mt-16 text-center">
           <Link href="#top" className="underline-hover font-display font-bold" style={{ color: accent }}>
@@ -159,6 +175,51 @@ function ImageGrid({
   );
 }
 
+// One small line-icon per process stage, in the same hand-drawn stroke
+// style as the site's other inline icons. `color` is left pluggable so
+// a clickable pill can pass "currentColor" and let the hover-sweep's
+// CSS color transition drive the icon along with the text.
+const PROCESS_ICONS: Record<string, (props: { color: string }) => React.ReactNode> = {
+  Research: ({ color }) => (
+    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke={color} strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden>
+      <circle cx="10" cy="10" r="6" />
+      <path d="M15 15l5 5" />
+    </svg>
+  ),
+  Define: ({ color }) => (
+    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke={color} strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden>
+      <path d="M6 3h8l4 4v14H6z" />
+      <path d="M9 11h6M9 15h6" />
+    </svg>
+  ),
+  Ideate: ({ color }) => (
+    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke={color} strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden>
+      <path d="M12 3a6 6 0 0 0-3.5 10.9c.6.5 1 1.2 1 2.1h5c0-.9.4-1.6 1-2.1A6 6 0 0 0 12 3z" />
+      <path d="M10 18.5h4M10.5 21h3" />
+    </svg>
+  ),
+  Prototype: ({ color }) => (
+    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke={color} strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden>
+      <path d="M12 3l8 4.5-8 4.5-8-4.5z" />
+      <path d="M4 12l8 4.5 8-4.5" />
+      <path d="M4 16.5l8 4.5 8-4.5" />
+    </svg>
+  ),
+  Test: ({ color }) => (
+    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke={color} strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden>
+      <path d="M9 3h6" />
+      <path d="M10 3v6l-5 9a2 2 0 0 0 1.8 3h10.4a2 2 0 0 0 1.8-3l-5-9V3" />
+    </svg>
+  ),
+  Implement: ({ color }) => (
+    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke={color} strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden>
+      <path d="M12 2c2.5 2 4 5.5 4 9 0 1.8-.5 3.4-1.3 4.6L12 20l-2.7-4.4C8.5 14.4 8 12.8 8 11c0-3.5 1.5-7 4-9z" />
+      <circle cx="12" cy="10" r="1.2" />
+      <path d="M9 16l-2 4M15 16l2 4" />
+    </svg>
+  ),
+};
+
 function SectionBlock({ section, accent }: { section: CaseStudySection; accent: string }) {
   switch (section.type) {
     case "intro":
@@ -192,24 +253,48 @@ function SectionBlock({ section, accent }: { section: CaseStudySection; accent: 
         </>
       );
 
-    case "pills":
+    case "pills": {
+      const hasLinks = section.items.some((item) => item.target);
       return (
         <>
           <SectionHeading accent={accent}>{section.heading}</SectionHeading>
+          {hasLinks && (
+            <p className="mt-2 font-mono text-xs italic opacity-60">
+              Click a stage to jump to that part of the case study.
+            </p>
+          )}
           <RevealGroup className="mt-6 grid grid-cols-2 gap-3 sm:grid-cols-3" stagger={0.06}>
-            {section.items.map((item) => (
-              <RevealItem key={item}>
-                <div
-                  className="rounded-full border px-4 py-3 text-center font-display text-sm font-semibold italic"
-                  style={{ borderColor: `${accent}55`, color: accent }}
-                >
-                  {item}
-                </div>
-              </RevealItem>
-            ))}
+            {section.items.map((item) => {
+              const Icon = PROCESS_ICONS[item.label];
+
+              if (!item.target) {
+                return (
+                  <RevealItem key={item.label}>
+                    <div
+                      className="flex items-center justify-center gap-2 rounded-full border px-4 py-3 text-center font-display text-sm font-semibold italic"
+                      style={{ borderColor: `${accent}55`, color: accent }}
+                    >
+                      {Icon && <Icon color={accent} />}
+                      {item.label}
+                    </div>
+                  </RevealItem>
+                );
+              }
+
+              return (
+                <RevealItem key={item.label}>
+                  <ProcessPill target={slugify(item.target)} accent={accent}>
+                    {Icon && <Icon color="currentColor" />}
+                    {item.label}
+                    <span aria-hidden>→</span>
+                  </ProcessPill>
+                </RevealItem>
+              );
+            })}
           </RevealGroup>
         </>
       );
+    }
 
     case "insightCards":
       return (

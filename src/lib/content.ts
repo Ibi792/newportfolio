@@ -263,7 +263,14 @@ export type CaseStudyImage = { src: string; label: string; fit?: "contain" | "fe
 export type CaseStudySection =
   | { type: "intro"; heading: string; paragraphs: string[] }
   | { type: "overview"; heading: string; rows: { label: string; value: string }[] }
-  | { type: "pills"; heading: string; items: string[] }
+  | {
+      type: "pills";
+      heading: string;
+      // `target` is another section's heading in this same case study
+      // (matched case-insensitively) — clicking the pill smooth-scrolls
+      // there. Omit it for a stage with no section of its own.
+      items: { label: string; target?: string }[];
+    }
   | {
       type: "insightCards";
       heading: string;
@@ -370,7 +377,19 @@ export const fourddoCaseStudy: CaseStudyData = {
     {
       type: "pills",
       heading: "Process",
-      items: ["Research", "Define", "Ideate", "Prototype", "Test", "Implement"],
+      // Research and Prototype map onto real sections below. Define and
+      // Implement are close-enough matches (Solution is where the goals
+      // got defined; Results is where it shipped). Ideate and Test have
+      // no dedicated section in this case study, so they're left as
+      // plain (non-clickable) stage markers.
+      items: [
+        { label: "Research", target: "User Research" },
+        { label: "Define", target: "Solution" },
+        { label: "Ideate" },
+        { label: "Prototype", target: "Prototype" },
+        { label: "Test" },
+        { label: "Implement", target: "Results" },
+      ],
     },
     {
       type: "insightCards",
