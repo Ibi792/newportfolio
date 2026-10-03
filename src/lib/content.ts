@@ -275,7 +275,9 @@ export type CaseStudySection =
       type: "insightCards";
       heading: string;
       intro: string[];
-      cards: { title: string; detail: string }[];
+      // `icon` is a key into CASE_STUDY_ICONS (CaseStudy.tsx) — omit for
+      // a plain title with no icon.
+      cards: { title: string; detail: string; icon?: string }[];
       images?: CaseStudyImage[];
     }
   | { type: "quote"; label: string; text: string; attribution: string }
@@ -289,7 +291,9 @@ export type CaseStudySection =
       type: "goalChips";
       heading: string;
       intro: string[];
-      goals: { title: string; detail: string }[];
+      // `icon` is a key into CASE_STUDY_ICONS (CaseStudy.tsx) — omit for
+      // a plain title with no icon.
+      goals: { title: string; detail: string; icon?: string }[];
       outro?: string[];
       images?: CaseStudyImage[];
     }
@@ -403,21 +407,25 @@ export const fourddoCaseStudy: CaseStudyData = {
           title: "No Central Home Base",
           detail:
             "Program information, curriculum, and deadlines were scattered across emails and shared documents with no single place to find what they needed.",
+          icon: "house",
         },
         {
           title: "First-Time Filmmakers",
           detail:
             "Most fellows had never produced a short film before. The platform needed to support the work without adding friction to an already demanding creative process.",
+          icon: "film",
         },
         {
           title: "Unclear Expectations",
           detail:
             "Deliverables, milestones, and payment requirements were communicated across multiple channels, making it easy to lose track of what was due and when.",
+          icon: "eyeOff",
         },
         {
           title: "The Hub Had to Earn Trust",
           detail:
             "For the platform to actually get used, it had to feel intentional and worth returning to. A cluttered or confusing experience would push fellows back to email.",
+          icon: "shield",
         },
       ],
     },
@@ -459,11 +467,11 @@ export const fourddoCaseStudy: CaseStudyData = {
       heading: "Solution",
       intro: ["Through this research, the Fellows Hub's main goals were identified."],
       goals: [
-        { title: "Clear Navigation", detail: "Instant access to the current week" },
-        { title: "Milestone Visibility", detail: "Deadlines and deliverables always in view" },
-        { title: "Structured Curriculum", detail: "Weekly content organized by phase" },
-        { title: "Low Friction Access", detail: "Private and easy to get into" },
-        { title: "Brand Cohesion", detail: "Felt like Four Stories" },
+        { title: "Clear Navigation", detail: "Instant access to the current week", icon: "compass" },
+        { title: "Milestone Visibility", detail: "Deadlines and deliverables always in view", icon: "calendar" },
+        { title: "Structured Curriculum", detail: "Weekly content organized by phase", icon: "list" },
+        { title: "Low Friction Access", detail: "Private and easy to get into", icon: "lock" },
+        { title: "Brand Cohesion", detail: "Felt like Four Stories", icon: "palette" },
       ],
       outro: [
         "Using these goals as a benchmark, I set out to outline information architecture and draft low-fidelity sketches.",
