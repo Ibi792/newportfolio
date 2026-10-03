@@ -89,7 +89,7 @@ export default function AboutPage() {
             </h2>
           </Reveal>
 
-          <div className="mt-8 grid gap-12 md:grid-cols-2">
+          <div className="mt-8 grid gap-8 md:grid-cols-2 md:gap-12">
             <div>
               <Reveal>
                 <p className="font-mono text-xs font-semibold uppercase tracking-wide opacity-60">Tools</p>
@@ -126,11 +126,11 @@ export default function AboutPage() {
 
             <Reveal delay={0.1}>
               <p className="font-mono text-xs font-semibold uppercase tracking-wide opacity-60">Certifications</p>
-              <div className="mt-3 grid gap-3 sm:grid-cols-2">
+              <div className="mt-3 grid gap-2 sm:grid-cols-2">
                 {about.certifications.map((cert) => (
                   <div
                     key={cert.name}
-                    className="flex items-start gap-2 rounded-xl px-3 py-3 text-sm leading-snug transition duration-200 hover:scale-[1.02] hover:brightness-95"
+                    className="flex items-start gap-2 rounded-xl px-3 py-2 text-xs leading-snug transition duration-200 hover:scale-[1.02] hover:brightness-95 sm:text-sm"
                     style={{ backgroundColor: `${theme.bodyAccent}14` }}
                   >
                     <BadgeIcon color={theme.bodyAccent} />
