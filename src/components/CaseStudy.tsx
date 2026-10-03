@@ -73,7 +73,7 @@ export function CaseStudy({ data }: { data: CaseStudyData }) {
             <Reveal
               key={i}
               id={heading ? slugify(heading) : undefined}
-              className={`scroll-mt-28${i === 0 ? "" : " mt-14"}`}
+              className={`scroll-mt-28${i === 0 ? "" : " mt-24"}`}
             >
               <SectionBlock section={section} accent={accent} />
             </Reveal>
@@ -379,7 +379,7 @@ function SectionBlock({ section, accent }: { section: CaseStudySection; accent: 
       return (
         <>
           <SectionHeading accent={accent}>{section.heading}</SectionHeading>
-          <div className="mt-5 space-y-4 font-mono text-base leading-relaxed sm:text-lg">
+          <div className="mt-8 space-y-4 font-mono text-base leading-relaxed sm:text-lg">
             {section.paragraphs.map((p, i) => (
               <p key={i}>{renderHighlighted(p, accent)}</p>
             ))}
@@ -391,9 +391,13 @@ function SectionBlock({ section, accent }: { section: CaseStudySection; accent: 
       return (
         <>
           <SectionHeading accent={accent}>{section.heading}</SectionHeading>
-          <div className="mt-6 space-y-6">
-            {section.rows.map((row) => (
-              <div key={row.label} className="grid gap-2 sm:grid-cols-[160px_1fr]">
+          <div className="mt-10">
+            {section.rows.map((row, i) => (
+              <div
+                key={row.label}
+                className={`grid gap-2 sm:grid-cols-[160px_1fr] ${i === 0 ? "" : "mt-8 border-t pt-8"}`}
+                style={i === 0 ? undefined : { borderColor: `${accent}2A` }}
+              >
                 <p className="font-display text-sm font-bold" style={{ color: accent }}>
                   {row.label}
                 </p>
@@ -416,7 +420,7 @@ function SectionBlock({ section, accent }: { section: CaseStudySection; accent: 
               Click a stage to jump to that part of the case study.
             </p>
           )}
-          <RevealGroup className="mt-6 grid grid-cols-2 gap-3 sm:grid-cols-3" stagger={0.06}>
+          <RevealGroup className="mt-10 grid grid-cols-2 gap-3 sm:grid-cols-3" stagger={0.06}>
             {section.items.map((item) => {
               const Icon = PROCESS_ICONS[item.label];
 
@@ -459,7 +463,7 @@ function SectionBlock({ section, accent }: { section: CaseStudySection; accent: 
         <>
           <SectionHeading accent={accent}>{section.heading}</SectionHeading>
           {section.intro.map((p, i) => (
-            <p key={i} className="mt-5 font-mono text-base leading-relaxed sm:text-lg">
+            <p key={i} className="mt-8 font-mono text-base leading-relaxed sm:text-lg">
               {renderHighlighted(p, accent)}
             </p>
           ))}
@@ -511,7 +515,7 @@ function SectionBlock({ section, accent }: { section: CaseStudySection; accent: 
         <>
           <SectionHeading accent={accent}>{section.heading}</SectionHeading>
           {section.intro.map((p, i) => (
-            <p key={i} className="mt-5 font-mono text-base leading-relaxed sm:text-lg">
+            <p key={i} className="mt-8 font-mono text-base leading-relaxed sm:text-lg">
               {renderHighlighted(p, accent)}
             </p>
           ))}
@@ -552,7 +556,7 @@ function SectionBlock({ section, accent }: { section: CaseStudySection; accent: 
         <>
           <SectionHeading accent={accent}>{section.heading}</SectionHeading>
           {section.intro.map((p, i) => (
-            <p key={i} className="mt-5 font-mono text-base leading-relaxed sm:text-lg">
+            <p key={i} className="mt-8 font-mono text-base leading-relaxed sm:text-lg">
               {renderHighlighted(p, accent)}
             </p>
           ))}
@@ -593,7 +597,7 @@ function SectionBlock({ section, accent }: { section: CaseStudySection; accent: 
         <>
           <SectionHeading accent={accent}>{section.heading}</SectionHeading>
           {section.paragraphs.map((p, i) => (
-            <p key={i} className="mt-5 font-mono text-base leading-relaxed sm:text-lg">
+            <p key={i} className="mt-8 font-mono text-base leading-relaxed sm:text-lg">
               {renderHighlighted(p, accent)}
             </p>
           ))}
@@ -617,7 +621,7 @@ function SectionBlock({ section, accent }: { section: CaseStudySection; accent: 
         <>
           <SectionHeading accent={accent}>{section.heading}</SectionHeading>
           {section.intro.map((p, i) => (
-            <p key={i} className="mt-5 font-mono text-base leading-relaxed sm:text-lg">
+            <p key={i} className="mt-8 font-mono text-base leading-relaxed sm:text-lg">
               {renderHighlighted(p, accent)}
             </p>
           ))}
@@ -644,7 +648,7 @@ function SectionBlock({ section, accent }: { section: CaseStudySection; accent: 
         <>
           <SectionHeading accent={accent}>{section.heading}</SectionHeading>
           {section.intro.map((p, i) => (
-            <p key={i} className="mt-5 font-mono text-base leading-relaxed sm:text-lg">
+            <p key={i} className="mt-8 font-mono text-base leading-relaxed sm:text-lg">
               {renderHighlighted(p, accent)}
             </p>
           ))}
