@@ -1026,12 +1026,15 @@ export const knourishCaseStudy: CaseStudyData = {
     { label: "Timeline", value: "2025 – 2026" },
   ],
   heroImage: "/images/projects/knourish-hero.png",
-  // Knourish's own documented brand: UCF black and gold, on purpose. Primary
-  // gold #FFC904 (with a lighter #FFE278 for lesser emphasis), a near-black
-  // neutral for the hero/footer, sampled directly from their style guide.
+  // Knourish's own documented brand: UCF black and gold, on purpose. The
+  // true brand gold (#FFC904) reads great on the dark hero/footer below,
+  // but as text on the light paper body background it's a 1.4:1 contrast
+  // failure (WCAG AA needs 4.5:1) — so the body-section accent is a
+  // darkened, same-hue gold instead; the bright gold stays reserved for
+  // the dark hero/footer.
   heroBg: "#0C0C20",
   heroText: "#F6FAF9",
-  accent: "#FFC904",
+  accent: "#7A6000",
   footer: "#08080F",
   sections: [
     {
