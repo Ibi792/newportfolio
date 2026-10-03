@@ -519,7 +519,20 @@ function SectionBlock({ section, accent }: { section: CaseStudySection; accent: 
             {section.cards.map((card) => (
               <RevealItem key={card.name}>
                 <div className="rounded-xl p-6" style={{ backgroundColor: card.color, color: "#F4F2FA" }}>
-                  <p className="font-display text-xl font-bold">{card.name}</p>
+                  <div className="flex items-center gap-3">
+                    {card.logo && (
+                      <div className="flex h-12 w-12 shrink-0 items-center justify-center overflow-hidden rounded-lg bg-white p-1.5">
+                        <AssetImage
+                          src={card.logo}
+                          alt={`${card.name} logo`}
+                          color={card.color}
+                          className="h-full w-full object-contain"
+                          label={`${card.name} logo`}
+                        />
+                      </div>
+                    )}
+                    <p className="font-display text-xl font-bold">{card.name}</p>
+                  </div>
                   <p className="mt-2 font-mono text-sm leading-relaxed opacity-90">{card.detail}</p>
                 </div>
               </RevealItem>

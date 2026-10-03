@@ -42,11 +42,13 @@ export function AssetImage({
   if (failed) {
     return (
       <div
-        className={`flex items-center justify-center text-center font-mono text-xs ${className ?? ""}`}
+        className={`flex items-center justify-center overflow-hidden text-center font-mono text-xs leading-tight ${className ?? ""}`}
         style={{ backgroundColor: `${color}22`, border: `1px dashed ${color}66`, color }}
       >
-        {label ?? "Add image at"} <br />
-        {src}
+        <span className="break-words">
+          {label ?? "Add image at"} <br />
+          <span className="break-all opacity-70">{src}</span>
+        </span>
       </div>
     );
   }

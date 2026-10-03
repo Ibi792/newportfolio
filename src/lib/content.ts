@@ -285,7 +285,9 @@ export type CaseStudySection =
       type: "colorCards";
       heading: string;
       intro: string[];
-      cards: { name: string; color: string; detail: string }[];
+      // `logo` is optional — drop the real file at that path in /public
+      // and it renders; until then AssetImage shows an "add image" stub.
+      cards: { name: string; color: string; detail: string; logo?: string }[];
     }
   | {
       type: "goalChips";
@@ -445,18 +447,21 @@ export const fourddoCaseStudy: CaseStudyData = {
         {
           name: "Canvas",
           color: "#8B3A4B",
+          logo: "/images/projects/logos/canvas.png",
           detail:
             "Heavy on functionality but overwhelming for first-time users. Information density without clear hierarchy creates friction before any learning begins.",
         },
         {
           name: "Google Classroom",
           color: "#1F5E70",
+          logo: "/images/projects/logos/google-classroom.png",
           detail:
             "Familiar and accessible but visually flat. Lacks the brand presence needed to make a program feel intentional and designed.",
         },
         {
           name: "Notion",
           color: "#1B1B3A",
+          logo: "/images/projects/logos/notion.png",
           detail:
             "Flexible and clean but requires too much setup from the user. Works best when someone already knows how to navigate it.",
         },
@@ -1170,18 +1175,21 @@ export const knourishCaseStudy: CaseStudyData = {
         {
           name: "Transact (Campus System)",
           color: "#4A4A4A",
+          logo: "/images/projects/logos/transact.png",
           detail:
             "Minimal wait-time transparency, just a static \"ready\" notification. Navigation is cluttered with hidden menus, and screen-reader support is inconsistent. Its one edge: direct integration with student ID and meal funds.",
         },
         {
           name: "Uber Eats (Commercial Benchmark)",
           color: "#1C6B4F",
+          logo: "/images/projects/logos/uber-eats.png",
           detail:
             "Dynamic, real-time countdowns and an intuitive, search-driven interface set the bar for polish. None of that logic is built for a 15-minute gap between classes, though.",
         },
         {
           name: "Knourish (The Opportunity)",
           color: "#8A6914",
+          logo: "/images/projects/knourish-logo.png",
           detail:
             "Live EWT tied to campus walking time, a clean card-based UI, and one-tap ordering for saved favorites. WCAG-compliant contrast, built around motor-friendly interaction.",
         },
