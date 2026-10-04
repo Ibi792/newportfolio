@@ -146,7 +146,7 @@ function InterleavedCopy({ items, accent }: { items: InterleavedItem[]; accent: 
               {item.row.map((img) => (
                 <div
                   key={img.src}
-                  className="min-w-[220px] flex-1 rounded-2xl border bg-white p-3"
+                  className="min-w-[220px] max-w-[280px] flex-1 rounded-2xl border bg-white p-3"
                   style={{ borderColor: `${accent}33` }}
                 >
                   <Lightbox src={img.src} alt={img.label}>
