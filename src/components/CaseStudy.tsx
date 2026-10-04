@@ -126,57 +126,119 @@ function ImageGrid({
   images,
   accent,
 }: {
-  images: { src: string; label: string; fit?: "contain" | "feature" }[];
+  images: { src: string; label: string; fit?: "contain" | "feature" | "row" }[];
   accent: string;
 }) {
   const hasCroppedImages = images.some((img) => !img.fit);
-  return (
-    <div className={`mt-6 grid gap-6 ${hasCroppedImages && images.length > 1 ? "sm:grid-cols-2" : ""}`}>
-      {images.map((img) => {
-        if (img.fit === "feature") {
-          return (
-            <div key={img.src} className="sm:col-span-2 my-2">
-              <TiltedFrame rotate={-1.5} backdrop={`${accent}22`}>
-                <AssetImage
-                  src={img.src}
-                  alt={img.label}
-                  color={accent}
-                  className="h-auto max-h-[85vh] w-full object-contain"
-                  label={img.label}
-                />
-              </TiltedFrame>
-            </div>
-          );
-        }
-        if (img.fit === "contain") {
-          return (
-            <div
-              key={img.src}
-              className="sm:col-span-2 rounded-2xl border bg-white p-3"
-              style={{ borderColor: `${accent}33` }}
-            >
-              <AssetImage
-                src={img.src}
-                alt={img.label}
-                color={accent}
-                className="h-auto max-h-[70vh] w-full object-contain"
-                label={img.label}
-              />
-            </div>
-          );
-        }
-        return (
-          <TiltedFrame key={img.src} rotate={-2} backdrop={`${accent}22`}>
+
+  // Consecutive `fit: "row"` images are grouped into one flex row (e.g. a
+  // few smaller desktop screenshots sitting side by side under one big
+  // feature shot) rather than each claiming a full grid row on its own.
+  const elements: React.ReactNode[] = [];
+  let rowBuffer: typeof images = [];
+  const flushRow = () => {
+    if (rowBuffer.length === 0) return;
+    elements.push(
+      <div key={`row-${rowBuffer[0].src}`} className="sm:col-span-2 flex flex-wrap gap-4">
+        {rowBuffer.map((img) => (
+          <div
+            key={img.src}
+            className="min-w-[220px] flex-1 rounded-2xl border bg-white p-3"
+            style={{ borderColor: `${accent}33` }}
+          >
             <AssetImage
               src={img.src}
               alt={img.label}
               color={accent}
-              className="h-64 w-full object-cover sm:h-72"
+              className="h-auto w-full object-contain"
+              label={img.label}
+            />
+          </div>
+        ))}
+      </div>
+    );
+    rowBuffer = [];
+  };
+
+  images.forEach((img) => {
+    if (img.fit === "row") {
+      rowBuffer.push(img);
+      return;
+    }
+    flushRow();
+
+    if (img.fit === "feature") {
+      elements.push(
+        <div key={img.src} className="sm:col-span-2 my-2">
+          <TiltedFrame rotate={-1.5} backdrop={`${accent}22`}>
+            <AssetImage
+              src={img.src}
+              alt={img.label}
+              color={accent}
+              className="h-auto max-h-[85vh] w-full object-contain"
               label={img.label}
             />
           </TiltedFrame>
-        );
-      })}
+        </div>
+      );
+      return;
+    }
+
+    if (img.fit === "contain") {
+      elements.push(
+        <div
+          key={img.src}
+          className="sm:col-span-2 rounded-2xl border bg-white p-3"
+          style={{ borderColor: `${accent}33` }}
+        >
+          <AssetImage
+            src={img.src}
+            alt={img.label}
+            color={accent}
+            className="h-auto max-h-[70vh] w-full object-contain"
+            label={img.label}
+          />
+        </div>
+      );
+      return;
+    }
+
+    elements.push(
+      <TiltedFrame key={img.src} rotate={-2} backdrop={`${accent}22`}>
+        <AssetImage
+          src={img.src}
+          alt={img.label}
+          color={accent}
+          className="h-64 w-full object-cover sm:h-72"
+          label={img.label}
+        />
+      </TiltedFrame>
+    );
+  });
+  flushRow();
+
+  return <div className={`mt-6 grid gap-6 ${hasCroppedImages && images.length > 1 ? "sm:grid-cols-2" : ""}`}>{elements}</div>;
+}
+
+// A row of mobile screenshots in a plain rounded device frame, each sized
+// to its own true aspect ratio (no cropping, no shared box) so several can
+// sit side by side rather than one cropped/stretched image per row.
+function PhoneRow({ images, accent }: { images: { src: string; label: string }[]; accent: string }) {
+  return (
+    <div className="mt-6 flex flex-wrap justify-center gap-6">
+      {images.map((img) => (
+        <div key={img.src} className="w-full max-w-[220px] sm:w-[220px]">
+          <div
+            className="overflow-hidden rounded-[1.75rem] border-[6px] shadow-md"
+            style={{ borderColor: "#1C1C1E" }}
+          >
+            <AssetImage src={img.src} alt={img.label} color={accent} className="block h-auto w-full" label={img.label} />
+          </div>
+          <p className="mt-2 text-center font-mono text-xs font-semibold uppercase tracking-wide opacity-70">
+            {img.label}
+          </p>
+        </div>
+      ))}
     </div>
   );
 }
@@ -696,6 +758,7 @@ function SectionBlock({ section, accent }: { section: CaseStudySection; accent: 
             </p>
           ))}
           {section.images && <ImageGrid images={section.images} accent={accent} />}
+          {section.phoneRow && <PhoneRow images={section.phoneRow} accent={accent} />}
           {section.link && (
             <a
               href={section.link.url}

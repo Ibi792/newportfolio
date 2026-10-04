@@ -258,7 +258,7 @@ export type CaseStudyMeta = { label: string; value: string };
 // large, uncropped moment of its own rather than sharing a row. Leave
 // unset for screenshots and mockups, which look better in the tilted,
 // cropped photo treatment.
-export type CaseStudyImage = { src: string; label: string; fit?: "contain" | "feature" };
+export type CaseStudyImage = { src: string; label: string; fit?: "contain" | "feature" | "row" };
 
 export type CaseStudySection =
   | { type: "intro"; heading: string; paragraphs: string[] }
@@ -310,6 +310,10 @@ export type CaseStudySection =
       heading: string;
       paragraphs: string[];
       images?: CaseStudyImage[];
+      // A row of mobile screenshots shown at their own true aspect ratio
+      // in a plain rounded device frame (no notch), rather than cropped
+      // to a shared box — lets several sit side by side.
+      phoneRow?: { src: string; label: string }[];
       link?: { label: string; url: string };
     }
   | {
@@ -1078,9 +1082,15 @@ export const lofistoryCaseStudy: CaseStudyData = {
         "Building it myself meant the details I cared about in Figma survived contact with a browser. The card spacing, the transparency over the background, the way type sits against the grain. Those get lost in handoff, and there was no handoff.",
       ],
       images: [
-        { src: "/images/projects/lofistory-responsive-1.png", label: "Add responsive screens", fit: "contain" },
-        { src: "/images/projects/lofistory-responsive-2.png", label: "Add responsive screens", fit: "contain" },
-        { src: "/images/projects/lofistory-responsive-3.png", label: "Add responsive screens", fit: "contain" },
+        { src: "/images/projects/lofistory-desktop-home.webp", label: "Add desktop screenshot", fit: "feature" },
+        { src: "/images/projects/lofistory-desktop-artist-icons.webp", label: "Add desktop screenshot", fit: "row" },
+        { src: "/images/projects/lofistory-desktop-artist-pioneers.webp", label: "Add desktop screenshot", fit: "row" },
+        { src: "/images/projects/lofistory-desktop-about.webp", label: "Add desktop screenshot", fit: "row" },
+      ],
+      phoneRow: [
+        { src: "/images/projects/lofistory-responsive-1.png", label: "Home" },
+        { src: "/images/projects/lofistory-responsive-2.png", label: "Artist" },
+        { src: "/images/projects/lofistory-responsive-3.png", label: "About" },
       ],
       link: { label: "View Live Site", url: "https://lofistory.netlify.app/" },
     },
