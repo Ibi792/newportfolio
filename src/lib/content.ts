@@ -605,7 +605,7 @@ export const prizekicksCaseStudy: CaseStudyData = {
       type: "intro",
       heading: "Context",
       paragraphs: [
-        "Sneaker resale runs on scarcity and hype, and the platforms built around it reflect that. Prices are opaque, interfaces are cluttered, and buyers are left guessing whether they got a fair deal or got played. Two classmates and I had all felt it. PrizeKicks was our answer: {{a marketplace that treats the buyer as the customer, not the mark}}.",
+        "Sneaker resale runs on scarcity and hype, and the platforms built around it reflect that. Prices are opaque, interfaces are cluttered, and buyers are left guessing whether they got a fair deal or got played. Two classmates and I had all felt it. PrizeKicks was our answer. {{A marketplace that treats the buyer as the customer, not the mark}}.",
         "I treated the research like it was the product. I led UI and UX from market analysis through two rounds of user testing and a live demo.",
       ],
     },
