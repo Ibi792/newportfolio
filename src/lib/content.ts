@@ -869,8 +869,45 @@ export const goblinGizmosCaseStudy: CaseStudyData = {
       type: "intro",
       heading: "What We Found",
       paragraphs: [
-        "We each took a set of existing collector platforms and worked through them. Colnect, CollectorsCorner, Kolekto, MyFigureCollection, CatalogIt. Every one of them had outdated interfaces, cluttered navigation, one niche per site, and a paywall that locked out casual users before they'd gotten started.",
+        "We each took a set of existing collector platforms and worked through them. Colnect, Delcampe, Collectors Corner, Colleconline, MyFigureCollection. Every one of them had outdated interfaces, cluttered navigation, one niche per site, and a paywall that locked out casual users before they'd gotten started.",
         "Interviews and surveys with collectors across different hobbies confirmed the gap. Nobody wanted another spreadsheet. They wanted something quick to update, easy to browse, and genuinely social. A place to connect over the things they love.",
+      ],
+    },
+    {
+      type: "colorCards",
+      heading: "Competitive Audit",
+      intro: ["Five platforms got the same treatment. What worked, what didn't, and who they were actually for."],
+      cards: [
+        {
+          name: "Colnect",
+          color: "#2E4A3D",
+          detail:
+            "A deep wiki and country-based sorting make it powerful for narrowing down specifics, but the navigation feels dated and its top-level categories aren't alphabetized, which trips up new users.",
+        },
+        {
+          name: "Delcampe",
+          color: "#3D3A2E",
+          detail:
+            "A large, well-sorted catalog with built-in bidding and payment filtering, more current than most competitors but still fairly cluttered.",
+        },
+        {
+          name: "Collectors Corner",
+          color: "#4A4A4A",
+          detail:
+            "Limited to coins, currency, cards, and stamps, with a dated interface that doesn't extend to any other kind of collecting.",
+        },
+        {
+          name: "Colleconline",
+          color: "#3A2E4A",
+          detail:
+            "A blog and community angle gives it some insider credibility, but there's no clear way to actually buy or bid on an item, and a confusing subscription model buries the content further.",
+        },
+        {
+          name: "MyFigureCollection",
+          color: "#2E3A4A",
+          detail:
+            "Free, with a user-contributed database, forums, and messaging that make it feel alive, but the UI is dated and it's built almost entirely around figurines.",
+        },
       ],
     },
     {
