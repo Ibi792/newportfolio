@@ -328,6 +328,7 @@ export type CaseStudyData = {
   title: string;
   meta: CaseStudyMeta[];
   heroImage: string;
+  heroImagePosition?: string;
   shippedProductUrl?: string;
   shippedProductLabel?: string;
   // Each case study carries its own complete color identity — hero band,
@@ -931,6 +932,7 @@ export const lofistoryCaseStudy: CaseStudyData = {
     { label: "Year", value: "2025" },
   ],
   heroImage: "/images/projects/lofistory-hero.png",
+  heroImagePosition: "top",
   heroBg: "#F0664F",
   heroText: "#F7DFA0",
   accent: "#C24A32",

@@ -47,6 +47,7 @@ export function CaseStudy({ data }: { data: CaseStudyData }) {
                 alt={data.title}
                 color={heroText}
                 className="h-80 w-full object-cover sm:h-[420px]"
+                style={{ objectPosition: data.heroImagePosition ?? "center" }}
                 label="Add hero image"
               />
             </TiltedFrame>
