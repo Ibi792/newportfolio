@@ -805,6 +805,49 @@ function SectionBlock({ section, accent }: { section: CaseStudySection; accent: 
       );
 
     case "reflection":
+      if (section.layout === "tracklist") {
+        return (
+          <>
+            <SectionHeading accent={accent}>{section.heading}</SectionHeading>
+            {section.intro.map((p, i) => (
+              <p key={i} className="mt-8 font-mono text-base leading-relaxed sm:text-lg">
+                {renderHighlighted(p, accent)}
+              </p>
+            ))}
+            <RevealGroup className="mt-8 divide-y rounded-2xl bg-white/60" stagger={0.06}>
+              {section.lessons.map((lesson, i) => {
+                const Icon = lesson.icon ? CASE_STUDY_ICONS[lesson.icon] : undefined;
+                return (
+                  <RevealItem key={lesson.title}>
+                    <div className="flex items-start gap-5 p-5 sm:p-6">
+                      <p
+                        className="shrink-0 font-mono text-2xl font-bold leading-none sm:text-3xl"
+                        style={{ color: `${accent}55` }}
+                      >
+                        {String(i + 1).padStart(2, "0")}
+                      </p>
+                      <div className="min-w-0 flex-1">
+                        <p className="inline-flex items-center gap-2 font-display text-sm font-bold" style={{ color: accent }}>
+                          {Icon && <Icon color={accent} />}
+                          {lesson.title.replace(/:$/, "")}
+                        </p>
+                        <p className="mt-3 font-mono text-base leading-relaxed sm:text-lg">
+                          {renderHighlighted(lesson.detail, accent)}
+                        </p>
+                      </div>
+                    </div>
+                  </RevealItem>
+                );
+              })}
+            </RevealGroup>
+            {section.thanks && (
+              <p className="mt-12 text-center font-display text-xl font-bold" style={{ color: accent }}>
+                {section.thanks}
+              </p>
+            )}
+          </>
+        );
+      }
       return (
         <>
           <SectionHeading accent={accent}>{section.heading}</SectionHeading>
@@ -813,17 +856,19 @@ function SectionBlock({ section, accent }: { section: CaseStudySection; accent: 
               {renderHighlighted(p, accent)}
             </p>
           ))}
-          <div className="mt-6 space-y-4">
+          <div className="mt-6 space-y-6">
             {section.lessons.map((lesson) => {
               const Icon = lesson.icon ? CASE_STUDY_ICONS[lesson.icon] : undefined;
               return (
-                <p key={lesson.title} className="font-mono text-base leading-relaxed sm:text-lg">
-                  <span className="inline-flex items-center gap-1.5 align-middle font-display font-bold" style={{ color: accent }}>
+                <div key={lesson.title}>
+                  <p className="inline-flex items-center gap-2 font-display text-sm font-bold" style={{ color: accent }}>
                     {Icon && <Icon color={accent} />}
-                    {lesson.title}
-                  </span>{" "}
-                  {renderHighlighted(lesson.detail, accent)}
-                </p>
+                    {lesson.title.replace(/:$/, "")}
+                  </p>
+                  <p className="mt-2 font-mono text-base leading-relaxed sm:text-lg">
+                    {renderHighlighted(lesson.detail, accent)}
+                  </p>
+                </div>
               );
             })}
           </div>

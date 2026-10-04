@@ -327,6 +327,10 @@ export type CaseStudySection =
       type: "reflection";
       heading: string;
       intro: string[];
+      // `layout: "tracklist"` renders numbered rows, echoing Lofistory's
+      // own tracklist UI — reserved for case studies with that kind of
+      // content hook rather than used as a generic style everywhere.
+      layout?: "default" | "tracklist";
       lessons: { title: string; detail: string; icon?: string }[];
       thanks?: string;
     };
@@ -1098,6 +1102,7 @@ export const lofistoryCaseStudy: CaseStudyData = {
       type: "reflection",
       heading: "Reflection",
       intro: [],
+      layout: "tracklist",
       lessons: [
         {
           title: "Restraint Is a Decision:",
