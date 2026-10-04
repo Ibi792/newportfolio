@@ -592,6 +592,7 @@ export const prizekicksCaseStudy: CaseStudyData = {
     { label: "Timeline", value: "Aug 2024 – May 2025" },
   ],
   heroImage: "/images/projects/prizekicks-hero.png",
+  heroImagePosition: "top",
   // Same blue as the teaser card (its real brand color), but with its own
   // proper accent/footer — a deeper cobalt for headings and chip borders
   // and a blue-tinted dark footer — instead of borrowing Fourddo's indigo.
