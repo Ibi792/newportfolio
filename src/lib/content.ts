@@ -313,6 +313,18 @@ export type CaseStudySection =
       images?: CaseStudyImage[];
     }
   | {
+      type: "useCases";
+      heading: string;
+      intro?: string[];
+      cases: {
+        task: string;
+        user: string;
+        goal: string;
+        flow: string[];
+        alternative?: string[];
+      }[];
+    }
+  | {
       type: "media";
       heading: string;
       paragraphs: InterleavedItem[];
@@ -858,7 +870,7 @@ export const goblinGizmosCaseStudy: CaseStudyData = {
       // jump to — the project's own narrative already runs in this order.
       items: [
         { label: "Research", target: "Competitive Audit" },
-        { label: "Define", target: "The Decision That Shaped Everything" },
+        { label: "Define", target: "Primary User Flows" },
         { label: "Ideate", target: "Brand" },
         { label: "Prototype", target: "Design" },
         { label: "Test", target: "Testing" },
@@ -906,13 +918,52 @@ export const goblinGizmosCaseStudy: CaseStudyData = {
       ],
     },
     {
+      type: "useCases",
+      heading: "Primary User Flows",
+      intro: [
+        "To understand what collectors actually needed, I mapped out five key flows. These later became the test script for usability sessions.",
+      ],
+      cases: [
+        {
+          task: "Login",
+          user: "Existing User",
+          goal: "Access the app and their account.",
+          flow: ["Tap “Log In”", "Enter Email/Password", "Tap “Submit”", "System verifies credentials", "Directed to homepage"],
+        },
+        {
+          task: "Access Profile",
+          user: "Existing User",
+          goal: "Access the current version of their profile.",
+          flow: ["Navigate to “Account”", "Tap “Account Info”"],
+        },
+        {
+          task: "Browse Categories",
+          user: "Existing or New User",
+          goal: "Access the categories list to further browsing and curiosity.",
+          flow: ["Navigate to “Homepage”", "Tap “Get Started”", "Tap “See Categories”"],
+          alternative: ["Open Nav Bar or burger menu", "Tap “Categories”"],
+        },
+        {
+          task: "Add New Trinket",
+          user: "Collector",
+          goal: "Successfully catalog a new trinket.",
+          flow: ["Log in", "Tap Plus", "Enter details", "Save"],
+        },
+        {
+          task: "Contact Support",
+          user: "User Facing Trouble",
+          goal: "Get in touch with the support team to resolve an issue.",
+          flow: ["Scroll to Footer", "Tap “Support”", "Tap “Contact Us”", "Follow instructions"],
+        },
+      ],
+    },
+    {
       type: "media",
       heading: "The Decision That Shaped Everything",
       paragraphs: [
         "The structural choice we were most deliberate about was the two-layer collection system. A user has collections (say, books), and within each collection they have individual items (a first edition, a worn paperback with notes in the margins). It sounds simple, but it solved the core problem every competitor had: {{how do you let one person hold vinyls and figurines and books on the same shelf without the organization collapsing}}? Each trinket gets room to express its own history. The broader structure stays clean. Nearly every downstream decision, from the data dictionary to the database schema, traced back to this.",
       ],
       images: [
-        { src: "/images/projects/goblin-gizmos-use-cases.png", label: "Add use cases", fit: "contain" },
         { src: "/images/projects/goblin-gizmos-ia.png", label: "Add information architecture", fit: "contain" },
         {
           src: "/images/projects/goblin-gizmos-data-dictionary.png",

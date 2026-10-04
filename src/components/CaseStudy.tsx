@@ -823,6 +823,68 @@ function SectionBlock({ section, accent }: { section: CaseStudySection; accent: 
         </>
       );
 
+    case "useCases":
+      return (
+        <>
+          <SectionHeading accent={accent}>{section.heading}</SectionHeading>
+          {section.intro?.map((p, i) => (
+            <p key={i} className="mt-8 font-mono text-base leading-relaxed sm:text-lg">
+              {renderHighlighted(p, accent)}
+            </p>
+          ))}
+          <RevealGroup className="mt-8 flex flex-col gap-4" stagger={0.08}>
+            {section.cases.map((uc, i) => (
+              <RevealItem key={uc.task}>
+                <div className="rounded-xl bg-white/60 p-5 sm:p-6">
+                  <div className="flex flex-wrap items-baseline justify-between gap-x-4 gap-y-1">
+                    <p className="inline-flex items-center gap-2 font-display text-base font-bold" style={{ color: accent }}>
+                      <span className="font-mono text-sm font-bold" style={{ color: `${accent}55` }}>
+                        {String(i + 1).padStart(2, "0")}
+                      </span>
+                      {uc.task}
+                    </p>
+                    <p className="font-mono text-xs font-semibold uppercase tracking-wide opacity-60">{uc.user}</p>
+                  </div>
+                  <p className="mt-2 font-mono text-sm leading-relaxed">{uc.goal}</p>
+                  <div className="mt-4 flex flex-wrap items-center gap-x-1.5 gap-y-2">
+                    {uc.flow.map((step, j) => (
+                      <span key={j} className="inline-flex items-center gap-1.5">
+                        <span
+                          className="rounded-full px-3 py-1.5 font-mono text-xs font-medium"
+                          style={{ backgroundColor: `${accent}1A`, color: paperInk }}
+                        >
+                          {step}
+                        </span>
+                        {j < uc.flow.length - 1 && (
+                          <span className="font-mono text-xs" style={{ color: `${accent}80` }} aria-hidden>
+                            &rarr;
+                          </span>
+                        )}
+                      </span>
+                    ))}
+                  </div>
+                  {uc.alternative && (
+                    <div className="mt-3 flex flex-wrap items-center gap-x-1.5 gap-y-2">
+                      <span className="mr-1 font-mono text-[11px] font-bold uppercase tracking-wide opacity-50">Alt</span>
+                      {uc.alternative.map((step, j) => (
+                        <span key={j} className="inline-flex items-center gap-1.5">
+                          <span className="rounded-full bg-black/5 px-3 py-1.5 font-mono text-xs">{step}</span>
+                          {j < uc.alternative!.length - 1 && (
+                            <span className="font-mono text-xs opacity-40" aria-hidden>
+                              &rarr;
+                            </span>
+                          )}
+                        </span>
+                      ))}
+                    </div>
+                  )}
+                </div>
+              </RevealItem>
+            ))}
+          </RevealGroup>
+        </>
+      );
+
     case "media":
       return (
         <>
