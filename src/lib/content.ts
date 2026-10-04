@@ -260,6 +260,12 @@ export type CaseStudyMeta = { label: string; value: string };
 // cropped photo treatment.
 export type CaseStudyImage = { src: string; label: string; fit?: "contain" | "feature" | "row" };
 
+// An item in an interleaved paragraph/image sequence (see InterleavedCopy
+// in CaseStudy.tsx): a plain string is prose, `{ image }` drops one
+// full-width image inline, and `{ row }` drops several smaller images
+// side by side — all instead of dumping every image after all the text.
+export type InterleavedItem = string | { image: CaseStudyImage } | { row: CaseStudyImage[] };
+
 export type CaseStudySection =
   | { type: "intro"; heading: string; paragraphs: string[] }
   | { type: "overview"; heading: string; rows: { label: string; value: string }[] }
@@ -299,10 +305,7 @@ export type CaseStudySection =
   | {
       type: "goalChips";
       heading: string;
-      // A plain string is a paragraph; `{ image }` drops a full-width
-      // image inline at that point in the copy, instead of every image
-      // being dumped together after the goals grid.
-      intro: (string | { image: CaseStudyImage })[];
+      intro: InterleavedItem[];
       // `icon` is a key into CASE_STUDY_ICONS (CaseStudy.tsx) — omit for
       // a plain title with no icon.
       goals: { title: string; detail: string; icon?: string }[];
@@ -312,10 +315,7 @@ export type CaseStudySection =
   | {
       type: "media";
       heading: string;
-      // A plain string is a paragraph; `{ image }` drops a full-width
-      // image inline at that point, instead of every image being dumped
-      // together after all the text.
-      paragraphs: (string | { image: CaseStudyImage })[];
+      paragraphs: InterleavedItem[];
       images?: CaseStudyImage[];
       // A row of mobile screenshots shown at their own true aspect ratio
       // in a plain rounded device frame (no notch), rather than cropped
@@ -734,14 +734,18 @@ export const prizekicksCaseStudy: CaseStudyData = {
       type: "media",
       heading: "Prototype",
       paragraphs: [
-        "The research pointed to three things: price context on every listing, navigation that doesn't fight you, and a hierarchy built around the buyer, not the seller.",
+        "The research pointed to three things. Price context on every listing, navigation that doesn't fight you, and a hierarchy built around the buyer, not the seller.",
         "The low-fidelity prototype covered the full shopping flow: sign up, home, search and filters, product pages, price comparison, checkout, and confirmation. We ran think-aloud sessions with users, catalogued every point of friction, and fixed them before moving to high fidelity.",
+        { image: { src: "/images/projects/prizekicks-lofi.png", label: "Add lo-fi screens", fit: "contain" } },
         "A style guide locked in the visual identity, then the final prototype went through one more round of testing and refinement.",
-      ],
-      images: [
-        { src: "/images/projects/prizekicks-lofi.png", label: "Add lo-fi screens", fit: "contain" },
-        { src: "/images/projects/prizekicks-style-guide.png", label: "Add style guide" },
-        { src: "/images/projects/prizekicks-hifi.png", label: "Add hi-fi screens", fit: "contain" },
+        {
+          row: [
+            { src: "/images/projects/prizekicks-hifi-home.webp", label: "Hi-fi: Home" },
+            { src: "/images/projects/prizekicks-hifi-product.webp", label: "Hi-fi: Product page" },
+            { src: "/images/projects/prizekicks-hifi-search.png", label: "Hi-fi: Search" },
+          ],
+        },
+        { image: { src: "/images/projects/prizekicks-style-guide.png", label: "Add style guide" } },
       ],
       link: { label: "View Live Demo", url: "https://prizekicks-demo.netlify.app/" },
     },

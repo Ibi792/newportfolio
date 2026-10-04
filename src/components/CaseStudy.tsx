@@ -12,8 +12,8 @@ import {
   paperInk,
   themes,
   type CaseStudyData,
-  type CaseStudyImage,
   type CaseStudySection,
+  type InterleavedItem,
 } from "@/lib/content";
 import { handDrawnFont } from "@/lib/fonts";
 
@@ -128,26 +128,43 @@ function renderHighlighted(text: string, accent: string) {
 // section being dumped together after all the text. The first item sits
 // mt-8 below the heading like every other section; later items get more
 // room (mt-10) so the prose/image transition reads as a clear beat.
-function InterleavedCopy({
-  items,
-  accent,
-}: {
-  items: (string | { image: CaseStudyImage })[];
-  accent: string;
-}) {
+function InterleavedCopy({ items, accent }: { items: InterleavedItem[]; accent: string }) {
   return (
     <>
-      {items.map((item, i) =>
-        typeof item === "string" ? (
-          <p key={i} className={`${i === 0 ? "mt-8" : "mt-10"} font-mono text-base leading-relaxed sm:text-lg`}>
-            {renderHighlighted(item, accent)}
-          </p>
-        ) : (
-          <div
-            key={i}
-            className={`${i === 0 ? "mt-8" : "mt-10"} rounded-2xl border bg-white p-3`}
-            style={{ borderColor: `${accent}33` }}
-          >
+      {items.map((item, i) => {
+        const spacing = i === 0 ? "mt-8" : "mt-10";
+        if (typeof item === "string") {
+          return (
+            <p key={i} className={`${spacing} font-mono text-base leading-relaxed sm:text-lg`}>
+              {renderHighlighted(item, accent)}
+            </p>
+          );
+        }
+        if ("row" in item) {
+          return (
+            <div key={i} className={`${spacing} flex flex-wrap gap-4`}>
+              {item.row.map((img) => (
+                <div
+                  key={img.src}
+                  className="min-w-[220px] flex-1 rounded-2xl border bg-white p-3"
+                  style={{ borderColor: `${accent}33` }}
+                >
+                  <Lightbox src={img.src} alt={img.label}>
+                    <AssetImage
+                      src={img.src}
+                      alt={img.label}
+                      color={accent}
+                      className="h-auto w-full object-contain"
+                      label={img.label}
+                    />
+                  </Lightbox>
+                </div>
+              ))}
+            </div>
+          );
+        }
+        return (
+          <div key={i} className={`${spacing} rounded-2xl border bg-white p-3`} style={{ borderColor: `${accent}33` }}>
             <Lightbox src={item.image.src} alt={item.image.label}>
               <AssetImage
                 src={item.image.src}
@@ -158,8 +175,8 @@ function InterleavedCopy({
               />
             </Lightbox>
           </div>
-        )
-      )}
+        );
+      })}
     </>
   );
 }
