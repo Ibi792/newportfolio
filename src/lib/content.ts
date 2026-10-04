@@ -976,37 +976,43 @@ export const goblinGizmosCaseStudy: CaseStudyData = {
       type: "results",
       heading: "Testing",
       intro: [
-        "Three usability sessions put {{real people in front of the actual product}} instead of a clickable mockup. Each tester worked through sign-up, navigation, and posting, with later sessions adding editing, comments, and filters as those features came online.",
+        "Five testers worked through all nineteen use cases on the LoFi build, rating each one on navigation, features, and organization from one to five. The same five came back once the HiFi was ready and reacted to it directly, so every major fix got validated twice, once on paper and once in the real interface.",
       ],
       items: [
         {
-          label: "The Cut-Off Post Bug",
+          label: "No Way to Post",
           detail:
-            "The \"view post\" link was routinely clipped on posts past a certain length, blocking testers from opening a post, reading comments, or reaching edit and delete. It surfaced independently across multiple sessions and {{became the milestone's top fix}}.",
+            "Every one of the five testers hit the same wall. There was no visible button for adding a new trinket or bounty anywhere on the homepage, the community tab, or the categories tab. {{Five-for-five agreement on one missing button made it the clearest fix of the whole round}}.",
           icon: "eyeOff",
         },
         {
-          label: "Sign-Up Friction",
+          label: "One Page Too Many",
           detail:
-            "The sign-up confirmation message read as confusing, and testers wanted a sign-up option visible directly on the nav bar instead of buried behind login. We also caught the email field accepting input without an \"@\", a gap worth closing before real accounts depend on it.",
-          icon: "lock",
+            "Settings, accessibility, and logout all lived behind a standalone account page, and every tester flagged it as a dead end. They proposed the same fix independently, {{turning it into a dropdown reachable from any page instead of a destination you had to navigate to}}.",
+          icon: "layers",
         },
         {
-          label: "Small Asks That Mattered",
+          label: "Report, Buried",
           detail:
-            "Testers wanted the logo to double as a home link and the ability to edit their profile picture, neither of which existed in the earlier build. {{Both shipped by the third round of testing}}.",
-          icon: "list",
+            "All five testers expected to report a user from that user's own profile and report a post from the post itself. Instead both lived on a separate page no one found on their own, {{a safety feature that only works if people can actually reach it}}.",
+          icon: "shield",
         },
         {
-          label: "What the Fixes Bought Us",
+          label: "The Small Stuff Added Up",
           detail:
-            "By the third session, testers could edit and delete both posts and their profile photo, post comments and see them populate, and use search and filters, {{on a build the first two testers couldn't have completed}}.",
-          icon: "trophy",
+            "No one could recover a forgotten username or password. The bounty and trinket search bars looked identical with no way to tell them apart. Testers also kept reaching for a comment box at the bottom of a post that wasn't there yet. None of these broke the product on its own, but {{together they were enough to slow down almost every session}}.",
+          icon: "puzzle",
         },
       ],
       outro: [
-        "The core flows, sign-up, login, navigation, posting, held up across every session. The real lesson was that a single layout bug, an enlarged footer clipping the post view, can quietly block an entire set of features from ever being tested, let alone used. {{Fixing it unblocked testing on comments, edit, and delete in the same pass}}.",
+        "The core use cases, browsing, saving, filtering, held up well across every session, most scoring a clean five on navigation and organization. What needed work clustered around account access and content controls, missing recovery options, a redundant settings page, reporting tools people had to hunt for, {{the same handful of gaps nearly every tester flagged on their own}}.",
       ],
+    },
+    {
+      type: "quote",
+      label: "Final Thoughts",
+      text: "The broad and important pieces are there, just a few nitpicks and a couple features and it is good.",
+      attribution: "User 1, usability testing",
     },
     {
       type: "reflection",
