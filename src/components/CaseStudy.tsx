@@ -6,7 +6,15 @@ import { AssetImage } from "@/components/AssetImage";
 import { TiltedFrame } from "@/components/TiltedFrame";
 import { ProcessPill } from "@/components/ProcessPill";
 import { Lightbox } from "@/components/Lightbox";
-import { footerText, paper, paperInk, themes, type CaseStudyData, type CaseStudySection } from "@/lib/content";
+import {
+  footerText,
+  paper,
+  paperInk,
+  themes,
+  type CaseStudyData,
+  type CaseStudyImage,
+  type CaseStudySection,
+} from "@/lib/content";
 import { handDrawnFont } from "@/lib/fonts";
 
 // Swatch colors for the "Palette Pulled From the Art" demo row, named
@@ -112,6 +120,47 @@ function renderHighlighted(text: string, accent: string) {
     ) : (
       part
     )
+  );
+}
+
+// A paragraph list where a plain string is prose and `{ image }` drops a
+// full-width image inline at that point, instead of every image for a
+// section being dumped together after all the text. The first item sits
+// mt-8 below the heading like every other section; later items get more
+// room (mt-10) so the prose/image transition reads as a clear beat.
+function InterleavedCopy({
+  items,
+  accent,
+}: {
+  items: (string | { image: CaseStudyImage })[];
+  accent: string;
+}) {
+  return (
+    <>
+      {items.map((item, i) =>
+        typeof item === "string" ? (
+          <p key={i} className={`${i === 0 ? "mt-8" : "mt-10"} font-mono text-base leading-relaxed sm:text-lg`}>
+            {renderHighlighted(item, accent)}
+          </p>
+        ) : (
+          <div
+            key={i}
+            className={`${i === 0 ? "mt-8" : "mt-10"} rounded-2xl border bg-white p-3`}
+            style={{ borderColor: `${accent}33` }}
+          >
+            <Lightbox src={item.image.src} alt={item.image.label}>
+              <AssetImage
+                src={item.image.src}
+                alt={item.image.label}
+                color={accent}
+                className="h-auto max-h-[70vh] w-full object-contain"
+                label={item.image.label}
+              />
+            </Lightbox>
+          </div>
+        )
+      )}
+    </>
   );
 }
 
@@ -724,11 +773,7 @@ function SectionBlock({ section, accent }: { section: CaseStudySection; accent: 
       return (
         <>
           <SectionHeading accent={accent}>{section.heading}</SectionHeading>
-          {section.intro.map((p, i) => (
-            <p key={i} className="mt-8 font-mono text-base leading-relaxed sm:text-lg">
-              {renderHighlighted(p, accent)}
-            </p>
-          ))}
+          <InterleavedCopy items={section.intro} accent={accent} />
           <RevealGroup className="mt-8 flex flex-wrap gap-4" stagger={0.06}>
             {section.goals.map((goal) => {
               const Icon = goal.icon ? CASE_STUDY_ICONS[goal.icon] : undefined;
@@ -765,11 +810,7 @@ function SectionBlock({ section, accent }: { section: CaseStudySection; accent: 
       return (
         <>
           <SectionHeading accent={accent}>{section.heading}</SectionHeading>
-          {section.paragraphs.map((p, i) => (
-            <p key={i} className="mt-8 font-mono text-base leading-relaxed sm:text-lg">
-              {renderHighlighted(p, accent)}
-            </p>
-          ))}
+          <InterleavedCopy items={section.paragraphs} accent={accent} />
           {section.images && <ImageGrid images={section.images} accent={accent} />}
           {section.phoneRow && <PhoneRow images={section.phoneRow} accent={accent} />}
           {section.link && (

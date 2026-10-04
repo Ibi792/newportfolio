@@ -299,7 +299,10 @@ export type CaseStudySection =
   | {
       type: "goalChips";
       heading: string;
-      intro: string[];
+      // A plain string is a paragraph; `{ image }` drops a full-width
+      // image inline at that point in the copy, instead of every image
+      // being dumped together after the goals grid.
+      intro: (string | { image: CaseStudyImage })[];
       // `icon` is a key into CASE_STUDY_ICONS (CaseStudy.tsx) — omit for
       // a plain title with no icon.
       goals: { title: string; detail: string; icon?: string }[];
@@ -309,7 +312,10 @@ export type CaseStudySection =
   | {
       type: "media";
       heading: string;
-      paragraphs: string[];
+      // A plain string is a paragraph; `{ image }` drops a full-width
+      // image inline at that point, instead of every image being dumped
+      // together after all the text.
+      paragraphs: (string | { image: CaseStudyImage })[];
       images?: CaseStudyImage[];
       // A row of mobile screenshots shown at their own true aspect ratio
       // in a plain rounded device frame (no notch), rather than cropped
@@ -705,7 +711,16 @@ export const prizekicksCaseStudy: CaseStudyData = {
       type: "goalChips",
       heading: "Defining the Product",
       intro: [
-        "Research shaped four personas and a set of use cases that clarified what buyers actually needed from a marketplace, letting me hold the full range of buyers in view and see where their needs overlapped and pulled apart. From there, a data dictionary catalogued every system the platform required, profiles, payment, notifications, trending, featured, reviews, price comparison, which became the backbone of the information architecture. We showed that architecture to potential users before designing a single screen and revised it based on what they told us.",
+        "Research shaped four personas and a set of use cases that clarified what buyers actually needed from a marketplace, letting me hold the full range of buyers in view and see where their needs overlapped and pulled apart.",
+        { image: { src: "/images/projects/prizekicks-personas.png", label: "Add personas", fit: "contain" } },
+        "From there, a data dictionary catalogued every system the platform required, profiles, payment, notifications, trending, featured, reviews, price comparison, which became the backbone of the information architecture. We showed that architecture to potential users before designing a single screen and revised it based on what they told us.",
+        {
+          image: {
+            src: "/images/projects/prizekicks-ia.png",
+            label: "Add information architecture / data dictionary",
+            fit: "contain",
+          },
+        },
         "From this, PrizeKicks' core goals were set:",
       ],
       goals: [
@@ -713,14 +728,6 @@ export const prizekicksCaseStudy: CaseStudyData = {
         { title: "Clean Navigation", detail: "Find the shoe without fighting the interface", icon: "compass" },
         { title: "Buyer First", detail: "Hierarchy and features built around the customer", icon: "user" },
         { title: "Trust Signals", detail: "Reviews and accountability baked in", icon: "shield" },
-      ],
-      images: [
-        { src: "/images/projects/prizekicks-personas.png", label: "Add personas", fit: "contain" },
-        {
-          src: "/images/projects/prizekicks-ia.png",
-          label: "Add information architecture / data dictionary",
-          fit: "contain",
-        },
       ],
     },
     {
@@ -896,12 +903,10 @@ export const goblinGizmosCaseStudy: CaseStudyData = {
       heading: "Design",
       paragraphs: [
         "The lo-fi prototype covered the primary journeys: sign-up, home, category browsing, adding a trinket, the community tab, accessibility settings. Keeping it rough was intentional. It made it easier to cycle ideas if need be.",
+        { image: { src: "/images/projects/goblin-gizmos-lofi.png", label: "Add lo-fi screens", fit: "contain" } },
         "A round of user feedback on the lo-fi surfaced friction we hadn't anticipated. Button placement moved, calls to action got clearer, and the category browser got a more prominent path from the home page. Then the high-fidelity prototype brought the full identity to every screen: community feed, category browser, trinket pages, profiles, and the bounty board where users post items to sell or trade.",
-      ],
-      images: [
-        { src: "/images/projects/goblin-gizmos-lofi.png", label: "Add lo-fi screens", fit: "contain" },
-        { src: "/images/projects/goblin-gizmos-feedback.png", label: "Add feedback notes" },
-        { src: "/images/projects/goblin-gizmos-hifi.png", label: "Add hi-fi screens", fit: "contain" },
+        { image: { src: "/images/projects/goblin-gizmos-feedback.png", label: "Add feedback notes", fit: "contain" } },
+        { image: { src: "/images/projects/goblin-gizmos-hifi.png", label: "Add hi-fi screens", fit: "contain" } },
       ],
     },
     {
@@ -910,12 +915,16 @@ export const goblinGizmosCaseStudy: CaseStudyData = {
       paragraphs: [
         "This is where Goblin Gizmos separates from a design exercise.",
         "The stack was HTML, CSS, JavaScript, PHP, and MySQL. PHP handles server-side logic, encrypted passwords, and differentiated access levels. MySQL stores everything from profiles and collections to posts and images. GitHub let five people contribute without stepping on each other.",
+        { image: { src: "/images/projects/goblin-gizmos-stack.png", label: "Add stack diagram", fit: "contain" } },
         "Responsiveness runs on three breakpoints: mobile under 600px, tablet from 600px to 1000px, desktop above. On mobile, vertical menus replace dropdowns, buttons scale up for touch, and content is prioritized to cut clutter. Accessibility carried through from design into code: contrast, alt text support, and in-app controls for font size and color scheme. The site passed W3C Markup Validation.",
+        {
+          image: {
+            src: "/images/projects/goblin-gizmos-responsive.png",
+            label: "Add responsive screens",
+            fit: "contain",
+          },
+        },
         "The design held up in code. That was the point.",
-      ],
-      images: [
-        { src: "/images/projects/goblin-gizmos-stack.png", label: "Add stack diagram", fit: "contain" },
-        { src: "/images/projects/goblin-gizmos-responsive.png", label: "Add responsive screens", fit: "contain" },
       ],
       link: {
         label: "View in Figma",
@@ -1288,14 +1297,12 @@ export const knourishCaseStudy: CaseStudyData = {
       heading: "Who I Designed For",
       paragraphs: [
         "Fez is the primary persona: a student with back-to-back classes and a tight window who needs to know, fast, whether an order is realistic. Fez isn't browsing. Fez is deciding.",
+        { image: { src: "/images/projects/knourish-persona-fez.png", label: "Add Fez persona", fit: "contain" } },
         "Vega is the counterweight: an HR director coordinating meals for a busy office who runs into confusing interfaces and customization anxiety, the fear of getting an order wrong when it's for other people. Vega kept the app honest for anyone ordering with more at stake than their own lunch.",
+        { image: { src: "/images/projects/knourish-persona-vega.png", label: "Add Vega persona", fit: "contain" } },
         "Fez's flow drove the core design. Vega's kept the customization and menu screens from being an afterthought.",
-      ],
-      images: [
-        { src: "/images/projects/knourish-persona-fez.png", label: "Add Fez persona", fit: "contain" },
-        { src: "/images/projects/knourish-persona-vega.png", label: "Add Vega persona", fit: "contain" },
-        { src: "/images/projects/knourish-fez-flow.png", label: "Add Fez user flow", fit: "contain" },
-        { src: "/images/projects/knourish-storyboard.png", label: "Add storyboard", fit: "contain" },
+        { image: { src: "/images/projects/knourish-fez-flow.png", label: "Add Fez user flow", fit: "contain" } },
+        { image: { src: "/images/projects/knourish-storyboard.png", label: "Add storyboard", fit: "contain" } },
       ],
     },
     {
@@ -1303,13 +1310,11 @@ export const knourishCaseStudy: CaseStudyData = {
       heading: "The One Feature That Mattered",
       paragraphs: [
         "Everything in Knourish serves the Estimated Wait Time. Rather than a number buried on a confirmation screen, EWT shows up where the decision happens: on the restaurant card, before you tap in. A three-level status system (Low Wait, Busy, Packed) gives an at-a-glance read, and the specific estimate sits beside it. A student scanning Home can {{rule out half the options in two seconds}}.",
+        { image: { src: "/images/projects/knourish-ewt.png", label: "Add EWT component", fit: "contain" } },
         "At the other end of the flow, the confirmation screen tells you when to leave. Not just \"your order will be ready in 12 minutes,\" but a Leave By time that closes the loop on the whole problem.",
+        { image: { src: "/images/projects/knourish-leave-by.png", label: "Add Leave By prompt", fit: "contain" } },
         "The information architecture stayed deliberately flat to protect that speed. Four top-level nodes: Home, Browse, Orders, Profile, with persistent search available everywhere. Home shows restaurants by context (what's fast right now); Browse is for looking deliberately. Nothing else earned a place unless it got a student to a confident decision faster.",
-      ],
-      images: [
-        { src: "/images/projects/knourish-ia.png", label: "Add IA diagram", fit: "contain" },
-        { src: "/images/projects/knourish-ewt.png", label: "Add EWT component" },
-        { src: "/images/projects/knourish-leave-by.png", label: "Add Leave By prompt" },
+        { image: { src: "/images/projects/knourish-ia.png", label: "Add IA diagram", fit: "contain" } },
       ],
     },
     {
@@ -1329,13 +1334,11 @@ export const knourishCaseStudy: CaseStudyData = {
       heading: "Design System",
       paragraphs: [
         "Knourish is a UCF product, so it wears UCF colors on purpose. Black and gold (#FFC904) as the core palette, with a dedicated set of status colors for the Low Wait / Busy / Packed system so the wait-time signal never competes with the brand.",
+        { image: { src: "/images/projects/knourish-style-guide.png", label: "Add style guide", fit: "contain" } },
         "Knockout for display, Inter for body. An 8pt spacing system. Phosphor Icons in Regular weight. The component library covers buttons with variants, input fields, restaurant cards, busy indicator chips, the EWT display, and the bottom nav.",
+        { image: { src: "/images/projects/knourish-components.png", label: "Add components", fit: "contain" } },
         "The logo is a circle with a bowl in the lower half, a K lettermark at the center, and a four-pointed star accent, nodding toward the product's affiliation with food, UCF, and our moniker all at once. Knockout carries the wordmark.",
-      ],
-      images: [
-        { src: "/images/projects/knourish-style-guide.png", label: "Add style guide", fit: "feature" },
-        { src: "/images/projects/knourish-components.png", label: "Add components", fit: "contain" },
-        { src: "/images/projects/knourish-logo.png", label: "Add logo", fit: "feature" },
+        { image: { src: "/images/projects/knourish-logo.png", label: "Add logo", fit: "contain" } },
       ],
     },
     {
@@ -1343,12 +1346,10 @@ export const knourishCaseStudy: CaseStudyData = {
       heading: "Prototype",
       paragraphs: [
         "Digital lo-fi wireframes covered the full core flow, including Login, Home, Browse, Restaurant, Menu, Item and Customization, Confirm, and Checkout.",
+        { image: { src: "/images/projects/knourish-lofi.png", label: "Add lo-fi wireframes", fit: "contain" } },
         "The high-fidelity prototype carries the full persona journey. Users land on Home, scan wait times, pick a spot, build an order, confirm with a Leave By time, check out, and track it. Every screen is built from the component library.",
+        { image: { src: "/images/projects/knourish-hifi.png", label: "Add hi-fi screens", fit: "contain" } },
         "To test with real interactions instead of hotspots, I used Claude with Figma's MCP to translate the high-fidelity screens and design tokens into a working React prototype. I directed the structure and reviewed every component against the Figma source; Claude handled the boilerplate.",
-      ],
-      images: [
-        { src: "/images/projects/knourish-lofi.png", label: "Add lo-fi wireframes" },
-        { src: "/images/projects/knourish-hifi.png", label: "Add hi-fi screens" },
       ],
     },
     {
