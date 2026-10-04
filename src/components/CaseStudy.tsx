@@ -734,7 +734,7 @@ function SectionBlock({ section, accent }: { section: CaseStudySection; accent: 
           </p>
           <blockquote
             className="mt-2 rounded-xl px-6 py-6 font-display text-lg italic"
-            style={{ backgroundColor: "#1B1830", color: "#EEF0FB" }}
+            style={{ backgroundColor: accent, color: "#EEF0FB" }}
           >
             &ldquo;{section.text}&rdquo;
             <footer className="mt-3 font-mono text-xs font-semibold not-italic opacity-70">
