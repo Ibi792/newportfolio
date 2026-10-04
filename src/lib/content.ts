@@ -1066,7 +1066,7 @@ export const lofistoryCaseStudy: CaseStudyData = {
       ],
       images: [
         { src: "/images/projects/lofistory-mockups.png", label: "Add Figma mockups", fit: "feature" },
-        { src: "/images/projects/lofistory-palette.png", label: "Add palette" },
+        { src: "/images/projects/lofistory-palette.png", label: "Add palette", fit: "contain" },
       ],
     },
     {
