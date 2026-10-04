@@ -857,7 +857,7 @@ export const goblinGizmosCaseStudy: CaseStudyData = {
       // Unlike Fourddo, every stage here has a real, exact section to
       // jump to — the project's own narrative already runs in this order.
       items: [
-        { label: "Research", target: "What We Found" },
+        { label: "Research", target: "Competitive Audit" },
         { label: "Define", target: "The Decision That Shaped Everything" },
         { label: "Ideate", target: "Brand" },
         { label: "Prototype", target: "Design" },
@@ -866,17 +866,12 @@ export const goblinGizmosCaseStudy: CaseStudyData = {
       ],
     },
     {
-      type: "intro",
-      heading: "What We Found",
-      paragraphs: [
-        "We each took a set of existing collector platforms and worked through them. Colnect, Delcampe, Collectors Corner, Colleconline, MyFigureCollection. Every one of them had outdated interfaces, cluttered navigation, one niche per site, and a paywall that locked out casual users before they'd gotten started.",
-        "Interviews and surveys with collectors across different hobbies confirmed the gap. Nobody wanted another spreadsheet. They wanted something quick to update, easy to browse, and genuinely social. A place to connect over the things they love.",
-      ],
-    },
-    {
       type: "colorCards",
       heading: "Competitive Audit",
-      intro: ["Five platforms got the same treatment. What worked, what didn't, and who they were actually for."],
+      intro: [
+        "Interviews and surveys with collectors across different hobbies confirmed there was a real gap. Nobody wanted another spreadsheet. They wanted something quick to update, easy to browse, and genuinely social. A place to connect over the things they love.",
+        "Five platforms got the same treatment next. What worked, what didn't, and who they were actually for.",
+      ],
       cards: [
         {
           name: "Colnect",
