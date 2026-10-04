@@ -5,6 +5,7 @@ import { Reveal, RevealGroup, RevealItem } from "@/components/Reveal";
 import { AssetImage } from "@/components/AssetImage";
 import { TiltedFrame } from "@/components/TiltedFrame";
 import { ProcessPill } from "@/components/ProcessPill";
+import { Lightbox } from "@/components/Lightbox";
 import { footerText, paper, paperInk, themes, type CaseStudyData, type CaseStudySection } from "@/lib/content";
 import { handDrawnFont } from "@/lib/fonts";
 
@@ -191,13 +192,15 @@ function ImageGrid({
           className="sm:col-span-2 rounded-2xl border bg-white p-3"
           style={{ borderColor: `${accent}33` }}
         >
-          <AssetImage
-            src={img.src}
-            alt={img.label}
-            color={accent}
-            className="h-auto max-h-[70vh] w-full object-contain"
-            label={img.label}
-          />
+          <Lightbox src={img.src} alt={img.label}>
+            <AssetImage
+              src={img.src}
+              alt={img.label}
+              color={accent}
+              className="h-auto max-h-[70vh] w-full object-contain"
+              label={img.label}
+            />
+          </Lightbox>
         </div>
       );
       return;
