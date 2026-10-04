@@ -824,7 +824,7 @@ export const goblinGizmosCaseStudy: CaseStudyData = {
       type: "intro",
       heading: "Context",
       paragraphs: [
-        "The team didn't have to go far to find inspiration. We just looked at our own shelves. Vinyls, figurines, business cards, blind boxes, books. Each of us collects something, and each of us had the same quiet frustration: there was nowhere online to show it all off the way we wanted to. The platforms we found were too limited, too cluttered, or looked like they hadn't been touched since 2009.",
+        "The team didn't have to go far to find inspiration. We just looked at our own shelves. Vinyls, figurines, business cards, blind boxes, books. Each of us collects something, and each of us had the same quiet frustration. There was nowhere online to show it all off the way we wanted to. The platforms we found were too limited, too cluttered, or looked like they hadn't been touched since 2009.",
         "We wanted something warmer. Something like Letterboxd, but for everything. And we didn't want to stop at a prototype. Over two semesters, a five-person team took Goblin Gizmos from a research question to {{a working site with real accounts, real uploads, and a real database}}. I led design, UI, and branding, and wrote front-end code alongside the team.",
       ],
     },
