@@ -1013,6 +1013,13 @@ export const goblinGizmosCaseStudy: CaseStudyData = {
         },
         "A round of user feedback on the lo-fi surfaced friction we hadn't anticipated. Button placement moved, calls to action got clearer, and the category browser got a more prominent path from the home page. The high-fidelity prototype brought the full identity to every screen.",
         {
+          image: {
+            src: "/images/projects/goblin-gizmos-hifi-board.webp",
+            label: "Hi-fi: full screen board",
+            fit: "feature",
+          },
+        },
+        {
           row: [
             { src: "/images/projects/goblin-gizmos-hifi.png", label: "Hi-fi: homepage" },
             { src: "/images/projects/goblin-gizmos-hifi-categories.webp", label: "Hi-fi: categories" },
