@@ -25,7 +25,7 @@ export function CaseStudy({ data }: { data: CaseStudyData }) {
   const { heroBg, heroText, accent, footer } = data;
 
   return (
-    <div style={{ backgroundColor: paper, color: paperInk }} className="min-h-screen">
+    <div id="top" style={{ backgroundColor: paper, color: paperInk }} className="min-h-screen">
       <Nav bg={heroBg} ink={heroText} />
 
       <section style={{ backgroundColor: heroBg, color: heroText }} className="px-6 py-16 sm:px-10">
