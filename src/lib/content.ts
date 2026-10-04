@@ -738,9 +738,9 @@ export const prizekicksCaseStudy: CaseStudyData = {
         "The low-fidelity prototype covered the full shopping flow: sign up, home, search and filters, product pages, price comparison, checkout, and confirmation. We ran think-aloud sessions with users, catalogued every point of friction, and fixed them before moving to high fidelity.",
         { image: { src: "/images/projects/prizekicks-lofi.png", label: "Add lo-fi screens", fit: "contain" } },
         "A style guide locked in the visual identity, then the final prototype went through one more round of testing and refinement.",
+        { image: { src: "/images/projects/prizekicks-hifi-home.webp", label: "Hi-fi: Home" } },
         {
           row: [
-            { src: "/images/projects/prizekicks-hifi-home.webp", label: "Hi-fi: Home" },
             { src: "/images/projects/prizekicks-hifi-product.webp", label: "Hi-fi: Product page" },
             { src: "/images/projects/prizekicks-hifi-search.png", label: "Hi-fi: Search" },
             { src: "/images/projects/prizekicks-style-guide.png", label: "Add style guide" },
