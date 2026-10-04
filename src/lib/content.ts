@@ -1001,6 +1001,8 @@ export const goblinGizmosCaseStudy: CaseStudyData = {
           row: [
             { src: "/images/projects/goblin-gizmos-lofi.png", label: "Lo-fi: homepage" },
             { src: "/images/projects/goblin-gizmos-lofi-category.png", label: "Lo-fi: category page" },
+            { src: "/images/projects/goblin-gizmos-lofi-search.png", label: "Lo-fi: bounty search" },
+            { src: "/images/projects/goblin-gizmos-lofi-post.png", label: "Lo-fi: individual post" },
             { src: "/images/projects/goblin-gizmos-lofi-community.png", label: "Lo-fi: community" },
             { src: "/images/projects/goblin-gizmos-lofi-profile.png", label: "Lo-fi: profile" },
             { src: "/images/projects/goblin-gizmos-lofi-account.png", label: "Lo-fi: account" },
