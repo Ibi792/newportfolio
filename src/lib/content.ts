@@ -989,7 +989,7 @@ export const goblinGizmosCaseStudy: CaseStudyData = {
       type: "media",
       heading: "Design",
       paragraphs: [
-        "The lo-fi prototype covered the primary journeys: sign-up, home, category browsing, adding a trinket, the community tab, accessibility settings. Keeping it rough was intentional. It made it easier to cycle ideas if need be.",
+        "The lo-fi prototype covered the primary journeys, sign-up, home, category browsing, adding a trinket, the community tab, and accessibility settings. Keeping it rough was intentional. It made it easier to cycle ideas if need be.",
         { image: { src: "/images/projects/goblin-gizmos-lofi.png", label: "Add lo-fi screens", fit: "contain" } },
         "A round of user feedback on the lo-fi surfaced friction we hadn't anticipated. Button placement moved, calls to action got clearer, and the category browser got a more prominent path from the home page. Then the high-fidelity prototype brought the full identity to every screen: community feed, category browser, trinket pages, profiles, and the bounty board where users post items to sell or trade.",
         { image: { src: "/images/projects/goblin-gizmos-feedback.png", label: "Add feedback notes", fit: "contain" } },
