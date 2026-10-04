@@ -774,12 +774,12 @@ function SectionBlock({ section, accent }: { section: CaseStudySection; accent: 
         <>
           <SectionHeading accent={accent}>{section.heading}</SectionHeading>
           <InterleavedCopy items={section.intro} accent={accent} />
-          <RevealGroup className="mt-8 flex flex-wrap gap-4" stagger={0.06}>
+          <RevealGroup className="mt-8 flex flex-wrap justify-center gap-4" stagger={0.06}>
             {section.goals.map((goal) => {
               const Icon = goal.icon ? CASE_STUDY_ICONS[goal.icon] : undefined;
               return (
-                <RevealItem key={goal.title}>
-                  <div className="flex flex-col items-center rounded-xl bg-white/60 px-5 py-4 text-center">
+                <RevealItem key={goal.title} className="min-w-[200px] max-w-[260px] flex-1 basis-[200px]">
+                  <div className="flex h-full flex-col items-center rounded-xl bg-white/60 px-5 py-4 text-center">
                     {Icon && (
                       <div
                         className="mb-2 flex h-9 w-9 items-center justify-center rounded-lg"
