@@ -678,7 +678,7 @@ export const prizekicksCaseStudy: CaseStudyData = {
       type: "colorCards",
       heading: "Competitive Audit",
       intro: [
-        "I audited GOAT, Grailed, and Flight Club myself, cataloguing each against a shared feature matrix spanning nine marketplaces. The pattern was consistent: strong inventory and authentication, little regard for the buyer's actual experience finding and trusting a listing.",
+        "I audited GOAT, Grailed, and Flight Club myself, cataloguing each against a shared feature matrix spanning nine marketplaces. Every platform had strong inventory and authentication, but little regard for the buyer's actual experience finding and trusting a listing.",
       ],
       cards: [
         {
