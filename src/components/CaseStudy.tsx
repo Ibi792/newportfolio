@@ -6,6 +6,11 @@ import { AssetImage } from "@/components/AssetImage";
 import { TiltedFrame } from "@/components/TiltedFrame";
 import { ProcessPill } from "@/components/ProcessPill";
 import { footerText, paper, paperInk, themes, type CaseStudyData, type CaseStudySection } from "@/lib/content";
+import { handDrawnFont } from "@/lib/fonts";
+
+// Swatch colors for the "Palette Pulled From the Art" demo row, named
+// straight from that card's own copy (Lofistory's Design Decisions).
+const LOFISTORY_PALETTE_DEMO = ["#F0664F", "#7B93D1", "#9CAF88", "#F7DFA0", "#4B2142"];
 
 // Turns a section heading into the #anchor a Process pill links to.
 function slugify(text: string) {
@@ -492,6 +497,62 @@ function SectionBlock({ section, accent }: { section: CaseStudySection; accent: 
     }
 
     case "insightCards":
+      if (section.layout === "tracklist") {
+        return (
+          <>
+            <SectionHeading accent={accent}>{section.heading}</SectionHeading>
+            {section.intro.map((p, i) => (
+              <p key={i} className="mt-8 font-mono text-base leading-relaxed sm:text-lg">
+                {renderHighlighted(p, accent)}
+              </p>
+            ))}
+            <RevealGroup className="mt-8 divide-y rounded-2xl bg-white/60" stagger={0.06}>
+              {section.cards.map((card, i) => {
+                const Icon = card.icon ? CASE_STUDY_ICONS[card.icon] : undefined;
+                return (
+                  <RevealItem key={card.title}>
+                    <div className="flex items-start gap-5 p-5 sm:p-6">
+                      <p
+                        className="shrink-0 font-mono text-2xl font-bold leading-none sm:text-3xl"
+                        style={{ color: `${accent}55` }}
+                      >
+                        {String(i + 1).padStart(2, "0")}
+                      </p>
+                      <div className="min-w-0 flex-1">
+                        <p className="inline-flex items-center gap-2 font-display text-sm font-bold" style={{ color: accent }}>
+                          {Icon && <Icon color={accent} />}
+                          {card.title}
+                        </p>
+                        {card.demo === "font" ? (
+                          <p className={`${handDrawnFont.className} mt-1 text-4xl leading-none`} style={{ color: paperInk }}>
+                            Lofistory
+                          </p>
+                        ) : null}
+                        <p className="mt-3 font-mono text-sm leading-relaxed">
+                          {renderHighlighted(card.detail, accent)}
+                        </p>
+                        {card.demo === "palette" && (
+                          <div className="mt-3 flex gap-2">
+                            {LOFISTORY_PALETTE_DEMO.map((hex) => (
+                              <div
+                                key={hex}
+                                className="h-8 w-8 rounded-full border"
+                                style={{ backgroundColor: hex, borderColor: `${paperInk}22` }}
+                                aria-hidden
+                              />
+                            ))}
+                          </div>
+                        )}
+                      </div>
+                    </div>
+                  </RevealItem>
+                );
+              })}
+            </RevealGroup>
+            {section.images && <ImageGrid images={section.images} accent={accent} />}
+          </>
+        );
+      }
       return (
         <>
           <SectionHeading accent={accent}>{section.heading}</SectionHeading>

@@ -276,8 +276,12 @@ export type CaseStudySection =
       heading: string;
       intro: string[];
       // `icon` is a key into CASE_STUDY_ICONS (CaseStudy.tsx) — omit for
-      // a plain title with no icon.
-      cards: { title: string; detail: string; icon?: string }[];
+      // a plain title with no icon. `layout: "tracklist"` renders
+      // numbered rows instead of a card grid, and `demo` lets a row show
+      // its decision live (a font sample, a palette swatch) rather than
+      // just describing it in text.
+      layout?: "grid" | "tracklist";
+      cards: { title: string; detail: string; icon?: string; demo?: "palette" | "font" }[];
       images?: CaseStudyImage[];
     }
   | { type: "quote"; label: string; text: string; attribution: string }
@@ -1019,6 +1023,7 @@ export const lofistoryCaseStudy: CaseStudyData = {
       type: "insightCards",
       heading: "Design Decisions",
       intro: [],
+      layout: "tracklist",
       cards: [
         {
           title: "Three Pages, One Mood",
@@ -1043,12 +1048,14 @@ export const lofistoryCaseStudy: CaseStudyData = {
           detail:
             "Headers run in Just Another Hand, a handwritten font that echoes the sketchy, homemade quality of lo-fi cover art. Body text stays clean and readable so the personality never costs legibility.",
           icon: "pen",
+          demo: "font",
         },
         {
           title: "A Palette Pulled From the Art",
           detail:
             "Coral, cornflower blue, and sage green, sampled straight from the live screens, with a pale cream for type and a deep plum instead of true black. Nothing pure white, nothing pure black. Everything stays soft enough to feel handmade.",
           icon: "palette",
+          demo: "palette",
         },
         {
           title: "Real Artists, Not Screenshots",

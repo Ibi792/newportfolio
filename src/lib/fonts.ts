@@ -1,5 +1,13 @@
-import { IBM_Plex_Sans, IBM_Plex_Mono } from "next/font/google";
+import { IBM_Plex_Sans, IBM_Plex_Mono, Just_Another_Hand } from "next/font/google";
 import localFont from "next/font/local";
+
+// Lofistory's real header font, demonstrated live in its own case study
+// ("Design Decisions" → "Hand-Drawn Type") rather than just named in copy.
+export const handDrawnFont = Just_Another_Hand({
+  subsets: ["latin"],
+  weight: "400",
+  display: "swap",
+});
 
 /**
  * Body copy — the real, final font. IBM Plex Sans is open-source so it's
