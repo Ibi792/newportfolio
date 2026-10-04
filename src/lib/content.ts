@@ -294,6 +294,7 @@ export type CaseStudySection =
       // `bareLogo` skips the white badge behind it, for a logo (like a
       // self-contained circular mark) that doesn't need one for contrast.
       cards: { name: string; color: string; detail: string; logo?: string; bareLogo?: boolean }[];
+      images?: CaseStudyImage[];
     }
   | {
       type: "goalChips";
@@ -660,6 +661,44 @@ export const prizekicksCaseStudy: CaseStudyData = {
             "Interviews and surveys kept circling the same theme. Buyers didn't feel these platforms were on their side, and that suspicion shaped every interaction.",
           icon: "shield",
         },
+      ],
+      images: [
+        { src: "/images/projects/prizekicks-survey-price.png", label: "Survey: price influences my decision", fit: "row" },
+        { src: "/images/projects/prizekicks-survey-deals.png", label: "Survey: sales or deals influence my decision", fit: "row" },
+        { src: "/images/projects/prizekicks-survey-authenticity.png", label: "Survey: I consider authenticity when buying shoes", fit: "row" },
+      ],
+    },
+    {
+      type: "colorCards",
+      heading: "Competitive Audit",
+      intro: [
+        "I audited GOAT, Grailed, and Flight Club myself, cataloguing each against a shared feature matrix spanning nine marketplaces. The pattern was consistent: strong inventory and authentication, little regard for the buyer's actual experience finding and trusting a listing.",
+      ],
+      cards: [
+        {
+          name: "GOAT",
+          color: "#1A1A1A",
+          logo: "/images/projects/logos/goat.png",
+          detail:
+            "Vast selection with real authentication and pricing history, but shipping has no standard timeline and fees stack up around returns and verification.",
+        },
+        {
+          name: "Grailed",
+          color: "#23262F",
+          logo: "/images/projects/logos/grailed.webp",
+          detail:
+            "Negotiation-friendly and flexible on price, but it isn't sneaker-specific and authentication is looser, trading certainty for deal-making room.",
+        },
+        {
+          name: "Flight Club",
+          color: "#7A1F2B",
+          logo: "/images/projects/logos/flight-club.webp",
+          detail:
+            "Curated, authenticated, and backed by physical stores, but prices run high with no negotiation and a mostly-final sale policy.",
+        },
+      ],
+      images: [
+        { src: "/images/projects/prizekicks-audit-matrix.webp", label: "Full feature matrix across nine marketplaces", fit: "contain" },
       ],
     },
     {

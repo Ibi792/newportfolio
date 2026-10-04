@@ -147,13 +147,15 @@ function ImageGrid({
             className="min-w-[220px] flex-1 rounded-2xl border bg-white p-3"
             style={{ borderColor: `${accent}33` }}
           >
-            <AssetImage
-              src={img.src}
-              alt={img.label}
-              color={accent}
-              className="h-auto w-full object-contain"
-              label={img.label}
-            />
+            <Lightbox src={img.src} alt={img.label}>
+              <AssetImage
+                src={img.src}
+                alt={img.label}
+                color={accent}
+                className="h-auto w-full object-contain"
+                label={img.label}
+              />
+            </Lightbox>
           </div>
         ))}
       </div>
@@ -714,6 +716,7 @@ function SectionBlock({ section, accent }: { section: CaseStudySection; accent: 
               </RevealItem>
             ))}
           </RevealGroup>
+          {section.images && <ImageGrid images={section.images} accent={accent} />}
         </>
       );
 
