@@ -869,7 +869,7 @@ export const goblinGizmosCaseStudy: CaseStudyData = {
       type: "intro",
       heading: "What We Found",
       paragraphs: [
-        "We each took a set of existing collector platforms and worked through them. Colnect, CollectorsCorner, Kolekto, MyFigureCollection, CatalogIt. The pattern was consistent: outdated interfaces, cluttered navigation, one niche per site, and paywalls that locked out casual users before they'd gotten started.",
+        "We each took a set of existing collector platforms and worked through them. Colnect, CollectorsCorner, Kolekto, MyFigureCollection, CatalogIt. Every one of them had outdated interfaces, cluttered navigation, one niche per site, and a paywall that locked out casual users before they'd gotten started.",
         "Interviews and surveys with collectors across different hobbies confirmed the gap. Nobody wanted another spreadsheet. They wanted something quick to update, easy to browse, and genuinely social. A place to connect over the things they love.",
       ],
     },
