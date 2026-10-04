@@ -594,14 +594,21 @@ function SectionBlock({ section, accent }: { section: CaseStudySection; accent: 
                           {renderHighlighted(card.detail, accent)}
                         </p>
                         {card.demo === "palette" && (
-                          <div className="mt-3 flex gap-2">
+                          <div className="mt-3 flex gap-3">
                             {LOFISTORY_PALETTE_DEMO.map((hex) => (
-                              <div
-                                key={hex}
-                                className="h-8 w-8 rounded-full border"
-                                style={{ backgroundColor: hex, borderColor: `${paperInk}22` }}
-                                aria-hidden
-                              />
+                              <div key={hex} className="group relative">
+                                <span
+                                  className="pointer-events-none absolute -top-9 left-1/2 -translate-x-1/2 whitespace-nowrap rounded-md px-2 py-1 font-mono text-[10px] font-semibold opacity-0 shadow-md transition-opacity duration-200 group-hover:opacity-100"
+                                  style={{ backgroundColor: paperInk, color: paper }}
+                                >
+                                  {hex}
+                                </span>
+                                <div
+                                  className="h-8 w-8 rounded-full border transition-transform duration-200 ease-out group-hover:scale-125"
+                                  style={{ backgroundColor: hex, borderColor: `${paperInk}22` }}
+                                  aria-hidden
+                                />
+                              </div>
                             ))}
                           </div>
                         )}
