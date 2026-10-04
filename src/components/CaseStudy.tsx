@@ -372,6 +372,38 @@ const CASE_STUDY_ICONS: Record<string, (props: { color: string }) => React.React
       <path d="M17 5v14" />
     </svg>
   ),
+  target: ({ color }) => (
+    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke={color} strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden>
+      <circle cx="12" cy="12" r="8" />
+      <circle cx="12" cy="12" r="4" />
+      <circle cx="12" cy="12" r="0.5" fill={color} stroke="none" />
+    </svg>
+  ),
+  trophy: ({ color }) => (
+    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke={color} strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden>
+      <path d="M7 4h10v3a5 5 0 0 1-10 0z" />
+      <path d="M7 5H4a3 3 0 0 0 3 4" />
+      <path d="M17 5h3a3 3 0 0 1-3 4" />
+      <path d="M12 12v4" />
+      <path d="M9 20h6" />
+    </svg>
+  ),
+  heart: ({ color }) => (
+    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke={color} strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden>
+      <path d="M12 20s-7-4.6-9.5-9A5.5 5.5 0 0 1 12 6a5.5 5.5 0 0 1 9.5 5c-2.5 4.4-9.5 9-9.5 9z" />
+    </svg>
+  ),
+  puzzle: ({ color }) => (
+    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke={color} strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden>
+      <path d="M4 4h6a2 2 0 1 1 4 0h6v6a2 2 0 1 1 0 4v6h-6a2 2 0 1 1-4 0H4v-6a2 2 0 1 0 0-4z" />
+    </svg>
+  ),
+  code: ({ color }) => (
+    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke={color} strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden>
+      <path d="M8 8l-4 4 4 4" />
+      <path d="M16 8l4 4-4 4" />
+    </svg>
+  ),
 };
 
 function SectionBlock({ section, accent }: { section: CaseStudySection; accent: string }) {
@@ -627,14 +659,18 @@ function SectionBlock({ section, accent }: { section: CaseStudySection; accent: 
             </p>
           ))}
           <div className="mt-6 space-y-6">
-            {section.items.map((item) => (
-              <div key={item.label} className="grid gap-2 sm:grid-cols-[200px_1fr]">
-                <p className="font-display text-sm font-bold" style={{ color: accent }}>
-                  {item.label}
-                </p>
-                <p className="font-mono text-sm leading-relaxed">{renderHighlighted(item.detail, accent)}</p>
-              </div>
-            ))}
+            {section.items.map((item) => {
+              const Icon = item.icon ? CASE_STUDY_ICONS[item.icon] : undefined;
+              return (
+                <div key={item.label} className="grid gap-2 sm:grid-cols-[200px_1fr]">
+                  <p className="flex items-center gap-2 font-display text-sm font-bold" style={{ color: accent }}>
+                    {Icon && <Icon color={accent} />}
+                    {item.label}
+                  </p>
+                  <p className="font-mono text-sm leading-relaxed">{renderHighlighted(item.detail, accent)}</p>
+                </div>
+              );
+            })}
           </div>
           {section.outro?.map((p, i) => (
             <p key={i} className="mt-8 font-mono text-base leading-relaxed sm:text-lg">
@@ -654,14 +690,18 @@ function SectionBlock({ section, accent }: { section: CaseStudySection; accent: 
             </p>
           ))}
           <div className="mt-6 space-y-4">
-            {section.lessons.map((lesson) => (
-              <p key={lesson.title} className="font-mono text-base leading-relaxed sm:text-lg">
-                <span className="font-display font-bold" style={{ color: accent }}>
-                  {lesson.title}
-                </span>{" "}
-                {renderHighlighted(lesson.detail, accent)}
-              </p>
-            ))}
+            {section.lessons.map((lesson) => {
+              const Icon = lesson.icon ? CASE_STUDY_ICONS[lesson.icon] : undefined;
+              return (
+                <p key={lesson.title} className="font-mono text-base leading-relaxed sm:text-lg">
+                  <span className="inline-flex items-center gap-1.5 align-middle font-display font-bold" style={{ color: accent }}>
+                    {Icon && <Icon color={accent} />}
+                    {lesson.title}
+                  </span>{" "}
+                  {renderHighlighted(lesson.detail, accent)}
+                </p>
+              );
+            })}
           </div>
           {section.thanks && (
             <p className="mt-12 text-center font-display text-xl font-bold" style={{ color: accent }}>

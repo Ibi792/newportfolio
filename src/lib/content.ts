@@ -312,14 +312,14 @@ export type CaseStudySection =
       type: "results";
       heading: string;
       intro: string[];
-      items: { label: string; detail: string }[];
+      items: { label: string; detail: string; icon?: string }[];
       outro?: string[];
     }
   | {
       type: "reflection";
       heading: string;
       intro: string[];
-      lessons: { title: string; detail: string }[];
+      lessons: { title: string; detail: string; icon?: string }[];
       thanks?: string;
     };
 
@@ -512,16 +512,19 @@ export const fourddoCaseStudy: CaseStudyData = {
           label: "Centralized Access",
           detail:
             "For the first time, fellows had a single destination for curriculum, deliverables, resources, and program communication, {{eliminating the friction of navigating a 10-week program}} through scattered emails and shared documents.",
+          icon: "house",
         },
         {
           label: "Program Clarity",
           detail:
             "A structured week-by-week layout {{gave fellows a clear view of where they were in the program}}, what was coming next, and what was expected of them at every stage of production.",
+          icon: "compass",
         },
         {
           label: "Scalable Foundation",
           detail:
             "The Fellows Hub established a {{replicable content structure and design system}} that Four Stories can build on as the fellowship grows beyond its inaugural cohort.",
+          icon: "layers",
         },
       ],
       outro: [
@@ -547,16 +550,19 @@ export const fourddoCaseStudy: CaseStudyData = {
           title: "Constraints are invitations:",
           detail:
             "Balancing team requests, platform limitations, and a highly specific audience taught me to work with what I had rather than wish for what I didn't. Building inside Squarespace meant every decision had to account for what the platform could and couldn't do, which pushed me toward creative solutions rather than ideal ones.",
+          icon: "puzzle",
         },
         {
           title: "Clarity is the design:",
           detail:
             "Designing for first-time fellows meant if a fellow couldn't find what they needed in the first few seconds of logging in, the design had failed regardless of how it looked.",
+          icon: "target",
         },
         {
           title: "Stakes make better designers:",
           detail:
             "This wasn't a prototype or a concept. It was a live platform that four fellows relied on throughout a demanding 10-week program. That responsibility made every decision feel more considered.",
+          icon: "shield",
         },
       ],
       thanks: "Thank you for reading!",
@@ -689,16 +695,19 @@ export const prizekicksCaseStudy: CaseStudyData = {
           label: "Buyers Could Actually Compare",
           detail:
             "{{Price context on the product page removed the tab-juggling}} that defined every other platform.",
+          icon: "scale",
         },
         {
           label: "Navigation Stopped Being Work",
           detail:
             "Testers moved through core flows without stalling. {{The second round of testing surfaced tweaks, not blockers}}.",
+          icon: "compass",
         },
         {
           label: "Scoped to What Mattered",
           detail:
             "By cutting the marketplace down to the features that differentiated it, {{the final prototype demonstrated the product's value}} without pretending to be something it wasn't yet.",
+          icon: "target",
         },
       ],
     },
@@ -711,16 +720,19 @@ export const prizekicksCaseStudy: CaseStudyData = {
           title: "Restraint Is a Feature:",
           detail:
             "Our first plan was far bigger than what we could build. Cutting it back to the features that actually mattered made the product sharper. Knowing what to leave out is as much a design skill as knowing what to build.",
+          icon: "skip",
         },
         {
           title: "Users Will Surprise You:",
           detail:
             "Feedback caught me off guard more than once. I've come to think that's the point. The process exists because you can't predict everything on the first try.",
+          icon: "user",
         },
         {
           title: "Rely and Be Relied On:",
           detail:
             "Leading design on a team meant trusting people with parts of the project I cared about. That exchange made the final product better than anything I could have built alone.",
+          icon: "heart",
         },
       ],
     },
@@ -869,21 +881,25 @@ export const goblinGizmosCaseStudy: CaseStudyData = {
           label: "The Cut-Off Post Bug",
           detail:
             "The \"view post\" link was routinely clipped on posts past a certain length, blocking testers from opening a post, reading comments, or reaching edit and delete. It surfaced independently across multiple sessions and {{became the milestone's top fix}}.",
+          icon: "eyeOff",
         },
         {
           label: "Sign-Up Friction",
           detail:
             "The sign-up confirmation message read as confusing, and testers wanted a sign-up option visible directly on the nav bar instead of buried behind login. We also caught the email field accepting input without an \"@\", a gap worth closing before real accounts depend on it.",
+          icon: "lock",
         },
         {
           label: "Small Asks That Mattered",
           detail:
             "Testers wanted the logo to double as a home link and the ability to edit their profile picture, neither of which existed in the earlier build. {{Both shipped by the third round of testing}}.",
+          icon: "list",
         },
         {
           label: "What the Fixes Bought Us",
           detail:
             "By the third session, testers could edit and delete both posts and their profile photo, post comments and see them populate, and use search and filters, {{on a build the first two testers couldn't have completed}}.",
+          icon: "trophy",
         },
       ],
       outro: [
@@ -901,21 +917,25 @@ export const goblinGizmosCaseStudy: CaseStudyData = {
           title: "The Documents Are the Design:",
           detail:
             "I underestimated how much of the work lives in the documents. The use cases, the data dictionary, the information architecture. These weren't formalities. They were the scaffolding that held the design together, and when we skipped a step we felt it later in the build.",
+          icon: "layers",
         },
         {
           title: "Identity Is a North Star:",
           detail:
             "We had a concept we believed in but couldn't agree on how it should look, and once we committed to the goblin direction, everything accelerated. A strong visual identity is a creative north star, and you lose a lot of time without one.",
+          icon: "compass",
         },
         {
           title: "Design for the Edges:",
           detail:
             "The testers who challenged our assumptions most were the ones we almost didn't include: the accessibility-conscious user, the person adding a trinket from their phone, the newcomer who doesn't know what a bounty is. Designing for them made the core experience better for everyone.",
+          icon: "eyeOff",
         },
         {
           title: "It Was a Democracy:",
           detail:
             "I didn't always get to set the tone, and that was fine. I'm as proud of how we built it as what we built. I'm leaving this project with a clearer sense of who I am as a designer and what I'm capable of when I'm working with the right people. That's the most valuable treasure I could ask for.",
+          icon: "scale",
         },
       ],
     },
@@ -1066,11 +1086,13 @@ export const lofistoryCaseStudy: CaseStudyData = {
           title: "Restraint Is a Decision:",
           detail:
             "Lofistory is the smallest project in my portfolio and the one I come back to most. It taught me that designing for feel is a different muscle than designing for a task, and that the two aren't in competition. Restraint is a decision. Warmth is a decision. Leaving something out is a decision.",
+          icon: "skip",
         },
         {
           title: "The Figma File Isn't the Finished Thing:",
           detail:
             "It also settled something for me about code. Turning a mockup into a running site changed my relationship to my own designs, and connecting it to a live API made that shift permanent. I stopped thinking of the Figma file as the finished thing.",
+          icon: "code",
         },
       ],
     },
@@ -1283,16 +1305,19 @@ export const knourishCaseStudy: CaseStudyData = {
           title: "One Problem, Fully:",
           detail:
             "My instinct on earlier projects was to design everything. Knourish was the first time I picked one problem and refused to let anything else in. The app is better for it, and so is the case study.",
+          icon: "target",
         },
         {
           title: "The Decision Is the Product:",
           detail:
             "Ordering was never the hard part. Once I understood that the real user moment was the decision before the order, every screen had a clear job. I want to find that moment earlier on every project.",
+          icon: "fork",
         },
         {
           title: "Brand as Constraint:",
           detail:
             "Designing inside UCF's identity could have felt limiting. Instead, it gave the app an immediate sense of place and purpose. Serving that identity was crucial to having Knourish thrive.",
+          icon: "palette",
         },
       ],
     },
