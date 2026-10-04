@@ -991,12 +991,22 @@ export const goblinGizmosCaseStudy: CaseStudyData = {
       paragraphs: [
         "The lo-fi prototype covered the primary journeys, sign-up, home, category browsing, adding a trinket, the community tab, and accessibility settings. Keeping it rough was intentional. It made it easier to cycle ideas if need be.",
         {
+          image: {
+            src: "/images/projects/goblin-gizmos-lofi-board.webp",
+            label: "Lo-fi: full screen board",
+            fit: "feature",
+          },
+        },
+        {
           row: [
             { src: "/images/projects/goblin-gizmos-lofi.png", label: "Lo-fi: homepage" },
+            { src: "/images/projects/goblin-gizmos-lofi-category.png", label: "Lo-fi: category page" },
+            { src: "/images/projects/goblin-gizmos-lofi-community.png", label: "Lo-fi: community" },
             { src: "/images/projects/goblin-gizmos-lofi-profile.png", label: "Lo-fi: profile" },
             { src: "/images/projects/goblin-gizmos-lofi-account.png", label: "Lo-fi: account" },
-            { src: "/images/projects/goblin-gizmos-lofi-community.png", label: "Lo-fi: community" },
+            { src: "/images/projects/goblin-gizmos-lofi-settings.png", label: "Lo-fi: settings" },
             { src: "/images/projects/goblin-gizmos-lofi-accessibility.png", label: "Lo-fi: accessibility" },
+            { src: "/images/projects/goblin-gizmos-lofi-support.png", label: "Lo-fi: support" },
           ],
         },
         "A round of user feedback on the lo-fi surfaced friction we hadn't anticipated. Button placement moved, calls to action got clearer, and the category browser got a more prominent path from the home page. Then the high-fidelity prototype brought the full identity to every screen: community feed, category browser, trinket pages, profiles, and the bounty board where users post items to sell or trade.",
