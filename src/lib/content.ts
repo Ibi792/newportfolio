@@ -1035,8 +1035,7 @@ export const goblinGizmosCaseStudy: CaseStudyData = {
       type: "media",
       heading: "Build",
       paragraphs: [
-        "This is where Goblin Gizmos separates from a design exercise.",
-        "The stack was HTML, CSS, JavaScript, PHP, and MySQL. PHP handles server-side logic, encrypted passwords, and differentiated access levels. MySQL stores everything from profiles and collections to posts and images. GitHub let five people contribute without stepping on each other.",
+        "The stack was HTML, CSS, JavaScript, PHP, and MySQL. PHP ran the server side, with encrypted passwords and different access levels for visitors, users, and admins. MySQL held everything from profiles and collections to posts and images. Five of us split ownership by feature, so two people were rarely touching the same file.",
         { image: { src: "/images/projects/goblin-gizmos-stack.png", label: "Add stack diagram", fit: "contain" } },
         "Responsiveness runs on three breakpoints: mobile under 600px, tablet from 600px to 1000px, desktop above. On mobile, vertical menus replace dropdowns, buttons scale up for touch, and content is prioritized to cut clutter. Accessibility carried through from design into code: contrast, alt text support, and in-app controls for font size and color scheme. The site passed W3C Markup Validation.",
         {
