@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { Nav } from "@/components/Nav";
 import { Footer } from "@/components/Footer";
+import { ProjectCard } from "@/components/ProjectCard";
 import { Reveal, RevealGroup, RevealItem } from "@/components/Reveal";
 import { AssetImage } from "@/components/AssetImage";
 import { TiltedFrame } from "@/components/TiltedFrame";
@@ -10,6 +11,7 @@ import {
   footerText,
   paper,
   paperInk,
+  projects,
   themes,
   type CaseStudyData,
   type CaseStudyImage,
@@ -30,8 +32,11 @@ function slugify(text: string) {
     .replace(/(^-|-$)/g, "");
 }
 
-export function CaseStudy({ data }: { data: CaseStudyData }) {
+export function CaseStudy({ data, slug }: { data: CaseStudyData; slug: string }) {
   const { heroBg, heroText, accent, footer } = data;
+
+  const currentIndex = projects.findIndex((p) => p.slug === slug);
+  const nextProject = currentIndex === -1 ? undefined : projects[(currentIndex + 1) % projects.length];
 
   return (
     <div id="top" style={{ backgroundColor: paper, color: paperInk }} className="min-h-screen">
@@ -95,6 +100,17 @@ export function CaseStudy({ data }: { data: CaseStudyData }) {
             </Reveal>
           );
         })}
+
+        {nextProject && (
+          <Reveal className="mt-24">
+            <p
+              className="mb-4 text-center font-mono text-xs font-semibold uppercase tracking-wide opacity-50"
+            >
+              Next Case Study
+            </p>
+            <ProjectCard project={nextProject} rotate={2} />
+          </Reveal>
+        )}
 
         <p className="mt-16 text-center">
           <Link href="#top" className="underline-hover font-display font-bold" style={{ color: accent }}>

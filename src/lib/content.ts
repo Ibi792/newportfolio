@@ -1,6 +1,6 @@
 export const site = {
   name: "Isaac Isaac",
-  role: "User Experience Designer",
+  role: "Product Designer",
   email: "isaacbisaac0@gmail.com",
   phone: "407-437-3838",
   linkedin: "https://www.linkedin.com/feed/",

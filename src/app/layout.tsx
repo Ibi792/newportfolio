@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { bodyFont, monoFont, displayFont } from "@/lib/fonts";
 import "./globals.css";
 
-const title = "Isaac Isaac · User Experience Designer";
+const title = "Isaac Isaac · Product Designer";
 const description = "Designing experiences with intention, honesty, and a touch of whimsy.";
 const siteUrl = "https://friendscallmeibi.com";
 

@@ -27,5 +27,5 @@ export default async function ProjectPage({
 
   if (!caseStudy) notFound();
 
-  return <CaseStudy data={caseStudy} />;
+  return <CaseStudy data={caseStudy} slug={slug} />;
 }
