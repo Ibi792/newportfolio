@@ -103,7 +103,7 @@ export function CaseStudy({ data }: { data: CaseStudyData }) {
         </p>
       </div>
 
-      <Footer bg={footer} text={footerText} tagline={themes.caseStudy.tagline} />
+      <Footer bg={footer} text={footerText} tagline={data.tagline ?? themes.caseStudy.tagline} />
     </div>
   );
 }

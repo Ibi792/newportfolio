@@ -88,9 +88,10 @@ export const themes = {
   // Case studies don't get a fixed color scheme here — each one carries
   // its own heroBg/heroText/accent/footer in its CaseStudyData (see
   // below), so Prizekicks doesn't inherit Fourddo's indigo. This entry
-  // just holds the shared footer easter-egg tagline for that page family.
+  // is just the fallback footer easter-egg tagline for a case study that
+  // doesn't set its own themed one (see each CaseStudyData's `tagline`).
   caseStudy: {
-    tagline: "Friends Call Me Ibi ↻ ◁ ‖ ▷ ↺",
+    tagline: "Friends Call Me Ibi :D",
   },
 } as const;
 
@@ -386,6 +387,10 @@ export type CaseStudyData = {
   heroText: string;
   accent: string;
   footer: string;
+  // Footer easter-egg tagline, themed per case study (e.g. a play/pause
+  // transport bar for a project with a video demo). Falls back to
+  // `themes.caseStudy.tagline` when a case study doesn't set its own.
+  tagline?: string;
   sections: CaseStudySection[];
 };
 
@@ -404,6 +409,7 @@ export const fourddoCaseStudy: CaseStudyData = {
   heroText: "#EEF0FB",
   accent: "#5B57C9",
   footer: "#1B1830",
+  tagline: "Friends Call Me Ibi ↻ ◁ ‖ ▷ ↺",
   sections: [
     {
       type: "intro",
@@ -658,6 +664,7 @@ export const prizekicksCaseStudy: CaseStudyData = {
   heroText: "#1E2A3A",
   accent: "#1D6FA5",
   footer: "#122A3D",
+  tagline: "Friends Call Me Ibi $ = ✓ = $",
   sections: [
     {
       type: "intro",
@@ -870,6 +877,7 @@ export const goblinGizmosCaseStudy: CaseStudyData = {
   heroText: "#F4FBF8",
   accent: "#146B60",
   footer: "#0C1F1B",
+  tagline: "Friends Call Me Ibi □ ○ ◇ ○ □",
   sections: [
     {
       type: "intro",
@@ -1191,6 +1199,7 @@ export const lofistoryCaseStudy: CaseStudyData = {
   heroText: "#F7DFA0",
   accent: "#C24A32",
   footer: "#2B160E",
+  tagline: "Friends Call Me Ibi ♪ ◎ ♫ ◎ ♪",
   sections: [
     {
       type: "intro",
@@ -1364,6 +1373,7 @@ export const knourishCaseStudy: CaseStudyData = {
   heroText: "#F6FAF9",
   accent: "#7A6000",
   footer: "#08080F",
+  tagline: "Friends Call Me Ibi ⏲ ⏱ ◉ ⏱ ⏲",
   sections: [
     {
       type: "intro",
