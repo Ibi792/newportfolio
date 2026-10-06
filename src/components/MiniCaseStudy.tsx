@@ -135,21 +135,23 @@ export function MiniCaseStudy() {
                 <ul className="mt-3 space-y-2 font-mono text-sm leading-relaxed opacity-90 sm:text-base">
                   <li>
                     {hi("{{Users already know the comment section is limited.}}")}{" "}
-                    <em>
+                    <em className="opacity-60">
                       &ldquo;For some reason it won&apos;t let me reply to comments. If it did let me reply, I
                       would.&rdquo;
                     </em>
                   </li>
                   <li>
                     {hi("{{People want to be notified of replies.}}")}{" "}
-                    <em>
+                    <em className="opacity-60">
                       &ldquo;I constantly miss comments I&apos;d love to reply to unless I happen to catch it on
                       opening the app. It&apos;s supposed to be a conversation.&rdquo;
                     </em>
                   </li>
                   <li>
                     {hi("{{New features could change behavior for the worse.}}")}{" "}
-                    <em>&ldquo;If I could reply, it might be dangerous. I&apos;d get into so many arguments.&rdquo;</em>
+                    <em className="opacity-60">
+                      &ldquo;If I could reply, it might be dangerous. I&apos;d get into so many arguments.&rdquo;
+                    </em>
                   </li>
                 </ul>
 
