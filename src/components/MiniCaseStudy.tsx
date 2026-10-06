@@ -87,15 +87,22 @@ export function MiniCaseStudy() {
               <div className="mt-2 border-t pt-2" style={{ borderColor: `${LB.ink}22` }}>
                 <SubHeading>Problem</SubHeading>
                 <p className="mt-3 font-mono text-sm leading-relaxed opacity-90 sm:text-base">
-                  Logging favorites and reading reviews has become one of the better parts of the modern
-                  movie-going experience for me, but the comment section leaves a lot to be desired. I can reply to
-                  a review, but I can&apos;t tag another user, follow up on a thought, or get notified if someone
-                  replies to me. I don&apos;t need the social feature kitchen sink in my movie diary app, but it
-                  shouldn&apos;t feel like a brick wall either.
+                  My Letterboxd review isn&apos;t just an accessory to the movie. Sometimes I enjoy writing it more
+                  than the film I just saw. Logging favorites and reading reviews has become one of the many joys
+                  of the modern movie-going experience. Unfortunately, while I&apos;m always looking for new spaces
+                  to commune about the arts, the Letterboxd comment section leaves plenty to be desired.
                 </p>
                 <p className="mt-3 font-mono text-sm leading-relaxed opacity-90 sm:text-base">
-                  I gave myself a strict 3-day timeline for this one, mostly to keep it from turning into a full
-                  social platform redesign.
+                  I simply can&apos;t reply to comments. Not that it&apos;s difficult, not that doing so would be
+                  uninteresting, there&apos;s just straight-up no feature for it. I can reply to reviews but
+                  can&apos;t tag another user to follow up on an interesting thought, and even if I could, they
+                  wouldn&apos;t be notified about it. I don&apos;t need the social feature kitchen sink in my movie
+                  diary app, but I also wish it didn&apos;t feel like a brick wall.
+                </p>
+                <p className="mt-3 font-mono text-sm leading-relaxed opacity-90 sm:text-base">
+                  Luckily I&apos;m a designer, and being confronted with these kinds of obstacles offers an
+                  opportunity for a bit of refurbishing. I deliberately chose a 3-day timeline for this study to
+                  prevent against scope creep.
                 </p>
 
                 <SubHeading>Research</SubHeading>
