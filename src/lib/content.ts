@@ -1037,7 +1037,7 @@ export const goblinGizmosCaseStudy: CaseStudyData = {
       paragraphs: [
         "The stack was HTML, CSS, JavaScript, PHP, and MySQL. PHP ran the server side, with encrypted passwords and different access levels for visitors, users, and admins. MySQL held everything from profiles and collections to posts and images. Five of us split ownership by feature, so two people were rarely touching the same file.",
         { image: { src: "/images/projects/goblin-gizmos-stack.png", label: "Add stack diagram", fit: "contain" } },
-        "Responsiveness runs on three breakpoints: mobile under 600px, tablet from 600px to 1000px, desktop above. On mobile, vertical menus replace dropdowns, buttons scale up for touch, and content is prioritized to cut clutter. Accessibility carried through from design into code: contrast, alt text support, and in-app controls for font size and color scheme. The site passed W3C Markup Validation.",
+        "Responsiveness runs on three breakpoints, mobile under 600px, tablet from 600px to 1000px, and desktop above. On mobile, vertical menus replace dropdowns, buttons scale up for touch, and content is prioritized to cut clutter. Accessibility carried through from design into code, contrast, alt text support, and in-app controls for font size and color scheme. The site passed W3C Markup Validation.",
         {
           row: [
             { src: "/images/projects/goblin-gizmos-responsive-home-mobile.webp", label: "Responsive: home, mobile" },
