@@ -147,16 +147,17 @@ export function MiniCaseStudy() {
                 <SubHeading>Competitive Analysis</SubHeading>
                 <ul className="mt-3 space-y-3 font-mono text-sm leading-relaxed opacity-90 sm:text-base">
                   <li>
-                    {hi("{{Twitter}}")} treats comments as equal to, sometimes more important than, the original
-                    post, which breeds ratio culture and reply guys, not what I wanted for a platform where the
-                    review should stay the focal point.
+                    <span style={{ color: LB.blue }}>Twitter</span> treats comments as equal to, sometimes more
+                    important than, the original post, which breeds ratio culture and reply guys, not what I wanted
+                    for a platform where the review should stay the focal point.
                   </li>
                   <li>
-                    {hi("{{Reddit}}")}&apos;s open-threaded replies and upvotes reward longer, more helpful
-                    responses.
+                    <span style={{ color: LB.blue }}>Reddit</span>&apos;s open-threaded replies and upvotes reward
+                    longer, more helpful responses.
                   </li>
                   <li>
-                    {hi("{{Goodreads}}")} is the closest comparison in spirit, review-first and comment-second, but
+                    <span style={{ color: LB.blue }}>Goodreads</span> is the closest comparison in spirit,
+                    review-first and comment-second, but
                     its comments can&apos;t be liked, replied to, or interacted with beyond reporting, and it shows.
                     Goodreads reviews get noticeably less engagement than reviews on other platforms.
                   </li>
