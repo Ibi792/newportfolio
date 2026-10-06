@@ -403,15 +403,20 @@ export const fourddoCaseStudy: CaseStudyData = {
       rows: [
         { label: "Project Type", value: "Internship project - Full Website Design" },
         {
-          label: "Summary",
-          value:
-            "Fourddo launched Four Stories, a 10-week filmmaking fellowship in Boston pairing four emerging directors with mentors to develop, produce, and premiere original PSA films. This project focused on designing and building the digital platform that brought the entire program together in one place.",
-        },
-        {
           label: "Problem",
           value:
             "Four Stories had no centralized digital home for its inaugural cohort. Program information, curriculum, deliverables, and communication were scattered across emails and documents, creating friction for fellows trying to stay on top of a demanding 10-week program while also making their first film.",
         },
+        {
+          label: "Solution",
+          value:
+            "The Fellows Hub, a centralized digital platform built in Squarespace that brought curriculum, resources, and communication into one place for the entire cohort.",
+        },
+        {
+          label: "My Role",
+          value: "Lead Product Design Intern (User Research, Information Architecture, Wireframing, Prototyping, Visual Design)",
+        },
+        { label: "Tools", value: "Figma, Canva, FigJam, Google Slides, Google Teams" },
       ],
     },
     {
@@ -435,7 +440,7 @@ export const fourddoCaseStudy: CaseStudyData = {
       type: "insightCards",
       heading: "User Research",
       intro: [
-        "Research was conducted to better understand the needs of first-time fellowship participants navigating a demanding creative program for the first time.",
+        "Research was conducted to better understand the needs of first-time fellowship participants navigating a demanding creative program.",
         "Due to that research, {{key insights emerged}}:",
       ],
       cards: [
