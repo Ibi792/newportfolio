@@ -545,15 +545,15 @@ export const fourddoCaseStudy: CaseStudyData = {
       paragraphs: [
         "With the structure mapped out, it was time to make it real. The high-fidelity prototype was developed to bring the Fellows Hub to life within the constraints of the fellowship's existing brand and platform.",
       ],
+      video: { src: "/images/projects/fourddo-demo.mp4", label: "Fellows Hub hi-fi walkthrough demo" },
       images: [
         {
           src: "/images/projects/fourddo-prototype-desktop.png",
           label: "Fellows Hub desktop homepage",
-          fit: "feature",
+          fit: "row",
         },
-        { src: "/images/projects/fourddo-prototype-mobile.png", label: "Fellows Hub mobile view", fit: "contain" },
+        { src: "/images/projects/fourddo-prototype-mobile.png", label: "Fellows Hub mobile view", fit: "row" },
       ],
-      video: { src: "/images/projects/fourddo-demo.mp4", label: "Fellows Hub hi-fi walkthrough demo" },
     },
     {
       type: "results",

@@ -206,7 +206,7 @@ function ImageGrid({
   const flushRow = () => {
     if (rowBuffer.length === 0) return;
     elements.push(
-      <div key={`row-${rowBuffer[0].src}`} className="sm:col-span-2 flex flex-wrap gap-4">
+      <div key={`row-${rowBuffer[0].src}`} className="sm:col-span-2 flex flex-wrap items-start gap-4">
         {rowBuffer.map((img) => (
           <div
             key={img.src}
@@ -897,19 +897,21 @@ function SectionBlock({ section, accent }: { section: CaseStudySection; accent: 
         <>
           <SectionHeading accent={accent}>{section.heading}</SectionHeading>
           <InterleavedCopy items={section.paragraphs} accent={accent} />
-          {section.images && <ImageGrid images={section.images} accent={accent} />}
-          {section.phoneRow && <PhoneRow images={section.phoneRow} accent={accent} />}
           {section.video && (
-            <div className="mt-6 rounded-2xl border bg-white p-3" style={{ borderColor: `${accent}33` }}>
-              <video
-                src={section.video.src}
-                aria-label={section.video.label}
-                className="h-auto max-h-[80vh] w-full rounded-xl"
-                controls
-                playsInline
-              />
+            <div className="mt-6">
+              <TiltedFrame rotate={-1.5} backdrop={`${accent}22`}>
+                <video
+                  src={section.video.src}
+                  aria-label={section.video.label}
+                  className="h-auto max-h-[85vh] w-full"
+                  controls
+                  playsInline
+                />
+              </TiltedFrame>
             </div>
           )}
+          {section.images && <ImageGrid images={section.images} accent={accent} />}
+          {section.phoneRow && <PhoneRow images={section.phoneRow} accent={accent} />}
           {section.link && (
             <a
               href={section.link.url}
