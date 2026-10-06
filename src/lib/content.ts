@@ -346,6 +346,7 @@ export type CaseStudySection =
       intro: string[];
       items: { label: string; detail: string; icon?: string }[];
       outro?: string[];
+      images?: CaseStudyImage[];
     }
   | {
       type: "reflection";
@@ -527,7 +528,15 @@ export const fourddoCaseStudy: CaseStudyData = {
       outro: [
         "Using these goals as a benchmark, I set out to outline information architecture and draft low-fidelity sketches.",
       ],
-      images: [{ src: "/images/projects/fourddo-sitemap.png", label: "Add sitemap image", fit: "contain" }],
+      images: [
+        { src: "/images/projects/fourddo-sitemap.png", label: "Fellows Hub sitemap", fit: "contain" },
+        { src: "/images/projects/fourddo-lofi-home.png", label: "Lo-fi: homepage", fit: "row" },
+        { src: "/images/projects/fourddo-lofi-journey.png", label: "Lo-fi: Your Journey", fit: "row" },
+        { src: "/images/projects/fourddo-lofi-week.png", label: "Lo-fi: this week carousel", fit: "row" },
+        { src: "/images/projects/fourddo-lofi-detail.png", label: "Lo-fi: week detail page", fit: "row" },
+        { src: "/images/projects/fourddo-lofi-faq.png", label: "Lo-fi: FAQ accordion", fit: "row" },
+        { src: "/images/projects/fourddo-lofi-session.png", label: "Lo-fi: session details", fit: "row" },
+      ],
     },
     {
       type: "media",
@@ -538,10 +547,10 @@ export const fourddoCaseStudy: CaseStudyData = {
       images: [
         {
           src: "/images/projects/fourddo-prototype-desktop.png",
-          label: "Add desktop prototype screenshot/video",
+          label: "Fellows Hub desktop homepage",
           fit: "feature",
         },
-        { src: "/images/projects/fourddo-prototype-mobile.png", label: "Add mobile prototype screenshot" },
+        { src: "/images/projects/fourddo-prototype-mobile.png", label: "Fellows Hub mobile view", fit: "contain" },
       ],
     },
     {
@@ -572,6 +581,13 @@ export const fourddoCaseStudy: CaseStudyData = {
       ],
       outro: [
         "For a first-of-its-kind program running its inaugural cohort, the hub gave Four Stories something it didn't have before: a place that held everything together. Following the fellowship, program directors noted that {{fellows responded positively to the hub}}, citing it as a meaningful part of their experience.",
+      ],
+      images: [
+        { src: "/images/projects/fourddo-live-welcome.webp", label: "Live: welcome & FAQ", fit: "row" },
+        { src: "/images/projects/fourddo-live-journey.webp", label: "Live: Your Journey", fit: "row" },
+        { src: "/images/projects/fourddo-live-week.png", label: "Live: in this week", fit: "row" },
+        { src: "/images/projects/fourddo-live-kickoff.png", label: "Live: fellowship kickoff", fit: "row" },
+        { src: "/images/projects/fourddo-live-workshop.webp", label: "Live: PA workshop", fit: "row" },
       ],
     },
     {

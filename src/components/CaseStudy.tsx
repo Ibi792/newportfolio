@@ -941,6 +941,7 @@ function SectionBlock({ section, accent }: { section: CaseStudySection; accent: 
               {renderHighlighted(p, accent)}
             </p>
           ))}
+          {section.images && <ImageGrid images={section.images} accent={accent} />}
         </>
       );
 
