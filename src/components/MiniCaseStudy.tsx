@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useRef, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { AssetImage } from "@/components/AssetImage";
 import { Lightbox } from "@/components/Lightbox";
@@ -44,9 +44,18 @@ function P({ children }: { children: string }) {
 
 export function MiniCaseStudy() {
   const [open, setOpen] = useState(false);
+  const topRef = useRef<HTMLDivElement>(null);
+
+  // Collapsing from the bottom button jumps back to the card's top so
+  // the reader isn't left staring at whatever now sits where the long
+  // write-up used to be.
+  function collapse() {
+    setOpen(false);
+    topRef.current?.scrollIntoView({ behavior: "smooth", block: "start" });
+  }
 
   return (
-    <div className="overflow-hidden rounded-2xl" style={{ backgroundColor: LB.bg, color: LB.ink }}>
+    <div className="overflow-hidden rounded-2xl" style={{ backgroundColor: LB.bg, color: LB.ink }} ref={topRef}>
       <div
         className="h-1.5 w-full"
         style={{ background: `linear-gradient(90deg, ${LB.orange}, ${LB.green}, ${LB.blue})` }}
@@ -83,7 +92,7 @@ export function MiniCaseStudy() {
 
         <button
           type="button"
-          onClick={() => setOpen((v) => !v)}
+          onClick={() => (open ? collapse() : setOpen(true))}
           className="mt-5 inline-flex items-center gap-2 font-mono text-sm font-semibold"
           style={{ color: LB.blue }}
         >
@@ -251,6 +260,16 @@ export function MiniCaseStudy() {
                 <p className="mt-4 font-mono text-xs italic opacity-50">
                   Views are my own. Not affiliated with Letterboxd.
                 </p>
+
+                <button
+                  type="button"
+                  onClick={collapse}
+                  className="mt-8 inline-flex items-center gap-2 font-mono text-sm font-semibold"
+                  style={{ color: LB.blue }}
+                >
+                  Show less
+                  <span aria-hidden>↑</span>
+                </button>
               </div>
             </motion.div>
           )}
