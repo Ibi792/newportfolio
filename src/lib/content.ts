@@ -486,7 +486,7 @@ export const fourddoCaseStudy: CaseStudyData = {
         {
           name: "Canvas",
           color: "#8B3A4B",
-          logo: "/images/projects/logos/canvas.png",
+          logo: "/images/projects/logos/canvas.webp",
           detail:
             "Heavy on functionality but overwhelming for first-time users. Information density without clear hierarchy creates friction before any learning begins.",
         },
@@ -500,7 +500,8 @@ export const fourddoCaseStudy: CaseStudyData = {
         {
           name: "Notion",
           color: "#1B1B3A",
-          logo: "/images/projects/logos/notion.png",
+          logo: "/images/projects/logos/notion.webp",
+          bareLogo: true,
           detail:
             "Flexible and clean but requires too much setup from the user. Works best when someone already knows how to navigate it.",
         },
