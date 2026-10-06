@@ -215,7 +215,7 @@ export function MiniCaseStudy() {
                 </div>
 
                 <SubHeading>Craft Details</SubHeading>
-                <P>{`The reply field shows the replier's photo and a dynamic placeholder reminding them who they're replying to, {{small details meant to cut down on the wrong reply landing in the wrong thread}}. The existing formatting toolbar carries over too, so a reply gets the same bold, italic, and link tools a full review already has.`}</P>
+                <P>{`The reply field shows the replier's photo and a dynamic placeholder reminding them who they're replying to, {{small details meant to cut down on the wrong reply landing in the wrong thread}}. The existing formatting toolbar carries over too, so a reply gets the same bold, italic, and link tools a full review already has. Giving people access to the same tools hopefully pushes them toward {{the same level of thought and care in a reply that they'd put into a full review}}.`}</P>
 
                 <div className="mt-6 grid gap-4">
                   <div className="overflow-hidden rounded-xl border" style={{ borderColor: `${LB.ink}22` }}>
