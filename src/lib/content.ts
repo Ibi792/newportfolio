@@ -1039,11 +1039,19 @@ export const goblinGizmosCaseStudy: CaseStudyData = {
         { image: { src: "/images/projects/goblin-gizmos-stack.png", label: "Add stack diagram", fit: "contain" } },
         "Responsiveness runs on three breakpoints: mobile under 600px, tablet from 600px to 1000px, desktop above. On mobile, vertical menus replace dropdowns, buttons scale up for touch, and content is prioritized to cut clutter. Accessibility carried through from design into code: contrast, alt text support, and in-app controls for font size and color scheme. The site passed W3C Markup Validation.",
         {
-          image: {
-            src: "/images/projects/goblin-gizmos-responsive.png",
-            label: "Add responsive screens",
-            fit: "contain",
-          },
+          row: [
+            { src: "/images/projects/goblin-gizmos-responsive-home-mobile.webp", label: "Responsive: home, mobile" },
+            { src: "/images/projects/goblin-gizmos-responsive-home-tablet.webp", label: "Responsive: home, tablet" },
+            { src: "/images/projects/goblin-gizmos-responsive-home-desktop.webp", label: "Responsive: home, desktop" },
+            {
+              src: "/images/projects/goblin-gizmos-responsive-categories-tablet.webp",
+              label: "Responsive: categories, tablet",
+            },
+            {
+              src: "/images/projects/goblin-gizmos-responsive-categories-desktop.webp",
+              label: "Responsive: categories, desktop",
+            },
+          ],
         },
         "The design held up in code. That was the point.",
       ],
