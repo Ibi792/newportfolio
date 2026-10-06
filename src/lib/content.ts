@@ -596,7 +596,7 @@ export const fourddoCaseStudy: CaseStudyData = {
       paragraphs: [
         "Based on feedback from the team and cohort, a “meet the fellows” section was added, highlighting the fellows and their films.",
       ],
-      images: [{ src: "/images/projects/fourddo-cohort.png", label: "Add cohort feature screenshot" }],
+      images: [{ src: "/images/projects/fourddo-cohort.png", label: "Meet the Fellows cohort feature", fit: "contain" }],
     },
     {
       type: "reflection",
