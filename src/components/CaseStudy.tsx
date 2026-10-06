@@ -12,6 +12,7 @@ import {
   paperInk,
   themes,
   type CaseStudyData,
+  type CaseStudyImage,
   type CaseStudySection,
   type InterleavedItem,
 } from "@/lib/content";
@@ -193,7 +194,7 @@ function ImageGrid({
   images,
   accent,
 }: {
-  images: { src: string; label: string; fit?: "contain" | "feature" | "row" }[];
+  images: CaseStudyImage[];
   accent: string;
 }) {
   const hasCroppedImages = images.some((img) => !img.fit);
@@ -207,23 +208,37 @@ function ImageGrid({
     if (rowBuffer.length === 0) return;
     elements.push(
       <div key={`row-${rowBuffer[0].src}`} className="sm:col-span-2 flex flex-wrap items-start gap-4">
-        {rowBuffer.map((img) => (
-          <div
-            key={img.src}
-            className="min-w-[220px] flex-1 rounded-2xl border bg-white p-3"
-            style={{ borderColor: `${accent}33` }}
-          >
-            <Lightbox src={img.src} alt={img.label}>
-              <AssetImage
-                src={img.src}
-                alt={img.label}
-                color={accent}
-                className="h-auto w-full object-contain"
-                label={img.label}
-              />
-            </Lightbox>
-          </div>
-        ))}
+        {rowBuffer.map((img) =>
+          img.bare ? (
+            <div key={img.src} className="w-full max-w-[180px]">
+              <Lightbox src={img.src} alt={img.label}>
+                <AssetImage
+                  src={img.src}
+                  alt={img.label}
+                  color={accent}
+                  className="h-auto w-full object-contain"
+                  label={img.label}
+                />
+              </Lightbox>
+            </div>
+          ) : (
+            <div
+              key={img.src}
+              className="min-w-[220px] flex-1 rounded-2xl border bg-white p-3"
+              style={{ borderColor: `${accent}33` }}
+            >
+              <Lightbox src={img.src} alt={img.label}>
+                <AssetImage
+                  src={img.src}
+                  alt={img.label}
+                  color={accent}
+                  className="h-auto w-full object-contain"
+                  label={img.label}
+                />
+              </Lightbox>
+            </div>
+          )
+        )}
       </div>
     );
     rowBuffer = [];

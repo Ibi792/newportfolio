@@ -258,7 +258,16 @@ export type CaseStudyMeta = { label: string; value: string };
 // large, uncropped moment of its own rather than sharing a row. Leave
 // unset for screenshots and mockups, which look better in the tilted,
 // cropped photo treatment.
-export type CaseStudyImage = { src: string; label: string; fit?: "contain" | "feature" | "row" };
+export type CaseStudyImage = {
+  src: string;
+  label: string;
+  fit?: "contain" | "feature" | "row";
+  // For a `row` image that's already a self-contained device mockup with
+  // a transparent background (not a plain screenshot) — skips the white
+  // card/border and caps its width so a portrait shot doesn't stretch to
+  // match a landscape one sharing the row.
+  bare?: boolean;
+};
 
 // An item in an interleaved paragraph/image sequence (see InterleavedCopy
 // in CaseStudy.tsx): a plain string is prose, `{ image }` drops one
@@ -552,7 +561,7 @@ export const fourddoCaseStudy: CaseStudyData = {
           label: "Fellows Hub desktop homepage",
           fit: "row",
         },
-        { src: "/images/projects/fourddo-prototype-mobile.png", label: "Fellows Hub mobile view", fit: "row" },
+        { src: "/images/projects/fourddo-prototype-mobile.png", label: "Fellows Hub mobile view", fit: "row", bare: true },
       ],
     },
     {
