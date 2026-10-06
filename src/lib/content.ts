@@ -338,6 +338,7 @@ export type CaseStudySection =
       // in a plain rounded device frame (no notch), rather than cropped
       // to a shared box — lets several sit side by side.
       phoneRow?: { src: string; label: string }[];
+      video?: { src: string; label: string };
       link?: { label: string; url: string };
     }
   | {
@@ -552,6 +553,7 @@ export const fourddoCaseStudy: CaseStudyData = {
         },
         { src: "/images/projects/fourddo-prototype-mobile.png", label: "Fellows Hub mobile view", fit: "contain" },
       ],
+      video: { src: "/images/projects/fourddo-demo.mp4", label: "Fellows Hub hi-fi walkthrough demo" },
     },
     {
       type: "results",

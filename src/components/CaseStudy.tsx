@@ -899,6 +899,17 @@ function SectionBlock({ section, accent }: { section: CaseStudySection; accent: 
           <InterleavedCopy items={section.paragraphs} accent={accent} />
           {section.images && <ImageGrid images={section.images} accent={accent} />}
           {section.phoneRow && <PhoneRow images={section.phoneRow} accent={accent} />}
+          {section.video && (
+            <div className="mt-6 rounded-2xl border bg-white p-3" style={{ borderColor: `${accent}33` }}>
+              <video
+                src={section.video.src}
+                aria-label={section.video.label}
+                className="h-auto max-h-[80vh] w-full rounded-xl"
+                controls
+                playsInline
+              />
+            </div>
+          )}
           {section.link && (
             <a
               href={section.link.url}
