@@ -1,7 +1,6 @@
 import Link from "next/link";
 import { Nav } from "@/components/Nav";
 import { Footer } from "@/components/Footer";
-import { ProjectCard } from "@/components/ProjectCard";
 import { Reveal, RevealGroup, RevealItem } from "@/components/Reveal";
 import { AssetImage } from "@/components/AssetImage";
 import { TiltedFrame } from "@/components/TiltedFrame";
@@ -102,13 +101,18 @@ export function CaseStudy({ data, slug }: { data: CaseStudyData; slug: string })
         })}
 
         {nextProject && (
-          <Reveal className="mt-24">
-            <p
-              className="mb-4 text-center font-mono text-xs font-semibold uppercase tracking-wide opacity-50"
-            >
-              Next Case Study
-            </p>
-            <ProjectCard project={nextProject} rotate={2} />
+          <Reveal className="mt-24 text-center">
+            <Link href={`/projects/${nextProject.slug}`} className="group inline-flex items-center gap-2">
+              <span className="font-mono text-xs font-semibold uppercase tracking-wide opacity-50">
+                Next Case Study
+              </span>
+              <span className="underline-hover font-display font-bold" style={{ color: accent }}>
+                {nextProject.title}
+              </span>
+              <span aria-hidden className="inline-block transition-transform group-hover:translate-x-1" style={{ color: accent }}>
+                →
+              </span>
+            </Link>
           </Reveal>
         )}
 
