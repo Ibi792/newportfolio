@@ -1,10 +1,13 @@
 "use client";
 
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { motion } from "framer-motion";
 import { nav, site } from "@/lib/content";
 
 export function Nav({ bg, ink }: { bg: string; ink: string }) {
+  const pathname = usePathname();
+
   return (
     <header className="sticky top-0 z-40" style={{ backgroundColor: bg, color: ink }}>
       <nav className="mx-auto flex max-w-6xl items-center justify-between gap-4 px-6 py-4 sm:px-10">
@@ -27,13 +30,20 @@ export function Nav({ bg, ink }: { bg: string; ink: string }) {
           </span>
         </Link>
         <ul className="flex items-center gap-3 font-mono text-xs font-medium sm:gap-6 sm:text-sm">
-          {nav.map((item) => (
-            <li key={item.href}>
-              <Link href={item.href} className="underline-hover">
-                {item.label}
-              </Link>
-            </li>
-          ))}
+          {nav.map((item) => {
+            const active = pathname === item.href || pathname?.startsWith(`${item.href}/`);
+            return (
+              <li key={item.href}>
+                <Link
+                  href={item.href}
+                  aria-current={active ? "page" : undefined}
+                  className={`underline-hover ${active ? "underline-active font-bold" : ""}`}
+                >
+                  {item.label}
+                </Link>
+              </li>
+            );
+          })}
           <li>
             <a
               href={site.resumeUrl}

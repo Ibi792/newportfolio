@@ -61,3 +61,9 @@ body {
   transform: scaleX(1);
   transform-origin: left;
 }
+
+/* permanent version of the underline, for the current nav page */
+.underline-active::after {
+  transform: scaleX(1);
+  transform-origin: left;
+}
