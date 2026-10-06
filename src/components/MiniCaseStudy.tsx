@@ -161,7 +161,7 @@ export function MiniCaseStudy() {
                     Goodreads reviews get noticeably less engagement than reviews on other platforms.
                   </li>
                 </ul>
-                <P>{`Comments on other platforms are in service of a specific purpose. {{Twitter emphasizes the discourse, TikTok emphasizes the creator}}, and Letterboxd's comments are currently in service of nothing. The goal isn't to disincentivize discussion. It's to make sure discussion is the only incentive.`}</P>
+                <P>{`Comments on other platforms are in service of a specific purpose. {{Twitter emphasizes the discourse, TikTok emphasizes the creator}}, and {{Letterboxd's comments are currently in service of nothing}}. The goal isn't to disincentivize discussion. It's to make sure discussion is the only incentive.`}</P>
 
                 <div className="mt-6 overflow-hidden rounded-xl border" style={{ borderColor: `${LB.ink}22` }}>
                   <Lightbox src="/images/projects/letterboxd-screens.webp" alt="Final prototype screens">
@@ -243,7 +243,10 @@ export function MiniCaseStudy() {
                 </div>
 
                 <SubHeading>Reflection</SubHeading>
-                <P>{`The sample size was small, and I'd want real usability testing before calling this done, probably prototyping a few different comment structures and watching how each one actually changes behavior. I'd also want to dig into comment filtering and accessibility before shipping anything like this for real. But {{the gap is real, and worth taking seriously}}.`}</P>
+                <P>{`This seemingly innocuous case study idea opened my eyes to how we engage with social platforms, and just how fickle those design ecosystems are. I was forced to consider the subconscious ramifications of each domino I pushed, and in the process got a lot better at mentally mapping a system before touching it. I've always been a smorgasbord of experiences, {{taking the best existing ideas and spinning them into something new}}, and leaning into that when approaching systems is key to how I design.`}</P>
+                <P>{`I strongly believe this is a topic that warrants more extensive user research. I can't prove as much as I'd like with a sample size this small, but there's a clear hunger for measured back-and-forth around film that Letterboxd is already serving, and it's worth asking if that audience could be served better. What's clear is that {{these decisions can't be made lightly, a bad apple here could spoil the whole batch}}.`}</P>
+                <P>{`Given more time, I would've prototyped a few different comment structures and {{watched how each one actually changed behavior}}, instead of settling on one. I'd also have gone deeper on comment filtering, both as a convenience and as another lever for shaping how people interact with comments, and on accessibility, making sure none of this works against someone configuring the experience differently.`}</P>
+                <P>{`This was a genuinely informative exercise in {{the tension between what a design does and how that function actually plays out in how people treat each other}}. It's a joy to get to scrutinize a system I actually love, and I'll be looking for more of my favorite features to pick apart like this.`}</P>
                 <p className="mt-4 font-mono text-xs italic opacity-50">
                   Views are my own. Not affiliated with Letterboxd.
                 </p>
