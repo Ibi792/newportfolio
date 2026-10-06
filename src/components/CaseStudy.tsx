@@ -795,7 +795,14 @@ function SectionBlock({ section, accent }: { section: CaseStudySection; accent: 
             {section.goals.map((goal) => {
               const Icon = goal.icon ? CASE_STUDY_ICONS[goal.icon] : undefined;
               return (
-                <RevealItem key={goal.title} className="min-w-[200px] max-w-[260px] flex-1 basis-[200px]">
+                <RevealItem
+                  key={goal.title}
+                  className={
+                    section.wideCards
+                      ? "min-w-[260px] max-w-[320px] flex-1 basis-[260px]"
+                      : "min-w-[200px] max-w-[260px] flex-1 basis-[200px]"
+                  }
+                >
                   <div className="flex h-full flex-col items-center rounded-xl bg-white/60 px-5 py-4 text-center">
                     {Icon && (
                       <div

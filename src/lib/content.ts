@@ -311,6 +311,11 @@ export type CaseStudySection =
       goals: { title: string; detail: string; icon?: string }[];
       outro?: string[];
       images?: CaseStudyImage[];
+      // Widens each card so an odd goal count (5, 7, ...) splits its
+      // last row 3+2 instead of wrapping a single card alone onto its
+      // own row. Leave unset for an even count, where the default
+      // narrower card already fills rows cleanly.
+      wideCards?: boolean;
     }
   | {
       type: "useCases";
@@ -511,6 +516,7 @@ export const fourddoCaseStudy: CaseStudyData = {
       type: "goalChips",
       heading: "Solution",
       intro: ["Through this research, the Fellows Hub's main goals were identified."],
+      wideCards: true,
       goals: [
         { title: "Clear Navigation", detail: "Instant access to the current week", icon: "compass" },
         { title: "Milestone Visibility", detail: "Deadlines and deliverables always in view", icon: "calendar" },
