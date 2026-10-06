@@ -32,14 +32,14 @@ function hi(text: string) {
 
 function SubHeading({ children }: { children: string }) {
   return (
-    <p className="mt-8 font-mono text-xs font-bold uppercase tracking-wide" style={{ color: LB.green }}>
+    <p className="mt-12 font-mono text-xs font-bold uppercase tracking-wide" style={{ color: LB.green }}>
       {children}
     </p>
   );
 }
 
 function P({ children }: { children: string }) {
-  return <p className="mt-3 font-mono text-sm leading-relaxed opacity-90 sm:text-base">{hi(children)}</p>;
+  return <p className="mt-5 font-mono text-sm leading-relaxed opacity-90 sm:text-base">{hi(children)}</p>;
 }
 
 export function MiniCaseStudy() {
@@ -111,10 +111,10 @@ export function MiniCaseStudy() {
               transition={{ duration: 0.35, ease: "easeInOut" }}
               className="overflow-hidden"
             >
-              <div className="mt-2 border-t pt-2" style={{ borderColor: `${LB.ink}22` }}>
+              <div className="mt-4 border-t pt-4" style={{ borderColor: `${LB.ink}22` }}>
                 <SubHeading>Problem</SubHeading>
                 <P>{`Logging favorites and reading reviews has become one of the many joys of the modern movie-going experience. Unfortunately, while I'm always looking for new spaces to commune about the arts, {{the Letterboxd comment section leaves plenty to be desired}}.`}</P>
-                <p className="mt-3 font-mono text-sm leading-relaxed opacity-90 sm:text-base">
+                <p className="mt-5 font-mono text-sm leading-relaxed opacity-90 sm:text-base">
                   I simply <em>can&apos;t</em> reply to comments. Not that it&apos;s difficult, not that doing so
                   would be uninteresting, {hi("{{there's just straight-up no feature for it}}")}. I can reply to
                   reviews but can&apos;t tag another user to follow up on an interesting thought, and even if I
@@ -132,7 +132,7 @@ export function MiniCaseStudy() {
 
                 <SubHeading>Research</SubHeading>
                 <P>{`I interviewed three active Letterboxd users about how they actually used the comment section, whether they'd ever missed a comment they wanted to reply to, and whether they'd engage more if replying were actually possible.`}</P>
-                <ul className="mt-3 space-y-2 font-mono text-sm leading-relaxed opacity-90 sm:text-base">
+                <ul className="mt-5 space-y-4 font-mono text-sm leading-relaxed opacity-90 sm:text-base">
                   <li>
                     {hi("{{Users already know the comment section is limited.}}")}{" "}
                     <em className="opacity-60">
@@ -156,7 +156,7 @@ export function MiniCaseStudy() {
                 </ul>
 
                 <SubHeading>Competitive Analysis</SubHeading>
-                <ul className="mt-3 space-y-3 font-mono text-sm leading-relaxed opacity-90 sm:text-base">
+                <ul className="mt-5 space-y-4 font-mono text-sm leading-relaxed opacity-90 sm:text-base">
                   <li>
                     <span style={{ color: LB.blue }}>Twitter</span> treats comments as equal to, sometimes more
                     important than, the original post, which breeds ratio culture and reply guys, not what I wanted
@@ -175,7 +175,7 @@ export function MiniCaseStudy() {
                 </ul>
                 <P>{`Comments on other platforms are in service of a specific purpose. {{Twitter emphasizes the discourse, TikTok emphasizes the creator}}, and {{Letterboxd's comments are currently in service of nothing}}. The goal isn't to disincentivize discussion. It's to make sure discussion is the only incentive.`}</P>
 
-                <div className="mt-6 overflow-hidden rounded-xl border" style={{ borderColor: `${LB.ink}22` }}>
+                <div className="mt-8 overflow-hidden rounded-xl border" style={{ borderColor: `${LB.ink}22` }}>
                   <Lightbox src="/images/projects/letterboxd-screens.webp" alt="Final prototype screens">
                     <AssetImage
                       src="/images/projects/letterboxd-screens.webp"
@@ -191,7 +191,7 @@ export function MiniCaseStudy() {
                 <P>{`A mini-threaded comment section with replies and likes only. No dislikes, no visible counts beyond the first comment in a thread, {{nothing that turns someone's review into a popularity contest}}. Once I started mapping the user flow, the hierarchy decisions got a lot easier to make.`}</P>
 
                 <div
-                  className="mt-6 overflow-hidden rounded-xl border bg-white p-3"
+                  className="mt-8 overflow-hidden rounded-xl border bg-white p-3"
                   style={{ borderColor: `${LB.ink}22` }}
                 >
                   <Lightbox src="/images/projects/letterboxd-flow.webp" alt="Comment reply user flow">
@@ -205,7 +205,7 @@ export function MiniCaseStudy() {
                   </Lightbox>
                 </div>
 
-                <ul className="mt-6 list-disc space-y-1 pl-5 font-mono text-sm leading-relaxed opacity-90 sm:text-base">
+                <ul className="mt-8 list-disc space-y-2 pl-5 font-mono text-sm leading-relaxed opacity-90 sm:text-base">
                   <li>Comments stay in the existing hierarchy, under the review, with {hi("{{a dedicated opt-in tap}}")}.</li>
                   <li>
                     Replies to a review keep the current full-screen flow, to encourage a considered response.
@@ -214,7 +214,7 @@ export function MiniCaseStudy() {
                   <li>Only the first comment in a thread can be liked, to avoid farming for &ldquo;dunks.&rdquo;</li>
                 </ul>
 
-                <div className="mt-6 overflow-hidden rounded-xl border" style={{ borderColor: `${LB.ink}22` }}>
+                <div className="mt-8 overflow-hidden rounded-xl border" style={{ borderColor: `${LB.ink}22` }}>
                   <Lightbox src="/images/projects/letterboxd-comments.webp" alt="Comments, original vs. redesign">
                     <AssetImage
                       src="/images/projects/letterboxd-comments.webp"
@@ -229,7 +229,7 @@ export function MiniCaseStudy() {
                 <SubHeading>Craft Details</SubHeading>
                 <P>{`The reply field shows the replier's photo and a dynamic placeholder reminding them who they're replying to, {{small details meant to cut down on the wrong reply landing in the wrong thread}}. The existing formatting toolbar carries over too, so a reply gets the same bold, italic, and link tools a full review already has. Giving people access to the same tools hopefully pushes them toward {{the same level of thought and care in a reply that they'd put into a full review}}.`}</P>
 
-                <div className="mt-6 grid gap-4">
+                <div className="mt-8 grid gap-6">
                   <div className="overflow-hidden rounded-xl border" style={{ borderColor: `${LB.ink}22` }}>
                     <Lightbox src="/images/projects/letterboxd-reply-field.webp" alt="Reply field detail">
                       <AssetImage
