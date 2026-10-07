@@ -1458,6 +1458,7 @@ export const knourishCaseStudy: CaseStudyData = {
           name: "Transact (Campus System)",
           color: "#4A4A4A",
           logo: "/images/projects/logos/transact.png",
+          bareLogo: true,
           detail:
             "Minimal wait-time transparency, just a static \"ready\" notification. Navigation is cluttered with hidden menus, and screen-reader support is inconsistent. Its one edge is direct integration with student ID and meal funds.",
         },
@@ -1465,6 +1466,7 @@ export const knourishCaseStudy: CaseStudyData = {
           name: "Uber Eats (Commercial Benchmark)",
           color: "#1C6B4F",
           logo: "/images/projects/logos/uber-eats.png",
+          bareLogo: true,
           detail:
             "Dynamic, real-time countdowns and an intuitive, search-driven interface set the bar for polish. None of that logic is built for a 15-minute gap between classes, though.",
         },
