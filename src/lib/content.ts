@@ -224,12 +224,14 @@ export const projects: Project[] = [
     blurb: "Building a community platform where any collection belongs",
     color: "#8FE0C9",
     textColor: "#14231F",
-    // A dedicated crop (nav bar + "Welcome to Goblin Gizmos!" heading)
-    // rather than the full composite hero shot — that image's aspect
-    // ratio made the short card boxes slice through the mascot/wordmark
-    // at an awkward height. This crop is wide enough that it fills by
-    // height instead, so it never gets cropped top/bottom, only sides.
+    // A dedicated crop of the laptop mockup (nav bar through the category
+    // thumbnails) instead of the full composite hero shot, which had
+    // background text bleeding in at the edges and cropped the
+    // mascot/wordmark at an awkward height on the short card boxes.
+    // Anchored to the top so the logo/wordmark survives on the shortest
+    // (home page) card even though the bottom gets cropped there.
     image: "/images/projects/goblin-gizmos-thumb.png",
+    imagePosition: "top",
   },
   {
     slug: "prizekicks",
