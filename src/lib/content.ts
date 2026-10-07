@@ -1512,7 +1512,6 @@ export const knourishCaseStudy: CaseStudyData = {
         { image: { src: "/images/projects/knourish-persona-vega.png", label: "Add Vega persona", fit: "contain" } },
         "Fez's flow drove the core design. Vega's kept the customization and menu screens from being an afterthought.",
         { image: { src: "/images/projects/knourish-fez-flow.png", label: "Add Fez user flow", fit: "contain" } },
-        { image: { src: "/images/projects/knourish-storyboard.png", label: "Add storyboard", fit: "contain" } },
       ],
     },
     {
