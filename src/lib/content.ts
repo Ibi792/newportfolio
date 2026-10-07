@@ -1414,7 +1414,7 @@ export const knourishCaseStudy: CaseStudyData = {
       type: "insightCards",
       heading: "Research",
       intro: [
-        "Before designing anything, I built a research plan around one question: how do UCF students actually decide where to eat between classes, and what goes wrong? I ran a ten-question survey on ordering habits at the Student Union, followed by short follow-up interviews with respondents who'd been late or missed transit because of an order. A journey map built around Fez, the primary persona, traced how {{a single lunch order escalates from anxious to frustrated across four stages}}, and that emotional arc drove the rest of the research.",
+        "Before designing anything, I built a research plan around one question. How do UCF students actually decide where to eat between classes, and what goes wrong? I ran a ten-question survey on ordering habits at the Student Union, followed by short follow-up interviews with respondents who'd been late or missed transit because of an order. A journey map built around Fez, the primary persona, traced how {{a single lunch order escalates from anxious to frustrated across four stages}}, and that emotional arc drove the rest of the research.",
         "The findings below reflect the patterns this research was designed to surface. Sample data is illustrative and will be updated as responses come in.",
       ],
       cards: [
@@ -1452,7 +1452,7 @@ export const knourishCaseStudy: CaseStudyData = {
       type: "colorCards",
       heading: "Competitive Audit",
       intro: [
-        "I audited Knourish against the two apps it would actually compete with for a student's attention: Transact, the existing campus system, and Uber Eats, the commercial app students already trust and compare everything else to.",
+        "I audited Knourish against the two apps it would actually compete with for a student's attention. One was Transact, the existing campus system; the other was Uber Eats, the commercial app students already trust and compare everything else to.",
         "The gap was the same across every criterion. Campus apps had the payment infrastructure commercial apps don't need, but none of their UX polish. Knourish's opening was never beating Uber Eats on restaurant variety. It was being {{the one app that actually told a student how long they'd wait}}.",
       ],
       cards: [
@@ -1461,7 +1461,7 @@ export const knourishCaseStudy: CaseStudyData = {
           color: "#4A4A4A",
           logo: "/images/projects/logos/transact.png",
           detail:
-            "Minimal wait-time transparency, just a static \"ready\" notification. Navigation is cluttered with hidden menus, and screen-reader support is inconsistent. Its one edge: direct integration with student ID and meal funds.",
+            "Minimal wait-time transparency, just a static \"ready\" notification. Navigation is cluttered with hidden menus, and screen-reader support is inconsistent. Its one edge is direct integration with student ID and meal funds.",
         },
         {
           name: "Uber Eats (Commercial Benchmark)",
@@ -1484,9 +1484,9 @@ export const knourishCaseStudy: CaseStudyData = {
       type: "media",
       heading: "Who I Designed For",
       paragraphs: [
-        "Fez is the primary persona: a student with back-to-back classes and a tight window who needs to know, fast, whether an order is realistic. Fez isn't browsing. Fez is deciding.",
+        "Fez is the primary persona, a student with back-to-back classes and a tight window who needs to know, fast, whether an order is realistic. Fez isn't browsing. Fez is deciding.",
         { image: { src: "/images/projects/knourish-persona-fez.png", label: "Add Fez persona", fit: "contain" } },
-        "Vega is the counterweight: an HR director coordinating meals for a busy office who runs into confusing interfaces and customization anxiety, the fear of getting an order wrong when it's for other people. Vega kept the app honest for anyone ordering with more at stake than their own lunch.",
+        "Vega is the counterweight, an HR director coordinating meals for a busy office who runs into confusing interfaces and customization anxiety, the fear of getting an order wrong when it's for other people. Vega kept the app honest for anyone ordering with more at stake than their own lunch.",
         { image: { src: "/images/projects/knourish-persona-vega.png", label: "Add Vega persona", fit: "contain" } },
         "Fez's flow drove the core design. Vega's kept the customization and menu screens from being an afterthought.",
         { image: { src: "/images/projects/knourish-fez-flow.png", label: "Add Fez user flow", fit: "contain" } },
@@ -1497,11 +1497,11 @@ export const knourishCaseStudy: CaseStudyData = {
       type: "media",
       heading: "The One Feature That Mattered",
       paragraphs: [
-        "Everything in Knourish serves the Estimated Wait Time. Rather than a number buried on a confirmation screen, EWT shows up where the decision happens: on the restaurant card, before you tap in. A three-level status system (Low Wait, Busy, Packed) gives an at-a-glance read, and the specific estimate sits beside it. A student scanning Home can {{rule out half the options in two seconds}}.",
+        "Everything in Knourish serves the Estimated Wait Time. Rather than a number buried on a confirmation screen, EWT shows up where the decision happens, on the restaurant card, before you tap in. A three-level status system (Low Wait, Busy, Packed) gives an at-a-glance read, and the specific estimate sits beside it. A student scanning Home can {{rule out half the options in two seconds}}.",
         { image: { src: "/images/projects/knourish-ewt.png", label: "Add EWT component", fit: "contain" } },
         "At the other end of the flow, the confirmation screen tells you when to leave. Not just \"your order will be ready in 12 minutes,\" but a Leave By time that closes the loop on the whole problem.",
         { image: { src: "/images/projects/knourish-leave-by.png", label: "Add Leave By prompt", fit: "contain" } },
-        "The information architecture stayed deliberately flat to protect that speed. Four top-level nodes: Home, Browse, Orders, Profile, with persistent search available everywhere. Home shows restaurants by context (what's fast right now); Browse is for looking deliberately. Nothing else earned a place unless it got a student to a confident decision faster.",
+        "The information architecture stayed deliberately flat to protect that speed. Just four top-level nodes, Home, Browse, Orders, and Profile, with persistent search available everywhere. Home shows restaurants by context (what's fast right now); Browse is for looking deliberately. Nothing else earned a place unless it got a student to a confident decision faster.",
         { image: { src: "/images/projects/knourish-ia.png", label: "Add IA diagram", fit: "contain" } },
       ],
     },
