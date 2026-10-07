@@ -311,7 +311,9 @@ export type CaseStudySection =
       // and it renders; until then AssetImage shows an "add image" stub.
       // `bareLogo` skips the white badge behind it, for a logo (like a
       // self-contained circular mark) that doesn't need one for contrast.
-      cards: { name: string; color: string; detail: string; logo?: string; bareLogo?: boolean }[];
+      // `separateAbove` draws a thin divider before this card — for
+      // setting "our solution" apart from the competitors above it.
+      cards: { name: string; color: string; detail: string; logo?: string; bareLogo?: boolean; separateAbove?: boolean }[];
       images?: CaseStudyImage[];
     }
   | {
@@ -1475,6 +1477,7 @@ export const knourishCaseStudy: CaseStudyData = {
           color: "#8A6914",
           logo: "/images/projects/knourish-logo.png",
           bareLogo: true,
+          separateAbove: true,
           detail:
             "Live EWT tied to campus walking time, a clean card-based UI, and one-tap ordering for saved favorites. WCAG-compliant contrast, built around motor-friendly interaction.",
         },

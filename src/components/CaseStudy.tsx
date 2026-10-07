@@ -791,6 +791,9 @@ function SectionBlock({ section, accent }: { section: CaseStudySection; accent: 
           <RevealGroup className="mt-8 flex flex-col gap-4" stagger={0.08}>
             {section.cards.map((card) => (
               <RevealItem key={card.name}>
+                {card.separateAbove && (
+                  <div className="mb-4 h-px w-full" style={{ backgroundColor: `${accent}40` }} aria-hidden />
+                )}
                 <div className="rounded-xl p-6" style={{ backgroundColor: card.color, color: "#F4F2FA" }}>
                   <div className="flex items-center gap-3">
                     {card.logo && (
