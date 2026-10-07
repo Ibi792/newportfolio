@@ -224,8 +224,12 @@ export const projects: Project[] = [
     blurb: "Building a community platform where any collection belongs",
     color: "#8FE0C9",
     textColor: "#14231F",
-    image: "/images/projects/goblin-gizmos.png",
-    imagePosition: "top",
+    // A dedicated crop (nav bar + "Welcome to Goblin Gizmos!" heading)
+    // rather than the full composite hero shot — that image's aspect
+    // ratio made the short card boxes slice through the mascot/wordmark
+    // at an awkward height. This crop is wide enough that it fills by
+    // height instead, so it never gets cropped top/bottom, only sides.
+    image: "/images/projects/goblin-gizmos-thumb.png",
   },
   {
     slug: "prizekicks",
