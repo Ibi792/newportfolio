@@ -301,6 +301,11 @@ export type CaseStudySection =
       layout?: "grid" | "tracklist";
       cards: { title: string; detail: string; icon?: string; demo?: "palette" | "font" }[];
       images?: CaseStudyImage[];
+      // The actual research instrument (survey questions), shown as a
+      // clean recreation rather than a raw form screenshot — real
+      // content to demonstrate research rigor even before response
+      // data is in. `flagged` marks the questions the findings lean on.
+      survey?: { questions: { q: string; type: string; flagged?: boolean }[] };
     }
   | { type: "quote"; label: string; text: string; attribution: string }
   | {
@@ -1443,8 +1448,22 @@ export const knourishCaseStudy: CaseStudyData = {
           icon: "eyeOff",
         },
       ],
+      survey: {
+        questions: [
+          { q: "How often do you order food on campus between classes?", type: "Never / Rarely / A few times a month / Weekly / Multiple times a week" },
+          { q: "When you eat between classes, how much time do you usually have?", type: "Under 15 min / 15 to 30 min / 30 to 60 min / Over an hour" },
+          { q: "Have you ever been late to class, a meeting, or missed a bus because a food order took longer than expected?", type: "Yes / No", flagged: true },
+          { q: "If yes, roughly how long was the wait?", type: "Short answer" },
+          { q: "Before you place a campus order, do you usually know how long it will take?", type: "Always / Usually / Sometimes / Rarely / Never" },
+          { q: "How confident are you in the wait times campus ordering shows you?", type: "1 (not at all) to 5 (very)" },
+          { q: "Have you ever skipped eating because you weren't sure you had time?", type: "Yes / No", flagged: true },
+          { q: "How do you usually order on campus?", type: "Transact app / Self-service kiosk / Grubhub / In person / Other" },
+          { q: "If you knew the wait time before ordering, would it change where you eat?", type: "Yes / Sometimes / No" },
+          { q: "What frustrates you most about ordering food on campus?", type: "Long answer" },
+          { q: "(Optional) If you'd be open to a 10 minute follow-up chat, drop an email or Instagram.", type: "Short answer" },
+        ],
+      },
       images: [
-        { src: "/images/projects/knourish-survey.png", label: "Add survey form", fit: "contain" },
         { src: "/images/projects/knourish-journey-map.png", label: "Add journey map", fit: "contain" },
       ],
     },

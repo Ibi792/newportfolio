@@ -757,6 +757,27 @@ function SectionBlock({ section, accent }: { section: CaseStudySection; accent: 
               );
             })}
           </RevealGroup>
+          {section.survey && (
+            <div className="mt-8 rounded-2xl bg-white/60 p-6">
+              <p className="font-display text-sm font-bold uppercase tracking-wide" style={{ color: accent }}>
+                The Survey
+              </p>
+              <ol className="mt-4 grid gap-3 sm:grid-cols-2">
+                {section.survey.questions.map((item, i) => (
+                  <li
+                    key={i}
+                    className="rounded-lg p-3"
+                    style={item.flagged ? { backgroundColor: `${accent}14`, boxShadow: `inset 0 0 0 1px ${accent}55` } : undefined}
+                  >
+                    <p className="font-mono text-sm font-semibold leading-snug">
+                      {i + 1}. {item.q}
+                    </p>
+                    <p className="mt-1 font-mono text-xs opacity-60">{item.type}</p>
+                  </li>
+                ))}
+              </ol>
+            </div>
+          )}
           {section.images && <ImageGrid images={section.images} accent={accent} />}
         </>
       );
