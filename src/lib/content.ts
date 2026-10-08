@@ -306,6 +306,11 @@ export type CaseStudySection =
       // content to demonstrate research rigor even before response
       // data is in. `flagged` marks the questions the findings lean on.
       survey?: { questions: { q: string; type: string; flagged?: boolean }[] };
+      // Real aggregate results once response data exists. `note` is a
+      // sample-size/methodology caveat shown under the tiles — never
+      // omit it, since these are small informal samples, not claims of
+      // statistical significance.
+      stats?: { tiles: { value: string; label: string }[]; note: string };
     }
   | { type: "quote"; label: string; text: string; attribution: string }
   | {
@@ -1424,8 +1429,17 @@ export const knourishCaseStudy: CaseStudyData = {
       heading: "Research",
       intro: [
         "Before designing anything, I built a research plan around one question. How do UCF students actually decide where to eat between classes, and what goes wrong? I ran a ten-question survey on ordering habits at the Student Union, followed by short follow-up interviews with respondents who'd been late or missed transit because of an order. A journey map built around Fez, the primary persona, traced how {{a single lunch order escalates from anxious to frustrated across four stages}}, and that emotional arc drove the rest of the research.",
-        "The findings below reflect the patterns this research was designed to surface. Sample data is illustrative and will be updated as responses come in.",
+        "The numbers below are from twelve real responses to that survey, not projected figures.",
       ],
+      stats: {
+        tiles: [
+          { value: "58%", label: "have been late to class or missed transit because an order took longer than expected" },
+          { value: "83%", label: "have skipped eating entirely because they weren't sure they had time" },
+          { value: "2.5 / 5", label: "average confidence in the wait times campus ordering shows, when it shows any at all" },
+          { value: "100%", label: "said knowing the wait beforehand would change where they chose to eat, at least sometimes" },
+        ],
+        note: "n = 12, an informal convenience sample gathered at UCF rather than a statistically powered study — directional, not definitive.",
+      },
       cards: [
         {
           title: "The Problem Isn't Ordering, It's Deciding",
@@ -1456,14 +1470,13 @@ export const knourishCaseStudy: CaseStudyData = {
         questions: [
           { q: "How often do you order food on campus between classes?", type: "Never / Rarely / A few times a month / Weekly / Multiple times a week" },
           { q: "When you eat between classes, how much time do you usually have?", type: "Under 15 min / 15 to 30 min / 30 to 60 min / Over an hour" },
-          { q: "Have you ever been late to class, a meeting, or missed a bus because a food order took longer than expected?", type: "Yes / No", flagged: true },
+          { q: "Have you ever been late to class, a meeting, or missed transit because a food order took longer than expected?", type: "Yes / No", flagged: true },
           { q: "If yes, roughly how long was the wait?", type: "Short answer" },
           { q: "Before you place a campus order, do you usually know how long it will take?", type: "Always / Usually / Sometimes / Rarely / Never" },
-          { q: "How confident are you in the wait times campus ordering shows you?", type: "1 (not at all) to 5 (very)" },
+          { q: "How confident are you in the wait times campus ordering shows you? (If they show at all)", type: "1 (not at all) to 5 (very)" },
           { q: "Have you ever skipped eating because you weren't sure you had time?", type: "Yes / No", flagged: true },
           { q: "How do you usually order on campus?", type: "Transact app / Self-service kiosk / Grubhub / In person / Other" },
           { q: "If you knew the wait time before ordering, would it change where you eat?", type: "Yes / Sometimes / No" },
-          { q: "What frustrates you most about ordering food on campus?", type: "Long answer" },
           { q: "(Optional) If you'd be open to a 10 minute follow-up chat, drop an email or Instagram.", type: "Short answer" },
         ],
       },

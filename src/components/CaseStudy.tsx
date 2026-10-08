@@ -737,6 +737,23 @@ function SectionBlock({ section, accent }: { section: CaseStudySection; accent: 
               {renderHighlighted(p, accent)}
             </p>
           ))}
+          {section.stats && (
+            <div className="mt-8">
+              <RevealGroup className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4" stagger={0.06}>
+                {section.stats.tiles.map((tile) => (
+                  <RevealItem key={tile.label}>
+                    <div className="rounded-xl bg-white/60 p-5 text-center">
+                      <p className="font-display text-4xl font-bold leading-none" style={{ color: accent }}>
+                        {tile.value}
+                      </p>
+                      <p className="mt-3 font-mono text-xs leading-relaxed opacity-80">{tile.label}</p>
+                    </div>
+                  </RevealItem>
+                ))}
+              </RevealGroup>
+              <p className="mt-3 font-mono text-xs italic opacity-60">{section.stats.note}</p>
+            </div>
+          )}
           <RevealGroup className="mt-8 grid gap-4 sm:grid-cols-2" stagger={0.08}>
             {section.cards.map((card) => {
               const Icon = card.icon ? CASE_STUDY_ICONS[card.icon] : undefined;
