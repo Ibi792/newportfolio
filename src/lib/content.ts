@@ -301,11 +301,13 @@ export type CaseStudySection =
       layout?: "grid" | "tracklist";
       cards: { title: string; detail: string; icon?: string; demo?: "palette" | "font" }[];
       images?: CaseStudyImage[];
-      // The actual research instrument (survey questions), shown as a
-      // clean recreation rather than a raw form screenshot — real
-      // content to demonstrate research rigor even before response
-      // data is in. `flagged` marks the questions the findings lean on.
-      survey?: { questions: { q: string; type: string; flagged?: boolean }[] };
+      // The actual research instrument (survey questions). Only
+      // `flagged` questions render as full cards — the ones the stats
+      // above lean on — with `otherTopics` summarizing the rest in one
+      // line, so the full instrument stays true (all of `questions` is
+      // real) without the section dedicating a wall of space to it now
+      // that real results exist to lead with.
+      survey?: { questions: { q: string; type: string; flagged?: boolean }[]; otherTopics?: string };
       // Real aggregate results once response data exists. `drilldown` is
       // an optional smaller, separately-captioned second row for a
       // specific cross-tab worth calling out on its own (e.g. one
@@ -1488,6 +1490,7 @@ export const knourishCaseStudy: CaseStudyData = {
           { q: "If you knew the wait time before ordering, would it change where you eat?", type: "Yes / Sometimes / No" },
           { q: "(Optional) If you'd be open to a 10 minute follow-up chat, drop an email or Instagram.", type: "Short answer" },
         ],
+        otherTopics: "ordering frequency, break length, pre-order confidence, and ordering channel",
       },
       images: [
         { src: "/images/projects/knourish-journey-map.png", label: "Add journey map", fit: "contain" },

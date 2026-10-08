@@ -764,19 +764,28 @@ function SectionBlock({ section, accent }: { section: CaseStudySection; accent: 
               The Survey
             </p>
             <ol className="mt-4 grid gap-3 sm:grid-cols-2">
-              {section.survey.questions.map((item, i) => (
-                <li
-                  key={i}
-                  className="rounded-lg p-3"
-                  style={item.flagged ? { backgroundColor: `${accent}14`, boxShadow: `inset 0 0 0 1px ${accent}55` } : undefined}
-                >
-                  <p className="font-mono text-sm font-semibold leading-snug">
-                    {i + 1}. {item.q}
-                  </p>
-                  <p className="mt-1 font-mono text-xs opacity-60">{item.type}</p>
-                </li>
-              ))}
+              {section.survey.questions
+                .map((item, i) => ({ ...item, number: i + 1 }))
+                .filter((item) => item.flagged)
+                .map((item) => (
+                  <li
+                    key={item.number}
+                    className="rounded-lg p-3"
+                    style={{ backgroundColor: `${accent}14`, boxShadow: `inset 0 0 0 1px ${accent}55` }}
+                  >
+                    <p className="font-mono text-sm font-semibold leading-snug">
+                      {item.number}. {item.q}
+                    </p>
+                    <p className="mt-1 font-mono text-xs opacity-60">{item.type}</p>
+                  </li>
+                ))}
             </ol>
+            {section.survey.otherTopics && (
+              <p className="mt-4 font-mono text-xs opacity-60">
+                Plus {section.survey.questions.filter((item) => !item.flagged).length} more questions on{" "}
+                {section.survey.otherTopics}.
+              </p>
+            )}
           </div>
         );
         const statsBlock = section.stats && (
