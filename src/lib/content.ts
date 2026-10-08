@@ -1435,7 +1435,6 @@ export const knourishCaseStudy: CaseStudyData = {
       heading: "Research",
       intro: [
         "Before designing anything, I built a research plan around one question. How do UCF students actually decide where to eat between classes, and what goes wrong? I ran a ten-question survey on ordering habits at the Student Union, followed by short follow-up interviews with respondents who'd been late or missed transit because of an order. A journey map built around Fez, the primary persona, traced how {{a single lunch order escalates from anxious to frustrated across four stages}}, and that emotional arc drove the rest of the research.",
-        "The numbers below are from twelve real responses to that survey, not projected figures.",
       ],
       stats: {
         tiles: [
@@ -1444,14 +1443,14 @@ export const knourishCaseStudy: CaseStudyData = {
           { value: "2.5 / 5", label: "average confidence in the wait times campus ordering shows, when it shows any at all" },
           { value: "100%", label: "said knowing the wait beforehand would change where they chose to eat, at least sometimes" },
         ],
-        note: "n = 12, an informal convenience sample gathered at UCF rather than a statistically powered study — directional, not definitive.",
+        note: "n = 12. Small sample, read it as directional, not definitive.",
         drilldown: {
           intro: "Self-service kiosks were the single most common way respondents ordered (58% of the 12). Among just that group, the pattern got worse:",
           tiles: [
             { value: "85.7%", label: "of kiosk users have been late to class or missed transit" },
             { value: "100%", label: "of kiosk users have skipped eating entirely" },
           ],
-          note: "n = 7 kiosk users within the 12 respondents — a small slice of a small sample, read as a signal worth investigating further, not a proven rate.",
+          note: "n = 7 kiosk users. Even smaller — a signal, not a proven rate.",
         },
       },
       cards: [
