@@ -1456,7 +1456,7 @@ export const knourishCaseStudy: CaseStudyData = {
           ],
         },
       },
-      cardsIntro: "That research led to four key insights:",
+      cardsIntro: "That research led to a few key insights:",
       cards: [
         {
           title: "The Problem Isn't Ordering, It's Deciding",
