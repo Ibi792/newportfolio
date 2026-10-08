@@ -1431,7 +1431,8 @@ export const knourishCaseStudy: CaseStudyData = {
       type: "insightCards",
       heading: "Research",
       intro: [
-        "Before designing anything, I built a research plan around one question. How do UCF students actually decide where to eat between classes, and what goes wrong? I ran a ten-question survey on ordering habits at the Student Union, followed by short follow-up interviews with respondents who'd been late or missed transit because of an order. A journey map built around Fez, the primary persona, traced how {{a single lunch order escalates from anxious to frustrated across four stages}}, and that emotional arc drove the rest of the research.",
+        "Before designing anything, I built a research plan around one question. How do UCF students actually decide where to eat between classes, and what goes wrong? I ran a ten-question survey on ordering habits at the Student Union, followed by short follow-up interviews with respondents who'd been late or missed transit because of an order.",
+        "A journey map built around Fez, the primary persona, traced how {{a single lunch order escalates from anxious to frustrated across four stages}}, and that emotional arc drove the rest of the research.",
       ],
       stats: {
         tiles: [

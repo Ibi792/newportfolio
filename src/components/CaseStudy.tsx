@@ -729,45 +729,13 @@ function SectionBlock({ section, accent }: { section: CaseStudySection; accent: 
           </>
         );
       }
-      return (
-        <>
-          <SectionHeading accent={accent}>{section.heading}</SectionHeading>
-          {section.intro.map((p, i) => (
-            <p key={i} className="mt-8 font-mono text-base leading-relaxed sm:text-lg">
-              {renderHighlighted(p, accent)}
-            </p>
-          ))}
-          {section.stats && (
-            <div className="mt-8">
-              <RevealGroup className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4" stagger={0.06}>
-                {section.stats.tiles.map((tile) => (
-                  <RevealItem key={tile.label}>
-                    <div className="rounded-xl bg-white/60 p-5 text-center">
-                      <p className="font-display text-4xl font-bold leading-none" style={{ color: accent }}>
-                        {tile.value}
-                      </p>
-                      <p className="mt-3 font-mono text-xs leading-relaxed opacity-80">{tile.label}</p>
-                    </div>
-                  </RevealItem>
-                ))}
-              </RevealGroup>
-              {section.stats.drilldown && (
-                <div className="mt-6 rounded-xl p-5" style={{ backgroundColor: `${accent}0D` }}>
-                  <p className="font-mono text-sm leading-relaxed">{section.stats.drilldown.intro}</p>
-                  <div className="mt-4 grid gap-4 sm:grid-cols-2">
-                    {section.stats.drilldown.tiles.map((tile) => (
-                      <div key={tile.label} className="rounded-xl bg-white/60 p-5 text-center">
-                        <p className="font-display text-3xl font-bold leading-none" style={{ color: accent }}>
-                          {tile.value}
-                        </p>
-                        <p className="mt-3 font-mono text-xs leading-relaxed opacity-80">{tile.label}</p>
-                      </div>
-                    ))}
-                  </div>
-                </div>
-              )}
-            </div>
-          )}
+      {
+        const introParagraph = (p: string, key: number) => (
+          <p key={key} className="mt-8 font-mono text-base leading-relaxed sm:text-lg">
+            {renderHighlighted(p, accent)}
+          </p>
+        );
+        const cardsBlock = (
           <RevealGroup className="mt-8 grid gap-4 sm:grid-cols-2" stagger={0.08}>
             {section.cards.map((card) => {
               const Icon = card.icon ? CASE_STUDY_ICONS[card.icon] : undefined;
@@ -789,30 +757,93 @@ function SectionBlock({ section, accent }: { section: CaseStudySection; accent: 
               );
             })}
           </RevealGroup>
-          {section.survey && (
-            <div className="mt-8 rounded-2xl bg-white/60 p-6">
-              <p className="font-display text-sm font-bold uppercase tracking-wide" style={{ color: accent }}>
-                The Survey
-              </p>
-              <ol className="mt-4 grid gap-3 sm:grid-cols-2">
-                {section.survey.questions.map((item, i) => (
-                  <li
-                    key={i}
-                    className="rounded-lg p-3"
-                    style={item.flagged ? { backgroundColor: `${accent}14`, boxShadow: `inset 0 0 0 1px ${accent}55` } : undefined}
-                  >
-                    <p className="font-mono text-sm font-semibold leading-snug">
-                      {i + 1}. {item.q}
+        );
+        const surveyBlock = section.survey && (
+          <div className="mt-8 rounded-2xl bg-white/60 p-6">
+            <p className="font-display text-sm font-bold uppercase tracking-wide" style={{ color: accent }}>
+              The Survey
+            </p>
+            <ol className="mt-4 grid gap-3 sm:grid-cols-2">
+              {section.survey.questions.map((item, i) => (
+                <li
+                  key={i}
+                  className="rounded-lg p-3"
+                  style={item.flagged ? { backgroundColor: `${accent}14`, boxShadow: `inset 0 0 0 1px ${accent}55` } : undefined}
+                >
+                  <p className="font-mono text-sm font-semibold leading-snug">
+                    {i + 1}. {item.q}
+                  </p>
+                  <p className="mt-1 font-mono text-xs opacity-60">{item.type}</p>
+                </li>
+              ))}
+            </ol>
+          </div>
+        );
+        const statsBlock = section.stats && (
+          <div className="mt-8">
+            <RevealGroup className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4" stagger={0.06}>
+              {section.stats.tiles.map((tile) => (
+                <RevealItem key={tile.label}>
+                  <div className="rounded-xl bg-white/60 p-5 text-center">
+                    <p className="font-display text-4xl font-bold leading-none" style={{ color: accent }}>
+                      {tile.value}
                     </p>
-                    <p className="mt-1 font-mono text-xs opacity-60">{item.type}</p>
-                  </li>
-                ))}
-              </ol>
-            </div>
-          )}
-          {section.images && <ImageGrid images={section.images} accent={accent} />}
-        </>
-      );
+                    <p className="mt-3 font-mono text-xs leading-relaxed opacity-80">{tile.label}</p>
+                  </div>
+                </RevealItem>
+              ))}
+            </RevealGroup>
+            {section.stats.drilldown && (
+              <div className="mt-6 rounded-xl p-5" style={{ backgroundColor: `${accent}0D` }}>
+                <p className="font-mono text-sm leading-relaxed">{section.stats.drilldown.intro}</p>
+                <div className="mt-4 grid gap-4 sm:grid-cols-2">
+                  {section.stats.drilldown.tiles.map((tile) => (
+                    <div key={tile.label} className="rounded-xl bg-white/60 p-5 text-center">
+                      <p className="font-display text-3xl font-bold leading-none" style={{ color: accent }}>
+                        {tile.value}
+                      </p>
+                      <p className="mt-3 font-mono text-xs leading-relaxed opacity-80">{tile.label}</p>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            )}
+          </div>
+        );
+        const imagesBlock = section.images && <ImageGrid images={section.images} accent={accent} />;
+
+        // Sections carrying real survey/stats data read better with the
+        // evidence (survey instrument, then results) placed right after
+        // the paragraph that describes the survey, and the synthesized
+        // insight cards saved for last. Sections without that data keep
+        // the original intro → cards → images order other case studies
+        // (e.g. PrizeKicks' Research, which relies on images trailing
+        // its cards) already depend on.
+        const hasSurveyData = Boolean(section.survey || section.stats);
+
+        return (
+          <>
+            <SectionHeading accent={accent}>{section.heading}</SectionHeading>
+            {hasSurveyData ? (
+              <>
+                {section.intro[0] && introParagraph(section.intro[0], 0)}
+                {surveyBlock}
+                {statsBlock}
+                {section.intro.slice(1).map((p, i) => introParagraph(p, i + 1))}
+                {imagesBlock}
+                {cardsBlock}
+              </>
+            ) : (
+              <>
+                {section.intro.map((p, i) => introParagraph(p, i))}
+                {cardsBlock}
+                {surveyBlock}
+                {imagesBlock}
+              </>
+            )}
+          </>
+        );
+      }
 
     case "quote":
       return (
