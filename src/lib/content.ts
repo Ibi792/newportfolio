@@ -276,7 +276,11 @@ export type CaseStudyImage = {
 // in CaseStudy.tsx): a plain string is prose, `{ image }` drops one
 // full-width image inline, and `{ row }` drops several smaller images
 // side by side — all instead of dumping every image after all the text.
-export type InterleavedItem = string | { image: CaseStudyImage } | { row: CaseStudyImage[] };
+// `wordmark` drops a live text rendering of a brand name in the case
+// study's own display font — for when the copy claims a typeface rather
+// than just describing it (e.g. Knourish's "Knockout carries the
+// wordmark").
+export type InterleavedItem = string | { image: CaseStudyImage } | { row: CaseStudyImage[] } | { wordmark: string };
 
 export type CaseStudySection =
   | { type: "intro"; heading: string; paragraphs: string[] }
@@ -1548,6 +1552,7 @@ export const knourishCaseStudy: CaseStudyData = {
         { image: { src: "/images/projects/knourish-components.png", label: "Add components", fit: "contain" } },
         "The logo is a circle with a bowl in the lower half, a K lettermark at the center, and a four-pointed star accent, nodding toward the product's affiliation with food, UCF, and our moniker all at once. Knockout carries the wordmark.",
         { image: { src: "/images/projects/knourish-logo.png", label: "Add logo", fit: "contain" } },
+        { wordmark: "Knourish" },
       ],
     },
     {

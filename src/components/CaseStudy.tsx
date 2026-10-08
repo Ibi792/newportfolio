@@ -184,6 +184,19 @@ function InterleavedCopy({ items, accent }: { items: InterleavedItem[]; accent: 
             </div>
           );
         }
+        if ("wordmark" in item) {
+          return (
+            <div
+              key={i}
+              className={`${spacing} flex items-center justify-center rounded-2xl border bg-white p-10`}
+              style={{ borderColor: `${accent}33` }}
+            >
+              <p className="font-display text-5xl font-black uppercase tracking-tight sm:text-6xl" style={{ color: accent }}>
+                {item.wordmark}
+              </p>
+            </div>
+          );
+        }
         return (
           <div key={i} className={`${spacing} rounded-2xl border bg-white p-3`} style={{ borderColor: `${accent}33` }}>
             <Lightbox src={item.image.src} alt={item.image.label}>
