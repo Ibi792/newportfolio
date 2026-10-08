@@ -1558,8 +1558,27 @@ export const knourishCaseStudy: CaseStudyData = {
         "Digital lo-fi wireframes covered the full core flow, including Login, Home, Browse, Restaurant, Menu, Item and Customization, Confirm, and Checkout.",
         { image: { src: "/images/projects/knourish-lofi.png", label: "Add lo-fi wireframes", fit: "contain" } },
         "The high-fidelity prototype carries the full persona journey. Users land on Home, scan wait times, pick a spot, build an order, confirm with a Leave By time, check out, and track it. Every screen is built from the component library.",
-        { image: { src: "/images/projects/knourish-hifi.png", label: "Add hi-fi screens", fit: "contain" } },
+        {
+          image: {
+            src: "/images/projects/knourish-hifi-overview.png",
+            label: "Hi-fi screens overview",
+            fit: "feature",
+          },
+        },
         "To test with real interactions instead of hotspots, I used Claude with Figma's MCP to translate the high-fidelity screens and design tokens into a working React prototype. I directed the structure and reviewed every component against the Figma source; Claude handled the boilerplate.",
+      ],
+      phoneRow: [
+        { src: "/images/projects/knourish-hifi-splash-logo.png", label: "Splash" },
+        { src: "/images/projects/knourish-hifi-splash-wordmark.png", label: "Wordmark" },
+        { src: "/images/projects/knourish-hifi-signup.png", label: "Sign Up" },
+        { src: "/images/projects/knourish-hifi-home.png", label: "Home" },
+        { src: "/images/projects/knourish-hifi-browse.png", label: "Browse" },
+        { src: "/images/projects/knourish-hifi-restaurant.png", label: "Restaurant" },
+        { src: "/images/projects/knourish-hifi-item-detail.png", label: "Item Detail" },
+        { src: "/images/projects/knourish-hifi-cart.png", label: "Cart Review" },
+        { src: "/images/projects/knourish-hifi-confirmed.png", label: "Order Confirmed" },
+        { src: "/images/projects/knourish-hifi-orders.png", label: "Orders" },
+        { src: "/images/projects/knourish-hifi-profile.png", label: "Profile" },
       ],
     },
     {
