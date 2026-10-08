@@ -191,7 +191,7 @@ function InterleavedCopy({ items, accent }: { items: InterleavedItem[]; accent: 
                 src={item.image.src}
                 alt={item.image.label}
                 color={accent}
-                className="h-auto max-h-[70vh] w-full object-contain"
+                className="h-auto max-h-[90vh] w-full object-contain"
                 label={item.image.label}
               />
             </Lightbox>
