@@ -752,6 +752,22 @@ function SectionBlock({ section, accent }: { section: CaseStudySection; accent: 
                 ))}
               </RevealGroup>
               <p className="mt-3 font-mono text-xs italic opacity-60">{section.stats.note}</p>
+              {section.stats.drilldown && (
+                <div className="mt-6 rounded-xl p-5" style={{ backgroundColor: `${accent}0D` }}>
+                  <p className="font-mono text-sm leading-relaxed">{section.stats.drilldown.intro}</p>
+                  <div className="mt-4 grid gap-4 sm:grid-cols-2">
+                    {section.stats.drilldown.tiles.map((tile) => (
+                      <div key={tile.label} className="rounded-xl bg-white/60 p-5 text-center">
+                        <p className="font-display text-3xl font-bold leading-none" style={{ color: accent }}>
+                          {tile.value}
+                        </p>
+                        <p className="mt-3 font-mono text-xs leading-relaxed opacity-80">{tile.label}</p>
+                      </div>
+                    ))}
+                  </div>
+                  <p className="mt-3 font-mono text-xs italic opacity-60">{section.stats.drilldown.note}</p>
+                </div>
+              )}
             </div>
           )}
           <RevealGroup className="mt-8 grid gap-4 sm:grid-cols-2" stagger={0.08}>

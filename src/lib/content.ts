@@ -309,8 +309,14 @@ export type CaseStudySection =
       // Real aggregate results once response data exists. `note` is a
       // sample-size/methodology caveat shown under the tiles — never
       // omit it, since these are small informal samples, not claims of
-      // statistical significance.
-      stats?: { tiles: { value: string; label: string }[]; note: string };
+      // statistical significance. `drilldown` is an optional smaller,
+      // separately-captioned second row for a specific cross-tab worth
+      // calling out on its own (e.g. one ordering channel vs. the rest).
+      stats?: {
+        tiles: { value: string; label: string }[];
+        note: string;
+        drilldown?: { intro: string; tiles: { value: string; label: string }[]; note: string };
+      };
     }
   | { type: "quote"; label: string; text: string; attribution: string }
   | {
@@ -1439,6 +1445,14 @@ export const knourishCaseStudy: CaseStudyData = {
           { value: "100%", label: "said knowing the wait beforehand would change where they chose to eat, at least sometimes" },
         ],
         note: "n = 12, an informal convenience sample gathered at UCF rather than a statistically powered study — directional, not definitive.",
+        drilldown: {
+          intro: "Self-service kiosks were the single most common way respondents ordered (58% of the 12). Among just that group, the pattern got worse:",
+          tiles: [
+            { value: "85.7%", label: "of kiosk users have been late to class or missed transit" },
+            { value: "100%", label: "of kiosk users have skipped eating entirely" },
+          ],
+          note: "n = 7 kiosk users within the 12 respondents — a small slice of a small sample, read as a signal worth investigating further, not a proven rate.",
+        },
       },
       cards: [
         {
