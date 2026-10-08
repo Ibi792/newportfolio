@@ -299,6 +299,11 @@ export type CaseStudySection =
       // its decision live (a font sample, a palette swatch) rather than
       // just describing it in text.
       layout?: "grid" | "tracklist";
+      // Optional short line rendered right before the cards grid — a
+      // lead-in for sections where evidence (survey, stats, an image)
+      // precedes the synthesized takeaways rather than the cards being
+      // the section's first content.
+      cardsIntro?: string;
       cards: { title: string; detail: string; icon?: string; demo?: "palette" | "font" }[];
       images?: CaseStudyImage[];
       // The actual research instrument (survey questions). Only
@@ -1451,6 +1456,7 @@ export const knourishCaseStudy: CaseStudyData = {
           ],
         },
       },
+      cardsIntro: "That research led to four key insights:",
       cards: [
         {
           title: "The Problem Isn't Ordering, It's Deciding",

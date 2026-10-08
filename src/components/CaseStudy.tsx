@@ -735,6 +735,7 @@ function SectionBlock({ section, accent }: { section: CaseStudySection; accent: 
             {renderHighlighted(p, accent)}
           </p>
         );
+        const cardsIntroBlock = section.cardsIntro && introParagraph(section.cardsIntro, -1);
         const cardsBlock = (
           <RevealGroup className="mt-8 grid gap-4 sm:grid-cols-2" stagger={0.08}>
             {section.cards.map((card) => {
@@ -840,11 +841,13 @@ function SectionBlock({ section, accent }: { section: CaseStudySection; accent: 
                 {statsBlock}
                 {section.intro.slice(1).map((p, i) => introParagraph(p, i + 1))}
                 {imagesBlock}
+                {cardsIntroBlock}
                 {cardsBlock}
               </>
             ) : (
               <>
                 {section.intro.map((p, i) => introParagraph(p, i))}
+                {cardsIntroBlock}
                 {cardsBlock}
                 {surveyBlock}
                 {imagesBlock}
