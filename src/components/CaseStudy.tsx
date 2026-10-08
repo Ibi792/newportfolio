@@ -6,6 +6,7 @@ import { AssetImage } from "@/components/AssetImage";
 import { TiltedFrame } from "@/components/TiltedFrame";
 import { ProcessPill } from "@/components/ProcessPill";
 import { Lightbox } from "@/components/Lightbox";
+import { PhoneFilmstrip } from "@/components/PhoneFilmstrip";
 import {
   footerText,
   paper,
@@ -970,7 +971,12 @@ function SectionBlock({ section, accent }: { section: CaseStudySection; accent: 
             </div>
           )}
           {section.images && <ImageGrid images={section.images} accent={accent} />}
-          {section.phoneRow && <PhoneRow images={section.phoneRow} accent={accent} />}
+          {section.phoneRow &&
+            (section.phoneRowFilmstrip ? (
+              <PhoneFilmstrip images={section.phoneRow} accent={accent} />
+            ) : (
+              <PhoneRow images={section.phoneRow} accent={accent} />
+            ))}
           {section.link && (
             <a
               href={section.link.url}

@@ -357,6 +357,10 @@ export type CaseStudySection =
       // in a plain rounded device frame (no notch), rather than cropped
       // to a shared box — lets several sit side by side.
       phoneRow?: { src: string; label: string }[];
+      // When set, phoneRow renders as a horizontally scrolling filmstrip
+      // with arrow controls instead of a wrapping grid — for sets too
+      // long to read comfortably in a static row.
+      phoneRowFilmstrip?: boolean;
       video?: { src: string; label: string };
       link?: { label: string; url: string };
     }
@@ -1580,6 +1584,7 @@ export const knourishCaseStudy: CaseStudyData = {
         { src: "/images/projects/knourish-hifi-orders.png", label: "Orders" },
         { src: "/images/projects/knourish-hifi-profile.png", label: "Profile" },
       ],
+      phoneRowFilmstrip: true,
     },
     {
       type: "media",
