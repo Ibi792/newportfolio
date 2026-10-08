@@ -306,16 +306,13 @@ export type CaseStudySection =
       // content to demonstrate research rigor even before response
       // data is in. `flagged` marks the questions the findings lean on.
       survey?: { questions: { q: string; type: string; flagged?: boolean }[] };
-      // Real aggregate results once response data exists. `note` is a
-      // sample-size/methodology caveat shown under the tiles — never
-      // omit it, since these are small informal samples, not claims of
-      // statistical significance. `drilldown` is an optional smaller,
-      // separately-captioned second row for a specific cross-tab worth
-      // calling out on its own (e.g. one ordering channel vs. the rest).
+      // Real aggregate results once response data exists. `drilldown` is
+      // an optional smaller, separately-captioned second row for a
+      // specific cross-tab worth calling out on its own (e.g. one
+      // ordering channel vs. the rest).
       stats?: {
         tiles: { value: string; label: string }[];
-        note: string;
-        drilldown?: { intro: string; tiles: { value: string; label: string }[]; note: string };
+        drilldown?: { intro: string; tiles: { value: string; label: string }[] };
       };
     }
   | { type: "quote"; label: string; text: string; attribution: string }
@@ -1443,14 +1440,12 @@ export const knourishCaseStudy: CaseStudyData = {
           { value: "2.5 / 5", label: "average confidence in the wait times campus ordering shows, when it shows any at all" },
           { value: "100%", label: "said knowing the wait beforehand would change where they chose to eat, at least sometimes" },
         ],
-        note: "n = 12. Small sample, read it as directional, not definitive.",
         drilldown: {
           intro: "Self-service kiosks were the single most common way respondents ordered (58% of the 12). Among just that group, the pattern got worse:",
           tiles: [
             { value: "85.7%", label: "of kiosk users have been late to class or missed transit" },
             { value: "100%", label: "of kiosk users have skipped eating entirely" },
           ],
-          note: "n = 7 kiosk users. Even smaller — a signal, not a proven rate.",
         },
       },
       cards: [

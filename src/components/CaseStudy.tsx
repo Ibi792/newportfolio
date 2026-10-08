@@ -751,7 +751,6 @@ function SectionBlock({ section, accent }: { section: CaseStudySection; accent: 
                   </RevealItem>
                 ))}
               </RevealGroup>
-              <p className="mt-3 font-mono text-xs italic opacity-60">{section.stats.note}</p>
               {section.stats.drilldown && (
                 <div className="mt-6 rounded-xl p-5" style={{ backgroundColor: `${accent}0D` }}>
                   <p className="font-mono text-sm leading-relaxed">{section.stats.drilldown.intro}</p>
@@ -765,7 +764,6 @@ function SectionBlock({ section, accent }: { section: CaseStudySection; accent: 
                       </div>
                     ))}
                   </div>
-                  <p className="mt-3 font-mono text-xs italic opacity-60">{section.stats.drilldown.note}</p>
                 </div>
               )}
             </div>
