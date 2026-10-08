@@ -2,13 +2,27 @@
 
 import { useEffect, useRef, useState } from "react";
 import { AssetImage } from "@/components/AssetImage";
-import { paper } from "@/lib/content";
+import { Lightbox } from "@/components/Lightbox";
+
+function ChevronIcon({ direction }: { direction: "left" | "right" }) {
+  return (
+    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+      <path
+        d={direction === "left" ? "M15 5l-7 7 7 7" : "M9 5l7 7-7 7"}
+        stroke="currentColor"
+        strokeWidth={3}
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
+    </svg>
+  );
+}
 
 /**
- * A horizontally scrolling row of phone screenshots with subtle left/right
- * arrows, used where a flow has too many screens to read comfortably as a
- * static grid. Arrows scroll by one tile and disable themselves at each
- * end so the strip never implies more content than it has.
+ * A horizontally scrolling row of phone screenshots with big, always-visible
+ * left/right arrow buttons flanking the strip (rather than floating over
+ * the images, where they were easy to miss). Arrows dim and stop responding
+ * at each end instead of disappearing, so the strip never shifts layout.
  */
 export function PhoneFilmstrip({ images, accent }: { images: { src: string; label: string }[]; accent: string }) {
   const trackRef = useRef<HTMLDivElement>(null);
@@ -42,26 +56,37 @@ export function PhoneFilmstrip({ images, accent }: { images: { src: string; labe
     el.scrollBy({ left: direction * step, behavior: "smooth" });
   }
 
+  const arrowClass =
+    "flex h-14 w-14 shrink-0 items-center justify-center rounded-full shadow-lg transition-all hover:scale-105 disabled:cursor-not-allowed disabled:opacity-25 disabled:hover:scale-100";
+
   return (
-    <div className="relative mt-6">
+    <div className="mt-6 flex items-center gap-3">
+      <button
+        type="button"
+        onClick={() => scrollByTile(-1)}
+        disabled={atStart}
+        aria-label="Scroll left"
+        className={arrowClass}
+        style={{ backgroundColor: accent, color: "#FFFFFF" }}
+      >
+        <ChevronIcon direction="left" />
+      </button>
+
       <div
         ref={trackRef}
-        className="flex gap-6 overflow-x-auto pb-4 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden"
+        className="flex flex-1 gap-6 overflow-x-auto pb-4 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden"
         style={{ scrollSnapType: "x proximity" }}
       >
         {images.map((img) => (
-          <div
-            key={img.src}
-            data-tile
-            className="w-[220px] shrink-0"
-            style={{ scrollSnapAlign: "start" }}
-          >
-            <div
-              className="overflow-hidden rounded-[1.75rem] border-[6px] shadow-md"
-              style={{ borderColor: "#1C1C1E" }}
-            >
-              <AssetImage src={img.src} alt={img.label} color={accent} className="block h-auto w-full" label={img.label} />
-            </div>
+          <div key={img.src} data-tile className="w-[220px] shrink-0" style={{ scrollSnapAlign: "start" }}>
+            <Lightbox src={img.src} alt={img.label}>
+              <div
+                className="overflow-hidden rounded-[1.75rem] border-[6px] shadow-md"
+                style={{ borderColor: "#1C1C1E" }}
+              >
+                <AssetImage src={img.src} alt={img.label} color={accent} className="block h-auto w-full" label={img.label} />
+              </div>
+            </Lightbox>
             <p className="mt-2 text-center font-mono text-xs font-semibold uppercase tracking-wide opacity-70">
               {img.label}
             </p>
@@ -69,28 +94,16 @@ export function PhoneFilmstrip({ images, accent }: { images: { src: string; labe
         ))}
       </div>
 
-      {!atStart && (
-        <button
-          type="button"
-          onClick={() => scrollByTile(-1)}
-          aria-label="Scroll left"
-          className="absolute left-0 top-[88px] -translate-x-1/2 flex h-10 w-10 items-center justify-center rounded-full border shadow-md transition-opacity hover:opacity-100"
-          style={{ backgroundColor: paper, borderColor: `${accent}33`, color: accent, opacity: 0.85 }}
-        >
-          ‹
-        </button>
-      )}
-      {!atEnd && (
-        <button
-          type="button"
-          onClick={() => scrollByTile(1)}
-          aria-label="Scroll right"
-          className="absolute right-0 top-[88px] translate-x-1/2 flex h-10 w-10 items-center justify-center rounded-full border shadow-md transition-opacity hover:opacity-100"
-          style={{ backgroundColor: paper, borderColor: `${accent}33`, color: accent, opacity: 0.85 }}
-        >
-          ›
-        </button>
-      )}
+      <button
+        type="button"
+        onClick={() => scrollByTile(1)}
+        disabled={atEnd}
+        aria-label="Scroll right"
+        className={arrowClass}
+        style={{ backgroundColor: accent, color: "#FFFFFF" }}
+      >
+        <ChevronIcon direction="right" />
+      </button>
     </div>
   );
 }
