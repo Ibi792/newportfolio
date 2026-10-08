@@ -1519,9 +1519,9 @@ export const knourishCaseStudy: CaseStudyData = {
       heading: "The One Feature That Mattered",
       paragraphs: [
         "Everything in Knourish serves the Estimated Wait Time. Rather than a number buried on a confirmation screen, EWT shows up where the decision happens, on the restaurant card, before you tap in. A three-level status system (Low Wait, Busy, Packed) gives an at-a-glance read, and the specific estimate sits beside it. A student scanning Home can {{rule out half the options in two seconds}}.",
-        { image: { src: "/images/projects/knourish-ewt.png", label: "Add EWT component", fit: "contain" } },
+        { image: { src: "/images/projects/knourish-ewt.png", label: "Estimated Wait Time component anatomy", fit: "contain" } },
         "At the other end of the flow, the confirmation screen tells you when to leave. Not just \"your order will be ready in 12 minutes,\" but a Leave By time that closes the loop on the whole problem.",
-        { image: { src: "/images/projects/knourish-leave-by.png", label: "Add Leave By prompt", fit: "contain" } },
+        { image: { src: "/images/projects/knourish-leave-by.png", label: "Leave By prompt", fit: "contain" } },
         "The information architecture stayed deliberately flat to protect that speed. Just four top-level nodes, Home, Browse, Orders, and Profile, with persistent search available everywhere. Home shows restaurants by context (what's fast right now); Browse is for looking deliberately. Nothing else earned a place unless it got a student to a confident decision faster.",
         { image: { src: "/images/projects/knourish-ia.png", label: "Add IA diagram", fit: "contain" } },
       ],
