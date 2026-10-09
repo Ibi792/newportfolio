@@ -25,14 +25,11 @@ export default function AboutPage() {
 
             <div className="mt-6 space-y-4">
               {about.bio.slice(0, -1).map((p, i) => (
-                <p key={i} className="font-mono text-sm leading-relaxed opacity-90 sm:text-base">
+                <p key={i} className="font-mono text-sm leading-relaxed sm:text-base">
                   {p}
                 </p>
               ))}
-              <p
-                className="font-display text-xl font-bold normal-case not-italic leading-snug sm:text-2xl"
-                style={{ color: theme.heroAccent }}
-              >
+              <p className="font-mono text-sm font-semibold leading-relaxed sm:text-base" style={{ color: theme.heroAccent }}>
                 {about.bio[about.bio.length - 1]}
               </p>
             </div>
