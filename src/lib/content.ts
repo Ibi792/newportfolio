@@ -201,9 +201,13 @@ export const hero = {
 
 export const about = {
   heading: "About Me",
+  // The last paragraph (the "gardening" payoff line) renders as the
+  // bold accent lede — it's the thesis the first two paragraphs build
+  // toward, so it belongs at the close, not the top.
   bio: [
-    "Hi, I'm Isaac. I design with intention, build things with my own hands, and leave a little whimsy in whatever I ship.",
-    "I'm studying Digital Media at the University of Central Florida, and the habits that actually define my process came from shipping real work: talking to strangers before I let myself sketch a single wireframe, and building my own frontend so nothing gets lost between the design file and the browser.",
+    "Hi, I'm Isaac² (yes, two first names). Originally a video editor focusing on motion design, I became interested in product design while studying Digital Media at the University of Central Florida. Leveraging my natural tendency to pick people's brains and scrutinize problems, I found it satisfied an urge that had been building for a while — allowing me to create things that aren't just visually tantalizing but meaningfully tangible.",
+    "I think of designs as digital ecosystems: little living alcoves of widgets and data whose systems rely on each other to function properly. Damage to one area can directly affect another. They deserve an attendant who will treat them with the requisite care. As a designer, I seek to promote their beauty without sacrificing their structural health, recognize threats from within and without, and seed new ideas while cultivating old ones. All in service of an experience worth roaming.",
+    "It is, in essence, the ultimate form of gardening. Every project hopefully makes my thumbs a little greener.",
   ],
   workList: {
     heading: "How I Work",
