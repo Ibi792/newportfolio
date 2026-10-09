@@ -545,7 +545,7 @@ export const fourddoCaseStudy: CaseStudyData = {
           label: "My Role",
           value: "Lead Product Design Intern (User Research, Information Architecture, Wireframing, Prototyping, Visual Design)",
         },
-        { label: "Tools", value: "Figma, Canva, FigJam, Google Slides, Google Teams" },
+        { label: "Tools", value: "Figma, Canva, FigJam, Google Slides, Google Meet" },
       ],
     },
     {
@@ -819,7 +819,7 @@ export const prizekicksCaseStudy: CaseStudyData = {
         {
           title: "Cluttered by Default",
           detail:
-            "I audited GOAT, Grailed, and Flight Club myself, cataloguing each as strengths and weaknesses in a shared market matrix. All three treated density as a feature. Finding a specific shoe meant fighting the interface first.",
+            "GOAT, Grailed, and Flight Club all treated density as a feature. Finding a specific shoe meant fighting the interface first.",
           icon: "grid",
         },
         {
@@ -1220,7 +1220,7 @@ export const goblinGizmosCaseStudy: CaseStudyData = {
       type: "results",
       heading: "Testing",
       intro: [
-        "Five testers worked through all nineteen use cases on the Lo-fi build, rating each one on navigation, features, and organization from one to five. The same five came back once the Hi-fi was ready and reacted to it directly, so every major fix got validated twice, once on paper and once in the real interface.",
+        "Five testers worked through each of the five use cases on the Lo-fi build, rating every one on navigation, features, and organization from one to five. The same five came back once the Hi-fi was ready and reacted to it directly, so every major fix got validated twice, once on paper and once in the real interface.",
       ],
       items: [
         {
