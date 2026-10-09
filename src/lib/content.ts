@@ -115,15 +115,53 @@ export const hero = {
       { label: "Type · Product", color: "#4A47B0" },
       { label: "Motion", color: "#1E7F72" },
     ],
-    // Personality badges, rendered with a gentle floating animation —
-    // reuses the card's own holo palette so they read as part of the
-    // same object rather than a bolted-on second tag row.
+    // Personality stickers scattered around the trading card's edges,
+    // in the same circular-badge style as `portraitBadge` ("Open to
+    // Work") rather than inline pills. `position` is a Tailwind class
+    // string (not inline CSS) specifically so the horizontal hang-off
+    // can be responsive — a mobile-width card has almost no gutter,
+    // so the same negative offset that reads as a cute sticker on
+    // desktop clips clean off-screen on a phone; the unprefixed value
+    // pulls the badge in near the card edge, `sm:` restores the full
+    // overhang. `size` is the Tailwind h-*/w-*/text-* trio sized to
+    // fit that label's word count.
     funBadges: [
-      { label: "Designer", color: "#D6486B" },
-      { label: "Video Editor", color: "#B8860B" },
-      { label: "Booklover", color: "#1E7F72" },
-      { label: "Big Eater", color: "#1D6FA5" },
-      { label: "Regal Unlimited Card Holder", color: "#4A47B0" },
+      {
+        label: "Designer",
+        color: "#D6486B",
+        size: "h-16 w-16 text-[10px]",
+        position: "right-[-0.25rem] sm:right-[-1.5rem] top-[18%]",
+        rotate: -8,
+      },
+      {
+        label: "Video Editor",
+        color: "#B8860B",
+        size: "h-20 w-20 text-[10px]",
+        position: "left-[-0.25rem] sm:left-[-2rem] top-[32%]",
+        rotate: 7,
+      },
+      {
+        label: "Booklover",
+        color: "#1E7F72",
+        size: "h-16 w-16 text-[10px]",
+        position: "right-[-0.25rem] sm:right-[-1.5rem] top-[48%]",
+        rotate: 10,
+      },
+      {
+        label: "Big Eater",
+        color: "#1D6FA5",
+        size: "h-20 w-20 text-[10px]",
+        position: "left-[-0.25rem] sm:left-[-2rem] top-[62%]",
+        rotate: -9,
+      },
+      {
+        label: "Regal Unlimited Card Holder",
+        color: "#4A47B0",
+        size: "h-24 w-24 text-[9px]",
+        position: "bottom-[-1.5rem] sm:bottom-[-2rem] left-1/2",
+        rotate: 4,
+        centerX: true,
+      },
     ],
     classYear: "UCF '26",
     portraitBadge: "Open to Work",

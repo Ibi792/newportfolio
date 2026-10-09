@@ -1,7 +1,6 @@
 "use client";
 
 import { useRef, useState, type MouseEvent } from "react";
-import { motion, useReducedMotion } from "framer-motion";
 import { AssetImage } from "@/components/AssetImage";
 import { hero, site } from "@/lib/content";
 
@@ -10,7 +9,6 @@ const { card } = hero;
 export function TradingCard() {
   const ref = useRef<HTMLDivElement>(null);
   const [shine, setShine] = useState({ x: 50, y: 50, active: false });
-  const shouldReduceMotion = useReducedMotion();
 
   function handleMouseMove(e: MouseEvent<HTMLDivElement>) {
     const rect = ref.current?.getBoundingClientRect();
@@ -75,26 +73,6 @@ export function TradingCard() {
           <span className="ml-auto rounded-full border border-black/20 px-3 py-1 font-mono text-[10px] font-bold uppercase tracking-wide">
             {card.classYear}
           </span>
-        </div>
-
-        {/* fun badges — gentle independent float per badge */}
-        <div className="mt-3 flex flex-wrap items-center gap-2">
-          {card.funBadges.map((badge, i) => (
-            <motion.span
-              key={badge.label}
-              className="rounded-full px-3 py-1 font-mono text-[10px] font-bold uppercase tracking-wide text-white"
-              style={{ backgroundColor: badge.color }}
-              animate={shouldReduceMotion ? undefined : { y: [0, -4, 0] }}
-              transition={{
-                duration: 2.4 + (i % 3) * 0.4,
-                repeat: Infinity,
-                ease: "easeInOut",
-                delay: i * 0.25,
-              }}
-            >
-              {badge.label}
-            </motion.span>
-          ))}
         </div>
 
         {/* moves */}

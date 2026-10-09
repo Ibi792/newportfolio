@@ -4,6 +4,7 @@ import { Footer } from "@/components/Footer";
 import { Reveal, RevealGroup, RevealItem } from "@/components/Reveal";
 import { Button } from "@/components/Button";
 import { FlipCard } from "@/components/FlipCard";
+import { FloatingBadge } from "@/components/FloatingBadge";
 import { TradingCard } from "@/components/TradingCard";
 import { FeaturedProjectCard } from "@/components/FeaturedProjectCard";
 import { CompactProjectCard } from "@/components/CompactProjectCard";
@@ -129,6 +130,21 @@ export default function Home() {
                     <div className="absolute -right-4 -top-4 z-10" aria-hidden>
                       <SparkleIcon color="#F7DFA0" />
                     </div>
+
+                    {/* personality stickers, scattered around the card edges */}
+                    {hero.card.funBadges.map((badge, i) => (
+                      <FloatingBadge
+                        key={badge.label}
+                        delay={i * 0.3}
+                        duration={2.6 + (i % 3) * 0.3}
+                        rotate={badge.rotate}
+                        centerX={badge.centerX}
+                        className={`absolute z-10 flex items-center justify-center rounded-full border-2 border-black/10 text-center font-mono font-black uppercase leading-tight text-white shadow-md ${badge.size} ${badge.position}`}
+                        style={{ backgroundColor: badge.color }}
+                      >
+                        {badge.label}
+                      </FloatingBadge>
+                    ))}
                   </div>
                 }
               />
