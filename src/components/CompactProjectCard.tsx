@@ -21,6 +21,7 @@ export function CompactProjectCard({ project, rotate = -2 }: { project: Project;
             alt={project.title}
             color={project.textColor}
             className="h-40 w-full object-cover"
+            sizes="(min-width: 768px) 400px, 100vw"
             style={{ objectPosition: project.imagePosition ?? "center" }}
             label={`Add ${project.title} screenshot`}
           />

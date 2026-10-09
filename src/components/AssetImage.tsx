@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useRef, useState, type CSSProperties } from "react";
+import { getImageProps } from "next/image";
 
 /**
  * Renders an image from /public if it exists; otherwise falls back to a
@@ -13,6 +14,10 @@ import { useEffect, useRef, useState, type CSSProperties } from "react";
  * fast connection can fire the native `error` event before React finishes
  * hydrating and attaches its listener — that event doesn't bubble, so it
  * would otherwise be missed and the broken image would just sit there.
+ *
+ * `src`/`srcSet` come from Next's image optimizer (Netlify's image CDN in
+ * production), so browsers get a resized WebP/AVIF instead of the raw PNG.
+ * Pass `sizes` when the image renders narrower than the content column.
  */
 export function AssetImage({
   src,
@@ -21,6 +26,7 @@ export function AssetImage({
   className,
   style,
   label,
+  sizes = "(min-width: 1280px) 1200px, 100vw",
 }: {
   src: string;
   alt: string;
@@ -28,6 +34,7 @@ export function AssetImage({
   className?: string;
   style?: CSSProperties;
   label?: string;
+  sizes?: string;
 }) {
   const [failed, setFailed] = useState(false);
   const imgRef = useRef<HTMLImageElement>(null);
@@ -53,11 +60,15 @@ export function AssetImage({
     );
   }
 
+  const { props: optimized } = getImageProps({ src, alt, fill: true, sizes });
+
   return (
     // eslint-disable-next-line @next/next/no-img-element
     <img
       ref={imgRef}
-      src={src}
+      src={optimized.src}
+      srcSet={optimized.srcSet}
+      sizes={optimized.sizes}
       alt={alt}
       className={className}
       style={style}

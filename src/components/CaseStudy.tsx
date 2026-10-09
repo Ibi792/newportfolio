@@ -1039,6 +1039,7 @@ function SectionBlock({ section, accent }: { section: CaseStudySection; accent: 
                   aria-label={section.video.label}
                   className="h-auto max-h-[85vh] w-full"
                   controls
+                  preload="metadata"
                   playsInline
                 />
               </TiltedFrame>

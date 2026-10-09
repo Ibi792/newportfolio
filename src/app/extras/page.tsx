@@ -4,6 +4,7 @@ import { Footer } from "@/components/Footer";
 import { Reveal, RevealGroup, RevealItem } from "@/components/Reveal";
 import { ContactForm } from "@/components/ContactForm";
 import { SparkleIcon } from "@/components/SparkleIcon";
+import { LazyVideo } from "@/components/LazyVideo";
 import { extras, site, themes } from "@/lib/content";
 import { contrastTextFor } from "@/lib/color";
 
@@ -42,14 +43,10 @@ export default function ExtrasPage() {
               <RevealItem key={i}>
                 <div className="group relative transition-transform duration-300 hover:scale-105">
                   <div className="relative overflow-hidden rounded-lg shadow-md transition-shadow duration-300 group-hover:shadow-xl">
-                    <video
+                    <LazyVideo
                       src={item.video}
-                      aria-label={item.alt}
+                      label={item.alt}
                       className="aspect-video w-full bg-black/5 object-cover"
-                      autoPlay
-                      loop
-                      muted
-                      playsInline
                     />
 
                     <div

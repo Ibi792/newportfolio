@@ -105,6 +105,7 @@ export default function Home() {
                           alt={site.name}
                           color={theme.heroAccent}
                           className="aspect-[4/5] w-full object-cover"
+                          sizes="360px"
                           label="Add /public/images/portrait.jpg (click flips to CV card)"
                         />
                       </div>
