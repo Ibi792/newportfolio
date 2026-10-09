@@ -201,6 +201,7 @@ export const hero = {
 
 export const about = {
   heading: "About Me",
+  tip: "Hover a photo for a little context :)",
   // The last paragraph (the "gardening" payoff line) renders as the
   // bold accent lede — it's the thesis the first two paragraphs build
   // toward, so it belongs at the close, not the top.

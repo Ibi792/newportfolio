@@ -63,6 +63,19 @@ export default function AboutPage() {
                 </span>
               ))}
             </div>
+
+            <div
+              className="mt-6 flex max-w-md items-start gap-3 rounded-lg border-2 border-dashed px-4 py-3"
+              style={{ borderColor: `${theme.heroText}55` }}
+            >
+              <span
+                className="flex-shrink-0 rounded px-2 py-0.5 font-mono text-[10px] font-black uppercase tracking-wide"
+                style={{ backgroundColor: theme.heroAccent, color: theme.heroBg }}
+              >
+                Tip
+              </span>
+              <p className="font-mono text-xs leading-relaxed opacity-80">{about.tip}</p>
+            </div>
           </Reveal>
 
           <Reveal delay={0.1} className="md:h-full">
