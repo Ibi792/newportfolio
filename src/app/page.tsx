@@ -103,15 +103,16 @@ export default function Home() {
                         />
                       </div>
 
-                      <div
-                        className="absolute -left-6 -top-6 z-10 flex h-16 w-16 -rotate-6 items-center justify-center rounded-full border-2 border-black/10 bg-[#F7DFA0] text-center font-mono text-[10px] font-black uppercase leading-tight text-[#1E2A3A] shadow-md"
-                        aria-hidden
+                      <FloatingBadge
+                        rotate={-6}
+                        duration={2.8}
+                        className="absolute -left-6 -top-6 z-10 flex h-16 w-16 items-center justify-center rounded-full border-2 border-black/10 bg-[#F7DFA0] text-center font-mono text-[10px] font-black uppercase leading-tight text-[#1E2A3A] shadow-md"
                       >
                         {hero.card.portraitBadge}
-                      </div>
+                      </FloatingBadge>
 
-                      <div className="absolute -right-4 -top-4 z-10" aria-hidden>
-                        <SparkleIcon color="#F7DFA0" />
+                      <div className="absolute -right-6 -top-6 z-10" aria-hidden>
+                        <SparkleIcon color={theme.heroAccent} size={46} float delay={0.4} />
                       </div>
                     </div>
                   </div>
@@ -120,15 +121,16 @@ export default function Home() {
                   <div className="relative h-full w-full">
                     <TradingCard />
 
-                    <div
-                      className="absolute -left-6 top-10 z-10 flex h-16 w-16 -rotate-6 items-center justify-center rounded-full border-2 border-black/10 bg-[#F7DFA0] text-center font-mono text-[10px] font-black uppercase leading-tight text-[#1E2A3A] shadow-md"
-                      aria-hidden
+                    <FloatingBadge
+                      rotate={-6}
+                      duration={2.8}
+                      className="absolute -left-6 top-10 z-10 flex h-16 w-16 items-center justify-center rounded-full border-2 border-black/10 bg-[#F7DFA0] text-center font-mono text-[10px] font-black uppercase leading-tight text-[#1E2A3A] shadow-md"
                     >
                       {hero.card.portraitBadge}
-                    </div>
+                    </FloatingBadge>
 
-                    <div className="absolute -right-4 -top-4 z-10" aria-hidden>
-                      <SparkleIcon color="#F7DFA0" />
+                    <div className="absolute -right-6 -top-6 z-10" aria-hidden>
+                      <SparkleIcon color={theme.heroAccent} size={46} float delay={0.4} />
                     </div>
 
                     {/* personality stickers, scattered around the card edges */}
