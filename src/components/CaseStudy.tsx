@@ -20,6 +20,7 @@ import {
 } from "@/lib/content";
 import { handDrawnFont } from "@/lib/fonts";
 import { renderHighlighted } from "@/lib/highlight";
+import { contrastTextFor } from "@/lib/color";
 
 // Swatch colors for the "Palette Pulled From the Art" demo row, named
 // straight from that card's own copy (Lofistory's Design Decisions).
@@ -40,7 +41,18 @@ export function CaseStudy({ data, slug }: { data: CaseStudyData; slug: string })
   const nextProject = currentIndex === -1 ? undefined : projects[(currentIndex + 1) % projects.length];
 
   return (
-    <div id="top" style={{ backgroundColor: paper, color: paperInk }} className="min-h-screen">
+    <div
+      id="top"
+      style={
+        {
+          backgroundColor: paper,
+          color: paperInk,
+          "--selection-bg": accent,
+          "--selection-fg": contrastTextFor(accent),
+        } as React.CSSProperties
+      }
+      className="min-h-screen"
+    >
       <Nav bg={heroBg} ink={heroText} />
 
       <section style={{ backgroundColor: heroBg, color: heroText }} className="px-6 py-16 sm:px-10">

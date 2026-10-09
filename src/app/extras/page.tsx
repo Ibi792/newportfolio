@@ -5,6 +5,7 @@ import { Reveal, RevealGroup, RevealItem } from "@/components/Reveal";
 import { ContactForm } from "@/components/ContactForm";
 import { SparkleIcon } from "@/components/SparkleIcon";
 import { extras, site, themes } from "@/lib/content";
+import { contrastTextFor } from "@/lib/color";
 
 export const metadata: Metadata = { title: "Extras · Isaac Isaac" };
 
@@ -12,7 +13,10 @@ export default function ExtrasPage() {
   const theme = themes.extras;
 
   return (
-    <div className="min-h-screen">
+    <div
+      className="min-h-screen"
+      style={{ "--selection-bg": theme.heroAccent, "--selection-fg": contrastTextFor(theme.heroAccent) } as React.CSSProperties}
+    >
       <Nav bg={theme.nav} ink={theme.navInk} />
 
       <section style={{ backgroundColor: theme.heroBg, color: theme.heroText }} className="px-6 py-16 text-center sm:px-10 md:py-20">

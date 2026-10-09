@@ -7,6 +7,7 @@ import { TagPills } from "@/components/TagPills";
 import { SparkleIcon } from "@/components/SparkleIcon";
 import { about, themes } from "@/lib/content";
 import { renderHighlighted } from "@/lib/highlight";
+import { contrastTextFor } from "@/lib/color";
 
 export const metadata: Metadata = { title: "About · Isaac Isaac" };
 
@@ -14,7 +15,10 @@ export default function AboutPage() {
   const theme = themes.about;
 
   return (
-    <div className="min-h-screen">
+    <div
+      className="min-h-screen"
+      style={{ "--selection-bg": theme.heroAccent, "--selection-fg": contrastTextFor(theme.heroAccent) } as React.CSSProperties}
+    >
       <Nav bg={theme.nav} ink={theme.navInk} />
 
       <section style={{ backgroundColor: theme.heroBg, color: theme.heroText }}>

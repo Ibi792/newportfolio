@@ -12,12 +12,16 @@ import { CompactProjectCard } from "@/components/CompactProjectCard";
 import { AssetImage } from "@/components/AssetImage";
 import { SparkleIcon } from "@/components/SparkleIcon";
 import { hero, projects, site, themes } from "@/lib/content";
+import { contrastTextFor } from "@/lib/color";
 
 export default function Home() {
   const theme = themes.home;
 
   return (
-    <div className="min-h-screen">
+    <div
+      className="min-h-screen"
+      style={{ "--selection-bg": theme.heroAccent, "--selection-fg": contrastTextFor(theme.heroAccent) } as React.CSSProperties}
+    >
       <Nav bg={theme.nav} ink={theme.navInk} />
 
       <section style={{ backgroundColor: theme.heroBg, color: theme.heroText }}>

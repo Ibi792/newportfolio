@@ -5,6 +5,7 @@ import { Reveal, RevealGroup, RevealItem } from "@/components/Reveal";
 import { ProjectCard } from "@/components/ProjectCard";
 import { MiniCaseStudy } from "@/components/MiniCaseStudy";
 import { projects, themes } from "@/lib/content";
+import { contrastTextFor } from "@/lib/color";
 
 export const metadata: Metadata = { title: "Projects · Isaac Isaac" };
 
@@ -12,7 +13,10 @@ export default function ProjectsPage() {
   const theme = themes.projects;
 
   return (
-    <div className="min-h-screen">
+    <div
+      className="min-h-screen"
+      style={{ "--selection-bg": theme.heroAccent, "--selection-fg": contrastTextFor(theme.heroAccent) } as React.CSSProperties}
+    >
       <Nav bg={theme.nav} ink={theme.navInk} />
 
       <section style={{ backgroundColor: theme.heroBg, color: theme.heroText }} className="px-6 py-14 sm:px-10">

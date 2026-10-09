@@ -23,6 +23,13 @@ body {
   font-family: var(--font-body), Arial, Helvetica, sans-serif;
 }
 
+/* Mouse-drag text selection, themed per page/case study via --selection-bg
+   and --selection-fg custom properties set on each page's root wrapper. */
+::selection {
+  background-color: var(--selection-bg, #1e2a3a);
+  color: var(--selection-fg, #faf6ef);
+}
+
 @media (prefers-reduced-motion: reduce) {
   html {
     scroll-behavior: auto;
