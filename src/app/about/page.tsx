@@ -6,6 +6,7 @@ import { CardStack } from "@/components/CardStack";
 import { TagPills } from "@/components/TagPills";
 import { SparkleIcon } from "@/components/SparkleIcon";
 import { about, themes } from "@/lib/content";
+import { renderHighlighted } from "@/lib/highlight";
 
 export const metadata: Metadata = { title: "About · Isaac Isaac" };
 
@@ -26,7 +27,7 @@ export default function AboutPage() {
             <div className="mt-6 space-y-4">
               {about.bio.slice(0, -1).map((p, i) => (
                 <p key={i} className="font-mono text-sm leading-relaxed sm:text-base">
-                  {p}
+                  {renderHighlighted(p, theme.heroAccent)}
                 </p>
               ))}
               <p className="font-mono text-sm font-semibold leading-relaxed sm:text-base" style={{ color: theme.heroAccent }}>

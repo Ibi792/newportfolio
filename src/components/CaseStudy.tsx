@@ -19,6 +19,7 @@ import {
   type InterleavedItem,
 } from "@/lib/content";
 import { handDrawnFont } from "@/lib/fonts";
+import { renderHighlighted } from "@/lib/highlight";
 
 // Swatch colors for the "Palette Pulled From the Art" demo row, named
 // straight from that card's own copy (Lofistory's Design Decisions).
@@ -126,22 +127,6 @@ export function CaseStudy({ data, slug }: { data: CaseStudyData; slug: string })
 
       <Footer bg={footer} text={footerText} tagline={data.tagline ?? themes.caseStudy.tagline} />
     </div>
-  );
-}
-
-// Content marks a key phrase by wrapping it in {{double braces}}; this
-// splits on that delimiter and colors the odd-indexed (matched) groups
-// with the case study's accent, so a handful of phrases per paragraph
-// can pop for scanning without changing weight or font.
-function renderHighlighted(text: string, accent: string) {
-  return text.split(/\{\{(.+?)\}\}/g).map((part, i) =>
-    i % 2 === 1 ? (
-      <span key={i} style={{ color: accent }}>
-        {part}
-      </span>
-    ) : (
-      part
-    )
   );
 }
 
