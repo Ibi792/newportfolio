@@ -1618,13 +1618,6 @@ export const knourishCaseStudy: CaseStudyData = {
       phoneRowFilmstrip: true,
     },
     {
-      type: "media",
-      heading: "Testing",
-      paragraphs: [
-        "[Fill after your five-person round: participants, tasks, what broke, what changed. This is the section that turns the project from a concept into evidence.]",
-      ],
-    },
-    {
       type: "reflection",
       heading: "Reflection",
       layout: "timeline",
