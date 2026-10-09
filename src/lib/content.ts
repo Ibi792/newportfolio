@@ -120,15 +120,15 @@ export const hero = {
     moves: [
       {
         color: "#1D6FA5",
-        title: "Research Dive",
+        title: "Research",
         power: 40,
-        detail: "Nine interviews before a single wireframe. Reveals the real question.",
+        detail: "I collect globs of data before anything else. Reveals the real question.",
       },
       {
         color: "#1E7F72",
-        title: "Ship It",
+        title: "Keen Eye",
         power: 70,
-        detail: "Builds the frontend himself, so handoff isn't a wall.",
+        detail: "I like taking style and substance and making them hold hands :O",
       },
     ],
     flavorText: "Designs with intention, honesty, and a touch of whimsy. Found in cafés after midnight.",
