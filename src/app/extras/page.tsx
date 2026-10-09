@@ -88,12 +88,6 @@ export default function ExtrasPage() {
               <div className="mt-8 space-y-4">
                 <div>
                   <p className="font-display text-sm font-bold" style={{ color: theme.bodyAccent }}>
-                    Phone
-                  </p>
-                  <p className="text-sm">{site.phone}</p>
-                </div>
-                <div>
-                  <p className="font-display text-sm font-bold" style={{ color: theme.bodyAccent }}>
                     Email
                   </p>
                   <a href={`mailto:${site.email}`} className="underline-hover text-sm">

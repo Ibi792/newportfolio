@@ -112,12 +112,12 @@ export default function Home() {
                       <FloatingBadge
                         rotate={-6}
                         duration={2.8}
-                        className="absolute -left-6 -top-6 z-10 flex h-16 w-16 items-center justify-center rounded-full border-2 border-black/10 bg-[#F7DFA0] text-center font-mono text-[10px] font-black uppercase leading-tight text-[#1E2A3A] shadow-md"
+                        className="absolute left-[-0.25rem] top-[-0.25rem] z-10 flex h-16 w-16 items-center justify-center rounded-full border-2 border-black/10 bg-[#F7DFA0] text-center font-mono text-[10px] font-black uppercase leading-tight text-[#1E2A3A] shadow-md sm:left-[-1.5rem] sm:top-[-1.5rem]"
                       >
                         {hero.card.portraitBadge}
                       </FloatingBadge>
 
-                      <div className="absolute -right-6 -top-6 z-10" aria-hidden>
+                      <div className="absolute right-[-0.25rem] top-[-0.25rem] z-10 sm:right-[-1.5rem] sm:top-[-1.5rem]" aria-hidden>
                         <SparkleIcon color={theme.heroAccent} size={46} float delay={0.4} />
                       </div>
                     </div>
@@ -130,12 +130,12 @@ export default function Home() {
                     <FloatingBadge
                       rotate={-6}
                       duration={2.8}
-                      className="absolute -left-6 top-10 z-10 flex h-16 w-16 items-center justify-center rounded-full border-2 border-black/10 bg-[#F7DFA0] text-center font-mono text-[10px] font-black uppercase leading-tight text-[#1E2A3A] shadow-md"
+                      className="absolute left-[-0.25rem] top-10 z-10 flex h-16 w-16 items-center justify-center rounded-full border-2 border-black/10 bg-[#F7DFA0] text-center font-mono text-[10px] font-black uppercase leading-tight text-[#1E2A3A] shadow-md sm:left-[-1.5rem]"
                     >
                       {hero.card.portraitBadge}
                     </FloatingBadge>
 
-                    <div className="absolute -right-6 -top-6 z-10" aria-hidden>
+                    <div className="absolute right-[-0.25rem] top-[-0.25rem] z-10 sm:right-[-1.5rem] sm:top-[-1.5rem]" aria-hidden>
                       <SparkleIcon color={theme.heroAccent} size={46} float delay={0.4} />
                     </div>
 

@@ -2,8 +2,7 @@ export const site = {
   name: "Isaac Isaac",
   role: "Product Designer",
   email: "isaacbisaac0@gmail.com",
-  phone: "407-437-3838",
-  linkedin: "https://www.linkedin.com/feed/",
+  linkedin: "https://www.linkedin.com/in/isaacx2/",
   instagram: "https://www.instagram.com/isaac_x_2/",
   // Drop the actual PDF at this exact path in /public for the link to work.
   resumeUrl: "/resume.pdf",
@@ -83,11 +82,11 @@ export const themes = {
     navInk: "#FDF6EC",
     footer: "#122A20",
     footerText,
-    tagline: "Friends call me ibi :)",
+    tagline: "Friends Call Me Ibi :)",
   },
   // Case studies don't get a fixed color scheme here — each one carries
   // its own heroBg/heroText/accent/footer in its CaseStudyData (see
-  // below), so Prizekicks doesn't inherit Fourddo's indigo. This entry
+  // below), so PrizeKicks doesn't inherit Fourddo's indigo. This entry
   // is just the fallback footer easter-egg tagline for a case study that
   // doesn't set its own themed one (see each CaseStudyData's `tagline`).
   caseStudy: {
@@ -228,9 +227,9 @@ export const about = {
     ],
   },
   links: [
-    { label: "Linkedin", href: "https://www.linkedin.com/" },
-    { label: "Instagram", href: "https://www.instagram.com/" },
-    { label: "Mail", href: "mailto:isaacbisaac0@gmail.com" },
+    { label: "Linkedin", href: site.linkedin },
+    { label: "Instagram", href: site.instagram },
+    { label: "Mail", href: `mailto:${site.email}` },
   ],
   // Which photo files feed the fanned card stack, in order, each with
   // the caption that pops up on hover. Add/remove entries here to
@@ -283,7 +282,7 @@ export const projects: Project[] = [
     slug: "fourddo",
     title: "Four Stories",
     tags: ["UX Design", "Internship"],
-    blurb: "Building a Digital Home for Four Emerging Filmmakers",
+    blurb: "Building a digital home for four emerging filmmakers",
     color: "#4A47B0",
     textColor: "#F7DFA0",
     image: "/images/projects/four-stories.png",
@@ -311,7 +310,7 @@ export const projects: Project[] = [
   },
   {
     slug: "prizekicks",
-    title: "Prizekicks",
+    title: "PrizeKicks",
     tags: ["UX Design", "Group Project"],
     blurb: "Designing a marketplace that finally plays fair",
     color: "#BFE3F5",
@@ -602,7 +601,7 @@ export const fourddoCaseStudy: CaseStudyData = {
     },
     {
       type: "quote",
-      label: "A Note From the field",
+      label: "A Note From the Field",
       text: "There's just a lot going on, and it's hard to keep track of where everything lives.",
       attribution: "Fellow, Week 1 check-in",
     },
@@ -809,7 +808,7 @@ export const prizekicksCaseStudy: CaseStudyData = {
           value:
             "Lead UI/UX Designer (Market Research, Interviews and Surveys, Personas, Information Architecture, Wireframing, Style Guide, Prototyping, User Testing)",
         },
-        { label: "Tools", value: "Figma, Adobe Photoshop, Canva, Figjam" },
+        { label: "Tools", value: "Figma, Adobe Photoshop, Canva, FigJam" },
       ],
     },
     {
@@ -1221,7 +1220,7 @@ export const goblinGizmosCaseStudy: CaseStudyData = {
       type: "results",
       heading: "Testing",
       intro: [
-        "Five testers worked through all nineteen use cases on the LoFi build, rating each one on navigation, features, and organization from one to five. The same five came back once the HiFi was ready and reacted to it directly, so every major fix got validated twice, once on paper and once in the real interface.",
+        "Five testers worked through all nineteen use cases on the Lo-fi build, rating each one on navigation, features, and organization from one to five. The same five came back once the Hi-fi was ready and reacted to it directly, so every major fix got validated twice, once on paper and once in the real interface.",
       ],
       items: [
         {
@@ -1647,11 +1646,11 @@ export const knourishCaseStudy: CaseStudyData = {
     },
     {
       type: "media",
-      heading: "Real-world Considerations",
+      heading: "Real-World Considerations",
       paragraphs: [
         "A wait time is only useful if it's accurate, and only viable if it doesn't make anyone's job harder. Before going further, I had to work out how Estimated Wait Time would actually be calculated, how it would reach students, and what it would ask of the staff behind the counter.",
         "Each estimate comes from the queue, adjusted for how many stations are working and learned from how long orders actually take. It's rounded up and shown as a range because a wait that ends early feels like a win, and one that runs long is the exact problem Knourish exists to solve.",
-        "Staff takes on almost nothing new. They already mark orders ready, and that tap is what keeps the estimate honest. When a rush hits faster than the numbers can catch up, they can flip a restaurant straight to High Wait.",
+        "Staff takes on almost nothing new. They already mark orders ready, and that tap is what keeps the estimate honest. When a rush hits faster than the numbers can catch up, they can flip a restaurant straight to Packed.",
       ],
       images: [
         { src: "/images/projects/knourish-ewt-system.png", label: "Add EWT system graphic", fit: "contain" },

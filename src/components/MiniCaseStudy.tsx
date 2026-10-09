@@ -127,7 +127,7 @@ export function MiniCaseStudy() {
                   className="mt-5 border-l-2 pl-4 font-mono text-xs italic opacity-60"
                   style={{ borderColor: `${LB.orange}55` }}
                 >
-                  I deliberately chose a 3-day timeline for this study to prevent against scope creep.
+                  I deliberately chose a 3-day timeline for this study to guard against scope creep.
                 </p>
 
                 <SubHeading>Research</SubHeading>
