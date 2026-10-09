@@ -512,7 +512,7 @@ export const fourddoCaseStudy: CaseStudyData = {
   ],
   heroImage: "/images/projects/four-stories-hero.png",
   shippedProductUrl: "https://www.fourddo.com/fourstories",
-  shippedProductLabel: "More at Fourddo.com",
+  shippedProductLabel: "View Shipped Product",
   heroBg: "#4A47B0",
   heroText: "#EEF0FB",
   accent: "#5B57C9",
@@ -765,6 +765,8 @@ export const prizekicksCaseStudy: CaseStudyData = {
   ],
   heroImage: "/images/projects/prizekicks-hero.png",
   heroImagePosition: "top",
+  shippedProductUrl: "https://prizekicks-demo.netlify.app/",
+  shippedProductLabel: "View Live Demo",
   // Same blue as the teaser card (its real brand color), but with its own
   // proper accent/footer — a deeper cobalt for headings and chip borders
   // and a blue-tinted dark footer — instead of borrowing Fourddo's indigo.
@@ -1303,6 +1305,8 @@ export const lofistoryCaseStudy: CaseStudyData = {
     { label: "Year", value: "2025" },
   ],
   heroImage: "/images/projects/lofistory.png",
+  shippedProductUrl: "https://lofistory.netlify.app/",
+  shippedProductLabel: "View Live Site",
   heroBg: "#F0664F",
   heroText: "#F7DFA0",
   accent: "#C24A32",

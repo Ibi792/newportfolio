@@ -78,7 +78,9 @@ export function CaseStudy({ data, slug }: { data: CaseStudyData; slug: string })
             <Reveal delay={0.15}>
               <a
                 href={data.shippedProductUrl}
-                className="mt-6 flex items-center justify-between rounded-lg bg-white/10 px-6 py-4 font-mono text-sm font-semibold transition hover:bg-white/20"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="mt-6 flex items-center justify-between gap-4 rounded-lg bg-white/10 px-8 py-6 font-mono text-sm font-semibold transition hover:bg-white/20"
               >
                 {data.shippedProductLabel ?? "View Project"}
                 <span aria-hidden>↗</span>
