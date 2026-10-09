@@ -103,7 +103,7 @@ export const hero = {
     { text: "Isaac Isaac,", tone: "ink" as const, size: "sm" as const },
     { text: "solving problems in style.", tone: "accent" as const },
   ],
-  tagline: "Product designer. Taste-driven. Research-backed.",
+  tagline: "Taste-driven. Research-backed.",
   metaTag: "UX & Product Design",
   primaryCta: { label: "The Work", href: "/projects" },
   secondaryCta: { label: "About", href: "/about" },
