@@ -115,6 +115,16 @@ export const hero = {
       { label: "Type · Product", color: "#4A47B0" },
       { label: "Motion", color: "#1E7F72" },
     ],
+    // Personality badges, rendered with a gentle floating animation —
+    // reuses the card's own holo palette so they read as part of the
+    // same object rather than a bolted-on second tag row.
+    funBadges: [
+      { label: "Designer", color: "#D6486B" },
+      { label: "Video Editor", color: "#B8860B" },
+      { label: "Booklover", color: "#1E7F72" },
+      { label: "Big Eater", color: "#1D6FA5" },
+      { label: "Regal Unlimited Card Holder", color: "#4A47B0" },
+    ],
     classYear: "UCF '26",
     portraitBadge: "Open to Work",
     moves: [
