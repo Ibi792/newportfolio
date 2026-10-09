@@ -80,7 +80,7 @@ export function CaseStudy({ data, slug }: { data: CaseStudyData; slug: string })
                 href={data.shippedProductUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="mt-6 flex items-center justify-between gap-4 rounded-lg bg-white/10 px-8 py-6 font-mono text-sm font-semibold transition hover:bg-white/20"
+                className="mt-12 flex items-center justify-between gap-4 rounded-lg bg-white/10 px-8 py-6 font-mono text-sm font-semibold transition hover:bg-white/20"
               >
                 {data.shippedProductLabel ?? "View Project"}
                 <span aria-hidden>↗</span>
