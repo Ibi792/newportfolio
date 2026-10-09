@@ -124,7 +124,13 @@ export const hero = {
     // desktop clips clean off-screen on a phone; the unprefixed value
     // pulls the badge in near the card edge, `sm:` restores the full
     // overhang. `size` is the Tailwind h-*/w-*/text-* trio sized to
-    // fit that label's word count.
+    // fit that label's word count. `depth` varies each badge's pointer
+    // parallax distance (px at full tilt) so they drift at slightly
+    // different rates instead of moving in lockstep. `centerOffsetPx`
+    // is a fixed px correction (half that badge's own width) for the
+    // one badge centered via `left-1/2` — a plain number rather than
+    // "-50%" so it can be added directly to the dynamic parallax
+    // offset instead of fighting it for the same transform.
     funBadges: [
       {
         label: "Designer",
@@ -132,6 +138,7 @@ export const hero = {
         size: "h-16 w-16 text-[10px]",
         position: "right-[-0.25rem] sm:right-[-1.5rem] top-[18%]",
         rotate: -8,
+        depth: 8,
       },
       {
         label: "Video Editor",
@@ -139,6 +146,7 @@ export const hero = {
         size: "h-20 w-20 text-[10px]",
         position: "left-[-0.25rem] sm:left-[-2rem] top-[32%]",
         rotate: 7,
+        depth: 13,
       },
       {
         label: "Booklover",
@@ -146,6 +154,7 @@ export const hero = {
         size: "h-16 w-16 text-[10px]",
         position: "right-[-0.25rem] sm:right-[-1.5rem] top-[48%]",
         rotate: 10,
+        depth: 10,
       },
       {
         label: "Big Eater",
@@ -153,6 +162,7 @@ export const hero = {
         size: "h-20 w-20 text-[10px]",
         position: "left-[-0.25rem] sm:left-[-2rem] top-[62%]",
         rotate: -9,
+        depth: 15,
       },
       {
         label: "Regal Unlimited Card Holder",
@@ -160,7 +170,8 @@ export const hero = {
         size: "h-24 w-24 text-[9px]",
         position: "bottom-[-1.5rem] sm:bottom-[-2rem] left-1/2",
         rotate: 4,
-        centerX: true,
+        centerOffsetPx: -48,
+        depth: 11,
       },
     ],
     classYear: "UCF '26",
