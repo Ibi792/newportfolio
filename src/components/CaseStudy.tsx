@@ -1141,6 +1141,51 @@ function SectionBlock({ section, accent }: { section: CaseStudySection; accent: 
           </>
         );
       }
+      if (section.layout === "timeline") {
+        const ClockIcon = CASE_STUDY_ICONS.clock;
+        return (
+          <>
+            <SectionHeading accent={accent}>{section.heading}</SectionHeading>
+            {section.intro.map((p, i) => (
+              <p key={i} className="mt-8 font-mono text-base leading-relaxed sm:text-lg">
+                {renderHighlighted(p, accent)}
+              </p>
+            ))}
+            <RevealGroup className="relative mt-10 space-y-10" stagger={0.08}>
+              <div className="absolute left-6 top-6 bottom-6 w-px" style={{ backgroundColor: `${accent}33` }} aria-hidden />
+              {section.lessons.map((lesson) => {
+                const Icon = lesson.icon ? CASE_STUDY_ICONS[lesson.icon] : undefined;
+                return (
+                  <RevealItem key={lesson.title}>
+                    <div className="relative flex items-start gap-5">
+                      <div
+                        className="relative z-10 flex h-12 w-12 shrink-0 items-center justify-center rounded-full border-2 bg-white"
+                        style={{ borderColor: accent }}
+                      >
+                        <ClockIcon color={accent} />
+                      </div>
+                      <div className="min-w-0 flex-1 pt-2">
+                        <p className="inline-flex items-center gap-2 font-display text-sm font-bold" style={{ color: accent }}>
+                          {Icon && <Icon color={accent} />}
+                          {lesson.title.replace(/:$/, "")}
+                        </p>
+                        <p className="mt-3 font-mono text-base leading-relaxed sm:text-lg">
+                          {renderHighlighted(lesson.detail, accent)}
+                        </p>
+                      </div>
+                    </div>
+                  </RevealItem>
+                );
+              })}
+            </RevealGroup>
+            {section.thanks && (
+              <p className="mt-12 text-center font-display text-xl font-bold" style={{ color: accent }}>
+                {section.thanks}
+              </p>
+            )}
+          </>
+        );
+      }
       return (
         <>
           <SectionHeading accent={accent}>{section.heading}</SectionHeading>

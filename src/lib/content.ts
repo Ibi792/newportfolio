@@ -394,7 +394,7 @@ export type CaseStudySection =
       // `layout: "tracklist"` renders numbered rows, echoing Lofistory's
       // own tracklist UI — reserved for case studies with that kind of
       // content hook rather than used as a generic style everywhere.
-      layout?: "default" | "tracklist";
+      layout?: "default" | "tracklist" | "timeline";
       lessons: { title: string; detail: string; icon?: string }[];
       thanks?: string;
     };
@@ -1627,6 +1627,7 @@ export const knourishCaseStudy: CaseStudyData = {
     {
       type: "reflection",
       heading: "Reflection",
+      layout: "timeline",
       intro: [],
       lessons: [
         {
