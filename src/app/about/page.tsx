@@ -70,10 +70,11 @@ export default function AboutPage() {
           <Reveal delay={0.1} className="md:h-full">
             <CardStack
               accent={theme.heroAccent}
-              photos={about.stackPhotoIds.map((n) => ({
-                src: `/images/about/photo-${n}.jpg`,
-                alt: `Isaac photo ${n}`,
-                label: `Add /public/images/about/photo-${n}.jpg`,
+              photos={about.stackPhotos.map(({ id, caption }) => ({
+                src: `/images/about/photo-${id}.jpg`,
+                alt: `Isaac photo ${id}`,
+                label: `Add /public/images/about/photo-${id}.jpg`,
+                caption,
               }))}
             />
           </Reveal>

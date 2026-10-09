@@ -21,7 +21,7 @@ export function CardStack({
   photos,
   accent,
 }: {
-  photos: { src: string; alt: string; label?: string }[];
+  photos: { src: string; alt: string; label?: string; caption?: string }[];
   accent: string;
 }) {
   const rows = Math.ceil(photos.length / COLUMNS);
@@ -44,7 +44,7 @@ export function CardStack({
         {photos.map((photo) => (
           <div
             key={photo.src}
-            className="aspect-[4/5] overflow-hidden rounded-xl border-4 border-white shadow-md transition-transform duration-300 hover:scale-105 md:aspect-auto"
+            className="group relative aspect-[4/5] overflow-hidden rounded-xl border-4 border-white shadow-md transition-transform duration-300 hover:scale-105 md:aspect-auto"
           >
             <AssetImage
               src={photo.src}
@@ -53,6 +53,11 @@ export function CardStack({
               className="h-full w-full object-cover"
               label={photo.label}
             />
+            {photo.caption && (
+              <div className="pointer-events-none absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/85 via-black/40 to-transparent px-3 pb-3 pt-10 opacity-0 transition-opacity duration-300 group-hover:opacity-100">
+                <p className="font-mono text-xs font-semibold leading-snug text-white sm:text-sm">{photo.caption}</p>
+              </div>
+            )}
           </div>
         ))}
       </div>
