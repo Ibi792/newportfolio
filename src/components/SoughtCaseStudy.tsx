@@ -124,7 +124,7 @@ export function SoughtCaseStudy() {
                 <P>{`Losing your slippers is a small annoyance for most people. For someone with low vision or memory loss, it can mean a slow search on hands and knees, or waiting for someone else to help. {{We wanted a companion that knows the space, remembers where things are, and answers in plain words when you ask}}.`}</P>
 
                 <SubHeading>What It Does</SubHeading>
-                <P>{`Sought pairs Soughtbot, an automated rover, with an iPhone app. The rover drives your space and builds a map and a catalog of what it sees. It recognizes things by how they look, not by name, so {{the app asks you once}}: "Soughtbot found something near the front door. What is it?" Say "slippers," and from then on you can ask for them by name.`}</P>
+                <P>{`Sought pairs Soughtbot, an automated rover, with an iPhone app. The rover drives your space and builds a map and a catalog of what it sees. It recognizes things by how they look, not by name, so {{the app asks you once}}, "Soughtbot found something near the front door. What is it?" Say "slippers," and from then on you can ask for them by name.`}</P>
                 <P>{`Ask "find my slippers" and Sought answers out loud, "Last seen near the front door, 12 minutes ago," with a map. You can also drop your own pin on things Soughtbot can't see, "my remote is under the blue cushion," always marked as yours, never passed off as something the robot saw. {{In testing, Soughtbot found a navy backpack on its own from a plain-words request.}}`}</P>
 
                 <div
@@ -147,13 +147,13 @@ export function SoughtCaseStudy() {
                 <P>{`I designed the app mock-first in Figma against that same contract, every screen worked end-to-end on labeled sample data before the robot was ever connected, then carried it to SwiftUI with frosted glass cards, a background that shifts with Soughtbot's state, and a splash built straight from the logo. {{Neither side had to wait on the other}}.`}</P>
 
                 <SubHeading>The Find Flow</SubHeading>
-                <P>{`Every find is the same four beats: confirm what you're looking for, watch Soughtbot close the distance, feel it guide you in, and get a clear "found it." {{Haptics speed up as the distance drops}}, so the last few feet don't need your eyes at all.`}</P>
+                <P>{`Every find has the same four beats. Confirm what you're looking for, watch Soughtbot close the distance, feel it guide you in, and get a clear "found it." {{Haptics speed up as the distance drops}}, so the last few feet don't need your eyes at all.`}</P>
 
                 <PhoneFilmstrip images={FIND_FLOW} accent={SO.accent} />
 
                 <SubHeading>Accessibility</SubHeading>
-                <P>{`Accessibility wasn't a pass at the end, it was the brief. Search works by voice or text, every step of a find is spoken aloud, and VoiceOver reads each card as one sentence: "Brown sandals, by the front door, seen 12 minutes ago. Double tap to find." {{Three of our own colors failed contrast checks, so we darkened them}}, rendered text now measures 6.0 to 8.9:1, with a dedicated high-contrast mode on top. Reduce Motion turns animations into fades, Reduce Transparency turns glass solid, and every screen reflows at the largest accessibility text sizes. I ran Apple's own accessibility audit across all 15 screens before submission, and it passes for touch target size, labels, and roles.`}</P>
-                <P>{`One rule mattered as much as any of those: {{anything not coming from the robot is labeled as sample data, on screen, every time}}. A system that claims to tell someone the truth about their space doesn't get to fudge that.`}</P>
+                <P>{`Accessibility wasn't a pass at the end, it was the brief. Search works by voice or text, every step of a find is spoken aloud, and VoiceOver reads each card as one sentence, "Brown sandals, by the front door, seen 12 minutes ago. Double tap to find." {{Three of our own colors failed contrast checks, so we darkened them}}, rendered text now measures 6.0 to 8.9:1, with a dedicated high-contrast mode on top. Reduce Motion turns animations into fades, Reduce Transparency turns glass solid, and every screen reflows at the largest accessibility text sizes. I ran Apple's own accessibility audit across all 15 screens before submission, and it passes for touch target size, labels, and roles.`}</P>
+                <P>{`One rule mattered just as much — {{anything not coming from the robot is labeled as sample data, on screen, every time}}. A system that claims to tell someone the truth about their space doesn't get to fudge that.`}</P>
 
                 <div
                   className="mx-auto mt-8 max-w-[260px] overflow-hidden rounded-xl border"
@@ -238,8 +238,8 @@ export function SoughtCaseStudy() {
                 <P>{`Two teams, a robot and an app, building toward one contract in 36 hours. Designing mock-first meant {{neither side waited on the other}}, and a shared message board kept decisions visible instead of living in someone's head. The robot's own problems, tracking, safety, and retrieval on a phone, not a dedicated board, were the hardest part of the weekend.`}</P>
 
                 <SubHeading>Reflection</SubHeading>
-                <P>{`Designing for low vision made the app better for everyone, plain words, one clear action per screen, and big targets all read faster at a glance regardless of who's looking. {{The bigger lesson was about honesty}}: say exactly what's real, and label the rest. A system people trust to find their things has to earn that trust in how it talks about itself, not just in what it can do.`}</P>
-                <P>{`Next up: finishing the link so a find or "come to me" sent from the app actually drives the robot (the app and server side are built, the robot's side is next), photo confirmation instead of typing, letting Soughtbot explore on its own, and a shared caregiver view for family.`}</P>
+                <P>{`Designing for low vision made the app better for everyone, plain words, one clear action per screen, and big targets all read faster at a glance regardless of who's looking. {{The bigger lesson was about honesty}}. Say exactly what's real, and label the rest. A system people trust to find their things has to earn that trust in how it talks about itself, not just in what it can do.`}</P>
+                <P>{`What's next is finishing the link so a find or "come to me" sent from the app actually drives the robot (the app and server side are built, the robot's side is next), along with photo confirmation instead of typing, letting Soughtbot explore on its own, and a shared caregiver view for family.`}</P>
 
                 <button
                   type="button"
