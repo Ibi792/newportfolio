@@ -4,6 +4,7 @@ import { Footer } from "@/components/Footer";
 import { Reveal, RevealGroup, RevealItem } from "@/components/Reveal";
 import { ProjectCard } from "@/components/ProjectCard";
 import { MiniCaseStudy } from "@/components/MiniCaseStudy";
+import { SoughtCaseStudy } from "@/components/SoughtCaseStudy";
 import { projects, themes } from "@/lib/content";
 import { contrastTextFor } from "@/lib/color";
 
@@ -47,7 +48,8 @@ export default function ProjectsPage() {
             Quicker, self-scoped work that didn&apos;t need a full case study, but might still be worth a look.
           </p>
 
-          <div className="mt-6">
+          <div className="mt-6 flex flex-col gap-8">
+            <SoughtCaseStudy />
             <MiniCaseStudy />
           </div>
         </Reveal>
