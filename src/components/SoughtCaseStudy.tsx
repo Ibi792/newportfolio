@@ -109,10 +109,10 @@ export function SoughtCaseStudy() {
             >
               <div className="mt-4 border-t pt-4" style={{ borderColor: `${SO.ink}22` }}>
                 <div className="overflow-hidden rounded-xl border" style={{ borderColor: `${SO.ink}22` }}>
-                  <Lightbox src="/images/projects/sought-cover.webp" alt="Sought — Bringing Clarity to Your Spaces">
+                  <Lightbox src="/images/projects/sought-cover.webp" alt="Sought, Bringing Clarity to Your Spaces">
                     <AssetImage
                       src="/images/projects/sought-cover.webp"
-                      alt="Sought — Bringing Clarity to Your Spaces"
+                      alt="Sought, Bringing Clarity to Your Spaces"
                       color={SO.accent}
                       className="h-auto w-full object-cover"
                       label="Add Sought cover"
@@ -153,7 +153,7 @@ export function SoughtCaseStudy() {
 
                 <SubHeading>Accessibility</SubHeading>
                 <P>{`Accessibility wasn't a pass at the end, it was the brief. Search works by voice or text, every step of a find is spoken aloud, and VoiceOver reads each card as one sentence, "Brown sandals, by the front door, seen 12 minutes ago. Double tap to find." {{Three of our own colors failed contrast checks, so we darkened them}}, rendered text now measures 6.0 to 8.9:1, with a dedicated high-contrast mode on top. Reduce Motion turns animations into fades, Reduce Transparency turns glass solid, and every screen reflows at the largest accessibility text sizes. I ran Apple's own accessibility audit across all 15 screens before submission, and it passes for touch target size, labels, and roles.`}</P>
-                <P>{`One rule mattered just as much — {{anything not coming from the robot is labeled as sample data, on screen, every time}}. A system that claims to tell someone the truth about their space doesn't get to fudge that.`}</P>
+                <P>{`One rule mattered just as much. {{Anything not coming from the robot is labeled as sample data, on screen, every time}}. A system that claims to tell someone the truth about their space doesn't get to fudge that.`}</P>
 
                 <div
                   className="mx-auto mt-8 max-w-[260px] overflow-hidden rounded-xl border"
