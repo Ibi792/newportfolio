@@ -8,7 +8,17 @@ import { useEffect, useRef, useState } from "react";
  * file at page load, which on the Extras page meant ~19 MB before anything
  * else could finish.
  */
-export function LazyVideo({ src, label, className }: { src: string; label: string; className?: string }) {
+export function LazyVideo({
+  src,
+  label,
+  className,
+  poster,
+}: {
+  src: string;
+  label: string;
+  className?: string;
+  poster?: string;
+}) {
   const ref = useRef<HTMLVideoElement>(null);
   const [loaded, setLoaded] = useState(false);
 
@@ -34,6 +44,7 @@ export function LazyVideo({ src, label, className }: { src: string; label: strin
     <video
       ref={ref}
       src={loaded ? src : undefined}
+      poster={poster}
       aria-label={label}
       className={className}
       preload="none"

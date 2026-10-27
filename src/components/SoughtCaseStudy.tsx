@@ -1,8 +1,9 @@
 "use client";
 
 import { useRef, useState } from "react";
-import { motion, AnimatePresence } from "framer-motion";
+import { motion, AnimatePresence, useReducedMotion } from "framer-motion";
 import { AssetImage } from "@/components/AssetImage";
+import { LazyVideo } from "@/components/LazyVideo";
 import { Lightbox } from "@/components/Lightbox";
 import { PhoneFilmstrip } from "@/components/PhoneFilmstrip";
 
@@ -48,6 +49,8 @@ const FIND_FLOW = [
 
 export function SoughtCaseStudy() {
   const [open, setOpen] = useState(false);
+  const [fullDemo, setFullDemo] = useState(false);
+  const reduceMotion = useReducedMotion();
   const topRef = useRef<HTMLDivElement>(null);
 
   function collapse() {
@@ -56,7 +59,12 @@ export function SoughtCaseStudy() {
   }
 
   return (
-    <div className="overflow-hidden rounded-2xl" style={{ backgroundColor: SO.bg, color: SO.ink }} ref={topRef}>
+    <div
+      id="sought"
+      className="scroll-mt-24 overflow-hidden rounded-2xl"
+      style={{ backgroundColor: SO.bg, color: SO.ink }}
+      ref={topRef}
+    >
       <div className="h-1.5 w-full" style={{ backgroundColor: SO.accent }} aria-hidden />
 
       <div className="p-8 sm:p-10">
@@ -79,12 +87,53 @@ export function SoughtCaseStudy() {
         <p className="font-display text-sm font-bold italic" style={{ color: SO.accent }}>
           Bringing Clarity to Your Spaces
         </p>
-        <p className="mt-2 font-mono text-xs opacity-60">UI/UX Designer · Team of 4</p>
+        <p className="mt-2 font-mono text-xs opacity-60">UI/UX Designer · Team of 2</p>
 
         <p className="mt-5 font-mono text-sm leading-relaxed opacity-90 sm:text-base">
           For someone with low vision or memory loss, a missing pair of slippers can mean minutes on hands and
           knees. I designed the app half of a rover that goes and finds them instead.
         </p>
+
+        {/* A short muted loop sells the robot at a glance without anyone
+            expanding the write-up; the full 17 MB demo only loads on request. */}
+        <div className="relative mt-6 overflow-hidden rounded-xl border" style={{ borderColor: `${SO.ink}22` }}>
+          {fullDemo ? (
+            <video
+              src="/images/projects/sought-demo.mp4"
+              aria-label="Sought demo, SwampHacks XII"
+              className="aspect-video h-auto w-full"
+              controls
+              autoPlay
+              playsInline
+            />
+          ) : (
+            <>
+              {reduceMotion ? (
+                // eslint-disable-next-line @next/next/no-img-element
+                <img
+                  src="/images/projects/sought-teaser-poster.jpg"
+                  alt="The Soughtbot rover, an iPhone mounted above its camera and sensors"
+                  className="aspect-video w-full object-cover"
+                />
+              ) : (
+                <LazyVideo
+                  src="/images/projects/sought-teaser.mp4"
+                  poster="/images/projects/sought-teaser-poster.jpg"
+                  label="Soughtbot driving across a room while its tech stack is listed"
+                  className="aspect-video w-full object-cover"
+                />
+              )}
+              <button
+                type="button"
+                onClick={() => setFullDemo(true)}
+                className="absolute bottom-3 left-3 inline-flex items-center gap-2 rounded-full px-4 py-2 font-mono text-xs font-bold shadow-lg transition-transform hover:scale-105 sm:bottom-4 sm:left-4"
+                style={{ backgroundColor: SO.accent, color: SO.bg }}
+              >
+                ▶ Watch the full demo · 1:06
+              </button>
+            </>
+          )}
+        </div>
 
         <button
           type="button"
@@ -108,18 +157,6 @@ export function SoughtCaseStudy() {
               className="overflow-hidden"
             >
               <div className="mt-4 border-t pt-4" style={{ borderColor: `${SO.ink}22` }}>
-                <div className="overflow-hidden rounded-xl border" style={{ borderColor: `${SO.ink}22` }}>
-                  <Lightbox src="/images/projects/sought-cover.webp" alt="Sought, Bringing Clarity to Your Spaces">
-                    <AssetImage
-                      src="/images/projects/sought-cover.webp"
-                      alt="Sought, Bringing Clarity to Your Spaces"
-                      color={SO.accent}
-                      className="h-auto w-full object-cover"
-                      label="Add Sought cover"
-                    />
-                  </Lightbox>
-                </div>
-
                 <SubHeading>Problem</SubHeading>
                 <P>{`Losing your slippers is a small annoyance for most people. For someone with low vision or memory loss, it can mean a slow search on hands and knees, or waiting for someone else to help. {{We wanted a companion that knows the space, remembers where things are, and answers in plain words when you ask}}.`}</P>
 
@@ -143,7 +180,7 @@ export function SoughtCaseStudy() {
                 </div>
 
                 <SubHeading>How We Built It</SubHeading>
-                <P>{`Two systems had to work as one. My teammates built an ESP32 to drive the rover's motors and read its ultrasonic sensors, with safety that doesn't trust the phone, a watchdog stops the motors if the connection goes quiet (measured at 0.28s against a 300ms limit), and the front sensor always wins. An iPhone mounted on the rover handles ARKit and LiDAR for position, while a Core ML CLIP model turns what the camera sees into searchable embeddings that {{never leave the phone}}. A FastAPI backend ties it together, and a Gemini planner turns plain-words requests into actions.`}</P>
+                <P>{`Two systems had to work as one. My teammate built an ESP32 to drive the rover's motors and read its ultrasonic sensors, with safety that doesn't trust the phone, a watchdog stops the motors if the connection goes quiet (measured at 0.28s against a 300ms limit), and the front sensor always wins. An iPhone mounted on the rover handles ARKit and LiDAR for position, while a Core ML CLIP model turns what the camera sees into searchable embeddings that {{never leave the phone}}. A FastAPI backend ties it together, and a Gemini planner turns plain-words requests into actions.`}</P>
                 <P>{`I designed the app mock-first in Figma against that same contract, every screen worked end-to-end on labeled sample data before the robot was ever connected, then carried it to SwiftUI with frosted glass cards, a background that shifts with Soughtbot's state, and a splash built straight from the logo. {{Neither side had to wait on the other}}.`}</P>
 
                 <SubHeading>The Find Flow</SubHeading>
@@ -153,7 +190,6 @@ export function SoughtCaseStudy() {
 
                 <SubHeading>Accessibility</SubHeading>
                 <P>{`Accessibility wasn't a pass at the end, it was the brief. Search works by voice or text, every step of a find is spoken aloud, and VoiceOver reads each card as one sentence, "Brown sandals, by the front door, seen 12 minutes ago. Double tap to find." {{Three of our own colors failed contrast checks, so we darkened them}}, rendered text now measures 6.0 to 8.9:1, with a dedicated high-contrast mode on top. Reduce Motion turns animations into fades, Reduce Transparency turns glass solid, and every screen reflows at the largest accessibility text sizes. I ran Apple's own accessibility audit across all 15 screens before submission, and it passes for touch target size, labels, and roles.`}</P>
-                <P>{`One rule mattered just as much. {{Anything not coming from the robot is labeled as sample data, on screen, every time}}. A system that claims to tell someone the truth about their space doesn't get to fudge that.`}</P>
 
                 <div
                   className="mx-auto mt-8 max-w-[260px] overflow-hidden rounded-xl border"
@@ -213,29 +249,18 @@ export function SoughtCaseStudy() {
                   </Lightbox>
                 </div>
 
-                <SubHeading>Demo</SubHeading>
-                <div className="mt-6 overflow-hidden rounded-xl border" style={{ borderColor: `${SO.ink}22` }}>
-                  <video
-                    src="/images/projects/sought-demo.mp4"
-                    aria-label="Sought demo, SwampHacks XII"
-                    className="h-auto max-h-[85vh] w-full"
-                    controls
-                    preload="metadata"
-                    playsInline
-                  />
-                </div>
                 <a
                   href="https://github.com/says1117/Sought"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="mt-6 inline-flex items-center gap-2 rounded-full px-6 py-3 font-display text-sm font-bold"
+                  className="mt-8 inline-flex items-center gap-2 rounded-full px-6 py-3 font-display text-sm font-bold"
                   style={{ backgroundColor: SO.accent, color: SO.bg }}
                 >
                   View the Code on GitHub ↗
                 </a>
 
                 <SubHeading>Challenges</SubHeading>
-                <P>{`Two teams, a robot and an app, building toward one contract in 36 hours. Designing mock-first meant {{neither side waited on the other}}, and a shared message board kept decisions visible instead of living in someone's head. The robot's own problems, tracking, safety, and retrieval on a phone, not a dedicated board, were the hardest part of the weekend.`}</P>
+                <P>{`Two of us, a robot and an app, building toward one contract in 36 hours. Designing mock-first meant {{neither side waited on the other}}, and a shared message board kept decisions visible instead of living in someone's head. The robot's own problems, tracking, safety, and retrieval on a phone, not a dedicated board, were the hardest part of the weekend.`}</P>
 
                 <SubHeading>Reflection</SubHeading>
                 <P>{`Designing for low vision made the app better for everyone, plain words, one clear action per screen, and big targets all read faster at a glance regardless of who's looking. {{The bigger lesson was about honesty}}. Say exactly what's real, and label the rest. A system people trust to find their things has to earn that trust in how it talks about itself, not just in what it can do.`}</P>
