@@ -1,77 +1,85 @@
 import type { Metadata } from "next";
-import { about, hero, site } from "@/lib/content";
+import { about, hero, site, projects } from "@/lib/content";
 
 export const metadata: Metadata = { title: "Portfolio PDF · Isaac Isaac" };
 
 // Curated for a printed leave-behind, not pulled 1:1 from the live case
 // studies — a resume-style PDF needs three tight bullets and a role line,
-// not the full narrative. Facts are sourced from each case study's own
-// meta/results/reflection sections so nothing here is invented.
-const PROJECTS = [
-  {
-    slug: "fourddo",
-    title: "Four Stories",
+// not the full narrative. image/imagePosition/color are read straight off
+// the real `projects` array below so a thumbnail crop never drifts out of
+// sync with the live site's own tuning. Facts are sourced from each case
+// study's own meta/results/reflection sections, so nothing here is invented.
+const PROJECT_NOTES: Record<string, { role: string; highlights: string[] }> = {
+  fourddo: {
     role: "Lead Product Design Intern · Internship, 2026",
-    blurb: "Building a digital home for four emerging filmmakers",
-    color: "#4A47B0",
-    image: "/images/projects/four-stories.png",
-    highlights: ["Centralized access to curriculum and program comms", "A structured week-by-week view of the program", "A scalable foundation the fellowship can build on"],
+    highlights: [
+      "Centralized access to curriculum and program comms",
+      "A structured week-by-week view of the program",
+      "A scalable foundation the fellowship can build on",
+    ],
   },
-  {
-    slug: "knourish",
-    title: "Knourish",
+  knourish: {
     role: "Solo UX/UI Designer · Google UX Design Certificate",
-    blurb: "Designing wait-time transparency for students who can't afford to guess",
-    color: "#7A6000",
-    image: "/images/projects/knourish.png",
-    highlights: ["A three-tier Low Wait / Busy / Packed status system", "A Leave By prompt that turns a wait time into a decision", "Translated into a working React prototype for real testing"],
+    highlights: [
+      "A three-tier Low Wait / Busy / Packed status system",
+      "A Leave By prompt that turns a wait time into a decision",
+      "Translated into a working React prototype for real testing",
+    ],
   },
-  {
-    slug: "goblin-gizmos",
-    title: "Goblin Gizmos",
+  "goblin-gizmos": {
     role: "Design, UI, and Branding Lead · Team of 5, Capstone",
-    blurb: "Building a community platform where any collection belongs",
-    color: "#146B60",
-    image: "/images/projects/goblin-gizmos.png",
-    highlights: ["Real accounts, uploads, and a database, not just a prototype", "Built across two semesters with a five-person team", "W3C-validated markup, accessible from design into code"],
+    highlights: [
+      "Real accounts, uploads, and a database, not just a prototype",
+      "Built across two semesters with a five-person team",
+      "W3C-validated markup, accessible from design into code",
+    ],
   },
-  {
-    slug: "prizekicks",
-    title: "PrizeKicks",
+  prizekicks: {
     role: "Lead UI/UX Designer · Team of 3, Group Project",
-    blurb: "Designing a marketplace that finally plays fair",
-    color: "#1D6FA5",
-    image: "/images/projects/prizekicks.png",
-    highlights: ["Price context that let buyers actually compare listings", "Navigation testers moved through without stalling", "Scoped to the features that proved the product's value"],
+    highlights: [
+      "Price context that let buyers actually compare listings",
+      "Navigation testers moved through without stalling",
+      "Scoped to the features that proved the product's value",
+    ],
   },
-  {
-    slug: "lofistory",
-    title: "Lofistory",
+  lofistory: {
     role: "Designer and Developer · Solo Project, 2025",
-    blurb: "Designing and building a cozy corner of the internet for the genre that got me through school",
-    color: "#C24A32",
-    image: "/images/projects/lofistory.png",
-    highlights: ["Solo-designed and built end to end in React", "Live Spotify Web API integration, not static data", "The smallest project in the portfolio, and the one I come back to most"],
+    highlights: [
+      "Solo-designed and built end to end in React",
+      "Live Spotify Web API integration, not static data",
+      "The smallest project in the portfolio, and the one I come back to most",
+    ],
   },
-];
+};
+
+const PDF_PROJECTS = projects.map((p) => ({ ...p, ...PROJECT_NOTES[p.slug] }));
 
 const siteUrl = "https://friendscallmeibi.com";
 
 export default function PortfolioPdfPage() {
   return (
-    <div
-      className="mx-auto"
-      style={{ backgroundColor: "#FAF6EF", color: "#241F1A", width: "8.5in" }}
-    >
+    // Spacing here is deliberately minimal — real page margins (top/bottom/
+    // left/right) are applied by the PDF generator itself, so every physical
+    // page gets a consistent margin automatically, including pages that
+    // start mid-flow through the projects list below.
+    <div className="font-sans" style={{ color: "#241F1A" }}>
       {/* PAGE 1 */}
-      <section className="flex flex-col px-[0.65in] py-[0.6in]" style={{ breakAfter: "page" }}>
+      <section className="flex flex-col" style={{ breakAfter: "page" }}>
         <div className="flex items-start justify-between gap-6 border-b-2 pb-5" style={{ borderColor: "#24231A22" }}>
-          <div>
-            <h1 className="font-display text-5xl font-black uppercase tracking-tight">{site.name}</h1>
-            <p className="mt-1 font-mono text-base font-semibold" style={{ color: "#D6486B" }}>
-              {site.role}
-            </p>
-            <p className="mt-2 max-w-md font-mono text-sm leading-relaxed opacity-80">{hero.tagline}</p>
+          <div className="flex items-start gap-5">
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img
+              src="/images/portrait.jpg"
+              alt={site.name}
+              className="h-[1in] w-[1in] shrink-0 rounded-full object-cover shadow-sm"
+            />
+            <div>
+              <h1 className="font-display text-5xl font-black uppercase tracking-tight">{site.name}</h1>
+              <p className="mt-1 font-mono text-base font-semibold" style={{ color: "#D6486B" }}>
+                {site.role}
+              </p>
+              <p className="mt-2 max-w-md font-mono text-sm leading-relaxed opacity-80">{hero.tagline}</p>
+            </div>
           </div>
           <div className="shrink-0 text-right font-mono text-xs leading-relaxed opacity-80">
             <p>{site.email}</p>
@@ -147,8 +155,8 @@ export default function PortfolioPdfPage() {
           need — break-inside: avoid keeps a single card from splitting
           across a page boundary, rather than forcing an exact per-page
           count that drifts out of sync with real content height. */}
-      <section className="flex flex-col gap-8 px-[0.65in] py-[0.7in]">
-        {PROJECTS.map((project) => (
+      <section className="flex flex-col gap-8">
+        {PDF_PROJECTS.map((project) => (
           <article
             key={project.slug}
             className="flex gap-6 border-l-4 pl-6"
@@ -158,6 +166,7 @@ export default function PortfolioPdfPage() {
             <img
               src={project.image}
               alt={project.title}
+              style={{ objectPosition: project.imagePosition ?? "center" }}
               className="h-[1.6in] w-[2.4in] shrink-0 rounded-lg object-cover shadow-sm"
             />
             <div className="flex-1">
