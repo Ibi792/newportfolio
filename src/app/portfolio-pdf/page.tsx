@@ -64,21 +64,43 @@ const PDF_IMAGE_POSITION: Record<string, string> = {
 const PDF_PROJECTS = projects.map((p) => ({
   ...p,
   ...PROJECT_NOTES[p.slug],
+  href: `/projects/${p.slug}`,
   imagePosition: PDF_IMAGE_POSITION[p.slug] ?? p.imagePosition,
 }));
 
+// Sought isn't one of the five full case studies (36-hour hackathon build,
+// lives in the Smaller Projects section), but it has enough real content —
+// hardware, an accessibility audit, a demo — to earn a full card here
+// rather than just a thumbnail in the gallery below. Links to its anchor
+// on /projects rather than a dedicated route, since that's where it lives.
+const SOUGHT_PROJECT = {
+  slug: "sought",
+  title: "Sought",
+  role: "UI/UX Designer · Team of 2, SwampHacks XII",
+  blurb: "Designing the accessible half of a rover that finds what low vision or memory loss make hard to find.",
+  color: "#101F25",
+  image: "/images/projects/sought-cover.webp",
+  imagePosition: "center",
+  href: "/projects#sought",
+  highlights: [
+    "VoiceOver, haptics, and an Apple accessibility audit across all 15 screens",
+    "An ESP32-driven rover with a hardware safety watchdog",
+    "Built in 36 hours at SwampHacks XII",
+  ],
+};
+
+const ALL_PDF_PROJECTS = [...PDF_PROJECTS, SOUGHT_PROJECT];
+
 const siteUrl = "https://friendscallmeibi.com";
 
-// A small closer for the leftover space after the five case studies —
-// a handful of motion design stills plus the Soughtbot rover, so the PDF
-// doesn't end on an empty page. Stills are frames pulled from the real
-// clips on the Extras page, not separately designed images.
+// A small closer for the leftover space after the projects — motion design
+// stills so the PDF doesn't end on an empty page. Frames pulled from the
+// real "Things in Motion" clips on the Extras page, not separate images.
 const GALLERY_ITEMS = [
   { src: "/images/motion/still-birbworm2.jpg", caption: "Bird-Worm Mentality Theorem, motion design" },
   { src: "/images/motion/still-kuroskai1.jpg", caption: "Me vs Me, lyric video edit" },
   { src: "/images/motion/still-ramen.jpg", caption: "When U Commodify Violence, motion design" },
   { src: "/images/motion/still-ppp.jpg", caption: "Persona/Power, motion design" },
-  { src: "/images/projects/sought-rover.jpg", caption: "Soughtbot, the rover from Sought (SwampHacks XII)" },
 ];
 
 export default function PortfolioPdfPage() {
@@ -173,7 +195,7 @@ export default function PortfolioPdfPage() {
         <p className="mt-6 font-display text-xs font-bold uppercase tracking-wide" style={{ color: "#D6486B" }}>
           Selected Work
         </p>
-        <p className="mt-1 font-mono text-xs opacity-60">Five case studies follow. Full write-ups at {siteUrl.replace("https://", "")}</p>
+        <p className="mt-1 font-mono text-xs opacity-60">Five case studies and a hackathon build follow. Full write-ups at {siteUrl.replace("https://", "")}</p>
       </section>
 
       {/* PAGE 2+: projects flow naturally across however many pages they
@@ -181,7 +203,7 @@ export default function PortfolioPdfPage() {
           across a page boundary, rather than forcing an exact per-page
           count that drifts out of sync with real content height. */}
       <section className="flex flex-col gap-8">
-        {PDF_PROJECTS.map((project) => (
+        {ALL_PDF_PROJECTS.map((project) => (
           <article
             key={project.slug}
             className="flex gap-6 border-l-4 pl-6"
@@ -207,17 +229,17 @@ export default function PortfolioPdfPage() {
                 ))}
               </ul>
               <p className="mt-3 font-mono text-xs font-semibold" style={{ color: project.color }}>
-                Full case study: {siteUrl.replace("https://", "")}/projects/{project.slug}
+                Full case study: {siteUrl.replace("https://", "")}{project.href}
               </p>
             </div>
           </article>
         ))}
 
-        {/* Also: a few motion pieces and Soughtbot, filling the leftover
-            space after the five case studies rather than leaving it blank. */}
+        {/* A few motion pieces, filling the leftover space after the
+            projects rather than leaving it blank. */}
         <div style={{ breakInside: "avoid" }}>
           <p className="font-display text-xs font-bold uppercase tracking-wide" style={{ color: "#D6486B" }}>
-            Also: Motion Design &amp; Sought
+            Also: Motion Design
           </p>
           <div className="mt-3 flex gap-4">
             {GALLERY_ITEMS.map((item) => (
