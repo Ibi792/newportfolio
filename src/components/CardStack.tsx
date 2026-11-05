@@ -51,7 +51,7 @@ export function CardStack({
               alt={photo.alt}
               color={accent}
               className="h-full w-full object-cover"
-              sizes="(min-width: 768px) 400px, 100vw"
+              sizes="(min-width: 640px) 576px, 100vw"
               label={photo.label}
             />
             {photo.caption && (

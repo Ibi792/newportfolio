@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Link from "next/link";
 import { Nav } from "@/components/Nav";
 import { Footer } from "@/components/Footer";
 import { Reveal, RevealGroup, RevealItem } from "@/components/Reveal";
@@ -56,8 +57,19 @@ export default function ExtrasPage() {
                     />
 
                     <div className="pointer-events-none absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/80 to-transparent px-3 py-2 opacity-0 transition-opacity duration-300 group-hover:opacity-100">
-                      <p className="font-mono text-xs text-white">{item.alt}</p>
+                      <p className="font-mono text-xs text-white">
+                        {item.alt}
+                        {item.href && " · Read the write-up →"}
+                      </p>
                     </div>
+
+                    {item.href && (
+                      <Link
+                        href={item.href}
+                        aria-label={`${item.alt}, read the write-up`}
+                        className="absolute inset-0 z-10 rounded-lg"
+                      />
+                    )}
                   </div>
 
                   <div

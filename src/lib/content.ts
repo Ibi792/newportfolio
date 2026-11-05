@@ -1699,6 +1699,10 @@ export const knourishCaseStudy: CaseStudyData = {
         { src: "/images/projects/knourish-hifi-profile.png", label: "Profile" },
       ],
       phoneRowFilmstrip: true,
+      link: {
+        label: "View in Figma",
+        url: "https://www.figma.com/design/GUjHvCOPwH6Wd47rSZhvVZ/Knourish-Wireframes?node-id=2001-2&t=3fsrWCkWBQUJkdEl-1",
+      },
     },
     {
       type: "reflection",
@@ -1743,6 +1747,9 @@ export const extras = {
     heading: "Things in Motion",
     subheading: "Motion design and animation - made in After Effects",
     items: [
+      // Cut from the Sought hackathon demo; links back to its write-up.
+      { video: "/images/motion/sought-app.mp4", alt: "Sought demo, app walkthrough", href: "/projects#sought" },
+      { video: "/images/motion/sought-logo.mp4", alt: "Sought demo, logo build", href: "/projects#sought" },
       { video: "/images/motion/birdworm.mp4", alt: "Bird and worm motion piece" },
       { video: "/images/motion/birbworm2.mp4", alt: "Bird and worm motion piece, second pass" },
       { video: "/images/motion/kuroskai1.mp4", alt: "Kurosaki motion piece" },

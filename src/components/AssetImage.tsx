@@ -60,7 +60,7 @@ export function AssetImage({
     );
   }
 
-  const { props: optimized } = getImageProps({ src, alt, fill: true, sizes });
+  const { props: optimized } = getImageProps({ src, alt, fill: true, sizes, quality: 90 });
 
   return (
     // eslint-disable-next-line @next/next/no-img-element
