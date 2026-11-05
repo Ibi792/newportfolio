@@ -52,7 +52,20 @@ const PROJECT_NOTES: Record<string, { role: string; highlights: string[] }> = {
   },
 };
 
-const PDF_PROJECTS = projects.map((p) => ({ ...p, ...PROJECT_NOTES[p.slug] }));
+// The PDF's thumbnail box (2.4in x 1.6in, 1.5:1) is narrower than these two
+// images' native 16:9, so a center crop — fine on the live site's own wider
+// card shapes — clips the wordmark off the left edge here. Left-anchoring
+// only where that actually happens, rather than overriding every project.
+const PDF_IMAGE_POSITION: Record<string, string> = {
+  fourddo: "left",
+  knourish: "left",
+};
+
+const PDF_PROJECTS = projects.map((p) => ({
+  ...p,
+  ...PROJECT_NOTES[p.slug],
+  imagePosition: PDF_IMAGE_POSITION[p.slug] ?? p.imagePosition,
+}));
 
 const siteUrl = "https://friendscallmeibi.com";
 
