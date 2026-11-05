@@ -69,6 +69,18 @@ const PDF_PROJECTS = projects.map((p) => ({
 
 const siteUrl = "https://friendscallmeibi.com";
 
+// A small closer for the leftover space after the five case studies —
+// a handful of motion design stills plus the Soughtbot rover, so the PDF
+// doesn't end on an empty page. Stills are frames pulled from the real
+// clips on the Extras page, not separately designed images.
+const GALLERY_ITEMS = [
+  { src: "/images/motion/still-birbworm2.jpg", caption: "Bird-Worm Mentality Theorem, motion design" },
+  { src: "/images/motion/still-kuroskai1.jpg", caption: "Me vs Me, lyric video edit" },
+  { src: "/images/motion/still-ramen.jpg", caption: "When U Commodify Violence, motion design" },
+  { src: "/images/motion/still-ppp.jpg", caption: "Persona/Power, motion design" },
+  { src: "/images/projects/sought-rover.jpg", caption: "Soughtbot, the rover from Sought (SwampHacks XII)" },
+];
+
 export default function PortfolioPdfPage() {
   return (
     // Spacing here is deliberately minimal — real page margins (top/bottom/
@@ -200,6 +212,23 @@ export default function PortfolioPdfPage() {
             </div>
           </article>
         ))}
+
+        {/* Also: a few motion pieces and Soughtbot, filling the leftover
+            space after the five case studies rather than leaving it blank. */}
+        <div style={{ breakInside: "avoid" }}>
+          <p className="font-display text-xs font-bold uppercase tracking-wide" style={{ color: "#D6486B" }}>
+            Also: Motion Design &amp; Sought
+          </p>
+          <div className="mt-3 flex gap-4">
+            {GALLERY_ITEMS.map((item) => (
+              <div key={item.src} className="flex-1">
+                {/* eslint-disable-next-line @next/next/no-img-element */}
+                <img src={item.src} alt={item.caption} className="h-[0.95in] w-full rounded-lg object-cover shadow-sm" />
+                <p className="mt-1 font-mono text-[10px] leading-snug opacity-70">{item.caption}</p>
+              </div>
+            ))}
+          </div>
+        </div>
       </section>
     </div>
   );
